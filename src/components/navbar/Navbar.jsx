@@ -15,6 +15,8 @@ const Navbar = () => {
     setIsGalleryOpen(!isGalleryOpen);
   };
 
+  window.scrollTo(0, 0);
+
   return (
     <div className='bg-gradient-to-r from-green-500 to-blue-500 text-white p-4'>
       <div className='flex items-center justify-between'>
@@ -22,7 +24,7 @@ const Navbar = () => {
         <div>
           <NavLink to={"/"}>
           <img
-            className='w-20 rounded-full'
+            className=' w-14 lg:w-20 rounded-full'
             src="https://res.cloudinary.com/dnvmj9pvk/image/upload/v1730629044/WhatsApp_Image_2024-10-29_at_9.35.05_PM_1_d0dbna.jpg"
             alt="Logo"
           />
