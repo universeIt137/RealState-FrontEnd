@@ -29,8 +29,8 @@ const BookingForm = () => {
         <div>
             <div className='max-w-screen-xl mx-auto'>
                 <div className='lg:ml-10'>
-                    <img src="https://res.cloudinary.com/dnvmj9pvk/image/upload/v1730635616/real-state-form_lfoa16.jpg" alt="Real Estate Form" />
-                    <button className='btn my-10 block mx-auto' onClick={downloadForm}>Download</button>
+                    <img className="h-[600px] block mx-auto w-[900px] " src="https://res.cloudinary.com/dnvmj9pvk/image/upload/v1730635616/real-state-form_lfoa16.jpg" alt="Real Estate Form" />
+                    <button className='btn md:text-lg bg-green-600 text-white hover:text-black my-10 block mx-auto' onClick={downloadForm}>Download</button>
                 </div>
             </div>
         </div>
