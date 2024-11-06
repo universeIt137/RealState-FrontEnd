@@ -14,34 +14,23 @@ import { EffectCoverflow, Autoplay } from 'swiper/modules';
 
 const Carousel = () => {
   return (
-    <div className="bg-green-100 my-16 ">
-      <div className=" border grid grid-cols-2 items-center gap-20 justify-evenly w-11/12 mx-auto h-[70vh]">
-        {/* <div className="">
+    <div className="bg-green-100  my-16  h-100 ">
+      <div className="lg:grid grid-cols-2 items-center gap-20 justify-evenly w-11/12 mx-auto ">
+        <div className='' >
           <div className="">
-            <img src="https://res.cloudinary.com/dnvmj9pvk/image/upload/v1730796119/Other%20data/kpgcs1vgyxe18ggitltu.png" alt="" className='size-11' />
+            <img className='md:block md:mx-auto '  src="https://res.cloudinary.com/dnvmj9pvk/image/upload/v1730802684/Other%20data/p2jhrkjq8ytl5ajulfvx.png" alt="" />
           </div>
-          <div className='space-y-2'>
-            <div className="">
-              <h3 className="text-lg text-green-700 font-semibold">আমার ঠিকানা </h3>
-            </div>
-            <div className="">
-              <h1 className="lg:text-3xl font-bold text-gray-800">
-                আপনি কি নিরাপদ আবাসন গড়ে তোলার জন্য জমি খুঁজছেন?
+          <div>
+          <div className='md:-mt-16' >
+              <h1 className="lg:text-3xl text-center font-bold text-gray-800">
+                    আপনি কি নিরাপদ আবাসন গড়ে তোলার জন্য জমি খুঁজছেন?
               </h1>
-            </div>
-
-            <div>
-              <p className="text-gray-600 ">
+              <p className="text-gray-600  text-center ">
                 ঢাকা মেট্রো রেল প্রকল্পের যাত্রাবাড়ী স্টেশন থেকে মাত্র ২০ মিনিট দূরত্বে, কাঁচপুর ব্রিজ থেকে ১০ মিনিট দূরত্বে ঢাকা-নারায়ণগঞ্জ লিংক রোডের পাশে আমার ঠিকানা গ্রীন সিটি প্রকল্পটি অবস্থিত। অত্যাধুনিক সবুজ পরিবেশে ৪০০ বিঘা জমির উপর, আধুনিক সুযোগ সুবিধা সম্বলিত পরিকল্পিত আবাসিক প্রকল্পটি তৈরি করা হচ্ছে। এটি আদর্শ গ্রীন সিটি হবে ইনশাআল্লাহ।
               </p>
-            </div>
           </div>
-
-        </div> */}
-          <div className="">
-            <img className='w-[500px]' src="https://res.cloudinary.com/dnvmj9pvk/image/upload/v1730802684/Other%20data/p2jhrkjq8ytl5ajulfvx.png" alt="" />
           </div>
-
+        </div>
         <div className="carousel-container ">
           <Swiper
             effect={'coverflow'}
@@ -65,7 +54,7 @@ const Carousel = () => {
           >
 
 
-            <SwiperSlide>
+            <SwiperSlide >
               <img  src="https://res.cloudinary.com/dnvmj9pvk/image/upload/v1730799883/Amer%20Thikana/xq2hxasye6juq4e5pzti.jpg" alt="Slide 3" className="w-full h-auto rounded-lg" />
             </SwiperSlide>
             <SwiperSlide>

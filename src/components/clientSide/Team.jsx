@@ -32,18 +32,18 @@ const teamMembers = [
 
 const Team = () => {
   return (
-    <div className="bg-gray-50 py-12">
+    <div className="bg-gray-50 py-12 text-[#21c45e]">
       <div className="text-center mb-12">
-        <p className="text-sm text-gray-600 uppercase">Our Team</p>
-        <h2 className="text-4xl font-bold text-red-500">
-          Team <span className="text-black">Members</span>
+        <p className="text-sm text-[#1eb055] uppercase">Our Team</p>
+        <h2 className="text-4xl font-bold ]">
+          Team <span className="">Members</span>
         </h2>
-        <p className="text-gray-600 mt-4">
+        <p className="text-[#1eb055] mt-4">
           Sint nascertur facere, delectus conubia consequuntur, nonummy distinctio! Non officiis, id natus non nisi provident justo.
         </p>
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 max-w-6xl mx-auto px-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 max-w-6xl mx-auto px-4">
         {teamMembers.map((member, index) => (
           <div
             key={index}
@@ -54,26 +54,26 @@ const Team = () => {
               alt={member.name}
               className="w-24 h-24 mx-auto rounded-full object-cover"
             />
-            <h3 className="text-xl font-semibold mt-4">{member.name}</h3>
-            <p className="text-sm text-gray-500">{member.position}</p>
+            <h3 className="text-xl  font-semibold mt-4">{member.name}</h3>
+            <p className="text-sm text-[#0f582a] ">{member.position}</p>
 
             <div className="mt-4">
-              <div className="bg-red-500 text-white rounded-md py-2 px-4 inline-block mb-4">
+              <div className="bg-[#21c45e] text-white rounded-md py-2 px-4 inline-block mb-4">
                 <p>{member.position}</p>
               </div>
               <div className="flex justify-center space-x-3 mt-4 text-gray-500">
-                <Link to={""} className="hover:text-red-500">
+                <Link to={""} className="hover:text-[#1eb055]">
                   <i className="p-2 border block rounded-full shadow-md text-xl">
                     <FaFacebook />
                   </i>
                 </Link>
-                <Link to={""} className="hover:text-red-500">
+                <Link to={""} className="hover:text-[#1eb055]">
                   <i className="p-2 border block rounded-full shadow-md text-xl">
                     <FaLinkedin />
                   </i>
                 </Link>
                 <div className="relative group">
-                  <Link to={""} className="hover:text-red-500">
+                  <Link to={""} className="hover:text-[#1eb055]">
                     <i className="p-2 border block rounded-full shadow-md text-xl">
                       <FaSquarePhone />
                     </i>
