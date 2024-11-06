@@ -7,25 +7,25 @@ const teamMembers = [
   {
     name: 'Sony Madison',
     position: 'CEO, Director',
-    image: 'https://via.placeholder.com/150', // Replace with actual image URLs
+    image: 'https://img.freepik.com/free-photo/smiley-businesswoman-posing-outdoors-with-arms-crossed-copy-space_23-2148767055.jpg', // Replace with actual image URLs
     phone: '+123-456-7890', // Replace with actual phone numbers
   },
   {
     name: 'Hary Warth',
     position: 'Head Manager',
-    image: 'https://via.placeholder.com/150', // Replace with actual image URLs
+    image: 'https://static.vecteezy.com/system/resources/thumbnails/038/974/578/small/ai-generated-professional-portrait-of-a-competent-woman-free-photo.jpg', // Replace with actual image URLs
     phone: '+123-456-7891',
   },
   {
     name: 'Jenny Hobb',
     position: 'Branch Manager',
-    image: 'https://via.placeholder.com/150', // Replace with actual image URLs
+    image: 'https://media.istockphoto.com/id/1433287126/photo/successful-businesswoman-portrait-in-the-office.jpg?s=612x612&w=0&k=20&c=4TWgOt69FxBHVqifXGXyobPzQcQvEbOBUlsLNbdkL-k=', // Replace with actual image URLs
     phone: '+123-456-7892',
   },
   {
     name: 'Johny Smith',
     position: 'Supervisor',
-    image: 'https://via.placeholder.com/150', // Replace with actual image URLs
+    image: 'https://t3.ftcdn.net/jpg/07/08/12/18/360_F_708121825_6YrMqPuC15djMJV1kLYTTGo0xT5V0NBK.jpg', // Replace with actual image URLs
     phone: '+123-456-7893',
   },
 ];

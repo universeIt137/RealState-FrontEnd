@@ -1,8 +1,9 @@
 import React from 'react'
-import Carousel from '../../components/Carousel'
-import Team from '../team-page/Team'
-import AboutUs from '../about-us-page/AboutUs'
-import ProjectInfo from '../project-info-page/ProjectInfo'
+import Carousel from './Carousel'
+import Team from '../../../components/clientSide/Team'
+import AboutUs from '../../../components/clientSide/AboutUs'
+import ProjectInfo from '../../../components/clientSide/ProjectInfo'
+
 
 const HomePage = () => {
   return (

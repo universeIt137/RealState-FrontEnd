@@ -1,8 +1,9 @@
 import { createBrowserRouter } from "react-router-dom";
 import Layout from "../layout/Layout";
-import BookingFrom from "../components/booking-from/BookingFrom";
-import AboutUs from "../pages/about-page/AboutUs";
-import HomePage from "../pages/home-page/HomePage";
+import HomePage from "../pages/clientSide/home-page/HomePage";
+import BookingPage from "../pages/clientSide/booking-page/BookingPage";
+
+
 
 export const router = createBrowserRouter([
     {
@@ -15,12 +16,9 @@ export const router = createBrowserRouter([
             },
             {
                 path : "/booking-form",
-                element : <BookingFrom></BookingFrom>
+                element : <BookingPage></BookingPage>
             },
-            {
-                path : "about-us",
-                element  : <AboutUs></AboutUs>
-            }
+           
         ]
     },
 
