@@ -14,9 +14,9 @@ import { EffectCoverflow, Autoplay } from 'swiper/modules';
 
 const Carousel = () => {
   return (
-    <div className="bg-green-100">
-      <div className="grid grid-cols-2  items-center gap-20 justify-evenly w-11/12 mx-auto h-[50vh]">
-        <div className="">
+    <div className="bg-green-100 my-16 ">
+      <div className=" border grid grid-cols-2 items-center gap-20 justify-evenly w-11/12 mx-auto h-[70vh]">
+        {/* <div className="">
           <div className="">
             <img src="https://res.cloudinary.com/dnvmj9pvk/image/upload/v1730796119/Other%20data/kpgcs1vgyxe18ggitltu.png" alt="" className='size-11' />
           </div>
@@ -37,67 +37,65 @@ const Carousel = () => {
             </div>
           </div>
 
-        </div>
+        </div> */}
+          <div className="">
+            <img className='w-[500px]' src="https://res.cloudinary.com/dnvmj9pvk/image/upload/v1730802684/Other%20data/p2jhrkjq8ytl5ajulfvx.png" alt="" />
+          </div>
 
-        <div className="">
-          <img src="https://res.cloudinary.com/dnvmj9pvk/image/upload/v1730802684/Other%20data/p2jhrkjq8ytl5ajulfvx.png" alt="" />
+        <div className="carousel-container ">
+          <Swiper
+            effect={'coverflow'}
+            grabCursor={true}
+            slidesPerView={3}            // Show three slides at a time
+            centeredSlides={false}        // Disable centered slides so the focus is on the left
+            spaceBetween={60}             // Set gap between slides
+            coverflowEffect={{
+              rotate: 0,                // No rotation
+              stretch: 0,
+              depth: 500,               // Slight zoom for the focused slide
+              modifier: 1,
+              slideShadows: false,      // Remove shadows for cleaner look
+            }}
+            autoplay={{
+              delay: 1000,              // Delay for autoplay
+              disableOnInteraction: false,
+            }}
+            modules={[EffectCoverflow, Autoplay]}
+            className="mySwiper"
+          >
+
+
+            <SwiperSlide>
+              <img  src="https://res.cloudinary.com/dnvmj9pvk/image/upload/v1730799883/Amer%20Thikana/xq2hxasye6juq4e5pzti.jpg" alt="Slide 3" className="w-full h-auto rounded-lg" />
+            </SwiperSlide>
+            <SwiperSlide>
+              <img src="https://res.cloudinary.com/dnvmj9pvk/image/upload/v1730799878/Amer%20Thikana/m0zytoaeovvwdx5pkcqa.jpg" alt="Slide 4" className="w-full h-auto rounded-lg" />
+            </SwiperSlide>
+
+            <SwiperSlide>
+              <img src="https://res.cloudinary.com/dnvmj9pvk/image/upload/v1730799883/Amer%20Thikana/xq2hxasye6juq4e5pzti.jpg" alt="Slide 3" className="w-full h-auto rounded-lg" />
+            </SwiperSlide>
+            <SwiperSlide>
+              <img src="https://res.cloudinary.com/dnvmj9pvk/image/upload/v1730799878/Amer%20Thikana/m0zytoaeovvwdx5pkcqa.jpg" alt="Slide 4" className="w-full h-auto rounded-lg" />
+            </SwiperSlide>
+
+            <SwiperSlide>
+              <img src="https://res.cloudinary.com/dnvmj9pvk/image/upload/v1730799883/Amer%20Thikana/xq2hxasye6juq4e5pzti.jpg" alt="Slide 3" className="w-full h-auto rounded-lg" />
+            </SwiperSlide>
+            <SwiperSlide>
+              <img src="https://res.cloudinary.com/dnvmj9pvk/image/upload/v1730799878/Amer%20Thikana/m0zytoaeovvwdx5pkcqa.jpg" alt="Slide 4" className="w-full h-auto rounded-lg" />
+            </SwiperSlide>
+
+            <SwiperSlide>
+              <img src="https://res.cloudinary.com/dnvmj9pvk/image/upload/v1730799883/Amer%20Thikana/xq2hxasye6juq4e5pzti.jpg" alt="Slide 3" className="w-full h-auto rounded-lg" />
+            </SwiperSlide>
+            <SwiperSlide>
+              <img src="https://res.cloudinary.com/dnvmj9pvk/image/upload/v1730799878/Amer%20Thikana/m0zytoaeovvwdx5pkcqa.jpg" alt="Slide 4" className="w-full h-auto rounded-lg" />
+            </SwiperSlide>
+
+          </Swiper>
         </div>
       </div>
-
-      <div className="carousel-container ">
-        <Swiper
-          effect={'coverflow'}
-          grabCursor={true}
-          slidesPerView={3}            // Show three slides at a time
-          centeredSlides={false}        // Disable centered slides so the focus is on the left
-          spaceBetween={60}             // Set gap between slides
-          coverflowEffect={{
-            rotate: 0,                // No rotation
-            stretch: 0,
-            depth: 500,               // Slight zoom for the focused slide
-            modifier: 1,
-            slideShadows: false,      // Remove shadows for cleaner look
-          }}
-          autoplay={{
-            delay: 1000,              // Delay for autoplay
-            disableOnInteraction: false,
-          }}
-          modules={[EffectCoverflow, Autoplay]}
-          className="mySwiper"
-        >
-
-
-          <SwiperSlide>
-            <img src="https://res.cloudinary.com/dnvmj9pvk/image/upload/v1730799883/Amer%20Thikana/xq2hxasye6juq4e5pzti.jpg" alt="Slide 3" className="w-full h-auto rounded-lg" />
-          </SwiperSlide>
-          <SwiperSlide>
-            <img src="https://res.cloudinary.com/dnvmj9pvk/image/upload/v1730799878/Amer%20Thikana/m0zytoaeovvwdx5pkcqa.jpg" alt="Slide 4" className="w-full h-auto rounded-lg" />
-          </SwiperSlide>
-
-          <SwiperSlide>
-            <img src="https://res.cloudinary.com/dnvmj9pvk/image/upload/v1730799883/Amer%20Thikana/xq2hxasye6juq4e5pzti.jpg" alt="Slide 3" className="w-full h-auto rounded-lg" />
-          </SwiperSlide>
-          <SwiperSlide>
-            <img src="https://res.cloudinary.com/dnvmj9pvk/image/upload/v1730799878/Amer%20Thikana/m0zytoaeovvwdx5pkcqa.jpg" alt="Slide 4" className="w-full h-auto rounded-lg" />
-          </SwiperSlide>
-
-          <SwiperSlide>
-            <img src="https://res.cloudinary.com/dnvmj9pvk/image/upload/v1730799883/Amer%20Thikana/xq2hxasye6juq4e5pzti.jpg" alt="Slide 3" className="w-full h-auto rounded-lg" />
-          </SwiperSlide>
-          <SwiperSlide>
-            <img src="https://res.cloudinary.com/dnvmj9pvk/image/upload/v1730799878/Amer%20Thikana/m0zytoaeovvwdx5pkcqa.jpg" alt="Slide 4" className="w-full h-auto rounded-lg" />
-          </SwiperSlide>
-
-          <SwiperSlide>
-            <img src="https://res.cloudinary.com/dnvmj9pvk/image/upload/v1730799883/Amer%20Thikana/xq2hxasye6juq4e5pzti.jpg" alt="Slide 3" className="w-full h-auto rounded-lg" />
-          </SwiperSlide>
-          <SwiperSlide>
-            <img src="https://res.cloudinary.com/dnvmj9pvk/image/upload/v1730799878/Amer%20Thikana/m0zytoaeovvwdx5pkcqa.jpg" alt="Slide 4" className="w-full h-auto rounded-lg" />
-          </SwiperSlide>
-
-        </Swiper>
-      </div>
-
     </div>
   );
 }
