@@ -3,7 +3,7 @@ import { FaPhoneAlt, FaEnvelope } from 'react-icons/fa';
 
 const ProjectInfo = () => {
   return (
-    <div className="bg-green-50 p-8">
+    <div className="bg-green-50 bg-[url('https://res.cloudinary.com/dnvmj9pvk/image/upload/v1730709033/DALL_E_2024-11-04_14.30.10_-_A_soft_green_leafy_background_with_light_and_natural_shades_resembling_a_tree_canopy_from_above._Gentle_overlapping_leaves_in_different_shades_of_g_zyqymv.webp')] bg-cover bg-no-repeat bg-center p-8">
       {/* Header Section */}
       <div className="text-center mb-8">
         <div className="flex items-center justify-center space-x-4 mb-4">
