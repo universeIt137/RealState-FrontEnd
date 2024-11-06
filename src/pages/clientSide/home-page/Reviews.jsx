@@ -29,15 +29,15 @@ function TestimonialCard() {
   ];
 
   return (
-    <div className="px-4 py-10 w-11/12 mx-auto">
-      <h1 className="text-center text-2xl font-bold text-black mb-8 md:mb-12 lg:text-3xl">
+    <div className="md:px-4 px-2 py-5 md:py-10 w-11/12 mx-auto">
+      <h1 className="text-center text-[16px] md:text-2xl font-bold text-black  md:mb-10 mb-4 ">
         Client Review
       </h1>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
         {testimonials.map((testimonial, index) => (
           <div
             key={index}
-            className="relative bg-green-600 text-white p-6 rounded-xl shadow-lg transform transition-transform duration-300 hover:scale-105"
+            className="relative bg-green-600 text-white p-3  md:p-6 rounded-xl shadow-lg transform transition-transform duration-300 hover:scale-105"
           >
             {/* Top Quote Icon */}
             <div className="absolute -top-6 -left-6 text-white opacity-50">
@@ -52,12 +52,12 @@ function TestimonialCard() {
             </div>
 
             {/* Testimonial Content */}
-            <p className="mb-6 text-base h-20 my-auto lg:text-lg font-semibold">
+            <p className="md:mb-6 mb-3 text-base h-10 md:h-20  mt-3 text-[14px]  md:text-lg font-semibold">
               {testimonial.text}
             </p>
 
             {/* Profile Section */}
-            <div className="flex items-center h-28 my-auto">
+            <div className="flex items-center mt-10 h-14 md:h-28 my-auto">
               <img
                 src={testimonial.img}
                 alt="Profile"
@@ -65,7 +65,7 @@ function TestimonialCard() {
               />
               <div className="ml-4">
                 <p className="font-semibold">{testimonial.name}</p>
-                <p className="text-sm">{testimonial.role}</p>
+                <p className=" text-[10px] md:text-sm">{testimonial.role}</p>
               </div>
             </div>
 
