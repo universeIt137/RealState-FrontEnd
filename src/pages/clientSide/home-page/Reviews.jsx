@@ -29,7 +29,7 @@ function TestimonialCard() {
   ];
 
   return (
-    <div className="px-4 py-10 w-11/12 mx-auto ">
+    <div className="px-4 py-10 w-11/12 mx-auto">
       <h1 className="text-center text-2xl font-bold text-black mb-8 md:mb-12 lg:text-3xl">
         Client Review
       </h1>
@@ -37,10 +37,10 @@ function TestimonialCard() {
         {testimonials.map((testimonial, index) => (
           <div
             key={index}
-            className="relative bg-green-600 text-white p-6 rounded-xl shadow-lg"
+            className="relative bg-green-600 text-white p-6 rounded-xl shadow-lg transform transition-transform duration-300 hover:scale-105"
           >
             {/* Top Quote Icon */}
-            <div className="absolute -top-6 -left-6 text-white opacity-50  ">
+            <div className="absolute -top-6 -left-6 text-white opacity-50">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="currentColor"
@@ -57,7 +57,7 @@ function TestimonialCard() {
             </p>
 
             {/* Profile Section */}
-            <div className="flex items-center h-28 my-auto ">
+            <div className="flex items-center h-28 my-auto">
               <img
                 src={testimonial.img}
                 alt="Profile"

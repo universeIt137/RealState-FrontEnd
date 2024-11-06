@@ -5,6 +5,7 @@ import AboutUs from '../../../components/clientSide/AboutUs'
 import ProjectInfo from '../../../components/clientSide/ProjectInfo'
 
 import TestimonialCard from './Reviews'
+import Career from './Career'
 
 
 const HomePage = () => {
@@ -16,6 +17,7 @@ const HomePage = () => {
         <AboutUs></AboutUs>
         <ProjectInfo></ProjectInfo>
         <TestimonialCard></TestimonialCard>
+        <Career></Career>
     </div>
   )
 }
