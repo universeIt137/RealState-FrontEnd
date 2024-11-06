@@ -6,3 +6,18 @@
 body {
   font-family: "Hind Siliguri", sans-serif;
 }
+
+
+.img-hover {
+  transition: transform 0.3s ease-in-out;
+}
+.img-hover:hover {
+  transform: scale(1.1);
+}
+
+.card-hover {
+  transition: transform 0.3s ease-in-out;
+}
+.card-hover:hover {
+  transform: scale(1.05);
+}
