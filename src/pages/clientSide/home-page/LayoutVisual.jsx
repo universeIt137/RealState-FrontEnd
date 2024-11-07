@@ -11,7 +11,7 @@ const LayoutVisual = () => {
       </p>
       <div className=' mt-5 md:mt-10  ' >
         <img 
-          className="h-[100vh] m w-full mx-auto transform transition duration-300 hover:scale-105" 
+          className="md:h-[100vh] h-[50vh] m w-full mx-auto transform transition duration-300 hover:scale-105" 
           src="https://res.cloudinary.com/dnvmj9pvk/image/upload/v1730962206/WhatsApp_Image_2024-10-29_at_9.25.17_PM_1_yntgfh.jpg" 
           alt="Amar Thikana Project Layout" 
         />

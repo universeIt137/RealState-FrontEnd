@@ -29,7 +29,7 @@ function Career() {
   ];
 
   return (
-    <div className="text-gray-800">
+    <div className="text-gray-800 my-20 ">
       {/* Career Introduction Section */}
       <div className="text-center bg-[#21c45e] text-white py-4 md:py-12 md:px-6 px-3 ">
         <h1 className="text-[16px] md:text-4xl font-bold mb-2 md:mb-4">Build Your Career with Real Estate</h1>

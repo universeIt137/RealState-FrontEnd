@@ -2,7 +2,7 @@ import React from 'react';
 
 const AboutUs = () => {
   return (
-    <div className="bg-white p-5 md:p-10">
+    <div className="bg-white p-5 my-10 md:my-20 md:p-10">
       <div className="text-center mb-3 md:mb-6">
         <button className="bg-[#21c45e] text-gray-700 px-2 md:px-4 md:py-2 py-1 rounded-full mb-2 md:mb-4">About Us</button>
         <h2 className=" text-[16px] md:text-3xl text-[#21c45e] font-bold">

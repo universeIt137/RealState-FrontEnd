@@ -8,6 +8,7 @@ import TestimonialCard from './Reviews'
 import Career from './Career'
 import Offer from './Offer'
 import LayoutVisual from './LayoutVisual'
+import Contact from '../../../components/clientSide/Contact'
 
 
 const HomePage = () => {
@@ -22,6 +23,7 @@ const HomePage = () => {
         <Career></Career>
         <Offer></Offer>
         <LayoutVisual></LayoutVisual>
+        <Contact></Contact>
     </div>
   )
 }
