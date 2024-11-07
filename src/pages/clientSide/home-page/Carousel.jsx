@@ -35,7 +35,7 @@ const Carousel = () => {
           <Swiper
             effect={'coverflow'}
             grabCursor={true}
-            slidesPerView={3}            // Show three slides at a time
+            slidesPerView={1}            // Show three slides at a time
             centeredSlides={false}        // Disable centered slides so the focus is on the left
             spaceBetween={60}             // Set gap between slides
             coverflowEffect={{
