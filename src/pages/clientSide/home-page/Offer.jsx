@@ -2,11 +2,11 @@ import React from "react";
 
 function RealEstateAd() {
   return (
-    <div className="bg-green-50 p-2 md:p-8 font-sans">
+    <div className="bg-green-50 mt-20 p-2 md:p-8 font-sans">
       {/* অফার এবং প্রচার শিরোনাম */}
       <div className="text-center mb-3 md:mb-8">
-        <h1 className="text-[16px] md:text-4xl font-bold text-black">অফার এবং প্রচার</h1>
-        <p className="text-[10px] md:text-lg text-gray-700 mt-2">রোমাঞ্চকর ছাড় এবং সীমিত সময়ের অফারগুলি উপলব্ধ!</p>
+        <h1 className="text-[16px] md:text-4xl font-bold text-green-700">অফার এবং প্রচার</h1>
+        <p className="text-[10px] md:text-lg text-green-700 mt-2">রোমাঞ্চকর ছাড় এবং সীমিত সময়ের অফারগুলি উপলব্ধ!</p>
       </div>
 
       {/* হেডার ব্যানার */}

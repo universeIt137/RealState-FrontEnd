@@ -7,19 +7,23 @@ import ProjectInfo from '../../../components/clientSide/ProjectInfo'
 import TestimonialCard from './Reviews'
 import Career from './Career'
 import Offer from './Offer'
+import LayoutVisual from './LayoutVisual'
+import Contact from '../../../components/clientSide/Contact'
 
 
 const HomePage = () => {
   return (
-    <div className='bg-green-100' >
+    <div className='' >
       {/* carousel */}
         <Carousel></Carousel>
-        <Team></Team>
         <AboutUs></AboutUs>
         <ProjectInfo></ProjectInfo>
+        <Team></Team>
         <TestimonialCard></TestimonialCard>
         <Career></Career>
         <Offer></Offer>
+        <LayoutVisual></LayoutVisual>
+        <Contact></Contact>
     </div>
   )
 }

@@ -6,25 +6,25 @@ import { Link } from 'react-router-dom';
 const teamMembers = [
   {
     name: 'Sony Madison',
-    position: 'সিইও, পরিচালক',
+    position: 'CEO, Director',
     image: 'https://img.freepik.com/free-photo/smiley-businesswoman-posing-outdoors-with-arms-crossed-copy-space_23-2148767055.jpg',
     phone: '+123-456-7890',
   },
   {
     name: 'Hary Warth',
-    position: 'প্রধান ম্যানেজার',
+    position: 'Head Manager',
     image: 'https://static.vecteezy.com/system/resources/thumbnails/038/974/578/small/ai-generated-professional-portrait-of-a-competent-woman-free-photo.jpg',
     phone: '+123-456-7891',
   },
   {
     name: 'Jenny Hobb',
-    position: 'শাখা ব্যবস্থাপক',
+    position: 'Branch Manager',
     image: 'https://media.istockphoto.com/id/1433287126/photo/successful-businesswoman-portrait-in-the-office.jpg?s=612x612&w=0&k=20&c=4TWgOt69FxBHVqifXGXyobPzQcQvEbOBUlsLNbdkL-k=',
     phone: '+123-456-7892',
   },
   {
     name: 'Johny Smith',
-    position: 'সুপারভাইজার',
+    position: 'Supervisor',
     image: 'https://t3.ftcdn.net/jpg/07/08/12/18/360_F_708121825_6YrMqPuC15djMJV1kLYTTGo0xT5V0NBK.jpg',
     phone: '+123-456-7893',
   },
@@ -34,12 +34,12 @@ const Team = () => {
   return (
     <div className="bg-gray-50 py-12 text-[#21c45e]">
       <div className="text-center mb-12">
-        <p className="text-sm text-[#1eb055] uppercase">আমাদের দল</p>
+        <p className="text-sm text-[#1eb055] uppercase">Our Team</p>
         <h2 className="md:text-4xl font-bold">
-          দলের <span className="">সদস্যরা</span>
+          Team <span className="">Members</span>
         </h2>
         <p className="text-[#199347] text-[10px] md:text-sm px-4 md:px-6 mt-2 md:mt-4">
-          সিন্ট নাস্ক্রচার facere, delectus conubia consequuntur, nonummy distinctio! Non officiis, id natus non nisi provident justo.
+          Sint nasctur facere, delectus conubia consequuntur, nonummy distinctio! Non officiis, id natus non nisi provident justo.
         </p>
       </div>
 
