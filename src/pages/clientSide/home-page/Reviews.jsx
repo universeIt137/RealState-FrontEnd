@@ -3,41 +3,41 @@ import React from "react";
 function TestimonialCard() {
   const testimonials = [
     {
-      text: "Ruttl helped me work more efficiently. I spend less time passing ",
-      name: "Francisco Oliden",
-      role: "Client Relationship Manager at Agencia Eremo",
+      text: "Ruttl আমাকে আরও দক্ষতার সাথে কাজ করতে সহায়তা করেছে। আমি কম সময় ব্যয় করি।",
+      name: "ফ্রান্সিসকো ওলিডেন",
+      role: "ক্লায়েন্ট সম্পর্ক ব্যবস্থাপক, এজেনসিয়া এরেমো",
       img: "https://res.cloudinary.com/dnvmj9pvk/image/upload/v1730881894/client-1_mpvrum.webp",
     },
     {
-      text: "Using Ruttl has improved communication with my clients. It's a game changer!",
-      name: "Sarah Lee",
-      role: "Project Manager at Creative Minds",
+      text: "Ruttl ব্যবহার করে আমার ক্লায়েন্টদের সাথে যোগাযোগ উন্নত হয়েছে। এটি একটি গেম চেঞ্জার!",
+      name: "সারা লি",
+      role: "প্রকল্প ব্যবস্থাপক, ক্রিয়েটিভ মাইন্ডস",
       img: "https://res.cloudinary.com/dnvmj9pvk/image/upload/v1730881894/client-1_mpvrum.webp",
     },
     {
-      text: "Thanks to Ruttl, my team and I can address client feedback faster than ever.",
-      name: "James Park",
-      role: "Lead Designer at Pixel Innovations",
+      text: "Ruttl-এর জন্য আমার দল এবং আমি ক্লায়েন্টের প্রতিক্রিয়া দ্রুত সমাধান করতে পারি।",
+      name: "জেমস পার্ক",
+      role: "লিড ডিজাইনার, পিক্সেল ইনোভেশনস",
       img: "https://res.cloudinary.com/dnvmj9pvk/image/upload/v1730881894/client-1_mpvrum.webp",
     },
     {
-      text: "Ruttl simplified our workflow significantly. Highly recommend it!",
-      name: "Alice Chen",
-      role: "Operations Manager at Bright Ideas Agency",
+      text: "Ruttl আমাদের কাজের ধারা সহজ করে দিয়েছে। খুবই সুপারিশ করি!",
+      name: "অ্যালিস চেন",
+      role: "অপারেশন ব্যবস্থাপক, ব্রাইট আইডিয়াস এজেন্সি",
       img: "https://res.cloudinary.com/dnvmj9pvk/image/upload/v1730881894/client-1_mpvrum.webp",
     },
   ];
 
   return (
     <div className="md:px-4 px-2 py-5 md:py-10 w-11/12 mx-auto">
-      <h1 className="text-center text-[16px] md:text-2xl font-bold text-black  md:mb-10 mb-4 ">
-        Client Review
+      <h1 className="text-center text-[16px] md:text-3xl font-bold text-black  md:mb-10 mb-4 ">
+        ক্লায়েন্ট Review
       </h1>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
         {testimonials.map((testimonial, index) => (
           <div
             key={index}
-            className="relative bg-green-600 text-white p-3  md:p-6 rounded-xl shadow-lg transform transition-transform duration-300 hover:scale-105"
+            className="relative bg-[#21c45e] text-white p-3  md:p-6 rounded-xl shadow-lg transform transition-transform duration-300 hover:scale-105"
           >
             {/* Top Quote Icon */}
             <div className="absolute -top-6 -left-6 text-white opacity-50">
@@ -61,7 +61,7 @@ function TestimonialCard() {
               <img
                 src={testimonial.img}
                 alt="Profile"
-                className="w-12 h-12 rounded-full border-2 border-white"
+                className="w-10 h-10 rounded-full border-2 border-white"
               />
               <div className="ml-4">
                 <p className="font-semibold">{testimonial.name}</p>
