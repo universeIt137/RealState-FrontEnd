@@ -5,6 +5,7 @@ import BookingPage from "../pages/clientSide/booking-page/BookingPage";
 import Career from "../pages/clientSide/home-page/Career";
 import RealEstateAd from "../pages/clientSide/home-page/Offer";
 import AboutUs from './../components/clientSide/AboutUs';
+import Contact from "../components/clientSide/Contact";
 
 
 
@@ -31,6 +32,9 @@ export const router = createBrowserRouter([
             },{
                 path : "about-us",
                 element : <AboutUs></AboutUs>
+            },{
+                path : "contact-us",
+                element : <Contact></Contact>
             }
            
         ]

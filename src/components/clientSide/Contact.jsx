@@ -2,7 +2,7 @@ import React from 'react';
 
 const Contact = () => {
   return (
-    <div className="w-11/12 mx-auto">
+    <div className="w-11/12 mx-auto mt-24 ">
       <div className="">
         <header className="bg-cover bg-center flex items-center justify-center" style={{ backgroundImage: 'url(/path/to/real-estate-banner.jpg)' }}>
           <h1 className="md:text-4xl font-bold text-[#21c45e] md:mb-6 mb-3 ">আমার ঠিকানা গ্রিন সিটি</h1>
