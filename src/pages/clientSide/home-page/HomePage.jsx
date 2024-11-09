@@ -9,6 +9,7 @@ import Career from './Career'
 import Offer from './Offer'
 import LayoutVisual from './LayoutVisual'
 import Contact from '../../../components/clientSide/Contact'
+import ProjectOverviewPage from './ProjectOverviewPage'
 
 
 const HomePage = () => {
@@ -16,14 +17,12 @@ const HomePage = () => {
     <div className='' >
       {/* carousel */}
         <Carousel></Carousel>
+        <ProjectOverviewPage></ProjectOverviewPage>
         <AboutUs></AboutUs>
         <ProjectInfo></ProjectInfo>
         <Team></Team>
         <TestimonialCard></TestimonialCard>
-        <Career></Career>
-        <Offer></Offer>
         <LayoutVisual></LayoutVisual>
-        <Contact></Contact>
     </div>
   )
 }
