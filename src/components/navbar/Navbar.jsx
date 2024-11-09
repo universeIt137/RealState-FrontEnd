@@ -49,107 +49,151 @@ const Navbar = () => {
 
         {/* Desktop Navigation Links */}
         <nav className='hidden md:block'>
-    <ul className='flex space-x-6'>
-    <li>
-      <NavLink to="/" className="relative flex items-center space-x-1 hover:text-blue-300 group">
-        <span>Home</span>
-        {/* Underline effect */}
-          <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-white transition-all duration-300 ease-out group-hover:w-full"></span>
-      </NavLink>
-    </li>
-    <li>
-      <NavLink to="/booking-form" className="relative flex items-center space-x-1 hover:text-blue-300 group">
-        <span>Booking Form</span>
-        {/* Underline effect */}
-          <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-white transition-all duration-300 ease-out group-hover:w-full"></span>
-      </NavLink>
-    </li>
+          <ul className='flex space-x-6'>
+          <li>
+            <NavLink to="/" className="relative flex items-center space-x-1 hover:text-blue-300 group">
+              <span>Home</span>
+              {/* Underline effect */}
+                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-white transition-all duration-300 ease-out group-hover:w-full"></span>
+            </NavLink>
+          </li>
+          
 
-    {/* Service Dropdown */}
-    <li className="relative group">
-      <button className="relative hover:text-blue-300">
-        Corporate
-        {/* Underline effect for main Service button */}
-        <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-white transition-all duration-300 ease-out group-hover:w-full"></span>
-      </button>
+          {/* Corporate Dropdown */}
+          <li className="relative group">
+            <button className="relative hover:text-blue-300">
+              Corporate
+              {/* Underline effect for main Service button */}
+              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-white transition-all duration-300 ease-out group-hover:w-full"></span>
+            </button>
 
-      {/* Dropdown menu with zoom-in animation */}
-      <div className="absolute left-0 mt-2 bg-white text-blue-600 rounded-md shadow-lg w-52 opacity-0 transform scale-95 translate-y-2 
-          group-hover:opacity-100 group-hover:scale-100 group-hover:translate-y-0 
-          transition-all duration-300 ease-out">
-        <NavLink
-          to="/service1"
-          className="block px-4 py-2 hover:bg-blue-100 relative group transform scale-95 hover:scale-105 transition-all duration-300 ease-out"
-        >
-          Service 1
-          {/* Underline effect for Service 1 */}
-          <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 ease-out group-hover:w-full"></span>
-        </NavLink>
-        <NavLink
-          to="/service1"
-          className="block px-4 py-2 hover:bg-blue-100 relative group transform scale-95 hover:scale-105 transition-all duration-300 ease-out"
-        >
-          Service 1
-          {/* Underline effect for Service 1 */}
-          <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 ease-out group-hover:w-full"></span>
-        </NavLink>
-      </div>
-    </li>
-    <li>
-      <NavLink to="/about-us" className="relative flex items-center space-x-1 hover:text-blue-300 group">
-        <span>About Us</span>
-        {/* Underline effect */}
-          <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-white transition-all duration-300 ease-out group-hover:w-full"></span>
-      </NavLink>
-    </li>    
-    <li>
-      <NavLink to="/contact-us" className="relative flex items-center space-x-1 hover:text-blue-300 group">
-        <span>Contact</span>
-        {/* Underline effect */}
-          <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-white transition-all duration-300 ease-out group-hover:w-full"></span>
-      </NavLink>
-    </li>
-    <li>
-      <NavLink to="/career" className="relative flex items-center space-x-1 hover:text-blue-300 group">
-        <span>Career</span>
-        {/* Underline effect */}
-          <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-white transition-all duration-300 ease-out group-hover:w-full"></span>
-      </NavLink>
-    </li>
+            {/* Dropdown menu with zoom-in animation */}
+            <div className="absolute left-0 mt-2 bg-white text-blue-600 rounded-md shadow-lg w-64 opacity-0 transform scale-95 translate-y-2 
+                group-hover:opacity-100 group-hover:scale-100 group-hover:translate-y-0 
+                transition-all duration-300 ease-out">
+              <NavLink
+                to="/company-profile"
+                className="block px-4 py-2 hover:bg-blue-100 relative group transform scale-95 hover:scale-105 transition-all duration-300 ease-out"
+              >
+                Company Profile
+                {/* Underline effect for Service 1 */}
+                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 ease-out group-hover:w-full"></span>
+              </NavLink>
+              <NavLink
+                to="/mission"
+                className="block px-4 py-2 hover:bg-blue-100 relative group transform scale-95 hover:scale-105 transition-all duration-300 ease-out"
+              >
+                Mission & Vission
+                {/* Underline effect for Service 1 */}
+                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 ease-out group-hover:w-full"></span>
+              </NavLink>
+              <NavLink
+                to="/corporate-structure"
+                className="block px-4 py-2 hover:bg-blue-100 relative group transform scale-95 hover:scale-105 transition-all duration-300 ease-out"
+              >
+                Corporate Structure
+                {/* Underline effect for Service 1 */}
+                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 ease-out group-hover:w-full"></span>
+              </NavLink>
+              <NavLink
+                to="/corporate-social-responsibility"
+                className="block px-4 py-2 hover:bg-blue-100 relative group transform scale-95 hover:scale-105 transition-all duration-300 ease-out"
+              >
+                Corporate Social Responsibility
+                {/* Underline effect for Service 1 */}
+                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 ease-out group-hover:w-full"></span>
+              </NavLink>
+              <NavLink
+                to="/client-review"
+                className="block px-4 py-2 hover:bg-blue-100 relative group transform scale-95 hover:scale-105 transition-all duration-300 ease-out"
+              >
+                Client Review
+                {/* Underline effect for Service 1 */}
+                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 ease-out group-hover:w-full"></span>
+              </NavLink>
+              <NavLink
+                to="/certification"
+                className="block px-4  py-2 hover:bg-blue-100 relative group transform scale-95 hover:scale-105 transition-all duration-300 ease-out"
+              >
+                Certification
+                {/* Underline effect for Service 1 */}
+                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 ease-out group-hover:w-full"></span>
+              </NavLink>
+            </div>
+          </li>
+          <li>
+            <NavLink to="/booking-form" className="relative flex items-center space-x-1 hover:text-blue-300 group">
+              <span>Booking Form</span>
+              {/* Underline effect */}
+                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-white transition-all duration-300 ease-out group-hover:w-full"></span>
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="/about-us" className="relative flex items-center space-x-1 hover:text-blue-300 group">
+              <span>About Us</span>
+              {/* Underline effect */}
+                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-white transition-all duration-300 ease-out group-hover:w-full"></span>
+            </NavLink>
+          </li>    
+          <li>
+            <NavLink to="/contact-us" className="relative flex items-center space-x-1 hover:text-blue-300 group">
+              <span>Contact</span>
+              {/* Underline effect */}
+                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-white transition-all duration-300 ease-out group-hover:w-full"></span>
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="/career" className="relative flex items-center space-x-1 hover:text-blue-300 group">
+              <span>Career</span>
+              {/* Underline effect */}
+                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-white transition-all duration-300 ease-out group-hover:w-full"></span>
+            </NavLink>
+          </li>
+          <li>
+          <NavLink to="/project-overview" className="relative flex items-center space-x-1 hover:text-blue-300 group">
+            <span>Project Overview</span>
+            {/* Underline effect */}
+              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-white transition-all duration-300 ease-out group-hover:w-full"></span>
+          </NavLink>
+          </li>
 
-    {/* Gallery Dropdown */}
-    <li className="relative group">
-      <button className="relative hover:text-blue-300">
-        Gallery
-        {/* Underline effect for main Service button */}
-        <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-white transition-all duration-300 ease-out group-hover:w-full"></span>
-      </button>
+          {/* Gallery Dropdown */}
+          <li className="relative group">
+            <button className="relative hover:text-blue-300">
+              Gallery
+              {/* Underline effect for main Service button */}
+              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-white transition-all duration-300 ease-out group-hover:w-full"></span>
+            </button>
 
-      {/* Dropdown menu with zoom-in animation */}
-      <div className="absolute left-0 mt-2 bg-white text-blue-600 rounded-md shadow-lg w-52 opacity-0 transform scale-95 translate-y-2 
-          group-hover:opacity-100 group-hover:scale-100 group-hover:translate-y-0 
-          transition-all duration-300 ease-out">
-        <NavLink
-          to="/service1"
-          className="block px-4 py-2 hover:bg-blue-100 relative group transform scale-95 hover:scale-105 transition-all duration-300 ease-out"
-        >
-          Video Gallery
-          {/* Underline effect for Service 1 */}
-          <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 ease-out group-hover:w-full"></span>
-        </NavLink>
-        <NavLink
-          to="/service1"
-          className="block px-4 py-2 hover:bg-blue-100 relative group transform scale-95 hover:scale-105 transition-all duration-300 ease-out"
-        >
-          Img Gallery
-          {/* Underline effect for Service 1 */}
-          <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 ease-out group-hover:w-full"></span>
-        </NavLink>
-      </div>
-    </li>
-  </ul>
-</nav>
+            {/* Dropdown menu with zoom-in animation */}
+            <div className="absolute left-0 mt-2 bg-white text-blue-600 rounded-md shadow-lg w-52 opacity-0 transform scale-95 translate-y-2 
+                group-hover:opacity-100 group-hover:scale-100 group-hover:translate-y-0 
+                transition-all duration-300 ease-out">
+              <NavLink
+                to="/service1"
+                className="block px-4 py-2 hover:bg-blue-100 relative group transform scale-95 hover:scale-105 transition-all duration-300 ease-out"
+              >
+                Video Gallery
+                {/* Underline effect for Service 1 */}
+                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 ease-out group-hover:w-full"></span>
+              </NavLink>
+              <NavLink
+                to="/service1"
+                className="block px-4 py-2 hover:bg-blue-100 relative group transform scale-95 hover:scale-105 transition-all duration-300 ease-out"
+              >
+                Img Gallery
+                {/* Underline effect for Service 1 */}
+                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 ease-out group-hover:w-full"></span>
+              </NavLink>
+              <li>
+          
+        </li>
+            </div>
+          </li>
+        </ul>
+      </nav>
         <div>
+        
         </div>
       </div>
 
