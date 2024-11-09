@@ -22,7 +22,7 @@ const Navbar = () => {
     // Set a timer to close the submenu after 10 seconds
     timeoutRef.current = setTimeout(() => {
       setIsOpen(false);
-    }, 1000); // 10 seconds
+    }, 100); // 10 seconds
   };
 
   useEffect(() => {
@@ -42,7 +42,7 @@ const Navbar = () => {
   };
 
   return (
-    <div className={`fixed top-0 w-full z-50 transition-all duration-300 ${scrolled ? 'bg-[#21c45e] text-white shadow-md' : 'bg-gradient-to-r from-green-500 to-blue-500 text-white'}`}>
+    <div className={`fixed top-0 w-full z-50 transition-all duration-300 ${scrolled ? 'bg-[#21c45e] text-white shadow-md' : 'bg-[#9DC842] shadow-xl text-white'}`}>
       <div className='flex items-center justify-between p-4'>
         {/* Logo */}
         <div className='bg-white rounded-full p-1 shadow-2xl'>
@@ -138,46 +138,10 @@ const Navbar = () => {
           </NavLink>
         </div>
       )}
+      
     </li>
-
-          <li>
-            <NavLink to="/booking-form" className="relative flex items-center space-x-1 hover:text-blue-300 group">
-              <span>Booking Form</span>
-              {/* Underline effect */}
-                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-white transition-all duration-300 ease-out group-hover:w-full"></span>
-            </NavLink>
-          </li>
-          <li>
-            <NavLink to="/about-us" className="relative flex items-center space-x-1 hover:text-blue-300 group">
-              <span>About Us</span>
-              {/* Underline effect */}
-                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-white transition-all duration-300 ease-out group-hover:w-full"></span>
-            </NavLink>
-          </li>    
-          <li>
-            <NavLink to="/contact-us" className="relative flex items-center space-x-1 hover:text-blue-300 group">
-              <span>Contact</span>
-              {/* Underline effect */}
-                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-white transition-all duration-300 ease-out group-hover:w-full"></span>
-            </NavLink>
-          </li>
-          <li>
-            <NavLink to="/career" className="relative flex items-center space-x-1 hover:text-blue-300 group">
-              <span>Career</span>
-              {/* Underline effect */}
-                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-white transition-all duration-300 ease-out group-hover:w-full"></span>
-            </NavLink>
-          </li>
-          <li>
-          <NavLink to="/project-overview" className="relative flex items-center space-x-1 hover:text-blue-300 group">
-            <span>Project Overview</span>
-            {/* Underline effect */}
-              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-white transition-all duration-300 ease-out group-hover:w-full"></span>
-          </NavLink>
-          </li>
-
-          {/* Gallery Dropdown */}
-          <li className="relative group">
+     {/* Gallery Dropdown */}
+     <li className="relative group">
             <button className="relative hover:text-blue-300">
               Gallery
               {/* Underline effect for main Service button */}
@@ -208,7 +172,47 @@ const Navbar = () => {
           
         </li>
             </div>
+      </li>
+      
+      <li>
+          <NavLink to="/project-overview" className="relative flex items-center space-x-1 hover:text-blue-300 group">
+            <span>Project Overview</span>
+            {/* Underline effect */}
+              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-white transition-all duration-300 ease-out group-hover:w-full"></span>
+          </NavLink>
           </li>
+          
+          <li>
+            <NavLink to="/career" className="relative flex items-center space-x-1 hover:text-blue-300 group">
+              <span>Career</span>
+              {/* Underline effect */}
+                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-white transition-all duration-300 ease-out group-hover:w-full"></span>
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="/booking-form" className="relative flex items-center space-x-1 hover:text-blue-300 group">
+              <span>Booking Form</span>
+              {/* Underline effect */}
+                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-white transition-all duration-300 ease-out group-hover:w-full"></span>
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="/about-us" className="relative flex items-center space-x-1 hover:text-blue-300 group">
+              <span>About Us</span>
+              {/* Underline effect */}
+                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-white transition-all duration-300 ease-out group-hover:w-full"></span>
+            </NavLink>
+          </li>    
+          <li>
+            <NavLink to="/contact-us" className="relative flex items-center space-x-1 hover:text-blue-300 group">
+              <span>Contact</span>
+              {/* Underline effect */}
+                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-white transition-all duration-300 ease-out group-hover:w-full"></span>
+            </NavLink>
+          </li>
+          
+
+         
         </ul>
       </nav>
         <div>

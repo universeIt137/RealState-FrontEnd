@@ -1,6 +1,7 @@
 import React from 'react';
 
 const AboutUs = () => {
+  window.scrollTo(0, 0);
   return (
     <div className="bg-white p-5 my-10 md:my-20 md:p-10">
       <div className="text-center mb-3 md:mb-6">
