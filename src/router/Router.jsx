@@ -9,6 +9,7 @@ import Contact from "../components/clientSide/Contact";
 import CompanyProfilePage from "../pages/clientSide/company-profile-page/CompanyProfilePage";
 import MissionVision from "../pages/clientSide/mission-and-vission/MissionVisionPage";
 import CorporateStructurePage from "../pages/clientSide/corporate-structure/CorporateStructurePage";
+import CSRPage from "../pages/clientSide/corporate-responsibility-page/CorporateResponsibilityPage";
 
 
 
@@ -50,6 +51,10 @@ export const router = createBrowserRouter([
             {
                 path : "corporate-structure",
                 element : <CorporateStructurePage></CorporateStructurePage>
+            },
+            {
+                path : "corporate-social-responsibility",
+                element : <CSRPage></CSRPage>
             }
            
         ]
