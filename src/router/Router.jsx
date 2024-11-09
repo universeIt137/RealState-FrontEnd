@@ -8,6 +8,7 @@ import AboutUs from './../components/clientSide/AboutUs';
 import Contact from "../components/clientSide/Contact";
 import CompanyProfilePage from "../pages/clientSide/company-profile-page/CompanyProfilePage";
 import MissionVision from "../pages/clientSide/mission-and-vission/MissionVisionPage";
+import CorporateStructurePage from "../pages/clientSide/corporate-structure/CorporateStructurePage";
 
 
 
@@ -45,6 +46,10 @@ export const router = createBrowserRouter([
             {
                 path : "mission",
                 element : <MissionVision></MissionVision>
+            },
+            {
+                path : "corporate-structure",
+                element : <CorporateStructurePage></CorporateStructurePage>
             }
            
         ]
