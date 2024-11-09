@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { FaUserCircle } from 'react-icons/fa';
 import { ImCross } from 'react-icons/im';
 import { RiMenuUnfold4Fill } from 'react-icons/ri';
@@ -7,8 +7,23 @@ import { NavLink, useLocation } from 'react-router-dom';
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
+
   const [isGalleryOpen, setIsGalleryOpen] = useState(false); // Dropdown state for Gallery in drawer
   const { pathname } = useLocation();
+  const timeoutRef = useRef(null); // Use to store the timeout ID
+
+  const handleMouseEnter = () => {
+    clearTimeout(timeoutRef.current); // Clear any previous timeout
+    setIsOpen(true);
+  };
+
+  const handleMouseLeave = () => {
+    // Set a timer to close the submenu after 10 seconds
+    timeoutRef.current = setTimeout(() => {
+      setIsOpen(false);
+    }, 1000); // 10 seconds
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -51,7 +66,7 @@ const Navbar = () => {
         <nav className='hidden md:block'>
           <ul className='flex space-x-6'>
           <li>
-            <NavLink to="/" className="relative flex items-center space-x-1 hover:text-blue-300 group">
+            <NavLink to="/" className="relative flex items-center space-x-1 hover:text-black group">
               <span>Home</span>
               {/* Underline effect */}
                 <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-white transition-all duration-300 ease-out group-hover:w-full"></span>
@@ -61,66 +76,70 @@ const Navbar = () => {
 
           {/* Corporate Dropdown */}
           <li className="relative group">
-            <button className="relative hover:text-blue-300">
-              Corporate
-              {/* Underline effect for main Service button */}
-              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-white transition-all duration-300 ease-out group-hover:w-full"></span>
-            </button>
+      {/* Corporate button that opens the submenu */}
+      <button
+        className="relative hover:text-black z-20"
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
+      >
+        Corporate
+        <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-white transition-all duration-300 ease-out group-hover:w-full"></span>
+      </button>
 
-            {/* Dropdown menu with zoom-in animation */}
-            <div className="absolute left-0 mt-2 bg-white text-blue-600 rounded-md shadow-lg w-64 opacity-0 transform scale-95 translate-y-2 
-                group-hover:opacity-100 group-hover:scale-100 group-hover:translate-y-0 
-                transition-all duration-300 ease-out">
-              <NavLink
-                to="/company-profile"
-                className="block px-4 py-2 hover:bg-blue-100 relative group transform scale-95 hover:scale-105 transition-all duration-300 ease-out"
-              >
-                Company Profile
-                {/* Underline effect for Service 1 */}
-                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 ease-out group-hover:w-full"></span>
-              </NavLink>
-              <NavLink
-                to="/mission"
-                className="block px-4 py-2 hover:bg-blue-100 relative group transform scale-95 hover:scale-105 transition-all duration-300 ease-out"
-              >
-                Mission & Vission
-                {/* Underline effect for Service 1 */}
-                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 ease-out group-hover:w-full"></span>
-              </NavLink>
-              <NavLink
-                to="/corporate-structure"
-                className="block px-4 py-2 hover:bg-blue-100 relative group transform scale-95 hover:scale-105 transition-all duration-300 ease-out"
-              >
-                Corporate Structure
-                {/* Underline effect for Service 1 */}
-                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 ease-out group-hover:w-full"></span>
-              </NavLink>
-              <NavLink
-                to="/corporate-social-responsibility"
-                className="block px-4 py-2 hover:bg-blue-100 relative group transform scale-95 hover:scale-105 transition-all duration-300 ease-out"
-              >
-                Corporate Social Responsibility
-                {/* Underline effect for Service 1 */}
-                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 ease-out group-hover:w-full"></span>
-              </NavLink>
-              <NavLink
-                to="/client-review"
-                className="block px-4 py-2 hover:bg-blue-100 relative group transform scale-95 hover:scale-105 transition-all duration-300 ease-out"
-              >
-                Client Review
-                {/* Underline effect for Service 1 */}
-                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 ease-out group-hover:w-full"></span>
-              </NavLink>
-              <NavLink
-                to="/certification"
-                className="block px-4  py-2 hover:bg-blue-100 relative group transform scale-95 hover:scale-105 transition-all duration-300 ease-out"
-              >
-                Certification
-                {/* Underline effect for Service 1 */}
-                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 ease-out group-hover:w-full"></span>
-              </NavLink>
-            </div>
-          </li>
+      {/* Dropdown menu */}
+      {isOpen && (
+        <div
+          className="absolute left-0 mt-2 bg-white text-black rounded-md shadow-lg w-64 
+                     opacity-100 transform scale-100 translate-y-0 transition-all duration-300 ease-out"
+          onMouseEnter={handleMouseEnter}  // Keep open if hovering over the dropdown
+          onMouseLeave={handleMouseLeave}  // Close dropdown when mouse leaves
+        >
+          <NavLink
+            to="/company-profile"
+            className="block px-4 py-2 hover:bg-blue-100 relative group transform scale-95 hover:scale-105 transition-all duration-300 ease-out"
+          >
+            Company Profile
+            <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#21c45e] transition-all duration-300 ease-out group-hover:w-full"></span>
+          </NavLink>
+          <NavLink
+            to="/mission"
+            className="block px-4 py-2 hover:bg-blue-100 relative group transform scale-95 hover:scale-105 transition-all duration-300 ease-out"
+          >
+            Mission & Vision
+            <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#21c45e] transition-all duration-300 ease-out group-hover:w-full"></span>
+          </NavLink>
+          <NavLink
+            to="/corporate-structure"
+            className="block px-4 py-2 hover:bg-blue-100 relative group transform scale-95 hover:scale-105 transition-all duration-300 ease-out"
+          >
+            Corporate Structure
+            <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#21c45e] transition-all duration-300 ease-out group-hover:w-full"></span>
+          </NavLink>
+          <NavLink
+            to="/corporate-social-responsibility"
+            className="block px-4 py-2 hover:bg-blue-100 relative group transform scale-95 hover:scale-105 transition-all duration-300 ease-out"
+          >
+            Corporate Social Responsibility
+            <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#21c45e] transition-all duration-300 ease-out group-hover:w-full"></span>
+          </NavLink>
+          <NavLink
+            to="/client-review"
+            className="block px-4 py-2 hover:bg-blue-100 relative group transform scale-95 hover:scale-105 transition-all duration-300 ease-out"
+          >
+            Client Review
+            <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#21c45e] transition-all duration-300 ease-out group-hover:w-full"></span>
+          </NavLink>
+          <NavLink
+            to="/certification"
+            className="block px-4 py-2 hover:bg-blue-100 relative group transform scale-95 hover:scale-105 transition-all duration-300 ease-out"
+          >
+            Certification
+            <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#21c45e] transition-all duration-300 ease-out group-hover:w-full"></span>
+          </NavLink>
+        </div>
+      )}
+    </li>
+
           <li>
             <NavLink to="/booking-form" className="relative flex items-center space-x-1 hover:text-blue-300 group">
               <span>Booking Form</span>
