@@ -12,6 +12,7 @@ import CorporateStructurePage from "../pages/clientSide/corporate-structure/Corp
 import CSRPage from "../pages/clientSide/corporate-responsibility-page/CorporateResponsibilityPage";
 import CertificationPage from "../pages/clientSide/certification-page/CertificationPage";
 import TestimonialCard from "../pages/clientSide/home-page/Reviews";
+import VideoGalleryPage from "../pages/clientSide/video-gallery-page/VideoGalleryPage";
 
 
 
@@ -65,6 +66,11 @@ export const router = createBrowserRouter([
             {
                 path : "client-review",
                 element : <TestimonialCard></TestimonialCard>
+            }
+            ,
+            {
+                path : "video-gallery",
+                element : <VideoGalleryPage></VideoGalleryPage>
             }
            
         ]

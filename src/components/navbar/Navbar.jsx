@@ -153,7 +153,7 @@ const Navbar = () => {
                 group-hover:opacity-100 group-hover:scale-100 group-hover:translate-y-0 
                 transition-all duration-300 ease-out">
               <NavLink
-                to="/service1"
+                to="/video-gallery"
                 className="block px-4 py-2 hover:bg-blue-100 relative group transform scale-95 hover:scale-105 transition-all duration-300 ease-out"
               >
                 Video Gallery
