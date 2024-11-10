@@ -1,6 +1,8 @@
 import React from 'react';
+import { BsWordpress } from 'react-icons/bs';
 import { FaBookReader } from 'react-icons/fa';
 import { GiOpenBook } from 'react-icons/gi';
+import { RiHomeOfficeFill } from 'react-icons/ri';
 
 const Career = () => {
   window.scrollTo(0, 0);
@@ -10,19 +12,19 @@ const Career = () => {
         <h2 className="md:text-3xl text-center font-bold text-white">Backend developer</h2>
         <div className="mt-2 md:text-[17px] text-white">
           <div className="flex md:text-[16px] text-sm items-center md:w-1/2 mx-auto">
-            <span className="mr-2">📍</span>
-            <span>Workplace: In Office</span>
+            <span className="mr-1"><RiHomeOfficeFill /></span>
+            <span className='ml-1' >Workplace: In Office</span>
+          </div>
+          <div className="flex my-1 md:mt-0 mt-1 md:text-[16px] text-sm items-center md:w-1/2 mx-auto">
+            <span className=" "><BsWordpress /></span>
+            <span className='ml-2' >Good</span>
           </div>
           <div className="flex md:mt-0 mt-1 md:text-[16px] text-sm items-center md:w-1/2 mx-auto">
-            <span className="mr-2 block ">🌐</span>
-            <span>Good</span>
-          </div>
-          <div className="flex md:mt-0 mt-1 md:text-[16px] text-sm items-center md:w-1/2 mx-auto">
-            <span className="mr-2">💰</span>
+            <span className="mr-2"> <img className='w-4' src="https://res.cloudinary.com/dnvmj9pvk/image/upload/v1731240463/salary_ytecw8.png" alt="" /> </span>
             <span>Salary: 25000</span>
           </div>
-          <p className="flex md:mt-0  mt-1 gap-1 md:text-[16px] text-sm items-center md:w-1/2 mx-auto">
-            <GiOpenBook className="mr-2" />
+          <p className="flex md:mt-0   mt-1 gap-1 md:text-[16px] text-sm items-center md:w-1/2 mx-auto">
+            <span className='' ><GiOpenBook className="mr-[3px]" /></span>
             <span>BS'c in Computer Science...</span>
           </p>
         </div>
