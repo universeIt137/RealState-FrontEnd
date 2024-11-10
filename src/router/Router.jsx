@@ -11,6 +11,7 @@ import MissionVision from "../pages/clientSide/mission-and-vission/MissionVision
 import CorporateStructurePage from "../pages/clientSide/corporate-structure/CorporateStructurePage";
 import CSRPage from "../pages/clientSide/corporate-responsibility-page/CorporateResponsibilityPage";
 import CertificationPage from "../pages/clientSide/certification-page/CertificationPage";
+import TestimonialCard from "../pages/clientSide/home-page/Reviews";
 
 
 
@@ -60,6 +61,10 @@ export const router = createBrowserRouter([
             ,{
                 path : "certification",
                 element : <CertificationPage></CertificationPage>
+            },
+            {
+                path : "client-review",
+                element : <TestimonialCard></TestimonialCard>
             }
            
         ]
