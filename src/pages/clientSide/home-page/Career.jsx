@@ -1,6 +1,7 @@
 import React from "react";
 
 function Career() {
+  window.scrollTo(0,0)
   const benefits = [
     "Flexible working hours",
     "High earning opportunities",
