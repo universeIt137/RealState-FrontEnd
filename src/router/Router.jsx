@@ -10,6 +10,7 @@ import CompanyProfilePage from "../pages/clientSide/company-profile-page/Company
 import MissionVision from "../pages/clientSide/mission-and-vission/MissionVisionPage";
 import CorporateStructurePage from "../pages/clientSide/corporate-structure/CorporateStructurePage";
 import CSRPage from "../pages/clientSide/corporate-responsibility-page/CorporateResponsibilityPage";
+import CertificationPage from "../pages/clientSide/certification-page/CertificationPage";
 
 
 
@@ -55,6 +56,10 @@ export const router = createBrowserRouter([
             {
                 path : "corporate-social-responsibility",
                 element : <CSRPage></CSRPage>
+            }
+            ,{
+                path : "certification",
+                element : <CertificationPage></CertificationPage>
             }
            
         ]
