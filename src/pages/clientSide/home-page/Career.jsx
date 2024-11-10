@@ -15,7 +15,7 @@ const Career = () => {
             <span className="mr-1"><RiHomeOfficeFill /></span>
             <span className='ml-1' >Workplace: In Office</span>
           </div>
-          <div className="flex my-1 md:mt-0 mt-1 md:text-[16px] text-sm items-center md:w-1/2 mx-auto">
+          <div className="flex  md:mt-0 mt-1 md:text-[16px] text-sm items-center md:w-1/2 mx-auto">
             <span className=" "><BsWordpress /></span>
             <span className='ml-2' >Good</span>
           </div>

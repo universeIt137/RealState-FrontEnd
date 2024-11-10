@@ -13,6 +13,7 @@ import CSRPage from "../pages/clientSide/corporate-responsibility-page/Corporate
 import CertificationPage from "../pages/clientSide/certification-page/CertificationPage";
 import TestimonialCard from "../pages/clientSide/home-page/Reviews";
 import VideoGalleryPage from "../pages/clientSide/video-gallery-page/VideoGalleryPage";
+import CareerDetailsPage from './../pages/clientSide/carrer-page/CareerDetailsPage';
 
 
 
@@ -71,6 +72,10 @@ export const router = createBrowserRouter([
             {
                 path : "video-gallery",
                 element : <VideoGalleryPage></VideoGalleryPage>
+            },
+            {
+                path:"career-details",
+                element:<CareerDetailsPage></CareerDetailsPage>
             }
            
         ]
