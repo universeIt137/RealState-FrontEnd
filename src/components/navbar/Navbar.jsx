@@ -46,28 +46,28 @@ const Navbar = () => {
     clearTimeout(timeoutRef.current); // Clear any previous timeout before setting a new one
     timeoutRef.current = setTimeout(() => {
       setIsCorporateOpen(true); // Open the corporate dropdown after 10 seconds
-    }, 10); // 10 seconds delay
+    }, 100); // 10 seconds delay
   };
 
   const handleMouseLeaveCorporate = () => {
     clearTimeout(timeoutRef.current); // Clear the timeout if the mouse leaves early
     timeoutRef.current = setTimeout(() => {
       setIsCorporateOpen(false); // Close the corporate dropdown after 10 seconds
-    }, 10); // 10 seconds delay
+    }, 100); // 10 seconds delay
   };
 
   const handleMouseEnterGallery = () => {
     clearTimeout(timeoutRef.current); // Clear any previous timeout before setting a new one
     timeoutRef.current = setTimeout(() => {
       setIsGalleryOpen(true); // Open the gallery dropdown after 10 seconds
-    }, 10); // 10 seconds delay
+    }, 100); // 10 seconds delay
   };
 
   const handleMouseLeaveGallery = () => {
     clearTimeout(timeoutRef.current); // Clear the timeout if the mouse leaves early
     timeoutRef.current = setTimeout(() => {
       setIsGalleryOpen(false); // Close the gallery dropdown after 10 seconds
-    }, 10); // 10 seconds delay
+    }, 100); // 10 seconds delay
   };
 
   const toggleDrawer = () => {
@@ -102,7 +102,7 @@ const Navbar = () => {
           </div>
 
           {/* Toggle Button for Mobile Devices */}
-          <button onClick={toggleDrawer} className='md:hidden text-white'>
+          <button onClick={toggleDrawer} className='lg:hidden text-white'>
             {!isDrawerOpen ? <RiMenuUnfold4Fill size={30} className='font-bold block ml-40 ' /> : <span></span>}
           </button>
 
@@ -172,55 +172,66 @@ const Navbar = () => {
             </nav>
           </div>
 
-                {/* Social icons section */}
-            <div className="flex space-x-3">
+          <div className=' hidden lg:block ' >
+          <div className='flex items-center gap-4 ' >
+            <div className="flex items-center border border-white px-3  ">
+              <FaPhoneAlt />
+              <span>(+880) 1751586230</span>
+            </div>
+
+            {/* Social icons section */}
+            <div className="flex space-x-3  ">
               <a href="#" className="hover:text-gray-400"><FaFacebookF /></a>
               <a href="#" className="hover:text-gray-400"><FaYoutube /></a>
               <a href="#" className="hover:text-gray-400"><FaLinkedinIn /></a>
               <a href="#" className="hover:text-gray-400"><FaInstagram /></a>
               <a href="#" className="hover:text-gray-400"><FaTwitter /></a>
             </div>
-          </div>      
-
-      </div>
-
-      {/* Drawer for Small Devices */}
-      {isDrawerOpen && (
-        <div className='md:hidden top-[65px] fixed inset-0 bg-opacity-50 z-50 flex'>
-          <div className='absolute left-0 w-64 h-screen bg-green-400 text-white p-4 transition-transform transform translate-x-0'>
-            <button onClick={toggleDrawer} className='text-white'>
-              <span>
-                <ImCross className='block ml-44 ' />
-              </span>
-            </button>
-            <ul className='mt-4 space-y-4'>
-              {navLinks.map((link, idx) => (
-                <li key={idx}>
-                  <button
-                    onClick={link.title === 'Corporate' ? toggleCorporateDropdown : link.title === 'Gallery' ? toggleGalleryDropdown : null}
-                    className="block px-4 py-2 hover:bg-white hover:text-black w-full"
-                  >
-                    {link.title}
-                  </button>
-                  {link.isDropdown && (
-                    <div className={`${link.title === 'Corporate' ? isCorporateOpen : isGalleryOpen ? 'block' : 'hidden'}`}>
-                      {link.dropdownLinks.map((dropdownLink, idx) => (
-                        <NavLink
-                          to={dropdownLink.path}
-                          key={idx}
-                          className="block px-4 py-2 hover:bg-white hover:text-black"
-                        >
-                          {dropdownLink.title}
-                        </NavLink>
-                      ))}
-                    </div>
-                  )}
-                </li>
-              ))}
-            </ul>
+          </div>
           </div>
         </div>
-      )}
+
+        {/* Mobile Drawer */}
+        {isDrawerOpen && (
+          <div className="fixed inset-0 bg-black bg-opacity-50 z-40">
+            <div className="bg-green w-3/4 p-5 h-full">
+              <button onClick={toggleDrawer} className="text-xl mb-4"><ImCross /></button>
+              <ul>
+                {navLinks.map((link, idx) => (
+                  <li key={idx} className="mb-3">
+                    {!link.isDropdown ? (
+                      <NavLink to={link.path} className="block">{link.title}</NavLink>
+                    ) : (
+                      <div>
+                        <button
+                          onClick={link.title === 'Corporate' ? toggleCorporateDropdown : link.title === 'Gallery' ? toggleGalleryDropdown : null}
+                          className="block"
+                        >
+                          {link.title}
+                        </button>
+                        {link.title === 'Corporate' && isCorporateOpen && (
+                          <div className="pl-4">
+                            {link.dropdownLinks.map((dropdownLink, idx) => (
+                              <NavLink key={idx} to={dropdownLink.path} className="block">{dropdownLink.title}</NavLink>
+                            ))}
+                          </div>
+                        )}
+                        {link.title === 'Gallery' && isGalleryOpen && (
+                          <div className="pl-4">
+                            {link.dropdownLinks.map((dropdownLink, idx) => (
+                              <NavLink key={idx} to={dropdownLink.path} className="block">{dropdownLink.title}</NavLink>
+                            ))}
+                          </div>
+                        )}
+                      </div>
+                    )}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        )}
+      </div>
     </div>
   );
 };
