@@ -9,6 +9,7 @@ export default {
       colors: {
         primary: '#24BF6C', // Custom primary color
         black: '#111111', // Custom black color
+        green: '#21c45e',
       },
       backgroundColor: {
         primary: '#3490dc', // Custom background primary color

@@ -15,7 +15,7 @@ import ChairmanSpeech from './ChairmanSpeech'
 
 const HomePage = () => {
   return (
-    <div className='' >
+    <div className='space-y-16' >
       {/* carousel */}
         <Carousel></Carousel>
         <ChairmanSpeech></ChairmanSpeech>
