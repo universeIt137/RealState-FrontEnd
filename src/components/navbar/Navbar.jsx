@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
+import { FaUserCircle } from 'react-icons/fa';
 import { ImCross } from 'react-icons/im';
 import { RiMenuUnfold4Fill } from 'react-icons/ri';
 import { NavLink, useLocation } from 'react-router-dom';
@@ -6,8 +7,23 @@ import { NavLink, useLocation } from 'react-router-dom';
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
+
   const [isGalleryOpen, setIsGalleryOpen] = useState(false); // Dropdown state for Gallery in drawer
   const { pathname } = useLocation();
+  const timeoutRef = useRef(null); // Use to store the timeout ID
+
+  const handleMouseEnter = () => {
+    clearTimeout(timeoutRef.current); // Clear any previous timeout
+    setIsOpen(true);
+  };
+
+  const handleMouseLeave = () => {
+    // Set a timer to close the submenu after 10 seconds
+    timeoutRef.current = setTimeout(() => {
+      setIsOpen(false);
+    }, 100); // 10 seconds
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -26,7 +42,7 @@ const Navbar = () => {
   };
 
   return (
-    <div className={`fixed top-0 w-full z-50 transition-all duration-300 ${scrolled ? 'bg-[#21c45e] text-white shadow-md' : 'bg-gradient-to-r from-green-500 to-blue-500 text-white'}`}>
+    <div className={`fixed top-0 w-full z-50 transition-all duration-300 ${scrolled ? 'bg-[#21c45e] text-white shadow-md' : 'bg-white text-black shadow-xl '}`}>
       <div className='flex items-center justify-between p-4'>
         {/* Logo */}
         <div className='bg-white rounded-full p-1 shadow-2xl'>
@@ -49,38 +65,158 @@ const Navbar = () => {
         {/* Desktop Navigation Links */}
         <nav className='hidden md:block'>
           <ul className='flex space-x-6'>
-            {['/', '/booking-form', '/offer', '/about-us', '/contact-us', '/career'].map((route, idx) => (
-              <li key={idx}>
-                <NavLink
-                  to={route}
-                  className={`${pathname === route ? 'text-black bg-[#c2f2d5] p-2 rounded-xl' : ''}  text-md`}
-                >
-                  {route.replace('/', '').replace('-', ' ').replace(/(?:^|\s)\S/g, a => a.toUpperCase()) || 'Home'}
-                </NavLink>
-              </li>
-            ))}
-            {/* Gallery Dropdown */}
-            <li className='relative group'>
-              <button className={`${pathname.includes('/gallery') ? 'text-black bg-white p-2 rounded-xl' : ''} text-md`}>
-                Gallery
-              </button>
-              <ul className='absolute hidden group-hover:block bg-[#111111] text-white p-2 space-y-2 mt-2 rounded shadow-lg'>
-                <li>
-                  <NavLink to="/gallery/images" className={`${pathname === "/gallery/images" ? 'text-black bg-white p-2 rounded-xl' : ''} text-md`}>
-                    Img Gallery
-                  </NavLink>
-                </li>
-                <li>
-                  <NavLink to="/gallery/videos" className={`${pathname === "/gallery/videos" ? 'text-black bg-white p-2 rounded-xl' : ''} text-md`}>
-                    Video Gallery
-                  </NavLink>
-                </li>
-              </ul>
-            </li>
-          </ul>
-        </nav>
-        <div>
+          <li>
+            <NavLink to="/" className="relative flex items-center space-x-1 hover:text-black group">
+              <span>Home</span>
+              {/* Underline effect */}
+                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-white transition-all duration-300 ease-out group-hover:w-full"></span>
+            </NavLink>
+          </li>
           
+
+          {/* Corporate Dropdown */}
+          <li className="relative group">
+      {/* Corporate button that opens the submenu */}
+      <button
+        className="relative hover:text-black z-20"
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
+      >
+        Corporate
+        <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-white transition-all duration-300 ease-out group-hover:w-full"></span>
+      </button>
+
+      {/* Dropdown menu */}
+      {isOpen && (
+        <div
+          className="absolute left-0 mt-2 bg-white text-black rounded-md shadow-lg w-64 
+                     opacity-100 transform scale-100 translate-y-0 transition-all duration-300 ease-out"
+          onMouseEnter={handleMouseEnter}  // Keep open if hovering over the dropdown
+          onMouseLeave={handleMouseLeave}  // Close dropdown when mouse leaves
+        >
+          <NavLink
+            to="/company-profile"
+            className="block px-4 py-2 hover:bg-blue-100 relative group transform scale-95 hover:scale-105 transition-all duration-300 ease-out"
+          >
+            Company Profile
+            <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#21c45e] transition-all duration-300 ease-out group-hover:w-full"></span>
+          </NavLink>
+          <NavLink
+            to="/mission"
+            className="block px-4 py-2 hover:bg-blue-100 relative group transform scale-95 hover:scale-105 transition-all duration-300 ease-out"
+          >
+            Mission & Vision
+            <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#21c45e] transition-all duration-300 ease-out group-hover:w-full"></span>
+          </NavLink>
+          <NavLink
+            to="/corporate-structure"
+            className="block px-4 py-2 hover:bg-blue-100 relative group transform scale-95 hover:scale-105 transition-all duration-300 ease-out"
+          >
+            Corporate Structure
+            <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#21c45e] transition-all duration-300 ease-out group-hover:w-full"></span>
+          </NavLink>
+          <NavLink
+            to="/corporate-social-responsibility"
+            className="block px-4 py-2 hover:bg-blue-100 relative group transform scale-95 hover:scale-105 transition-all duration-300 ease-out"
+          >
+            Corporate Social Responsibility
+            <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#21c45e] transition-all duration-300 ease-out group-hover:w-full"></span>
+          </NavLink>
+          <NavLink
+            to="/client-review"
+            className="block px-4 py-2 hover:bg-blue-100 relative group transform scale-95 hover:scale-105 transition-all duration-300 ease-out"
+          >
+            Client Review
+            <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#21c45e] transition-all duration-300 ease-out group-hover:w-full"></span>
+          </NavLink>
+          <NavLink
+            to="/certification"
+            className="block px-4 py-2 hover:bg-blue-100 relative group transform scale-95 hover:scale-105 transition-all duration-300 ease-out"
+          >
+            Certification
+            <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#21c45e] transition-all duration-300 ease-out group-hover:w-full"></span>
+          </NavLink>
+        </div>
+      )}
+      
+    </li>
+     {/* Gallery Dropdown */}
+     <li className="relative group">
+            <button className="relative hover:text-blue-300">
+              Gallery
+              {/* Underline effect for main Service button */}
+              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-white transition-all duration-300 ease-out group-hover:w-full"></span>
+            </button>
+
+            {/* Dropdown menu with zoom-in animation */}
+            <div className="absolute left-0 mt-2 bg-white text-blue-600 rounded-md shadow-lg w-52 opacity-0 transform scale-95 translate-y-2 
+                group-hover:opacity-100 group-hover:scale-100 group-hover:translate-y-0 
+                transition-all duration-300 ease-out">
+              <NavLink
+                to="/video-gallery"
+                className="block px-4 py-2 hover:bg-blue-100 relative group transform scale-95 hover:scale-105 transition-all duration-300 ease-out"
+              >
+                Video Gallery
+                {/* Underline effect for Service 1 */}
+                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 ease-out group-hover:w-full"></span>
+              </NavLink>
+              <NavLink
+                to="/service1"
+                className="block px-4 py-2 hover:bg-blue-100 relative group transform scale-95 hover:scale-105 transition-all duration-300 ease-out"
+              >
+                Img Gallery
+                {/* Underline effect for Service 1 */}
+                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 ease-out group-hover:w-full"></span>
+              </NavLink>
+              <li>
+          
+        </li>
+            </div>
+      </li>
+      
+      <li>
+          <NavLink to="/project-overview" className="relative flex items-center space-x-1 hover:text-blue-300 group">
+            <span>Project Overview</span>
+            {/* Underline effect */}
+              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-white transition-all duration-300 ease-out group-hover:w-full"></span>
+          </NavLink>
+          </li>
+          
+          <li>
+            <NavLink to="/career" className="relative flex items-center space-x-1 hover:text-blue-300 group">
+              <span>Career</span>
+              {/* Underline effect */}
+                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-white transition-all duration-300 ease-out group-hover:w-full"></span>
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="/booking-form" className="relative flex items-center space-x-1 hover:text-blue-300 group">
+              <span>Booking Form</span>
+              {/* Underline effect */}
+                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-white transition-all duration-300 ease-out group-hover:w-full"></span>
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="/about-us" className="relative flex items-center space-x-1 hover:text-blue-300 group">
+              <span>About Us</span>
+              {/* Underline effect */}
+                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-white transition-all duration-300 ease-out group-hover:w-full"></span>
+            </NavLink>
+          </li>    
+          <li>
+            <NavLink to="/contact-us" className="relative flex items-center space-x-1 hover:text-blue-300 group">
+              <span>Contact</span>
+              {/* Underline effect */}
+                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-white transition-all duration-300 ease-out group-hover:w-full"></span>
+            </NavLink>
+          </li>
+          
+
+         
+        </ul>
+      </nav>
+        <div>
+        
         </div>
       </div>
 
@@ -134,32 +270,4 @@ export default Navbar;
 
 
 
-// import React, { useState, useEffect } from 'react';
 
-// function Navbar() {
-//   const [scrolled, setScrolled] = useState(false);
-
-//   useEffect(() => {
-//     const handleScroll = () => {
-//       setScrolled(window.scrollY > 50);
-//     };
-//     window.addEventListener('scroll', handleScroll);
-//     return () => window.removeEventListener('scroll', handleScroll);
-//   }, []);
-
-//   return (
-//     <nav className={`fixed top-0 w-full z-10 p-4 transition-all ${scrolled ? 'bg-white shadow-md' : 'bg-transparent'}`}>
-//       <div className="max-w-7xl mx-auto flex justify-between items-center">
-//         <div className="text-lg font-bold">Logo</div>
-//         <div className="space-x-4">
-//           <a href="#home" className="hover:text-gray-700">Home</a>
-//           <a href="#categories" className="hover:text-gray-700">Categories</a>
-//           <a href="#cart" className="hover:text-gray-700">Cart</a>
-//           <a href="#profile" className="hover:text-gray-700">Profile</a>
-//         </div>
-//       </div>
-//     </nav>
-//   );
-// }
-
-// export default Navbar;
