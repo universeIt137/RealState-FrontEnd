@@ -10,16 +10,18 @@ import Offer from './Offer'
 import LayoutVisual from './LayoutVisual'
 import Contact from '../../../components/clientSide/Contact'
 import ProjectOverviewPage from './ProjectOverviewPage'
+import ChairmanSpeech from './ChairmanSpeech'
 
 
 const HomePage = () => {
   return (
-    <div className='' >
+    <div className='space-y-16' >
       {/* carousel */}
         <Carousel></Carousel>
+        <ChairmanSpeech></ChairmanSpeech>
         <ProjectOverviewPage></ProjectOverviewPage>
-        <AboutUs></AboutUs>
         <ProjectInfo></ProjectInfo>
+        <AboutUs></AboutUs>
         <Team></Team>
         <TestimonialCard></TestimonialCard>
         <LayoutVisual></LayoutVisual>
