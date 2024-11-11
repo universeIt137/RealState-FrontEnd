@@ -45,13 +45,13 @@ const Navbar = () => {
 
   return (
     <div className={`fixed top-0 w-full z-50 transition-all duration-300 ${scrolled ? 'bg-[#21c45e] text-white shadow-md' : 'bg-white text-black shadow-xl '}`}>
-      <div className='w-11/12 mx-auto ' >
+      <div className='w-11/12  mx-auto ' >
       <div className='flex items-center justify-between p-4'>
         {/* Logo */}
-        <div className='bg-white rounded-full md:w-[15%] p-1 shadow-2xl'>
+        <div className='bg-white rounded-full lg:w-[15%] p-1 shadow-2xl'>
           <NavLink to="/">
             <img
-              className=' w-20 md:w-32 md:rounded-full'
+              className=' w-full md:w-32 md:rounded-full'
               src="https://res.cloudinary.com/dnvmj9pvk/image/upload/v1730874150/Artboard_2300_ttfuqe.png"
               alt="Logo"
             />
@@ -66,12 +66,12 @@ const Navbar = () => {
         </button>
 
         {/* Desktop Navigation Links */}
-        <div className='md:w-50%]    ' >
-          <nav className='hidden md:block'>
-            <ul className='flex space-x-3'>
+        <div className='lg:w-50%] lg:mx-auto    ' >
+          <nav className='hidden lg:block'>
+            <ul className='flex lg:flex-row lg:space-x-3 '>
             <li>
               <NavLink to="/" className="relative flex items-center space-x-1 hover:text-black group">
-                <span>Home</span>
+                <span className='lg:text-[14px]' >Home</span>
                 {/* Underline effect */}
                   <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-white transition-all duration-300 ease-out group-hover:w-full"></span>
               </NavLink>
@@ -82,7 +82,7 @@ const Navbar = () => {
             <li className="relative group">
         {/* Corporate button that opens the submenu */}
         <button
-          className="relative hover:text-black z-20"
+          className="relative lg:text-[14px]  block hover:text-black z-20"
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}
         >
@@ -100,7 +100,7 @@ const Navbar = () => {
           >
             <NavLink
               to="/company-profile"
-              className="block px-4 py-2 hover:bg-blue-100 relative group transform scale-95 hover:scale-105 transition-all duration-300 ease-out"
+              className="block lg:px-2 lg:py-2 hover:bg-blue-100 relative group transform scale-95 hover:scale-105 transition-all duration-300 ease-out"
             >
               Company Profile
               <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#21c45e] transition-all duration-300 ease-out group-hover:w-full"></span>
@@ -146,7 +146,7 @@ const Navbar = () => {
       </li>
       {/* Gallery Dropdown */}
         <li className="relative group">
-              <button className="relative hover:text-blue-300">
+              <button className="relative block lg:text-[14px] hover:text-blue-300">
                 Gallery
                 {/* Underline effect for main Service button */}
                 <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-white transition-all duration-300 ease-out group-hover:w-full"></span>
@@ -180,7 +180,7 @@ const Navbar = () => {
         
         <li>
             <NavLink to="/project-" className="relative flex items-center space-x-1 hover:text-blue-300 group">
-              <span>Project Details</span>
+              <span className='lg:text-[14px]' >Project Details</span>
               {/* Underline effect */}
                 <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-white transition-all duration-300 ease-out group-hover:w-full"></span>
             </NavLink>
@@ -188,7 +188,7 @@ const Navbar = () => {
             
             <li>
               <NavLink to="/career" className="relative flex items-center space-x-1 hover:text-blue-300 group">
-                <span>Career</span>
+                <span className='lg:text-[14px]' >Career</span>
                 {/* Underline effect */}
                   <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-white transition-all duration-300 ease-out group-hover:w-full"></span>
               </NavLink>
@@ -196,21 +196,21 @@ const Navbar = () => {
             
             <li>
               <NavLink to="/booking-form" className="relative flex items-center space-x-1 hover:text-blue-300 group">
-                <span>Booking Form</span>
+                <span className='lg:text-[14px]' >Booking Form</span>
                 {/* Underline effect */}
                   <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-white transition-all duration-300 ease-out group-hover:w-full"></span>
               </NavLink>
             </li>
             <li>
               <NavLink to="/about-us" className="relative flex items-center space-x-1 hover:text-blue-300 group">
-                <span>About Us</span>
+                <span className='lg:text-[14px]' >About Us</span>
                 {/* Underline effect */}
                   <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-white transition-all duration-300 ease-out group-hover:w-full"></span>
               </NavLink>
             </li>    
             <li>
               <NavLink to="/contact-us" className="relative flex items-center space-x-1 hover:text-blue-300 group">
-                <span>Contact</span>
+                <span className='lg:text-[14px]' >Contact</span>
                 {/* Underline effect */}
                   <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-white transition-all duration-300 ease-out group-hover:w-full"></span>
               </NavLink>
@@ -218,21 +218,24 @@ const Navbar = () => {
           </ul>
           </nav>
       </div>
-      <div className=" md:w-[30%] hidden md:block  text-white flex justify-center items-center space-x-4 py-2">
-            <div className="flex items-center border border-white px-3  space-x-2">
-              <FaPhoneAlt />
-              <span className='p-2' >(+880) 1751586230 </span>
-            </div>
-            <div className="flex space-x-2 ">
-              <a href="#" className="hover:text-gray-400"><FaFacebookF /></a>
-              <a href="#" className="hover:text-gray-400"><FaYoutube /></a>
-              <a href="#" className="hover:text-gray-400"><FaLinkedinIn /></a>
-              <a href="#" className="hover:text-gray-400"><FaInstagram /></a>
-              <a href="#" className="hover:text-gray-400"><FaTwitter /></a>
-            </div>
-            </div>
-           
+      <div className="hidden lg:flex lg:w-[30%] text-white justify-center items-center space-x-4 py-2">
+        {/* Phone number section */}
+        <div className="flex items-center border border-white px-3 space-x-2">
+          <FaPhoneAlt />
+          <span>(+880) 1751586230</span>
+        </div>
+
+        {/* Social icons section */}
+        <div className="flex space-x-3">
+          <a href="#" className="hover:text-gray-400"><FaFacebookF /></a>
+          <a href="#" className="hover:text-gray-400"><FaYoutube /></a>
+          <a href="#" className="hover:text-gray-400"><FaLinkedinIn /></a>
+          <a href="#" className="hover:text-gray-400"><FaInstagram /></a>
+          <a href="#" className="hover:text-gray-400"><FaTwitter /></a>
+        </div>
       </div>
+      </div>
+           
       </div>
 
       {/* Drawer for Small Devices */}
