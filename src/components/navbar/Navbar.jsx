@@ -101,10 +101,7 @@ const Navbar = () => {
             </NavLink>
           </div>
 
-          {/* Toggle Button for Mobile Devices */}
-          <button onClick={toggleDrawer} className='lg:hidden text-white'>
-            {!isDrawerOpen ? <RiMenuUnfold4Fill size={30} className='font-bold block ml-40 ' /> : <span></span>}
-          </button>
+         
 
           {/* Desktop Navigation Links */}
           <div className='lg:w-50% lg:mx-auto'>
@@ -119,13 +116,13 @@ const Navbar = () => {
                   >
                     {!link.isDropdown ? (
                       <NavLink to={link.path} className="relative flex items-center space-x-1 hover:text-black group">
-                        <span className='lg:text-[13px]'>{link.title}</span>
-                        <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-white transition-all duration-300 ease-out group-hover:w-full"></span>
+                        <span className='lg:text-[18px] mx-2 '>{link.title}</span>
+                        <span className="absolute bottom-0 block left-0 w-0 h-0.5 bg-white transition-all duration-300 ease-out group-hover:w-full"></span>
                       </NavLink>
                     ) : (
                       <>
-                        <button className="relative  lg:text-[14px] block hover:text-black z-20">
-                          {link.title}
+                        <button className="relative lg:text-[18px] block  hover:text-black z-20">
+                          <span className=' block mx-1' >{link.title}</span>
                           <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-white transition-all duration-300 ease-out group-hover:w-full"></span>
                         </button>
                         {link.title === 'Corporate' && isCorporateOpen && (
