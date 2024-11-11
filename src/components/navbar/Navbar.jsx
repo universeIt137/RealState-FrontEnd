@@ -109,7 +109,7 @@ const Navbar = () => {
           {/* Desktop Navigation Links */}
           <div className='lg:w-50% lg:mx-auto'>
             <nav className='hidden lg:block'>
-              <ul className='flex lg:flex-row lg:space-x-3'>
+              <ul className='flex lg:flex-row lg:space-x-1'>
                 {navLinks.map((link, idx) => (
                   <li
                     key={idx}
@@ -119,7 +119,7 @@ const Navbar = () => {
                   >
                     {!link.isDropdown ? (
                       <NavLink to={link.path} className="relative flex items-center space-x-1 hover:text-black group">
-                        <span className='lg:text-[14px]'>{link.title}</span>
+                        <span className='lg:text-[13px]'>{link.title}</span>
                         <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-white transition-all duration-300 ease-out group-hover:w-full"></span>
                       </NavLink>
                     ) : (
