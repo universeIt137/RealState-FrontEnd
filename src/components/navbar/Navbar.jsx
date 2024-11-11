@@ -124,7 +124,7 @@ const Navbar = () => {
                       </NavLink>
                     ) : (
                       <>
-                        <button className="relative lg:text-[14px] block hover:text-black z-20">
+                        <button className="relative  lg:text-[14px] block hover:text-black z-20">
                           {link.title}
                           <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-white transition-all duration-300 ease-out group-hover:w-full"></span>
                         </button>
@@ -138,7 +138,7 @@ const Navbar = () => {
                               <NavLink
                                 to={dropdownLink.path}
                                 key={idx}
-                                className="block px-4 py-2 hover:bg-blue-100 relative group transform scale-95 hover:scale-105 transition-all duration-300 ease-out"
+                                className="block px-4  py-2 hover:bg-blue-100 relative group transform scale-95 hover:scale-105 transition-all duration-300 ease-out"
                               >
                                 {dropdownLink.title}
                                 <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#21c45e] transition-all duration-300 ease-out group-hover:w-full"></span>
