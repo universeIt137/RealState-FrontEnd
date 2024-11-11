@@ -1,30 +1,85 @@
-import React, { useEffect, useRef, useState } from 'react';
-import { FaUserCircle } from 'react-icons/fa';
-import { ImCross } from 'react-icons/im';
-import { RiMenuUnfold4Fill } from 'react-icons/ri';
-import { NavLink, useLocation } from 'react-router-dom';
+import React, { useState, useEffect, useRef } from 'react';
 import { FaPhoneAlt, FaFacebookF, FaYoutube, FaLinkedinIn, FaInstagram, FaTwitter } from 'react-icons/fa';
-
+import { NavLink, useLocation } from 'react-router-dom';
+import { RiMenuUnfold4Fill } from 'react-icons/ri';
+import { ImCross } from 'react-icons/im';
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
-  const [isOpen, setIsOpen] = useState(false);
+  const [isCorporateOpen, setIsCorporateOpen] = useState(false); // State for Corporate dropdown in the drawer
+  const [isGalleryOpen, setIsGalleryOpen] = useState(false); // State for Gallery dropdown in the drawer
+  const timeoutRef = useRef(null); // For managing the timeout in mouse leave
 
-  const [isGalleryOpen, setIsGalleryOpen] = useState(false); // Dropdown state for Gallery in drawer
-  const { pathname } = useLocation();
-  const timeoutRef = useRef(null); // Use to store the timeout ID
+  const navLinks = [
+    { title: 'Home', path: '/', isDropdown: false },
+    {
+      title: 'Corporate',
+      path: '/corporate',
+      isDropdown: true,
+      dropdownLinks: [
+        { title: 'Company Profile', path: '/company-profile' },
+        { title: 'Mission & Vision', path: '/mission' },
+        { title: 'Corporate Structure', path: '/corporate-structure' },
+        { title: 'Corporate Social Responsibility', path: '/corporate-social-responsibility' },
+        { title: 'Client Review', path: '/client-review' },
+        { title: 'Certification', path: '/certification' },
+      ],
+    },
+    {
+      title: 'Gallery',
+      path: '/gallery',
+      isDropdown: true,
+      dropdownLinks: [
+        { title: 'Video Gallery', path: '/video-gallery' },
+        { title: 'Image Gallery', path: '/image-gallery' },
+      ],
+    },
+    { title: 'Project Details', path: '/project-details', isDropdown: false },
+    { title: 'Career', path: '/career', isDropdown: false },
+    { title: 'Booking Form', path: '/booking-form', isDropdown: false },
+    { title: 'About Us', path: '/about-us', isDropdown: false },
+    { title: 'Contact', path: '/contact-us', isDropdown: false },
+  ];
 
-  const handleMouseEnter = () => {
-    clearTimeout(timeoutRef.current); // Clear any previous timeout
-    setIsOpen(true);
+  const handleMouseEnterCorporate = () => {
+    clearTimeout(timeoutRef.current); // Clear any previous timeout before setting a new one
+    timeoutRef.current = setTimeout(() => {
+      setIsCorporateOpen(true); // Open the corporate dropdown after 10 seconds
+    }, 10); // 10 seconds delay
   };
 
-  const handleMouseLeave = () => {
-    // Set a timer to close the submenu after 10 seconds
+  const handleMouseLeaveCorporate = () => {
+    clearTimeout(timeoutRef.current); // Clear the timeout if the mouse leaves early
     timeoutRef.current = setTimeout(() => {
-      setIsOpen(false);
-    }, 100); // 10 seconds
+      setIsCorporateOpen(false); // Close the corporate dropdown after 10 seconds
+    }, 10); // 10 seconds delay
+  };
+
+  const handleMouseEnterGallery = () => {
+    clearTimeout(timeoutRef.current); // Clear any previous timeout before setting a new one
+    timeoutRef.current = setTimeout(() => {
+      setIsGalleryOpen(true); // Open the gallery dropdown after 10 seconds
+    }, 10); // 10 seconds delay
+  };
+
+  const handleMouseLeaveGallery = () => {
+    clearTimeout(timeoutRef.current); // Clear the timeout if the mouse leaves early
+    timeoutRef.current = setTimeout(() => {
+      setIsGalleryOpen(false); // Close the gallery dropdown after 10 seconds
+    }, 10); // 10 seconds delay
+  };
+
+  const toggleDrawer = () => {
+    setIsDrawerOpen(!isDrawerOpen);
+  };
+
+  const toggleCorporateDropdown = () => {
+    setIsCorporateOpen(!isCorporateOpen); // Toggle Corporate dropdown
+  };
+
+  const toggleGalleryDropdown = () => {
+    setIsGalleryOpen(!isGalleryOpen); // Toggle Gallery dropdown
   };
 
   useEffect(() => {
@@ -35,249 +90,135 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const toggleDrawer = () => {
-    setIsDrawerOpen(!isDrawerOpen);
-  };
-
-  const toggleGalleryDropdown = () => {
-    setIsGalleryOpen(!isGalleryOpen);
-  };
-
   return (
-    <div className={`fixed top-0 w-full z-50 transition-all duration-300 ${scrolled ? 'bg-[#21c45e] text-white shadow-md  opacity-90 ' : 'bg-[#21c45e] text-white shadow-xl bg-opacity-90 '}`}>
-      <div className='w-11/12  mx-auto ' >
-      <div className='flex items-center justify-between p-4'>
-        {/* Logo */}
-        <div className='bg-white rounded-full lg:w-[15%] p-1 shadow-2xl'>
-          <NavLink to="/">
-            <img
-              className=' w-full md:w-32 md:rounded-full'
-              src="https://res.cloudinary.com/dnvmj9pvk/image/upload/v1730874150/Artboard_2300_ttfuqe.png"
-              alt="Logo"
-            />
-          </NavLink>
-        </div>
-
-        {/* Toggle Button for Mobile Devices */}
-        <button onClick={toggleDrawer} className='md:hidden text-white  ' aria-label="Toggle Drawer">
-          {
-            !isDrawerOpen ? <RiMenuUnfold4Fill size={30} className='font-bold block ml-40 ' /> : <span></span>
-          }
-        </button>
-
-        {/* Desktop Navigation Links */}
-        <div className='lg:w-50%] lg:mx-auto    ' >
-          <nav className='hidden lg:block'>
-            <ul className='flex lg:flex-row lg:space-x-3 '>
-            <li>
-              <NavLink to="/" className="relative flex items-center space-x-1 hover:text-black group">
-                <span className='lg:text-[14px]' >Home</span>
-                {/* Underline effect */}
-                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-white transition-all duration-300 ease-out group-hover:w-full"></span>
-              </NavLink>
-            </li>
-            
-
-            {/* Corporate Dropdown */}
-            <li className="relative group">
-        {/* Corporate button that opens the submenu */}
-        <button
-          className="relative lg:text-[14px]  block hover:text-black z-20"
-          onMouseEnter={handleMouseEnter}
-          onMouseLeave={handleMouseLeave}
-        >
-          Corporate
-          <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-white transition-all duration-300 ease-out group-hover:w-full"></span>
-        </button>
-
-        {/* Dropdown menu */}
-        {isOpen && (
-          <div
-            className="absolute left-0 mt-2 bg-white  text-black rounded-md  shadow-lg w-64 
-                      opacity-100 transform scale-100 translate-y-0 transition-all duration-300 ease-out"
-            onMouseEnter={handleMouseEnter}  // Keep open if hovering over the dropdown
-            onMouseLeave={handleMouseLeave}  // Close dropdown when mouse leaves
-          >
-            <NavLink
-              to="/company-profile"
-              className="block lg:px-2 lg:py-2 hover:bg-blue-100 relative group transform scale-95 hover:scale-105 transition-all duration-300 ease-out"
-            >
-              Company Profile
-              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#21c45e] transition-all duration-300 ease-out group-hover:w-full"></span>
-            </NavLink>
-            <NavLink
-              to="/mission"
-              className="block px-4 py-2 hover:bg-blue-100 relative group transform scale-95 hover:scale-105 transition-all duration-300 ease-out"
-            >
-              Mission & Vision
-              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#21c45e] transition-all duration-300 ease-out group-hover:w-full"></span>
-            </NavLink>
-            <NavLink
-              to="/corporate-structure"
-              className="block px-4 py-2 hover:bg-blue-100 relative group transform scale-95 hover:scale-105 transition-all duration-300 ease-out"
-            >
-              Corporate Structure
-              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#21c45e] transition-all duration-300 ease-out group-hover:w-full"></span>
-            </NavLink>
-            <NavLink
-              to="/corporate-social-responsibility"
-              className="block px-4 py-2 hover:bg-blue-100 relative group transform scale-95 hover:scale-105 transition-all duration-300 ease-out"
-            >
-              Corporate Social Responsibility
-              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#21c45e] transition-all duration-300 ease-out group-hover:w-full"></span>
-            </NavLink>
-            <NavLink
-              to="/client-review"
-              className="block px-4 py-2 hover:bg-blue-100 relative group transform scale-95 hover:scale-105 transition-all duration-300 ease-out"
-            >
-              Client Review
-              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#21c45e] transition-all duration-300 ease-out group-hover:w-full"></span>
-            </NavLink>
-            <NavLink
-              to="/certification"
-              className="block px-4 py-2 hover:bg-blue-100 relative group transform scale-95 hover:scale-105 transition-all duration-300 ease-out"
-            >
-              Certification
-              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#21c45e] transition-all duration-300 ease-out group-hover:w-full"></span>
+    <div className={`fixed top-0 w-full z-50 transition-all duration-300 ${scrolled ? 'bg-[#21c45e] text-white shadow-md opacity-90 ' : 'bg-[#21c45e] text-white shadow-xl bg-opacity-90 '}`}>
+      <div className='w-11/12 mx-auto'>
+        <div className='flex items-center justify-between p-4'>
+          {/* Logo */}
+          <div className='bg-white lg:w-[10%] rounded-md p-1'>
+            <NavLink to="/">
+              <img className='w-full md:w-32 md:rounded-full' src="https://res.cloudinary.com/dnvmj9pvk/image/upload/v1731319434/Amer%20Thikana/cldetxsqsas3ipe3zozl.png" alt="Logo" />
             </NavLink>
           </div>
-        )}
-        
-      </li>
-      {/* Gallery Dropdown */}
-        <li className="relative group">
-              <button className="relative block lg:text-[14px] hover:text-blue-300">
-                Gallery
-                {/* Underline effect for main Service button */}
-                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-white transition-all duration-300 ease-out group-hover:w-full"></span>
-              </button>
 
-              {/* Dropdown menu with zoom-in animation */}
-              <div className="absolute left-0 mt-2 bg-white text-blue-600 rounded-md shadow-lg w-52 opacity-0 transform scale-95 translate-y-2 
-                  group-hover:opacity-100 group-hover:scale-100 group-hover:translate-y-0 
-                  transition-all duration-300 ease-out">
-                <NavLink
-                  to="/video-gallery"
-                  className="block px-4 py-2 hover:bg-blue-100 relative group transform scale-95 hover:scale-105 transition-all duration-300 ease-out"
-                >
-                  Video Gallery
-                  {/* Underline effect for Service 1 */}
-                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 ease-out group-hover:w-full"></span>
-                </NavLink>
-                <NavLink
-                  to="/service1"
-                  className="block px-4 py-2 hover:bg-blue-100 relative group transform scale-95 hover:scale-105 transition-all duration-300 ease-out"
-                >
-                  Img Gallery
-                  {/* Underline effect for Service 1 */}
-                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 ease-out group-hover:w-full"></span>
-                </NavLink>
-                <li>
-            
-          </li>
-              </div>
-        </li>
-        
-        <li>
-            <NavLink to="/project-" className="relative flex items-center space-x-1 hover:text-blue-300 group">
-              <span className='lg:text-[14px]' >Project Details</span>
-              {/* Underline effect */}
-                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-white transition-all duration-300 ease-out group-hover:w-full"></span>
-            </NavLink>
-            </li>
-            
-            <li>
-              <NavLink to="/career" className="relative flex items-center space-x-1 hover:text-blue-300 group">
-                <span className='lg:text-[14px]' >Career</span>
-                {/* Underline effect */}
-                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-white transition-all duration-300 ease-out group-hover:w-full"></span>
-              </NavLink>
-            </li>
-            
-            <li>
-              <NavLink to="/booking-form" className="relative flex items-center space-x-1 hover:text-blue-300 group">
-                <span className='lg:text-[14px]' >Booking Form</span>
-                {/* Underline effect */}
-                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-white transition-all duration-300 ease-out group-hover:w-full"></span>
-              </NavLink>
-            </li>
-            <li>
-              <NavLink to="/about-us" className="relative flex items-center space-x-1 hover:text-blue-300 group">
-                <span className='lg:text-[14px]' >About Us</span>
-                {/* Underline effect */}
-                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-white transition-all duration-300 ease-out group-hover:w-full"></span>
-              </NavLink>
-            </li>    
-            <li>
-              <NavLink to="/contact-us" className="relative flex items-center space-x-1 hover:text-blue-300 group">
-                <span className='lg:text-[14px]' >Contact</span>
-                {/* Underline effect */}
-                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-white transition-all duration-300 ease-out group-hover:w-full"></span>
-              </NavLink>
-            </li>
-          </ul>
-          </nav>
-      </div>
-      <div className="hidden lg:flex lg:w-[30%] text-white justify-center items-center space-x-4 py-2">
-        {/* Phone number section */}
-        <div className="flex items-center border border-white px-3 space-x-2">
-          <FaPhoneAlt />
-          <span>(+880) 1751586230</span>
-        </div>
+          {/* Toggle Button for Mobile Devices */}
+          <button onClick={toggleDrawer} className='md:hidden text-white'>
+            {!isDrawerOpen ? <RiMenuUnfold4Fill size={30} className='font-bold block ml-40 ' /> : <span></span>}
+          </button>
 
-        {/* Social icons section */}
-        <div className="flex space-x-3">
-          <a href="#" className="hover:text-gray-400"><FaFacebookF /></a>
-          <a href="#" className="hover:text-gray-400"><FaYoutube /></a>
-          <a href="#" className="hover:text-gray-400"><FaLinkedinIn /></a>
-          <a href="#" className="hover:text-gray-400"><FaInstagram /></a>
-          <a href="#" className="hover:text-gray-400"><FaTwitter /></a>
-        </div>
-      </div>
-      </div>
-           
+          {/* Desktop Navigation Links */}
+          <div className='lg:w-50% lg:mx-auto'>
+            <nav className='hidden lg:block'>
+              <ul className='flex lg:flex-row lg:space-x-3'>
+                {navLinks.map((link, idx) => (
+                  <li
+                    key={idx}
+                    className="relative group"
+                    onMouseEnter={link.title === 'Corporate' ? handleMouseEnterCorporate : link.title === 'Gallery' ? handleMouseEnterGallery : null}
+                    onMouseLeave={link.title === 'Corporate' ? handleMouseLeaveCorporate : link.title === 'Gallery' ? handleMouseLeaveGallery : null}
+                  >
+                    {!link.isDropdown ? (
+                      <NavLink to={link.path} className="relative flex items-center space-x-1 hover:text-black group">
+                        <span className='lg:text-[14px]'>{link.title}</span>
+                        <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-white transition-all duration-300 ease-out group-hover:w-full"></span>
+                      </NavLink>
+                    ) : (
+                      <>
+                        <button className="relative lg:text-[14px] block hover:text-black z-20">
+                          {link.title}
+                          <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-white transition-all duration-300 ease-out group-hover:w-full"></span>
+                        </button>
+                        {link.title === 'Corporate' && isCorporateOpen && (
+                          <div
+                            className="absolute left-0 mt-2 bg-white text-black rounded-md shadow-lg w-64 opacity-100 transform scale-100 translate-y-0 transition-all duration-300 ease-out"
+                            onMouseEnter={handleMouseEnterCorporate}
+                            onMouseLeave={handleMouseLeaveCorporate}
+                          >
+                            {link.dropdownLinks.map((dropdownLink, idx) => (
+                              <NavLink
+                                to={dropdownLink.path}
+                                key={idx}
+                                className="block px-4 py-2 hover:bg-blue-100 relative group transform scale-95 hover:scale-105 transition-all duration-300 ease-out"
+                              >
+                                {dropdownLink.title}
+                                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#21c45e] transition-all duration-300 ease-out group-hover:w-full"></span>
+                              </NavLink>
+                            ))}
+                          </div>
+                        )}
+                        {link.title === 'Gallery' && isGalleryOpen && (
+                          <div
+                            className="absolute left-0 mt-2 bg-white text-black rounded-md shadow-lg w-64 opacity-100 transform scale-100 translate-y-0 transition-all duration-300 ease-out"
+                            onMouseEnter={handleMouseEnterGallery}
+                            onMouseLeave={handleMouseLeaveGallery}
+                          >
+                            {link.dropdownLinks.map((dropdownLink, idx) => (
+                              <NavLink
+                                to={dropdownLink.path}
+                                key={idx}
+                                className="block px-4 py-2 hover:bg-blue-100 relative group transform scale-95 hover:scale-105 transition-all duration-300 ease-out"
+                              >
+                                {dropdownLink.title}
+                                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#21c45e] transition-all duration-300 ease-out group-hover:w-full"></span>
+                              </NavLink>
+                            ))}
+                          </div>
+                        )}
+                      </>
+                    )}
+                  </li>
+                ))}
+              </ul>
+            </nav>
+          </div>
+
+                {/* Social icons section */}
+            <div className="flex space-x-3">
+              <a href="#" className="hover:text-gray-400"><FaFacebookF /></a>
+              <a href="#" className="hover:text-gray-400"><FaYoutube /></a>
+              <a href="#" className="hover:text-gray-400"><FaLinkedinIn /></a>
+              <a href="#" className="hover:text-gray-400"><FaInstagram /></a>
+              <a href="#" className="hover:text-gray-400"><FaTwitter /></a>
+            </div>
+          </div>      
+
       </div>
 
       {/* Drawer for Small Devices */}
       {isDrawerOpen && (
         <div className='md:hidden top-[65px] fixed inset-0 bg-opacity-50 z-50 flex'>
           <div className='absolute left-0 w-64 h-screen bg-green-400 text-white p-4 transition-transform transform translate-x-0'>
-            <button onClick={toggleDrawer} className='text-white' aria-label="Close Drawer">
+            <button onClick={toggleDrawer} className='text-white'>
               <span>
-              <ImCross className='block ml-44 ' />
+                <ImCross className='block ml-44 ' />
               </span>
             </button>
             <ul className='mt-4 space-y-4'>
-              {['/', '/booking-form', '/offer', '/about-us', '/contact-us', '/career'].map((route, idx) => (
+              {navLinks.map((link, idx) => (
                 <li key={idx}>
-                  <NavLink  to={route} onClick={toggleDrawer} className={`text-lg  `}>
-                    {route.replace('/', '').replace('-', ' ').replace(/(?:^|\s)\S/g, a => a.toUpperCase()) || 'Home'}
-                  </NavLink>
+                  <button
+                    onClick={link.title === 'Corporate' ? toggleCorporateDropdown : link.title === 'Gallery' ? toggleGalleryDropdown : null}
+                    className="block px-4 py-2 hover:bg-white hover:text-black w-full"
+                  >
+                    {link.title}
+                  </button>
+                  {link.isDropdown && (
+                    <div className={`${link.title === 'Corporate' ? isCorporateOpen : isGalleryOpen ? 'block' : 'hidden'}`}>
+                      {link.dropdownLinks.map((dropdownLink, idx) => (
+                        <NavLink
+                          to={dropdownLink.path}
+                          key={idx}
+                          className="block px-4 py-2 hover:bg-white hover:text-black"
+                        >
+                          {dropdownLink.title}
+                        </NavLink>
+                      ))}
+                    </div>
+                  )}
                 </li>
               ))}
-              {/* Gallery Dropdown in Drawer */}
-              <li>
-                <button onClick={toggleGalleryDropdown} className='text-lg w-full text-left'>
-                  Gallery
-                </button>
-                {isGalleryOpen && (
-                  <ul className='ml-4 mt-2 space-y-2'>
-                    <li>
-                      <NavLink to="/gallery/images" onClick={toggleDrawer} className='text-lg'>
-                        Img Gallery
-                      </NavLink>
-                    </li>
-                    <li>
-                      <NavLink to="/gallery/videos" onClick={toggleDrawer} className='text-lg'>
-                        Video Gallery
-                      </NavLink>
-                    </li>
-                  </ul>
-                )}
-              </li>
             </ul>
           </div>
-          <div className='flex-grow' onClick={toggleDrawer} aria-hidden="true" />
         </div>
       )}
     </div>
@@ -285,7 +226,3 @@ const Navbar = () => {
 };
 
 export default Navbar;
-
-
-
-
