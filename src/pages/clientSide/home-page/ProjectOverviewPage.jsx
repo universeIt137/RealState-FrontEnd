@@ -5,7 +5,7 @@ const ProjectOverviewPage = () => {
     <div className="w-full max-w-5xl mx-auto p-6 md:p-12 bg-gray-100 rounded-lg shadow-lg">
       {/* Header Section */}
       <div className="text-center mb-8">
-        <h1 className="text-3xl font-bold text-green-600">Amar Thikana Apartments</h1>
+        <h1 className="text-3xl font-bold text-green-600">Explore stunning properties, find your dream home, and invest wisely</h1>
         <p className="text-lg text-gray-700 mt-2">Prime Location in Dhaka, Bangladesh</p>
       </div>
 
@@ -30,7 +30,7 @@ const ProjectOverviewPage = () => {
 
       {/* Project Details */}
       <div className="bg-white p-6 rounded-lg shadow-md mb-8">
-        <h2 className="text-2xl font-bold text-green-600 mb-4">Project Overview</h2>
+        <h2 className="text-2xl font-bold text-[#21c45e] mb-4">Project Overview</h2>
         <p className="text-gray-700 mb-6">
           Green Valley Apartments offers luxurious living spaces with modern amenities and eco-friendly features.
           Located in the heart of Dhaka, this project provides an ideal balance between urban living and serene
