@@ -14,7 +14,7 @@ const Carousel = () => {
   const [activeSlide, setActiveSlide] = useState(0); // Track active slide index
 
   return (
-    <div className="bg-green-100 lg:mt-24 mt-16 ">
+    <div className="bg-green-100 lg:mt-20 mt-14 ">
       <div className="">
         <div className="flex flex-col justify-center items-center py-3 lg:w-1/2 mx-2 lg:mx-auto gap-4">
           <div className="">

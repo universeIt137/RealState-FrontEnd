@@ -11,6 +11,7 @@ import Contact from '../../../components/clientSide/Contact'
 import ChairmanSpeech from './ChairmanSpeech'
 import ProjectFeaturePage from './ProjectFeaturePage'
 import ProjectOverview from './ProjectOverview'
+import BannerSlider from './BannerSlider'
 
 
 const HomePage = () => {
@@ -19,8 +20,8 @@ const HomePage = () => {
       {/* carousel */}
       <Carousel></Carousel>
 
-      <div className="mt-[79px]">
-        {/* <BannerSlider></BannerSlider> */}
+      <div className="">
+        <BannerSlider></BannerSlider>
       </div>
       <ChairmanSpeech></ChairmanSpeech>
       <ProjectOverview></ProjectOverview>
