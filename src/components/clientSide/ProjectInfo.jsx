@@ -50,16 +50,7 @@ const ProjectInfo = () => {
       </div>
 
       {/* Contact Information */}
-      <div className="bg-[#21c45e] text-white p-3 md:p-6 rounded-lg shadow-lg mt-4 md:mt-8 hover:scale-105 transform transition duration-300 ease-in-out max-w-md mx-auto">
-        <h3 className="font-bold md:text-lg">হেড অফিস</h3>
-        <p className='text-[10px] md:text-[15px] ' >৪৮, বিজয় নগর (৪র্থ তলা), পল্টন, ঢাকা-১০০০।</p>
-        <p className="md:mt-2 mt-1 flex items-center">
-          <FaPhoneAlt className="mr-2 text-[10px] md:text-[15px]   " /> +88 01747-516981
-        </p>
-        <p className="mt-1 md:mt-2 flex items-center">
-          <FaEnvelope className="mr-2 text-[10px] md:text-[15px] " /> amarThikana06@gmail.com
-        </p>
-      </div>
+      
     </div>
   );
 };

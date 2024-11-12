@@ -97,7 +97,7 @@ const Navbar = () => {
           {/* Logo */}
           <div className='bg-white lg:w-[10%] rounded-md p-1'>
             <NavLink to="/">
-              <img className='w-full md:w-32 md:rounded-full' src="https://res.cloudinary.com/dnvmj9pvk/image/upload/v1731319434/Amer%20Thikana/cldetxsqsas3ipe3zozl.png" alt="Logo" />
+              <img className='w-full md:w-32 md:rounded-full' src="https://res.cloudinary.com/dnvmj9pvk/image/upload/v1731399400/Artboard_2300_zteplb.png" alt="Logo" />
             </NavLink>
           </div>
 
@@ -173,21 +173,21 @@ const Navbar = () => {
           </div>
 
           <div className=' hidden lg:block ' >
-          <div className='flex items-center gap-4 ' >
-            <div className="flex items-center border border-white px-3  ">
-              <FaPhoneAlt />
-              <span>(+880) 1751586230</span>
-            </div>
+            <div className='flex items-center gap-4 ' >
+              <div className="flex items-center border border-white px-3  ">
+                <FaPhoneAlt />
+                <span>(+880) 1751586230</span>
+              </div>
 
-            {/* Social icons section */}
-            <div className="flex space-x-3  ">
-              <a href="#" className="hover:text-gray-400"><FaFacebookF /></a>
-              <a href="#" className="hover:text-gray-400"><FaYoutube /></a>
-              <a href="#" className="hover:text-gray-400"><FaLinkedinIn /></a>
-              <a href="#" className="hover:text-gray-400"><FaInstagram /></a>
-              <a href="#" className="hover:text-gray-400"><FaTwitter /></a>
+              {/* Social icons section */}
+              <div className="flex space-x-3  ">
+                <a href="#" className="hover:text-gray-400"><FaFacebookF /></a>
+                <a href="#" className="hover:text-gray-400"><FaYoutube /></a>
+                <a href="#" className="hover:text-gray-400"><FaLinkedinIn /></a>
+                <a href="#" className="hover:text-gray-400"><FaInstagram /></a>
+                <a href="#" className="hover:text-gray-400"><FaTwitter /></a>
+              </div>
             </div>
-          </div>
           </div>
         </div>
 
