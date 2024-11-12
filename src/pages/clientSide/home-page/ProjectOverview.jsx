@@ -22,20 +22,20 @@ const ProjectOverview = () => {
         <div>
             <div className="w-11/12 mx-auto  ">
                 <div>
-                    <h1 className='text-center md:text-4xl font-bold text-[#267543] ' >Project Overview</h1>
+
                 </div>
-                <div className="flex flex-col md:flex-row md:flex-row-reverse md:items-center md:justify-between lg:py-20 py-5 px-6 bg-white  rounded-lg">
+                <div className="flex flex-col md:flex-row md:flex-row-reverse md:justify-between lg:py-20 py-5 px-6 bg-white  rounded-lg">
 
 
                     {/* Image/Video Section */}
-                    <div className="md:w-1/2 relative mt-8 md:mt-0">
+                    <div className="md:w-1/2 relative lg:mt-8 md:mt-0">
                         <div className="relative rounded-lg shadow-md cursor-pointer overflow-hidden">
                             <div
-                                onClick={() => handlePlayButtonClick('https://www.youtube.com/watch?v=nWyi1fbSalo&t=1s')}
+                                onClick={() => handlePlayButtonClick('https://youtu.be/SNga79Zqoss?si=YSpw-w14nqbBrG68')}
                                 className="h-[35.9vw] lg:h-[25.9vw] cursor-pointer border rounded-lg overflow-hidden"
                             >
                                 <ReactPlayer
-                                    url="https://www.youtube.com/watch?v=nWyi1fbSalo&t=1s"
+                                    url="https://youtu.be/SNga79Zqoss?si=YSpw-w14nqbBrG68"
                                     width="100%"
                                     height="100%"
                                     light="https://res.cloudinary.com/dnvmj9pvk/image/upload/v1731320619/Amer%20Thikana/ios2ysxylei3yemy0fgk.jpg" // Display image thumbnail before the video plays
@@ -47,7 +47,8 @@ const ProjectOverview = () => {
 
                     {/* Text Section */}
                     <div className="md:w-1/2 md:pr-10">
-                        <h1 className="text-3xl md:text-4xl font-bold text-[#267543] uppercase">
+                        <h1 className=' text-[13px] md:text-xl font-bold text-[#267543] uppercase my-2 lg:my-4 ' >Project Overview</h1>
+                        <h1 className="lg:text-3xl  font-bold text-[#267543] uppercase">
                             Redefining your standard of living
                         </h1>
                         <p className="hidden lg:block">
