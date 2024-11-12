@@ -5,13 +5,11 @@ import AboutUs from '../../../components/clientSide/AboutUs'
 import ProjectInfo from '../../../components/clientSide/ProjectInfo'
 
 import TestimonialCard from './Reviews'
-import Career from './Career'
-import Offer from './Offer'
+
 import LayoutVisual from './LayoutVisual'
 import Contact from '../../../components/clientSide/Contact'
-import ProjectOverviewPage from './ProjectOverviewPage'
 import ChairmanSpeech from './ChairmanSpeech'
-import BannerSlider from './BannerSlider'
+import ProjectFeaturePage from './ProjectFeaturePage'
 
 
 const HomePage = () => {
@@ -24,7 +22,7 @@ const HomePage = () => {
         {/* <BannerSlider></BannerSlider> */}
       </div>
       <ChairmanSpeech></ChairmanSpeech>
-      <ProjectOverviewPage></ProjectOverviewPage>
+      <ProjectFeaturePage></ProjectFeaturePage>
       <ProjectInfo></ProjectInfo>
       <AboutUs></AboutUs>
       <Team></Team>
