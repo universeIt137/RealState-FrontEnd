@@ -7,11 +7,6 @@ const imagesData = [
   { id: 3, src: 'https://res.cloudinary.com/dnvmj9pvk/image/upload/v1730889949/offer-2_s0dp1u.png', alt: 'Image 3' },
   { id: 4, src: 'https://res.cloudinary.com/dnvmj9pvk/image/upload/v1730889904/offer-1_bajmsf.png', alt: 'Image 4' },
   { id: 5, src: 'https://res.cloudinary.com/dnvmj9pvk/image/upload/v1730799891/Amer%20Thikana/cdmwebyklefwysceljmu.jpg', alt: 'Image 5' },
-  { id: 6, src: 'https://via.placeholder.com/300x200', alt: 'Image 6' },
-  { id: 7, src: 'https://via.placeholder.com/300x200', alt: 'Image 7' },
-  { id: 8, src: 'https://via.placeholder.com/300x200', alt: 'Image 8' },
-  { id: 9, src: 'https://via.placeholder.com/300x200', alt: 'Image 9' },
-  { id: 10, src: 'https://via.placeholder.com/300x200', alt: 'Image 10' },
 ];
 
 const ProjectFeatureImgGallery = () => {
