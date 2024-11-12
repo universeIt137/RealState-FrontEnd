@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
 
@@ -7,86 +7,68 @@ import 'swiper/css';
 import 'swiper/css/effect-coverflow';
 import 'swiper/css/pagination';
 
-import './style.css';
-
 // Import required modules
 import { EffectCoverflow, Autoplay } from 'swiper/modules';
 
 const Carousel = () => {
+  const [activeSlide, setActiveSlide] = useState(0); // Track active slide index
+
   return (
-    <div className="bg-green-100  my-16  h-100 ">
-      <div className="lg:grid grid-cols-2 items-center gap-20 justify-evenly w-11/12 mx-auto ">
-        <div className='' >
-          <div className="">
-            <img className='md:block md:mx-auto '  src="https://res.cloudinary.com/dnvmj9pvk/image/upload/v1730802684/Other%20data/p2jhrkjq8ytl5ajulfvx.png" alt="" />
-          </div>
-          <div>
-          <div className='md:-mt-16' >
-              <h1 className="lg:text-3xl text-center font-bold text-gray-800">
-                    আপনি কি নিরাপদ আবাসন গড়ে তোলার জন্য জমি খুঁজছেন?
-              </h1>
-              <p className="text-gray-600  text-center ">
-                ঢাকা মেট্রো রেল প্রকল্পের যাত্রাবাড়ী স্টেশন থেকে মাত্র ২০ মিনিট দূরত্বে, কাঁচপুর ব্রিজ থেকে ১০ মিনিট দূরত্বে ঢাকা-নারায়ণগঞ্জ লিংক রোডের পাশে আমার ঠিকানা গ্রীন সিটি প্রকল্পটি অবস্থিত। অত্যাধুনিক সবুজ পরিবেশে ৪০০ বিঘা জমির উপর, আধুনিক সুযোগ সুবিধা সম্বলিত পরিকল্পিত আবাসিক প্রকল্পটি তৈরি করা হচ্ছে। এটি আদর্শ গ্রীন সিটি হবে ইনশাআল্লাহ।
-              </p>
-          </div>
-          </div>
-        </div>
-        <div className="carousel-container ">
-          <Swiper
-            effect={'coverflow'}
-            grabCursor={true}
-            slidesPerView={1}            // Show three slides at a time
-            centeredSlides={false}        // Disable centered slides so the focus is on the left
-            spaceBetween={60}             // Set gap between slides
-            coverflowEffect={{
-              rotate: 0,                // No rotation
-              stretch: 0,
-              depth: 500,               // Slight zoom for the focused slide
-              modifier: 1,
-              slideShadows: false,      // Remove shadows for cleaner look
-            }}
-            autoplay={{
-              delay: 1000,              // Delay for autoplay
-              disableOnInteraction: false,
-            }}
-            modules={[EffectCoverflow, Autoplay]}
-            className="mySwiper"
-          >
+    <div className="bg-green-100 my-20">
+      <div className="border">
+        <img src="https://res.cloudinary.com/dnvmj9pvk/image/upload/v1730802684/Other%20data/p2jhrkjq8ytl5ajulfvx.png" alt="" className='size-40' />
+      </div>
 
+      <div className="">
+        <Swiper
+          effect={'coverflow'}
+          grabCursor={true}
+          slidesPerView={3}
+          centeredSlides={true}
+          spaceBetween={0}
+          onSlideChange={(swiper) => setActiveSlide(swiper.realIndex)} // Track the active slide index
+          coverflowEffect={{
+            rotate: 0,
+            stretch: 0,
+            depth: 100,
+            modifier: 1,
+            slideShadows: false,
+          }}
+          autoplay={{
+            delay: 1000,
+            disableOnInteraction: false,
+          }}
+          modules={[EffectCoverflow, Autoplay]}
+          className="mySwiper"
+        >
+          {/* Sample slides */}
+          {[...Array(14)].map((_, index) => (
+            <SwiperSlide key={index} className="transition-transform duration-300">
+              <img
+                src={
+                  index % 2 === 0
+                    ? "https://res.cloudinary.com/dnvmj9pvk/image/upload/v1731384929/Amer%20Thikana/t6riufzkqe6mpckn2edp.avif"
+                    : "https://res.cloudinary.com/dnvmj9pvk/image/upload/v1731384929/Amer%20Thikana/t6riufzkqe6mpckn2edp.avif"
+                }
+                alt={`Slide ${index + 1}`}
+                className={`w-full h-auto rounded-lg ${index === activeSlide ? 'scale-110' : 'scale-100'
+                  }`} // Apply scale transform on active slide
+              />
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      </div>
 
-            <SwiperSlide >
-              <img  src="https://res.cloudinary.com/dnvmj9pvk/image/upload/v1730799883/Amer%20Thikana/xq2hxasye6juq4e5pzti.jpg" alt="Slide 3" className="w-full h-auto rounded-lg" />
-            </SwiperSlide>
-            <SwiperSlide>
-              <img src="https://res.cloudinary.com/dnvmj9pvk/image/upload/v1730799878/Amer%20Thikana/m0zytoaeovvwdx5pkcqa.jpg" alt="Slide 4" className="w-full h-auto rounded-lg" />
-            </SwiperSlide>
-
-            <SwiperSlide>
-              <img src="https://res.cloudinary.com/dnvmj9pvk/image/upload/v1730799883/Amer%20Thikana/xq2hxasye6juq4e5pzti.jpg" alt="Slide 3" className="w-full h-auto rounded-lg" />
-            </SwiperSlide>
-            <SwiperSlide>
-              <img src="https://res.cloudinary.com/dnvmj9pvk/image/upload/v1730799878/Amer%20Thikana/m0zytoaeovvwdx5pkcqa.jpg" alt="Slide 4" className="w-full h-auto rounded-lg" />
-            </SwiperSlide>
-
-            <SwiperSlide>
-              <img src="https://res.cloudinary.com/dnvmj9pvk/image/upload/v1730799883/Amer%20Thikana/xq2hxasye6juq4e5pzti.jpg" alt="Slide 3" className="w-full h-auto rounded-lg" />
-            </SwiperSlide>
-            <SwiperSlide>
-              <img src="https://res.cloudinary.com/dnvmj9pvk/image/upload/v1730799878/Amer%20Thikana/m0zytoaeovvwdx5pkcqa.jpg" alt="Slide 4" className="w-full h-auto rounded-lg" />
-            </SwiperSlide>
-
-            <SwiperSlide>
-              <img src="https://res.cloudinary.com/dnvmj9pvk/image/upload/v1730799883/Amer%20Thikana/xq2hxasye6juq4e5pzti.jpg" alt="Slide 3" className="w-full h-auto rounded-lg" />
-            </SwiperSlide>
-            <SwiperSlide>
-              <img src="https://res.cloudinary.com/dnvmj9pvk/image/upload/v1730799878/Amer%20Thikana/m0zytoaeovvwdx5pkcqa.jpg" alt="Slide 4" className="w-full h-auto rounded-lg" />
-            </SwiperSlide>
-
-          </Swiper>
-        </div>
+      <div>
+        <h1 className="lg:text-3xl text-center font-bold text-gray-800">
+          আপনি কি নিরাপদ আবাসন গড়ে তোলার জন্য জমি খুঁজছেন?
+        </h1>
+        <p className="text-gray-600 text-center">
+          ঢাকা মেট্রো রেল প্রকল্পের যাত্রাবাড়ী স্টেশন থেকে মাত্র ২০ মিনিট দূরত্বে...
+        </p>
       </div>
     </div>
   );
-}
+};
 
 export default Carousel;

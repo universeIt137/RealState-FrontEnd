@@ -16,14 +16,18 @@ const HomePage = () => {
   return (
     <div className='space-y-16' >
       {/* carousel */}
-        <Carousel></Carousel>
-        <ChairmanSpeech></ChairmanSpeech>
-        <ProjectFeaturePage></ProjectFeaturePage>
-        <ProjectInfo></ProjectInfo>
-        <AboutUs></AboutUs>
-        <Team></Team>
-        <TestimonialCard></TestimonialCard>
-        <LayoutVisual></LayoutVisual>
+      <Carousel></Carousel>
+
+      <div className="mt-[79px]">
+        {/* <BannerSlider></BannerSlider> */}
+      </div>
+      <ChairmanSpeech></ChairmanSpeech>
+      <ProjectFeaturePage></ProjectFeaturePage>
+      <ProjectInfo></ProjectInfo>
+      <AboutUs></AboutUs>
+      <Team></Team>
+      <TestimonialCard></TestimonialCard>
+      <LayoutVisual></LayoutVisual>
     </div>
   )
 }
