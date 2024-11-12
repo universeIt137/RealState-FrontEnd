@@ -12,17 +12,20 @@ import ChairmanSpeech from './ChairmanSpeech'
 import ProjectFeaturePage from './ProjectFeaturePage'
 import ProjectOverview from './ProjectOverview'
 import BannerSlider from './BannerSlider'
+import BannerCarousel from './BannerCarousel'
 
 
 const HomePage = () => {
   return (
     <div className='space-y-16' >
       {/* carousel */}
-      <Carousel></Carousel>
+       <Carousel></Carousel>
 
-      <div className="">
+      {/* <div className="">
         <BannerSlider></BannerSlider>
-      </div>
+      </div>  */}
+
+      {/* <BannerCarousel></BannerCarousel> */}
       <ChairmanSpeech></ChairmanSpeech>
       <ProjectOverview></ProjectOverview>
       <ProjectFeaturePage></ProjectFeaturePage>
