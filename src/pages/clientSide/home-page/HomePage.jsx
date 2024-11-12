@@ -10,6 +10,7 @@ import LayoutVisual from './LayoutVisual'
 import Contact from '../../../components/clientSide/Contact'
 import ChairmanSpeech from './ChairmanSpeech'
 import ProjectFeaturePage from './ProjectFeaturePage'
+import ProjectOverview from './ProjectOverview'
 import BannerSlider from './BannerSlider'
 
 
@@ -23,6 +24,7 @@ const HomePage = () => {
         <BannerSlider></BannerSlider>
       </div>
       <ChairmanSpeech></ChairmanSpeech>
+      <ProjectOverview></ProjectOverview>
       <ProjectFeaturePage></ProjectFeaturePage>
       <ProjectInfo></ProjectInfo>
       <AboutUs></AboutUs>
