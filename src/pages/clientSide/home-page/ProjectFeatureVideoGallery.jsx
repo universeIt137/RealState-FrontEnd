@@ -22,24 +22,6 @@ const videosData = [
         thumbnail: "https://res.cloudinary.com/dnvmj9pvk/image/upload/v1730889998/offer-3_zr81a8.png",
         url: "https://res.cloudinary.com/dj2edy2rg/video/upload/v1731341221/wquwm1xejbwpzmvlyrnz.mp4"
     },
-    {
-        id: 1,
-        title: "Cloudinary Video 1",
-        thumbnail: "https://res.cloudinary.com/dnvmj9pvk/image/upload/v1730889998/offer-3_zr81a8.png",
-        url: "https://res.cloudinary.com/dj2edy2rg/video/upload/v1731341221/wquwm1xejbwpzmvlyrnz.mp4"
-    }, {
-        id: 1,
-        title: "Cloudinary Video 1",
-        thumbnail: "https://res.cloudinary.com/dnvmj9pvk/image/upload/v1730889998/offer-3_zr81a8.png",
-        url: "https://res.cloudinary.com/dj2edy2rg/video/upload/v1731341221/wquwm1xejbwpzmvlyrnz.mp4"
-    },
-    {
-        id: 1,
-        title: "Cloudinary Video 1",
-        thumbnail: "https://res.cloudinary.com/dnvmj9pvk/image/upload/v1730889998/offer-3_zr81a8.png",
-        url: "https://res.cloudinary.com/dj2edy2rg/video/upload/v1731341221/wquwm1xejbwpzmvlyrnz.mp4"
-    },
-    // Additional video data as needed...
 ];
 
 const ProjectFeatureVideoGallery = () => {
@@ -70,7 +52,7 @@ const ProjectFeatureVideoGallery = () => {
     };
 
     const togglePlayPause = () => {
-        setIsPlaying(prevState => !prevState);
+        setIsPlaying((prevState) => !prevState);
     };
 
     const handleProgress = (progress) => {
@@ -89,24 +71,24 @@ const ProjectFeatureVideoGallery = () => {
     };
 
     return (
-        <div className="w-11/12 mx-auto opacity-100">
-            <h1 className="text-3xl font-bold text-center mb-8">Video Gallery</h1>
+        <div className="mx-auto relative w-full overflow-hidden">
+            <h1 className="md:text-3xl my-2 font-bold text-center text-[#21c45e] md:mb-8">Video Gallery</h1>
 
             {/* Container for images with horizontal scroll */}
             <div className="relative w-full overflow-hidden">
                 <div
-                    className="flex gap-7 transition-transform duration-500 ease-in-out"
+                    className="flex transition-transform duration-500 md:mb-7"
                     style={{
-                        transform: `translateX(-${currentIndex * (100 / (window.innerWidth < 768 ? 1 : videosData.length))}%)`,
+                        transform: `translateX(-${currentIndex * (window.innerWidth < 640 ? 100 : 33.33)}%)`,
                     }}
                 >
-                    {videosData.map((video) => (
-                        <div key={video.id} className="relative flex-shrink-0 w-full md:w-1/3 px-1">
+                    {videosData.map((video, index) => (
+                        <div key={index} className="relative flex-shrink-0 w-full sm:w-1/2 md:w-1/3 px-1">
                             <img
                                 src={video.thumbnail}
                                 alt={video.title}
                                 onClick={() => openModal(video)}
-                                className="w-full h-auto md:h-[55vh] border cursor-pointer shadow-md p-1 rounded object-cover"
+                                className="w-full h-48 object-cover rounded-lg shadow-md cursor-pointer"
                             />
                             <div className="absolute inset-0 hidden group-hover:flex items-center justify-center">
                                 <AiOutlinePlayCircle
@@ -121,7 +103,6 @@ const ProjectFeatureVideoGallery = () => {
 
             {isModalOpen && currentVideo && (
                 <div className="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50">
-                    {/* Close Button */}
                     <button
                         onClick={closeModal}
                         className="absolute top-4 right-4 text-2xl text-gray-300 z-10"
