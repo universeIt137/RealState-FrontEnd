@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { IoCloseSharp } from "react-icons/io5";
 
-
 const imagesData = [
   { id: 1, src: 'https://res.cloudinary.com/dnvmj9pvk/image/upload/v1730889998/offer-3_zr81a8.png', alt: 'Image 1' },
   { id: 2, src: 'https://res.cloudinary.com/dnvmj9pvk/image/upload/v1730889949/offer-2_s0dp1u.png', alt: 'Image 2' },
@@ -24,7 +23,7 @@ const ProjectFeatureImgGallery = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentIndex((prevIndex) =>
-        prevIndex < imagesData.length - 3 ? prevIndex + 1 : 0
+        prevIndex < imagesData.length - 1 ? prevIndex + 1 : 0
       );
     }, 3000);
 
@@ -47,10 +46,15 @@ const ProjectFeatureImgGallery = () => {
       {/* Image Slider */}
       <div
         className="flex transition-transform duration-500 mb-7"
-        style={{ transform: `translateX(-${currentIndex * (100 / 3)}%)` }}
+        style={{
+          transform: `translateX(-${currentIndex * (window.innerWidth < 640 ? 100 : 33.33)}%)`,
+        }}
       >
         {imagesData.map((image) => (
-          <div key={image.id} className="w-1/3 flex-shrink-0 px-2">
+          <div
+            key={image.id}
+            className={`flex-shrink-0 px-2 ${window.innerWidth < 640 ? 'w-full' : 'w-1/3'}`}
+          >
             <img
               src={image.src}
               alt={image.alt}
@@ -69,12 +73,12 @@ const ProjectFeatureImgGallery = () => {
               className="absolute top-4 right-4 p-3 text-white font-bold text-2xl bg-[#21c45e] rounded-full"
               onClick={closeModal} // Close modal
             >
-              <IoCloseSharp  size={30} />
+              <IoCloseSharp size={30} />
             </button>
             <img
               src={modalImage}
               alt="Modal Image"
-              className="max-w-[75vw] max-h-[75vh] object-contain" 
+              className="min-w-[70vw] min-h-[70vh] object-contain" 
             />
           </div>
         </div>
