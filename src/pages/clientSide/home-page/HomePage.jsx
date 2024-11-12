@@ -11,20 +11,25 @@ import LayoutVisual from './LayoutVisual'
 import Contact from '../../../components/clientSide/Contact'
 import ProjectOverviewPage from './ProjectOverviewPage'
 import ChairmanSpeech from './ChairmanSpeech'
+import BannerSlider from './BannerSlider'
 
 
 const HomePage = () => {
   return (
     <div className='space-y-16' >
       {/* carousel */}
-        <Carousel></Carousel>
-        <ChairmanSpeech></ChairmanSpeech>
-        <ProjectOverviewPage></ProjectOverviewPage>
-        <ProjectInfo></ProjectInfo>
-        <AboutUs></AboutUs>
-        <Team></Team>
-        <TestimonialCard></TestimonialCard>
-        <LayoutVisual></LayoutVisual>
+      <Carousel></Carousel>
+
+      <div className="mt-[79px]">
+        {/* <BannerSlider></BannerSlider> */}
+      </div>
+      <ChairmanSpeech></ChairmanSpeech>
+      <ProjectOverviewPage></ProjectOverviewPage>
+      <ProjectInfo></ProjectInfo>
+      <AboutUs></AboutUs>
+      <Team></Team>
+      <TestimonialCard></TestimonialCard>
+      <LayoutVisual></LayoutVisual>
     </div>
   )
 }
