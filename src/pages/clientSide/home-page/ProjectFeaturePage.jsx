@@ -1,6 +1,7 @@
 import React from 'react';
 import ProjectFeatureImgGallery from './ProjectFeatureImgGallery';
 import { Link } from 'react-router-dom';
+import ProjectFeatureVideoGallery from './ProjectFeatureVideoGallery';
 
 const ProjectFeaturePage = () => {
   return (
@@ -59,14 +60,14 @@ const ProjectFeaturePage = () => {
               </li>
             </ul>
           </div>
-
-
-          {/* CTA Button */}
-          <div className="text-center">
-            <button className="md:px-6 px-3 py-2 text-[10px] md:text-[16px] md:py-3 bg-[#21c45e] text-white my-3 font-bold rounded-lg hover:bg-green-600 transition-colors duration-300">
-              <Link to = {"/booking-form"}>Schedule a Visit</Link>
-            </button>
-          </div>
+        </div>
+        {/* video gallery */}
+        <ProjectFeatureVideoGallery></ProjectFeatureVideoGallery>
+        {/* CTA Button */}
+        <div className="text-center">
+          <button className="md:px-6 px-3 py-2 text-[10px] md:text-[16px] md:py-3 bg-[#21c45e] text-white my-3 font-bold rounded-lg hover:bg-green-600 transition-colors duration-300">
+            <Link to={"/booking-form"}>Schedule a Visit</Link>
+          </button>
         </div>
       </div>
     </div>
