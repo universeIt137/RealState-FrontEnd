@@ -52,7 +52,7 @@ const ImageGallery = () => {
     return (
         <div className="bg-[#fefaee]">
             <Helmet>
-                <title>Universe IT | photoGallery</title>
+                <title>Amar Thikana | photoGallery</title>
             </Helmet>
             <div className="gallery-container flex flex-col lg:grid grid-cols-2 lg:grid-cols-3  gap-4 p-4  w-10/12 mx-auto ">
                 {images.map((src, index) => (

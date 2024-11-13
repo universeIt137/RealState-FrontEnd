@@ -13,6 +13,7 @@ import ProjectFeaturePage from './ProjectFeaturePage'
 import ProjectOverview from './ProjectOverview'
 import BannerSlider from './BannerSlider'
 import BannerCarousel from './BannerCarousel'
+import ScheduleMeeting from './ScheduleMeeting'
 
 
 const HomePage = () => {
@@ -33,7 +34,8 @@ const HomePage = () => {
       <AboutUs></AboutUs>
       <Team></Team>
       <TestimonialCard></TestimonialCard>
-      <LayoutVisual></LayoutVisual>
+      {/* <LayoutVisual></LayoutVisual> */}
+      <ScheduleMeeting></ScheduleMeeting>
     </div>
   )
 }
