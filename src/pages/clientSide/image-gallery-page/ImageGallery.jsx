@@ -50,65 +50,67 @@ const ImageGallery = () => {
     }, []);
 
     return (
-        <div className="bg-[#fefaee]">
-            <Helmet>
-                <title>Amar Thikana | photoGallery</title>
-            </Helmet>
-            <div className="gallery-container flex flex-col lg:grid grid-cols-2 lg:grid-cols-3  gap-4 p-4  w-10/12 mx-auto ">
-                {images.map((src, index) => (
-                    <img
-                        key={index}
-                        src={src}
-                        alt={`Gallery Image ${index + 1}`}
-                        className="cursor-pointer w-[400px]  h-[300px] rounded-lg shadow-md transition-transform transform hover:scale-105"
-                        onClick={() => openModal(index)}
-                    />
-                ))}
+        <div className='bg-white' >
+            <div className="w-11/12 mx-auto  ">
+                <Helmet>
+                    <title>Amar Thikana | photoGallery</title>
+                </Helmet>
+                <div className="gallery-container  mt-32 flex flex-col lg:grid grid-cols-2 lg:grid-cols-3  gap-4 p-4  ">
+                    {images.map((src, index) => (
+                        <img
+                            key={index}
+                            src={src}
+                            alt={`Gallery Image ${index + 1}`}
+                            className="cursor-pointer w-[400px]  h-[300px] rounded-lg shadow-md transition-transform transform hover:scale-105"
+                            onClick={() => openModal(index)}
+                        />
+                    ))}
 
-                {/* Modal */}
-                {isOpen && (
-                    <div
-                        className="modal-overlay fixed inset-0 flex items-center justify-center bg-black bg-opacity-75 z-50"
-                        onClick={handleOutsideClick}
-                    >
-                        <div className="relative max-w-3xl w-full p-4">
-                            {/* <button
+                    {/* Modal */}
+                    {isOpen && (
+                        <div
+                            className="modal-overlay fixed inset-0 flex items-center justify-center bg-black bg-opacity-75 z-50"
+                            onClick={handleOutsideClick}
+                        >
+                            <div className="relative max-w-3xl w-full p-4">
+                                {/* <button
                             className="absolute top-2 right-2 text-white text-2xl font-bold"
                             onClick={closeModal}
                         >
                             &times;
                         </button> */}
-                            <img
-                                src={images[currentIndex]}
-                                alt={`Zoomed Image ${currentIndex + 1}`}
-                                className="w-full h-auto rounded-lg"
-                            />
-                            {/* Navigation buttons */}
-                            <div className="absolute inset-y-0 left-2 flex items-center">
-                                <button
-                                    onClick={(e) => {
-                                        e.stopPropagation();
-                                        goToPrevious();
-                                    }}
-                                    className="text-white text-3xl p-2 mx-4 bg-opacity-75 rounded-full"
-                                >
-                                    &#10094;
-                                </button>
-                            </div>
-                            <div className="absolute inset-y-0 right-2 flex items-center">
-                                <button
-                                    onClick={(e) => {
-                                        e.stopPropagation();
-                                        goToNext();
-                                    }}
-                                    className="text-white text-3xl p-2 mx-4 bg-opacity-75 rounded-full"
-                                >
-                                    &#10095;
-                                </button>
+                                <img
+                                    src={images[currentIndex]}
+                                    alt={`Zoomed Image ${currentIndex + 1}`}
+                                    className="w-full h-auto rounded-lg"
+                                />
+                                {/* Navigation buttons */}
+                                <div className="absolute inset-y-0 left-2 flex items-center">
+                                    <button
+                                        onClick={(e) => {
+                                            e.stopPropagation();
+                                            goToPrevious();
+                                        }}
+                                        className="text-white text-3xl p-2 mx-4 bg-opacity-75 rounded-full"
+                                    >
+                                        &#10094;
+                                    </button>
+                                </div>
+                                <div className="absolute inset-y-0 right-2 flex items-center">
+                                    <button
+                                        onClick={(e) => {
+                                            e.stopPropagation();
+                                            goToNext();
+                                        }}
+                                        className="text-white text-3xl p-2 mx-4 bg-opacity-75 rounded-full"
+                                    >
+                                        &#10095;
+                                    </button>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                )}
+                    )}
+                </div>
             </div>
         </div>
     );
