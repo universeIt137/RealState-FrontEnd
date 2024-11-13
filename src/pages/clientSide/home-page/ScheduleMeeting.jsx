@@ -4,14 +4,12 @@ const ScheduleMeeting = () => {
     return (
         <div className='w-11/12  mx-auto' >
             <div className="justify-center py-10">
-                <div className="  shadow-lg rounded-lg gap-10 overflow-hidden lg:flex">
+                <div className="  shadow-lg gap-10 overflow-hidden lg:flex">
 
                     {/* Left Side - Background Image */}
                     <div
                         className="hidden bg-black    lg:block opacity-95 lg:w-1/2 bg-cover bg-center"
-                        style={{
-                            backgroundImage: `url('https://res.cloudinary.com/dnvmj9pvk/image/upload/v1731232455/amar_b5sll5.jpg')`
-                        }}
+                        
                     ></div>
 
                     {/* Right Side - Form */}
@@ -25,7 +23,7 @@ const ScheduleMeeting = () => {
                                     type="text"
                                     id="fullName"
                                     placeholder="Full Name*"
-                                    className="w-full px-4 py-4 border-2 border-black rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
+                                    className="w-full px-4 py-4 border-2 border-black focus:outline-none focus:ring-2 focus:ring-green-500"
                                     required
                                 />
                             </div>
@@ -36,7 +34,7 @@ const ScheduleMeeting = () => {
                                     type="tel"
                                     id="phoneNumber"
                                     placeholder="Phone Number*"
-                                    className="w-full px-4 border-2 border-black py-4  rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
+                                    className="w-full px-4 border-2 border-black py-4  focus:outline-none focus:ring-2 focus:ring-green-500"
                                     required
                                 />
                             </div>
@@ -47,7 +45,7 @@ const ScheduleMeeting = () => {
                                     type="email"
                                     id="email"
                                     placeholder="Email Address"
-                                    className="w-full px-4 py-4 border-2 border-black rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
+                                    className="w-full px-4 py-4 border-2 border-black focus:outline-none focus:ring-2 focus:ring-green-500"
                                 />
                             </div>
 
@@ -55,7 +53,7 @@ const ScheduleMeeting = () => {
                                 <label htmlFor="time" className="sr-only">Select A Time</label>
                                 <select
                                     id="time"
-                                    className="w-full border-2 border-black px-4 py-4  rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
+                                    className="w-full border-2 border-black px-4 py-4  focus:outline-none focus:ring-2 focus:ring-green-500"
                                 >
                                     <option value="">Select A Time</option>
                                     <option value="9am">9:00 AM</option>
@@ -69,7 +67,7 @@ const ScheduleMeeting = () => {
                             <div>
                                 <button
                                     type="submit"
-                                    className=" py-3 bg-green px-8 text-white font-semibold rounded-lg hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50"
+                                    className=" py-3 border border-black px-8 text-black font-semibold hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50"
                                 >
                                     Submit
                                 </button>
