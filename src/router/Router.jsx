@@ -16,6 +16,8 @@ import VideoGalleryPage from "../pages/clientSide/video-gallery-page/VideoGaller
 import CareerDetailsPage from './../pages/clientSide/carrer-page/CareerDetailsPage';
 import ProjectDetails from "../pages/clientSide/project-details-page/ProjectDetails";
 import ImageGallery from './../pages/clientSide/image-gallery-page/ImageGallery';
+import DashboardLayout from "../layout/DashboardLayout";
+import Dashboard from "../pages/adminSide/dasboard/Dashboard";
 
 
 
@@ -91,6 +93,16 @@ export const router = createBrowserRouter([
            
         ]
     },
+    {
+        path: "/dashboard",
+        element: <DashboardLayout></DashboardLayout>,
+        children: [
+            {
+                path: "/dashboard",
+                element: <Dashboard></Dashboard>
+            }
+        ]
+    }
 
     
 ]);

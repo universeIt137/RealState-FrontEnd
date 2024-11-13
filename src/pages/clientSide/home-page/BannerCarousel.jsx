@@ -6,7 +6,7 @@ import { FaPlay } from 'react-icons/fa';
 
 const BannerCarousel = () => {
     const slides = [
-        { url: 'https://res.cloudinary.com/dnvmj9pvk/image/upload/v1731492939/Amer%20Thikana/hvsqkx9fabxfqdukitrm.jpg', title: 'Reviving You on Every Step' },
+        { url: 'https://res.cloudinary.com/dnvmj9pvk/image/upload/v1731500291/Amer%20Thikana/ynqygmetpfbezjjofbez.jpg', title: 'Reviving You on Every Step' },
         { url: 'https://res.cloudinary.com/dnvmj9pvk/image/upload/v1731493217/Amer%20Thikana/ynjhagwufmak2cxk5gl7.jpg', title: 'Discover More' },
         { url: 'https://res.cloudinary.com/dnvmj9pvk/image/upload/v1731493294/Amer%20Thikana/kel7ucjs1x7xt9e7k1zz.jpg', title: 'Experience Quality' },
         { url: 'https://res.cloudinary.com/dnvmj9pvk/image/upload/v1731493217/Amer%20Thikana/ynjhagwufmak2cxk5gl7.jpg', title: 'Discover More' },
@@ -24,7 +24,7 @@ const BannerCarousel = () => {
     useEffect(() => {
         const interval = setInterval(() => {
             setCurrentIndex((prevIndex) => (prevIndex + 1) % slides.length);
-        }, 2000);
+        }, 7000);
 
         return () => clearInterval(interval);
     }, [slides.length]);
@@ -87,7 +87,7 @@ const BannerCarousel = () => {
             </div>
 
             {/* Bottom Buttons */}
-            <div className="absolute bottom-24 left-0 right-0 bg-black bg-opacity-90 py-3 text-white z-10">
+            <div className="absolute bottom-24 left-0 right-0 bg-[#027f3d] bg-opacity-90 py-3 text-white z-10">
                 <div className="flex space-x-10 w-3/4  mx-auto">
                     <button className="px-4 py-2 rounded-lg flex items-center gap-4"><BsBricks /> EXPLORE PROJECTS</button>
                     <button className="px-4 py-2 rounded-lg flex items-center gap-4"><FaPlay /> ONGOING</button>
