@@ -19,13 +19,13 @@ const HomePage = () => {
   return (
     <div className='space-y-16' >
       {/* carousel */}
-       <Carousel></Carousel>
+       {/* <Carousel></Carousel> */}
 
       {/* <div className="">
         <BannerSlider></BannerSlider>
       </div>  */}
 
-      {/* <BannerCarousel></BannerCarousel> */}
+      <BannerCarousel></BannerCarousel>
       <ChairmanSpeech></ChairmanSpeech>
       <ProjectOverview></ProjectOverview>
       <ProjectFeaturePage></ProjectFeaturePage>
