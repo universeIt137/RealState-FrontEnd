@@ -14,6 +14,8 @@ import CertificationPage from "../pages/clientSide/certification-page/Certificat
 import TestimonialCard from "../pages/clientSide/home-page/Reviews";
 import VideoGalleryPage from "../pages/clientSide/video-gallery-page/VideoGalleryPage";
 import CareerDetailsPage from './../pages/clientSide/carrer-page/CareerDetailsPage';
+import ProjectDetails from "../pages/clientSide/project-details-page/ProjectDetails";
+import ImageGallery from './../pages/clientSide/image-gallery-page/ImageGallery';
 
 
 
@@ -76,6 +78,15 @@ export const router = createBrowserRouter([
             {
                 path:"career-details",
                 element:<CareerDetailsPage></CareerDetailsPage>
+            }
+            ,
+            {
+                path : "project-details",
+                element : <ProjectDetails></ProjectDetails>
+            },
+            {
+                path : "image-gallery",
+                element : <ImageGallery></ImageGallery>
             }
            
         ]

@@ -9,7 +9,7 @@ const CompanyProfile = () => {
         <title>Amar Thikana | Company Profile</title>
       </Helmet>
 
-      <div className="w-full mx-auto p-4 md:p-12 bg-gray-50">
+      <div className="w-full mx-auto p-4 md:p-12 ">
         {/* Header Section */}
         <header className="text-center py-10">
           <h1 className="text-4xl font-bold text-green-600">Amar Thikana Properties Ltd.</h1>

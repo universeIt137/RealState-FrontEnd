@@ -1,63 +1,149 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import ReactPlayer from 'react-player';
+import { AiOutlinePlayCircle, AiOutlinePauseCircle } from "react-icons/ai";
+import { IoMdCloseCircleOutline } from 'react-icons/io';
+
+// Sample video data
+const videosData = [
+  {
+    id: 1,
+    title: "Cloudinary Video 1",
+    thumbnail: "https://res.cloudinary.com/dnvmj9pvk/image/upload/v1730889998/offer-3_zr81a8.png",
+    url: "https://res.cloudinary.com/dj2edy2rg/video/upload/v1731341221/wquwm1xejbwpzmvlyrnz.mp4"
+  }, {
+    id: 1,
+    title: "Cloudinary Video 1",
+    thumbnail: "https://res.cloudinary.com/dnvmj9pvk/image/upload/v1730889998/offer-3_zr81a8.png",
+    url: "https://res.cloudinary.com/dj2edy2rg/video/upload/v1731341221/wquwm1xejbwpzmvlyrnz.mp4"
+  },
+  {
+    id: 1,
+    title: "Cloudinary Video 1",
+    thumbnail: "https://res.cloudinary.com/dnvmj9pvk/image/upload/v1730889998/offer-3_zr81a8.png",
+    url: "https://res.cloudinary.com/dj2edy2rg/video/upload/v1731341221/wquwm1xejbwpzmvlyrnz.mp4"
+  },
+];
 
 const VideoGalleryPage = () => {
-    window.scrollTo(0, 0);
-  const videos = [
-    {
-      id: 1,
-      title: "Amar Thikana হবে পরিবেশ বান্ধব প্রজেক্ট",
-      url: "https://www.youtube.com/watch?v=your_video_id_1",
-      imageUrl: "https://res.cloudinary.com/dnvmj9pvk/image/upload/v1731232455/amar_b5sll5.jpg",
-    },
-    {
-      id: 2,
-      title: "কোথায় বিনিয়োগ করবেন?",
-      url: "https://www.youtube.com/watch?v=your_video_id_2",
-      imageUrl: "https://res.cloudinary.com/dnvmj9pvk/image/upload/v1730889998/offer-3_zr81a8.png",
-    },
-    // Add more video items here
-    {
-      id: 3,
-      title: "নতুন প্রকল্প",
-      url: "https://www.youtube.com/watch?v=your_video_id_3",
-      imageUrl: "https://res.cloudinary.com/dnvmj9pvk/image/upload/v1730889904/offer-1_bajmsf.png",
-    },
-    {
-      id: 4,
-      title: "ভবিষ্যৎ বিনিয়োগ সুযোগ",
-      url: "https://www.youtube.com/watch?v=your_video_id_4",
-      imageUrl: "https://res.cloudinary.com/dnvmj9pvk/image/upload/v1730799883/Amer%20Thikana/kuejlsp7fm243vr94avo.jpg",
-    },
-    {
-      id: 5,
-      title: "পরিবেশ বান্ধব স্থাপনা",
-      url: "https://www.youtube.com/watch?v=your_video_id_5",
-      imageUrl: "https://res.cloudinary.com/dnvmj9pvk/image/upload/v1730889949/offer-2_s0dp1u.png",
-    },
-    // Repeat or add more objects until you reach 10 items
-  ];
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [currentVideo, setCurrentVideo] = useState(null);
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [videoProgress, setVideoProgress] = useState({ played: 0, duration: 0 });
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % videosData.length);
+    }, 3000); // Slide every 3 seconds
+
+    return () => clearInterval(interval);
+  }, []);
+
+  const openModal = (video) => {
+    setCurrentVideo(video);
+    setIsModalOpen(true);
+    setIsPlaying(false);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+    setCurrentVideo(null);
+    setIsPlaying(false);
+  };
+
+  const togglePlayPause = () => {
+    setIsPlaying((prevState) => !prevState);
+  };
+
+  const handleProgress = (progress) => {
+    setVideoProgress(progress);
+  };
+
+  const handleDuration = (duration) => {
+    setVideoProgress((prevState) => ({ ...prevState, duration }));
+  };
+
+  const formatTime = (seconds) => {
+    if (isNaN(seconds)) return "0:00";
+    const minutes = Math.floor(seconds / 60);
+    const remainingSeconds = Math.floor(seconds % 60);
+    return `${minutes}:${remainingSeconds < 10 ? '0' + remainingSeconds : remainingSeconds}`;
+  };
 
   return (
-    <div className="w-11/12 mx-auto my-28">
-        <h1 className='md:text-4xl font-bold text-center my-6 text-[#21c45e] ' >Video Gallery</h1>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4">
-        {videos.map((video) => (
-          <Link
-            key={video.id}
-            to={video.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="relative border border-green-500 w-full h-64 bg-cover bg-center text-white flex items-center justify-center"
+    <div className='w-11/12 mx-auto ' >
+      <div className="mx-auto relative w-full overflow-hidden">
+        <h1 className="md:text-3xl my-2 font-bold text-center text-[#21c45e] md:mb-8">Video Gallery</h1>
+
+        {/* Container for images with horizontal scroll */}
+        <div className="relative w-full overflow-hidden">
+          <div
+            className="flex transition-transform duration-500 md:mb-7"
             style={{
-              backgroundImage: `url('${video.imageUrl}')`,
+              transform: `translateX(-${currentIndex * (window.innerWidth < 640 ? 100 : 33.33)}%)`,
             }}
           >
-            <h2 className="text-lg md:text-xl lg:text-2xl font-bold text-center bg-[#21c45e] bg-opacity-50 p-4 rounded">
-              {video.title}
-            </h2>
-          </Link>
-        ))}
+            {videosData.map((video, index) => (
+              <div key={index} className="relative flex-shrink-0 w-full sm:w-1/2 md:w-1/3 px-1">
+                <img
+                  src={video.thumbnail}
+                  alt={video.title}
+                  onClick={() => openModal(video)}
+                  className="w-full h-48 object-cover rounded-lg shadow-md cursor-pointer"
+                />
+                <div className="absolute inset-0 hidden group-hover:flex items-center justify-center">
+                  <AiOutlinePlayCircle
+                    size={50}
+                    className="text-[#21c45e] opacity-80 hover:opacity-100 cursor-pointer"
+                  />
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {isModalOpen && currentVideo && (
+          <div className="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50">
+            <button
+              onClick={closeModal}
+              className="absolute top-4 right-4 text-2xl text-gray-300 z-10"
+            >
+              <IoMdCloseCircleOutline />
+            </button>
+
+            {/* Modal for Video Player */}
+            <div className="relative w-full max-w-4xl h-[70vh] flex items-center justify-center bg-gray-900 rounded-lg">
+              <ReactPlayer
+                url={currentVideo.url}
+                playing={isPlaying}
+                width="100%"
+                height="100%"
+                style={{ borderRadius: '8px' }}
+                onProgress={handleProgress}
+                onDuration={handleDuration}
+              />
+
+              {/* Play/Pause Button */}
+              <div
+                className="absolute inset-0 flex items-center justify-center cursor-pointer z-10"
+                onClick={togglePlayPause}
+              >
+                {isPlaying ? (
+                  <AiOutlinePauseCircle size={80} className="text-white" />
+                ) : (
+                  <AiOutlinePlayCircle size={80} className="text-white" />
+                )}
+              </div>
+
+              {/* Video Duration and Current Time */}
+              {isPlaying && videoProgress.duration > 0 && (
+                <div className="absolute bottom-4 left-4 text-white z-10">
+                  <span>{formatTime(videoProgress.played * videoProgress.duration)} / {formatTime(videoProgress.duration)}</span>
+                </div>
+              )}
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );
