@@ -32,7 +32,7 @@ const teamMembers = [
 
 const Team = () => {
   return (
-    <div className="bg-gray-50 py-12 text-[#21c45e]">
+    <div className=" py-12 text-[#21c45e]">
       <div className="text-center mb-12">
         <p className="text-sm text-[#1eb055] uppercase">Our Team</p>
         <h2 className="md:text-4xl font-bold">
