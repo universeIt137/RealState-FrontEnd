@@ -91,7 +91,7 @@ const Navbar = () => {
   }, []);
 
   return (
-    <div className={`fixed top-0 w-full z-50 transition-all duration-300 ${scrolled ? 'bg-black text-white shadow-md opacity-70 ' : 'bg-black text-white shadow-xl bg-opacity-70 '}`}>
+    <div className={`fixed top-0 w-full z-50 transition-all duration-300 ${scrolled ? 'bg-[#027F3D] text-white shadow-md opacity-70 ' : 'bg-[#027F3D] text-white shadow-xl bg-opacity-70 '}`}>
       <div className='w-11/12 mx-auto'>
         <div className='flex items-center justify-between p-4'>
           {/* Logo */}
