@@ -73,7 +73,7 @@ function AboutUs() {
         </div>
 
         {/* Text Section */}
-        <div className="lg:mt-8 mt-3  flex-1">
+        <div className="lg:-mt-2  flex-1">
           <h2 className=" lg:text-2xl font-semibold text-[#21c45e]">
             Homeowner’s Reflections on Apartments
           </h2>
@@ -82,7 +82,7 @@ function AboutUs() {
           <p className="text-[#21c45e]">{currentTestimonial.role}</p>
 
           {/* Arrows for navigation */}
-          <div className="flex space-x-4 -ml-[8px] md:mt-36 text-gray-500">
+          <div className="flex space-x-4 -ml-[8px] md:mt-[158px] text-gray-500">
             <button onClick={handlePrev} className="p-2  rounded-full hover:bg-gray-100">
               <FaArrowLeft className='' />
             </button>
