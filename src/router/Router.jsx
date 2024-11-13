@@ -15,6 +15,7 @@ import TestimonialCard from "../pages/clientSide/home-page/Reviews";
 import VideoGalleryPage from "../pages/clientSide/video-gallery-page/VideoGalleryPage";
 import CareerDetailsPage from './../pages/clientSide/carrer-page/CareerDetailsPage';
 import ProjectDetails from "../pages/clientSide/project-details-page/ProjectDetails";
+import ImageGallery from './../pages/clientSide/image-gallery-page/ImageGallery';
 
 
 
@@ -82,6 +83,10 @@ export const router = createBrowserRouter([
             {
                 path : "project-details",
                 element : <ProjectDetails></ProjectDetails>
+            },
+            {
+                path : "image-gallery",
+                element : <ImageGallery></ImageGallery>
             }
            
         ]
