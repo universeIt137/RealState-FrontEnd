@@ -130,7 +130,7 @@ const Navbar = () => {
                         </button>
                         {link.title === 'Corporate' && isCorporateOpen && (
                           <div
-                            className="absolute left-0 mt-2 bg-white text-black rounded-md shadow-lg w-64 opacity-100 transform scale-100 translate-y-0 transition-all duration-300 ease-out"
+                            className="absolute z-50 left-0 mt-2 bg-white text-black rounded-md shadow-lg w-64 opacity-100 transform scale-100 translate-y-0 transition-all duration-300 ease-out"
                             onMouseEnter={handleMouseEnterCorporate}
                             onMouseLeave={handleMouseLeaveCorporate}
                           >
@@ -148,7 +148,7 @@ const Navbar = () => {
                         )}
                         {link.title === 'Gallery' && isGalleryOpen && (
                           <div
-                            className="absolute left-0 mt-2 bg-white text-black rounded-md shadow-lg w-64 opacity-100 transform scale-100 translate-y-0 transition-all duration-300 ease-out"
+                            className="absolute left-0 mt-2 z-50  bg-white text-black rounded-md shadow-lg w-64 opacity-100 transform scale-100 translate-y-0 transition-all duration-300 ease-out"
                             onMouseEnter={handleMouseEnterGallery}
                             onMouseLeave={handleMouseLeaveGallery}
                           >
