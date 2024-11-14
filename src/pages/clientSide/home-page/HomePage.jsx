@@ -31,10 +31,10 @@ const HomePage = () => {
       <ChairmanSpeech></ChairmanSpeech>
       <ProjectOverview></ProjectOverview>
       <ProjectFeaturePage></ProjectFeaturePage>
-      <ProjectInfo></ProjectInfo>
+      {/* <ProjectInfo></ProjectInfo> */}
       <AboutUs></AboutUs>
-      <Team></Team>
-      <TestimonialCard></TestimonialCard>
+      {/* <Team></Team> */}
+      {/* <TestimonialCard></TestimonialCard> */}
       {/* <LayoutVisual></LayoutVisual> */}
       <ScheduleMeeting></ScheduleMeeting>
       <ProjectPage></ProjectPage>
