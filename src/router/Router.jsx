@@ -18,6 +18,7 @@ import ProjectDetails from "../pages/clientSide/project-details-page/ProjectDeta
 import ImageGallery from './../pages/clientSide/image-gallery-page/ImageGallery';
 import DashboardLayout from "../layout/DashboardLayout";
 import Dashboard from "../pages/adminSide/dasboard/Dashboard";
+import ManageContent from "../pages/adminSide/websiteContentRelatedPages/ManageContent";
 
 
 
@@ -100,6 +101,10 @@ export const router = createBrowserRouter([
             {
                 path: "/dashboard",
                 element: <Dashboard></Dashboard>
+            },
+            {
+                path: "add-content",
+                element: <ManageContent></ManageContent>
             }
         ]
     }

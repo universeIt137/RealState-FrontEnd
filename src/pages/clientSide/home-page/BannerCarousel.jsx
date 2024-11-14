@@ -87,12 +87,12 @@ const BannerCarousel = () => {
             </div>
 
             {/* Bottom Buttons */}
-            <div className="absolute bottom-24 left-0 right-0 bg-[#027f3d] bg-opacity-90 py-3 text-white z-10">
+            <div className="absolute bottom-24 left-0 right-0 bg-[#027f3d] bg-opacity-90 py-3 text-white z-10 font-semibold">
                 <div className="flex space-x-10 w-3/4  mx-auto">
-                    <button className="px-4 py-2 rounded-lg flex items-center gap-4"><BsBricks /> EXPLORE PROJECTS</button>
-                    <button className="px-4 py-2 rounded-lg flex items-center gap-4"><FaPlay /> ONGOING</button>
-                    <button className="px-4 py-2 rounded-lg">COMPLETED</button>
-                    <button className="px-4 py-2 rounded-lg">UPCOMING</button>
+                    <button className="px-4 py-2 rounded-lg flex items-center gap-4"><BsBricks /> PROJECT DETAILS</button>
+                    <button className="px-4 py-2 rounded-lg flex items-center gap-4"><FaPlay /> BOOKING FORM</button>
+                    <button className="px-4 py-2 rounded-lg">CONTACT US</button>
+                    <button className="px-4 py-2 rounded-lg">ABOUT US</button>
                 </div>
             </div>
         </div>

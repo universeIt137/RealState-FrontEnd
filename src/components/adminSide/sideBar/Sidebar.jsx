@@ -29,54 +29,10 @@ const Sidebar = () => {
 
     const courseUrls =
         <>
-            <NavigationItem to="/dashboard/addCourse" icon={MdAddCircle} label="Add Courses" />
-            <NavigationItem to="/dashboard/manageCourses" icon={SiNginxproxymanager} label="Manage Courses" />
+            <NavigationItem to="/dashboard/add-content" icon={MdAddCircle} label="Manage Contents" />
         </>
 
-    const blogUrls =
-        <>
-            <NavigationItem to="/dashboard/addBlog" icon={MdAddCircle} label="Add Blog" />
-            <NavigationItem to="/dashboard/manageBlog" icon={SiNginxproxymanager} label="Manage Blogs" />
-        </>
-    const comments =
-        <>
-            <NavigationItem to="/dashboard/manageComments" icon={FaRegComments} label="Manage Comments" />
-        </>
 
-    const homepageUrls =
-        <>
-            <NavigationItem to="/dashboard/manageHomepageContent" icon={SiNginxproxymanager} label="Manage Homepage Content" />
-            <NavigationItem to="/dashboard/manageCountDown" icon={SiNginxproxymanager} label="Manage CountDown" />
-        </>
-
-    const facultyUrls =
-        <>
-            <NavigationItem to="/dashboard/addFaculty" icon={MdAddCircle} label="Add Faculty" />
-            <NavigationItem to="/dashboard/manageFaculty" icon={SiNginxproxymanager} label="Manage Faculty" />
-        </>
-
-    const testimonialUrls =
-        <>
-            <NavigationItem to="/dashboard/addTestimonial" icon={MdAddCircle} label="Add Testimonial" />
-            <NavigationItem to="/dashboard/manageTestimonial" icon={SiNginxproxymanager} label="Manage Testimonial" />
-        </>
-
-    const studentGallaryUrls =
-        <>
-            <NavigationItem to="/dashboard/manageStudentGallary" icon={SiNginxproxymanager} label="Manage Student Gallary" />
-        </>
-
-    const requestUrls =
-        <>
-            <NavigationItem to="/dashboard/admissionRequest" icon={FaFileWaveform} label="Admission Requests" />
-            <NavigationItem to="/dashboard/seminar" icon={FaUsers} label="Seminar Requests" />
-        </>
-
-    const seminarUrls =
-        <>
-            <NavigationItem to="/dashboard/createSeminar" icon={MdAddCircle} label="Create Seminar" />
-            <NavigationItem to="/dashboard/manageSeminar" icon={SiNginxproxymanager} label="Manage Seminar" />
-        </>
 
 
     return (
