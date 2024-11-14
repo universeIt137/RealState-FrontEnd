@@ -72,7 +72,7 @@ const ProjectFeatureVideoGallery = () => {
 
     return (
         <div className="mx-auto relative w-full overflow-hidden">
-            <h1 className="md:text-3xl my-2 font-bold text-center text-[#21c45e] md:mb-8">Video Gallery</h1>
+            <h1 className="md:text-3xl my-2 font-bold text-center text-black md:mb-8">Video Gallery</h1>
 
             {/* Container for images with horizontal scroll */}
             <div className="relative w-full overflow-hidden">
