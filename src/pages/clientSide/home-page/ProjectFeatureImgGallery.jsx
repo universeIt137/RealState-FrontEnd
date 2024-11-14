@@ -40,7 +40,7 @@ const ProjectFeatureImgGallery = () => {
     <div className="relative w-full overflow-hidden">
       {/* Image Slider */}
       <div
-        className="flex transition-transform duration-500 mb-7"
+        className="flex transition-transform duration-500 md:mb-7"
         style={{
           transform: `translateX(-${currentIndex * (window.innerWidth < 640 ? 100 : 33.33)}%)`,
         }}
@@ -53,7 +53,7 @@ const ProjectFeatureImgGallery = () => {
             <img
               src={image.src}
               alt={image.alt}
-              className="w-full h-48 object-cover rounded-lg shadow-md cursor-pointer"
+              className="w-full h-56 object-cover rounded-lg shadow-md cursor-pointer"
               onClick={() => openModal(image.src)} // Open modal on image click
             />
           </div>

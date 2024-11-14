@@ -29,8 +29,8 @@ function TestimonialCard() {
   ];
 
   return (
-    <div className="md:px-4 px-2 py-5 md:py-10 w-11/12 mx-auto">
-      <h1 className="text-center text-[16px] md:text-3xl font-bold text-black  md:mb-10 mb-4 ">
+    <div className="md:px-4 px-2 py-5 md:py-10 w-11/12 my-14 mx-auto">
+      <h1 className="text-center text-[16px] md:text-4xl font-bold text-[#21c45e]  md:mb-10 mb-4 ">
         ক্লায়েন্ট Review
       </h1>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">

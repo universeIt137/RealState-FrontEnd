@@ -5,12 +5,12 @@ import ProjectFeatureVideoGallery from './ProjectFeatureVideoGallery';
 
 const ProjectFeaturePage = () => {
   return (
-    <div className='w-11/12 mx-auto ' >
-      <div className="p-4 md:p-12 bg-gray-100 rounded-lg shadow-lg">
+    <div className='w-11/12   mx-auto ' >
+      <div className=" rounded-lg shadow-lg">
         {/* Header Section */}
-        <div className="text-center mb-4 md:mb-8">
-          <h1 className="md:text-4xl text-[#21c45e] font-bold ">Explore stunning properties, find your dream home, and invest wisely</h1>
-          <p className=" text-[#21c45e] text-[12px] md:text-2xl mt-2">48, Bijoy Nagar (4th Floor), Paltan, Dhaka-1000.</p>
+        <div className="text-center -mt-10 lg:-mt-0 p-1   mb-4 lg:mb-8">
+          <h1 className="md:text-4xl  text-black font-bold text-justify ">Explore stunning properties, find your dream home, and invest wisely</h1>
+          <p className=" text-black text-[12px] md:text-2xl mt-1">48, Bijoy Nagar (4th Floor), Paltan, Dhaka-1000.</p>
         </div>
 
         <div className='' >
@@ -19,9 +19,9 @@ const ProjectFeaturePage = () => {
 
 
         {/* Project Details */}
-        <div className="bg-white p-2 md:p-6 rounded-lg shadow-md md:mb-8">
-          <h2 className="md:text-2xl text-[15px] font-bold text-[#21c45e] md:mb-4">Project Feature</h2>
-          <p className="text-[#21c45e] md:text-lg text-[10px] mb-2 md:mb-6">
+        <div className="bg-white p-2 md:p-6  rounded-lg shadow-md md:mb-8">
+          <h2 className="md:text-2xl text-[15px] font-bold text-black  md:mb-4">Project Feature</h2>
+          <p className="text-black md:text-lg text-justify text-[10px] mb-1 md:mb-6">
             Green Valley Apartments offers luxurious living spaces with modern amenities and eco-friendly features.
             Located in the heart of Dhaka, this project provides an ideal balance between urban living and serene
             surroundings.
@@ -31,9 +31,9 @@ const ProjectFeaturePage = () => {
 
 
           {/* Amenities Section */}
-          <div className="md:mb-8">
-            <h3 className="md:text-3xl font-bold text-[#21c45e] text-[15px] mb-4">Amenities</h3>
-            <ul className=" flex flex-col md:grid md:grid-cols-2 lg:grid-cols-3 text-[#21c45e] gap-4 ">
+          <div className="  md:mb-8">
+            <h3 className="md:text-3xl font-bold text-black text-[15px] mb-1 lg:mb-4">Amenities</h3>
+            <ul className=" flex flex-col md:grid md:grid-cols-2 lg:grid-cols-3 text-black gap-4 ">
               <li className="flex items-center shadow-lg border border-gray-300 p-2 md:p-4 rounded-lg space-x-1 md:space-x-2">
                 <span className='md:ml-0 ml-2 text-[10px] md:text-[16px] ' >✅</span>
                 <span className='text-[10px] md:text-[16px] ' >Swimming Pool</span>
@@ -65,7 +65,7 @@ const ProjectFeaturePage = () => {
         <ProjectFeatureVideoGallery></ProjectFeatureVideoGallery>
         {/* CTA Button */}
         <div className="text-center">
-          <button className="md:px-6 px-3 py-2 text-[10px] md:text-[16px] md:py-3 bg-[#21c45e] text-white my-3 font-bold rounded-lg hover:bg-green-600 transition-colors duration-300">
+          <button className="md:px-6 px-3 py-2 text-[10px] md:text-[16px] md:py-3 bg-[#027F3D] opacity-60 text-white my-3 font-bold rounded-lg hover:bg-green-600 transition-colors duration-300">
             <Link to={"/booking-form"}>Schedule a Visit</Link>
           </button>
         </div>

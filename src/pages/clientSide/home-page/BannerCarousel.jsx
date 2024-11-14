@@ -3,16 +3,15 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { BsBricks } from 'react-icons/bs';
 import { FaPlay } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 
 const BannerCarousel = () => {
     const slides = [
-        { url: 'https://res.cloudinary.com/dnvmj9pvk/image/upload/v1731500291/Amer%20Thikana/ynqygmetpfbezjjofbez.jpg', title: 'Reviving You on Every Step' },
-        { url: 'https://res.cloudinary.com/dnvmj9pvk/image/upload/v1731493217/Amer%20Thikana/ynjhagwufmak2cxk5gl7.jpg', title: 'Discover More' },
-        { url: 'https://res.cloudinary.com/dnvmj9pvk/image/upload/v1731493294/Amer%20Thikana/kel7ucjs1x7xt9e7k1zz.jpg', title: 'Experience Quality' },
-        { url: 'https://res.cloudinary.com/dnvmj9pvk/image/upload/v1731493217/Amer%20Thikana/ynjhagwufmak2cxk5gl7.jpg', title: 'Discover More' },
-        { url: 'https://res.cloudinary.com/dnvmj9pvk/image/upload/v1731492939/Amer%20Thikana/hvsqkx9fabxfqdukitrm.jpg', title: 'Reviving You on Every Step' },
-        { url: 'https://res.cloudinary.com/dnvmj9pvk/image/upload/v1731493217/Amer%20Thikana/ynjhagwufmak2cxk5gl7.jpg', title: 'Discover More' },
-        { url: 'https://res.cloudinary.com/dnvmj9pvk/image/upload/v1731493294/Amer%20Thikana/kel7ucjs1x7xt9e7k1zz.jpg', title: 'Experience Quality' },
+        { url: 'https://res.cloudinary.com/dnvmj9pvk/image/upload/v1731577621/amar1_xch9zp.jpg', title: 'Reviving You on Every Step' },
+        { url: 'https://res.cloudinary.com/dnvmj9pvk/image/upload/v1731577621/amar1_xch9zp.jpg', title: 'Reviving You on Every Step' },
+        { url: 'https://res.cloudinary.com/dnvmj9pvk/image/upload/v1731577621/amar1_xch9zp.jpg', title: 'Reviving You on Every Step' },{ url: 'https://res.cloudinary.com/dnvmj9pvk/image/upload/v1731577621/amar1_xch9zp.jpg', title: 'Reviving You on Every Step' },
+        // { url: 'https://res.cloudinary.com/dnvmj9pvk/image/upload/v1731493217/Amer%20Thikana/ynjhagwufmak2cxk5gl7.jpg', title: 'Discover More' },
+        // { url: 'https://res.cloudinary.com/dnvmj9pvk/image/upload/v1731493294/Amer%20Thikana/kel7ucjs1x7xt9e7k1zz.jpg', title: 'Experience Quality' },
     ];
 
     const [currentIndex, setCurrentIndex] = useState(0);
@@ -29,7 +28,6 @@ const BannerCarousel = () => {
         return () => clearInterval(interval);
     }, [slides.length]);
 
-    // Trigger re-initialization of AOS animations on slide change
     useEffect(() => {
         AOS.refreshHard();
     }, [currentIndex]);
@@ -39,24 +37,26 @@ const BannerCarousel = () => {
     };
 
     return (
-        <div className="relative w-full overflow-hidden">
+        <div className="relative -mt-12 lg:mt-0 border-2 border-red-500 pb-0  h-screen overflow-hidden">
             {/* Slides Container */}
             <div
                 className="flex transition-transform duration-700"
-                style={{ transform: `translateX(-${currentIndex * 100}%)` }}
+                style={{ transform: `translateX(-${currentIndex * 100}vw)` }}
             >
                 {slides.map((slide, index) => (
                     <div
                         key={index}
-                        className="min-w-full h-[80vh] relative"
+                        className="w-screen h-screen flex-shrink-0 relative"
                         style={{
                             backgroundImage: `url(${slide.url})`,
-                            backgroundSize: 'cover',
-                            backgroundPosition: 'center',
+                            backgroundSize: 'contain', // Ensures entire image fits without cropping
+                            backgroundRepeat: 'no-repeat',
+                            backgroundPosition: 'center  ',
+                            
                         }}
                     >
                         {/* Dark Overlay */}
-                        <div className="absolute inset-0 bg-black bg-opacity-40"></div>
+                        {/* <div className="absolute inset-0 bg-black bg-opacity-40"></div> */}
                     </div>
                 ))}
             </div>
@@ -74,12 +74,11 @@ const BannerCarousel = () => {
 
             {/* Bottom Text and Buttons */}
             <div className="absolute bottom-44 left-0 right-0 py-6 text-white z-10">
-                <div className="w-3/4 mx-auto ">
-                    {/* Title */}
+                <div className="w-3/4 mx-auto text-center">
                     <h2
-                        key={currentIndex} // Unique key to re-render and trigger animation
-                        className="text-5xl font-bold mb-4"
-                        data-aos="fade-up" // AOS fade-up effect
+                        key={currentIndex}
+                        className="  md:text-4xl lg:text-5xl font-bold mb-4"
+                        data-aos="fade-up"
                     >
                         {slides[currentIndex].title}
                     </h2>
@@ -87,12 +86,20 @@ const BannerCarousel = () => {
             </div>
 
             {/* Bottom Buttons */}
-            <div className="absolute bottom-24 left-0 right-0 bg-[#027f3d] bg-opacity-90 py-3 text-white z-10 font-semibold">
-                <div className="flex space-x-10 w-3/4  mx-auto">
-                    <button className="px-4 py-2 rounded-lg flex items-center gap-4"><BsBricks /> PROJECT DETAILS</button>
-                    <button className="px-4 py-2 rounded-lg flex items-center gap-4"><FaPlay /> BOOKING FORM</button>
-                    <button className="px-4 py-2 rounded-lg">CONTACT US</button>
-                    <button className="px-4 py-2 rounded-lg">ABOUT US</button>
+            <div className="absolute lg:bottom-24 bottom-[150px]   left-0 right-0 bg-[#027f3d] bg-opacity-50 py-2 lg:py-3 text-white z-10 font-semibold">
+                <div className="flex lg:space-x-10 lg:w-3/4 mx-auto  lg:gap-3 px-1 lg:px-4">
+                    <button className="px-2 py-1 md:px-4 md:py-2 text-xs md:text-sm lg:text-xl text-center rounded-lg flex items-center gap-2 md:gap-4">
+                        <Link to="/project-details">PROJECT DETAILS</Link>
+                    </button>
+                    <button className="px-2 py-1 md:px-4 md:py-2 text-xs md:text-sm lg:text-xl text-center rounded-lg flex items-center gap-2 md:gap-4">
+                        BOOKING FORM
+                    </button>
+                    <button className="px-2 py-1 md:px-4 md:py-2 text-xs md:text-sm lg:text-xl text-center rounded-lg">
+                        <Link to="/contact">CONTACT US</Link>
+                    </button>
+                    <button className="px-2 py-1 md:px-4 md:py-2 text-xs md:text-sm lg:text-xl text-center rounded-lg">
+                        <Link to="/about-us">ABOUT US</Link>
+                    </button>
                 </div>
             </div>
         </div>

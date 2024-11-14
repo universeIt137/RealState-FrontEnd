@@ -20,13 +20,8 @@ const ProjectOverview = () => {
 
     return (
         <div>
-            <div className="w-11/12 mx-auto  ">
-                <div>
-
-                </div>
-                <div className="flex flex-col md:flex-row md:flex-row-reverse md:justify-between lg:py-20 py-5 px-6 bg-white  rounded-lg">
-
-
+            <div className="w-11/12 mx-auto border border-green ">
+                <div className="flex flex-col md:flex-row md:flex-row-reverse md:justify-between lg:py-0 py-5 px-6 bg-white  rounded-lg">
                     {/* Image/Video Section */}
                     <div className="md:w-1/2 relative lg:mt-8 md:mt-0">
                         <div className="relative rounded-lg shadow-md cursor-pointer overflow-hidden">
