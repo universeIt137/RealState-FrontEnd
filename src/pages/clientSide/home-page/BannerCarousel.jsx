@@ -48,7 +48,7 @@ const BannerCarousel = () => {
                 {slides.map((slide, index) => (
                     <div
                         key={index}
-                        className="min-w-full h-screen relative"
+                        className="min-w-full h-[80vh] relative"
                         style={{
                             backgroundImage: `url(${slide.url})`,
                             backgroundSize: 'cover',
