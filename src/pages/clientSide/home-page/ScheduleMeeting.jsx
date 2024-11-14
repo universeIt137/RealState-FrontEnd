@@ -2,9 +2,9 @@ import React from 'react';
 
 const ScheduleMeeting = () => {
     return (
-        <div className="w-11/12 mx-auto">
-            <div className="justify-center py-10">
-                <div className="gap-10 overflow-hidden lg:flex">
+        <div className="w-11/12  mx-auto">
+            <div className="justify-center -mt-14 lg:-mt-0 ">
+                <div className="lg:gap-10 overflow-hidden lg:flex">
                     {/* Left Side - Background Image with Overlay */}
                     <div className="relative hidden lg:block lg:w-1/2">
                         {/* Background Image */}
@@ -19,8 +19,8 @@ const ScheduleMeeting = () => {
                     </div>
 
                     {/* Right Side - Form */}
-                    <div className="w-full lg:w-1/2 py-10">
-                        <h2 className="text-2xl font-bold text-green text-center mb-6">SCHEDULE A MEETING</h2>
+                    <div className="w-full lg:w-1/2 lg:py-10">
+                        <h2 className="lg:text-2xl font-bold text-black text-center mb-2 lg:mb-6">SCHEDULE A MEETING</h2>
 
                         <form className="space-y-4">
                             <div>
@@ -29,7 +29,7 @@ const ScheduleMeeting = () => {
                                     type="text"
                                     id="fullName"
                                     placeholder="Full Name*"
-                                    className="w-full px-4 py-4 border-2 border-black focus:outline-none  "
+                                    className="w-full px-4 py-2 lg:py-4 border-2 border-black focus:outline-none  "
                                     required
                                 />
                             </div>
@@ -40,7 +40,7 @@ const ScheduleMeeting = () => {
                                     type="tel"
                                     id="phoneNumber"
                                     placeholder="Phone Number*"
-                                    className="w-full px-4 border-2 border-black py-4 focus:outline-none "
+                                    className="w-full px-4 border-2 border-black py-2 lg:py-4 focus:outline-none "
                                     required
                                 />
                             </div>
@@ -51,7 +51,7 @@ const ScheduleMeeting = () => {
                                     type="email"
                                     id="email"
                                     placeholder="Email Address"
-                                    className="w-full px-4 py-4 border-2 border-black focus:outline-none "
+                                    className="w-full px-4 py-2 lg:py-4 border-2 border-black focus:outline-none "
                                 />
                             </div>
 
@@ -59,7 +59,7 @@ const ScheduleMeeting = () => {
                                 <label htmlFor="time" className="sr-only">Select A Time</label>
                                 <select
                                     id="time"
-                                    className="w-full border-2 border-black px-4 py-4 focus:outline-none "
+                                    className="w-full border-2 border-black px-4 py-2 lg:py-4 focus:outline-none "
                                 >
                                     <option value="">Select A Time</option>
                                     <option value="9am">9:00 AM</option>
@@ -73,7 +73,7 @@ const ScheduleMeeting = () => {
                             <div>
                                 <button
                                     type="submit"
-                                    className="py-3 border border-black px-8 text-black font-semibold hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50"
+                                    className="lg:py-3 py-1 border border-black px-8 text-black font-semibold hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50"
                                 >
                                     Submit
                                 </button>

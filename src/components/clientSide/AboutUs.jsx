@@ -48,14 +48,14 @@ function AboutUs() {
   const currentTestimonial = testimonialData[currentIndex];
 
   return (
-    <div className="w-11/12 mx-auto">
-      <div className="lg:ml-[60px] ml-3 text-[#21c45e] font-bold " >
+    <div className="w-11/12  mx-auto ">
+      <div className="lg:ml-[60px] -mt-10 lg:-mt-6  text-black font-bold " >
         <h1 className='lg:text-4xl uppercase ' >What customers</h1>
         <h1 className='lg:text-4xl uppercase ' >say about us</h1>
       </div>
-      <div className="flex flex-col md:grid md:grid-cols-2 md:space-x-44 py-3 md:py-8 px-2 md:px-4 lg:px-16 bg-white">
+      <div className="flex flex-col lg:grid lg:grid-cols-2 lg:space-x-44 py-1 lg:py-8 px-2  lg:px-16 bg-white">
         {/* Video Section */}
-        <div className="relative w-full h-64 lg:h-80">
+        <div className="relative w-full h-72 lg:h-80">
           <ReactPlayer
             url={currentTestimonial.video}
             className="w-full h-full object-cover hover:scale-105 transform transition duration-300 ease-in-out "
@@ -73,16 +73,23 @@ function AboutUs() {
         </div>
 
         {/* Text Section */}
-        <div className="lg:-mt-2  flex-1">
-          <h2 className=" lg:text-2xl font-semibold text-[#21c45e]">
+        <div className="lg:-mt-2 mt-2  flex-1">
+          <h2 className=" lg:text-2xl font-semibold text-black">
             Homeowner’s Reflections on Apartments
           </h2>
-          <p className="text-[#21c45e] lg:text-lg text-[8px] mt-1 lg:mt-4">{currentTestimonial.text}</p>
-          <p className="md:mt-6 mt-1 font-semibold text-[#21c45e] lg:text-lg text-[8px]">{currentTestimonial.name}</p>
-          <p className="text-[#21c45e]">{currentTestimonial.role}</p>
+          <div className='lg:h-16 my-auto overflow-hidden ' >
+            <p className="text-black lg:text-lg text-[9px] mt-1 lg:mt-4">{currentTestimonial.text}</p>
+          </div>
+          <div className='my-auto' >
+            <p className="md:mt-6 mt-1 font-semibold text-black lg:text-lg text-[10px]">{currentTestimonial.name}</p>
+          </div>
+          <div>
+            <p className="text-black text-[10px] lg:text-xl ">{currentTestimonial.role}</p>
+            
+          </div>
 
           {/* Arrows for navigation */}
-          <div className="flex space-x-4 -ml-[8px] md:mt-[158px] text-gray-500">
+          <div className="flex space-x-4 -ml-[8px] lg:mt-[100px] text-gray-500">
             <button onClick={handlePrev} className="p-2  rounded-full hover:bg-gray-100">
               <FaArrowLeft className='' />
             </button>
