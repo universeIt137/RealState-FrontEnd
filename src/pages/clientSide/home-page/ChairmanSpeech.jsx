@@ -23,14 +23,14 @@ const ChairmanSpeech = () => {
 
 
   return (
-    <div className="w-11/12 mx-auto">
-      <div className="flex flex-col md:flex-row md:items-center md:justify-between lg:py-20 py-5 px-6 bg-white border rounded-lg">
-        <div className="md:w-1/2 relative mt-8 md:mt-0">
+    <div className="w-11/12 mx-auto   ">
+      <div className="flex flex-col md:flex-row md:items-center md:justify-between -mt-4   bg-white  rounded-lg">
+        <div className="md:w-1/2  relative  lg:mt-8 md:mt-0">
           <div
-            className="relative rounded-lg shadow-md cursor-pointer overflow-hidden">
+            className="relative   rounded-lg shadow-md cursor-pointer overflow-hidden">
             <div
               onClick={() => handlePlayButtonClick('https://www.youtube.com/watch?v=nWyi1fbSalo&t=1s')}
-              className="h-[35.9vw] lg:h-[25.9vw] cursor-pointer border rounded-lg overflow-hidden"
+              className="h-[35.9vw] lg:h-[25.9vw] cursor-pointer  rounded-lg overflow-hidden"
             >
               <ReactPlayer
                 url={`https://www.youtube.com/watch?v=nWyi1fbSalo&t=1s`}
@@ -43,12 +43,12 @@ const ChairmanSpeech = () => {
           </div>
         </div>
 
-        <div className="md:w-1/2  md:pl-10">
-          <p className="text-2xl font-thin text-green text-center lg:text-start mt-5">CHAIRMAN</p>
-          <h1 className="text-3xl md:text-4xl font-bold text-[#267543] uppercase">
-            Md. Aminur Rashid
+        <div className="md:w-1/2 mt-5 md:mt-0 p-1 lg:pl-10">
+          <p className="md:text-2xl  text-black font-semibold text-center lg:text-start ">CHAIRMAN</p>
+          <h1 className=" text-center md:text-4xl lg:text-start font-bold text-black uppercase">
+            Md. Mahabur Alam
           </h1>
-          <p className="hidden lg:block">
+          <p className=" lg:text-lg text-10px text-justify overflow-hidden lg:mt-2 lg:block">
             Edison Real Estate has the bold vision of making high-quality and nicely designed residences that are available within the purchasing power of a wider segment of the population. We clearly understand the need for more trusted and reliable companies in the real estate sector.
 
             Companies will fill up this vacuum in the market and there will be a continuous effort to delight customers. We are a competent and motivated group of people, suppliers, and partners who will work closely to ensure strict processes and policies are followed in order to provide complete and consistent customer values. We will listen to our customers to drive continuous improvement and serve them with premium service in every way possible.

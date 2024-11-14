@@ -6,7 +6,7 @@ import ProjectFeatureVideoGallery from './ProjectFeatureVideoGallery';
 const ProjectFeaturePage = () => {
   return (
     <div className='w-11/12 mx-auto ' >
-      <div className="p-4 md:p-12 bg-gray-100 rounded-lg shadow-lg">
+      <div className="p-4 md:p-12 rounded-lg shadow-lg">
         {/* Header Section */}
         <div className="text-center mb-4 md:mb-8">
           <h1 className="md:text-4xl text-[#21c45e] font-bold ">Explore stunning properties, find your dream home, and invest wisely</h1>
