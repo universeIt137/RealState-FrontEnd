@@ -24,8 +24,8 @@ const ChairmanSpeech = () => {
 
   return (
     <div className="w-11/12 mx-auto   ">
-      <div className="flex flex-col md:flex-row md:items-center md:justify-between -mt-4   bg-white  rounded-lg">
-        <div className="md:w-1/2  relative  lg:mt-8 md:mt-0">
+      <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between -mt-4   bg-white  rounded-lg">
+        <div className="lg:w-1/2  relative  lg:mt-8 lg:mt-0">
           <div
             className="relative   rounded-lg shadow-md cursor-pointer overflow-hidden">
             <div
@@ -43,9 +43,9 @@ const ChairmanSpeech = () => {
           </div>
         </div>
 
-        <div className="md:w-1/2 mt-5 md:mt-0 p-1 lg:pl-10">
-          <p className="md:text-2xl  text-black font-semibold text-center lg:text-start ">CHAIRMAN</p>
-          <h1 className=" text-center md:text-4xl lg:text-start font-bold text-black uppercase">
+        <div className="lg:w-1/2 mt-5 lg:mt-0 p-1 lg:pl-10">
+          <p className="lg:text-2xl  text-black font-semibold text-center lg:text-start ">CHAIRMAN</p>
+          <h1 className=" text-center lg:text-4xl lg:text-start font-bold text-black uppercase">
             Md. Mahabur Alam
           </h1>
           <p className=" lg:text-lg text-10px text-justify overflow-hidden lg:mt-2 lg:block">

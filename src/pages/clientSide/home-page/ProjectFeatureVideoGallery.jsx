@@ -88,7 +88,7 @@ const ProjectFeatureVideoGallery = () => {
                                 src={video.thumbnail}
                                 alt={video.title}
                                 onClick={() => openModal(video)}
-                                className="w-full h-48 object-cover rounded-lg shadow-md cursor-pointer"
+                                className="w-full h-56 object-cover rounded-lg shadow-md cursor-pointer"
                             />
                             <div className="absolute inset-0 hidden group-hover:flex items-center justify-center">
                                 <AiOutlinePlayCircle

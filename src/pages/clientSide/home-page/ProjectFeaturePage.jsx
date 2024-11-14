@@ -5,7 +5,7 @@ import ProjectFeatureVideoGallery from './ProjectFeatureVideoGallery';
 
 const ProjectFeaturePage = () => {
   return (
-    <div className='w-11/12  mx-auto ' >
+    <div className='w-11/12   mx-auto ' >
       <div className=" rounded-lg shadow-lg">
         {/* Header Section */}
         <div className="text-center -mt-10 lg:-mt-0 p-1   mb-4 lg:mb-8">
@@ -65,7 +65,7 @@ const ProjectFeaturePage = () => {
         <ProjectFeatureVideoGallery></ProjectFeatureVideoGallery>
         {/* CTA Button */}
         <div className="text-center">
-          <button className="md:px-6 px-3 py-2 text-[10px] md:text-[16px] md:py-3 bg-black text-white my-3 font-bold rounded-lg hover:bg-green-600 transition-colors duration-300">
+          <button className="md:px-6 px-3 py-2 text-[10px] md:text-[16px] md:py-3 bg-[#027F3D] opacity-60 text-white my-3 font-bold rounded-lg hover:bg-green-600 transition-colors duration-300">
             <Link to={"/booking-form"}>Schedule a Visit</Link>
           </button>
         </div>
