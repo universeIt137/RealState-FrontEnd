@@ -1,7 +1,7 @@
 import React from 'react'
 import Carousel from './Carousel'
 import Team from '../../../components/clientSide/Team'
-import AboutUs from '../../../components/clientSide/AboutUs'
+import AboutUs from '../../../components/clientSide/ClientReview'
 import ProjectInfo from '../../../components/clientSide/ProjectInfo'
 
 import TestimonialCard from './Reviews'
@@ -18,6 +18,7 @@ import ProjectPage from './ProjectPage'
 
 
 const HomePage = () => {
+  window.scrollTo(0, 0);
   return (
     <div className='space-y-16' >
       {/* carousel */}

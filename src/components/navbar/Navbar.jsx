@@ -18,7 +18,7 @@ const Navbar = () => {
       path: '/corporate',
       isDropdown: true,
       dropdownLinks: [
-        { title: 'Company Profile', path: '/company-profile' },
+        { title: 'About Us', path: '/about-us' },
         { title: 'Mission & Vision', path: '/mission' },
         { title: 'Corporate Structure', path: '/corporate-structure' },
         { title: 'Corporate Social Responsibility', path: '/corporate-social-responsibility' },
@@ -118,19 +118,19 @@ const Navbar = () => {
                     onMouseLeave={link.title === 'Corporate' ? handleMouseLeaveCorporate : link.title === 'Gallery' ? handleMouseLeaveGallery : null}
                   >
                     {!link.isDropdown ? (
-                      <NavLink to={link.path} className="relative flex items-center space-x-1 hover:text-black group">
+                      <NavLink to={link.path} className="relative flex items-center space-x-1 hover:text-white hover:font-bold group">
                         <span className='lg:text-[18px] mx-2 '>{link.title}</span>
                         <span className="absolute bottom-0 block left-0 w-0 h-0.5 bg-white transition-all duration-300 ease-out group-hover:w-full"></span>
                       </NavLink>
                     ) : (
                       <>
-                        <button className="relative lg:text-[18px] block  hover:text-black z-20">
+                        <button className="relative lg:text-[18px] block  hover:text-white hover:font-bold z-20">
                           <span className=' block mx-1 ' >{link.title}</span>
                           <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-white transition-all duration-300 ease-out group-hover:w-full"></span>
                         </button>
                         {link.title === 'Corporate' && isCorporateOpen && (
                           <div
-                            className="absolute z-50 left-0 mt-2 bg-white text-black rounded-md shadow-lg w-64 opacity-100 transform scale-100 translate-y-0 transition-all duration-300 ease-out"
+                            className="absolute z-50 left-0 mt-5 bg-[#027f3d] bg-opacity-70 text-black rounded-md shadow-lg w-64 opacity-100 transform scale-100 translate-y-0 transition-all duration-300 ease-out"
                             onMouseEnter={handleMouseEnterCorporate}
                             onMouseLeave={handleMouseLeaveCorporate}
                           >
@@ -138,10 +138,10 @@ const Navbar = () => {
                               <NavLink
                                 to={dropdownLink.path}
                                 key={idx}
-                                className="block px-4 py-2 hover:bg-blue-100 relative group transform scale-95 hover:scale-105 transition-all duration-300 ease-out"
+                                className="block px-4 py-2   text-white relative group transform scale-95 hover:scale-105 transition-all duration-300 ease-out"
                               >
                                 {dropdownLink.title}
-                                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#21c45e] transition-all duration-300 ease-out group-hover:w-full"></span>
+                                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#21c45e] transition-all hover:font-bold duration-300 ease-out group-hover:w-full"></span>
                               </NavLink>
                             ))}
                           </div>
