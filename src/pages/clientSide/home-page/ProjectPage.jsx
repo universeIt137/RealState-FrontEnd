@@ -46,7 +46,7 @@ const ProjectPage = () => {
                 </section>
 
                 {/* Call to Action */}
-                <section className=" py-2   text-center">
+                <section className=" py-5   text-center">
                     <h2 className=" lg:text-4xl text-black font-bold  lg:mb-2">Ready to Make This Your Home?</h2>
                     <p className="text-black text-[10px] lg:text-xl mb-2 lg:mb-2">Schedule a tour today and see for yourself why our project is the perfect place to live.</p>
                     <button className=" bg-[#027F3D] opacity-70 font-semibold px-8 py-3 rounded-lg text-[10px] lg:text-[16px] text-white ">
