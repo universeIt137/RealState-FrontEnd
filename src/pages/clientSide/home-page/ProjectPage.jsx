@@ -17,11 +17,11 @@ const ProjectPage = () => {
                 <section className="lg:py-2 px-2  ">
                     <h2 className=" lg:text-4xl font-bold text-center text-black mb-1 lg:mb-5">Project Highlights</h2>
                     <div className="grid lg:gap-10 gap-3   lg:grid-cols-3">
-                        <div className="bg-white border shadow-lg rounded-lg p-1 lg:p-6 text-justify">
+                        <div className="bg-white shadow-lg rounded-lg border p-3 lg:p-6 text-justify">
                             <h3 className="lg:text-2xl text-[10px] font-bold  lg:mb-2 text-black ">Lush Green Spaces</h3>
                             <p className="text-black lg:text-lg text-[10px] ">Enjoy beautifully landscaped gardens and open spaces that bring you closer to nature.</p>
                         </div>
-                        <div className="bg-white border shadow-lg rounded-lg p-1 lg:p-6 text-justify">
+                        <div className="bg-white shadow-lg rounded-lg border p-3 lg:p-6 text-justify">
                             <h3 className="lg:text-2xl text-[10px] font-bold  lg:mb-2 text-black">Luxury Swimming Pool</h3>
                             <p className="text-black lg:text-lg text-[10px] ">Relax and unwind in our luxurious swimming pool, a perfect escape from the daily hustle.</p>
                         </div>
@@ -29,16 +29,16 @@ const ProjectPage = () => {
                             <h3 className="lg:text-2xl text-[10px] font-bold  lg:mb-2 text-black ">Fully-Equipped Gym</h3>
                             <p className="text-black lg:text-lg text-[10px] ">Stay fit and healthy with access to a state-of-the-art gym facility within the premises.</p>
                         </div>
-                        <div className="bg-white border shadow-lg rounded-lg p-1 lg:p-6 text-justify">
+                        <div className="bg-white shadow-lg rounded-lg border p-3 lg:p-6 text-justify">
                             <h3 className="lg:text-2xl text-[10px] font-bold  lg:mb-2 text-black ">24/7 Security</h3>
                             <p className="text-black lg:text-lg text-[10px] ">Enjoy peace of mind with round-the-clock security and surveillance for a safe living environment.</p>
                         </div>
-                        <div className="bg-white border shadow-lg rounded-lg p-1 lg:p-6 text-justify">
+                        <div className="bg-white shadow-lg rounded-lg border p-3 lg:p-6 text-justify">
                             
                             <h3 className="lg:text-2xl text-[10px] font-bold  lg:mb-2 text-black ">Vibrant Community</h3>
                             <p className="text-black lg:text-lg text-[10px] ">Join a welcoming community of like-minded residents and participate in engaging events.</p>
                         </div>
-                        <div className="bg-white border shadow-lg rounded-lg p-1 lg:p-6 text-justify">
+                        <div className="bg-white shadow-lg rounded-lg border p-3 lg:p-6 text-justify">
                             <h3 className="lg:text-2xl text-[10px] font-bold  lg:mb-2 text-black ">Business Center</h3>
                             <p className="text-black lg:text-lg text-[10px] ">Access a modern business center to work and hold meetings, enhancing your productivity.</p>
                         </div>

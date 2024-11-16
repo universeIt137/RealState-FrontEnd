@@ -4,14 +4,12 @@ import HomePage from "../pages/clientSide/home-page/HomePage";
 import BookingPage from "../pages/clientSide/booking-page/BookingPage";
 import Career from "../pages/clientSide/home-page/Career";
 import RealEstateAd from "../pages/clientSide/home-page/Offer";
-import AboutUs from './../components/clientSide/AboutUs';
 import Contact from "../components/clientSide/Contact";
 import CompanyProfilePage from "../pages/clientSide/company-profile-page/CompanyProfilePage";
 import MissionVision from "../pages/clientSide/mission-and-vission/MissionVisionPage";
 import CorporateStructurePage from "../pages/clientSide/corporate-structure/CorporateStructurePage";
 import CSRPage from "../pages/clientSide/corporate-responsibility-page/CorporateResponsibilityPage";
 import CertificationPage from "../pages/clientSide/certification-page/CertificationPage";
-import TestimonialCard from "../pages/clientSide/home-page/Reviews";
 import VideoGalleryPage from "../pages/clientSide/video-gallery-page/VideoGalleryPage";
 import CareerDetailsPage from './../pages/clientSide/carrer-page/CareerDetailsPage';
 import ProjectDetails from "../pages/clientSide/project-details-page/ProjectDetails";
@@ -19,6 +17,8 @@ import ImageGallery from './../pages/clientSide/image-gallery-page/ImageGallery'
 import DashboardLayout from "../layout/DashboardLayout";
 import Dashboard from "../pages/adminSide/dasboard/Dashboard";
 import ManageContent from "../pages/adminSide/websiteContentRelatedPages/ManageContent";
+import ClientReview from "../components/clientSide/ClientReview";
+import AboutUs from './../pages/clientSide/about-us-page/AboutUs';
 
 
 
@@ -71,7 +71,7 @@ export const router = createBrowserRouter([
             },
             {
                 path : "client-review",
-                element : <TestimonialCard></TestimonialCard>
+                element : <ClientReview></ClientReview>
             }
             ,
             {
@@ -90,8 +90,11 @@ export const router = createBrowserRouter([
             {
                 path : "image-gallery",
                 element : <ImageGallery></ImageGallery>
+            },
+            {
+                path : "about-us",
+                element : <AboutUs></AboutUs>
             }
-           
         ]
     },
     {
