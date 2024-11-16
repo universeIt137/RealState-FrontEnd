@@ -9,18 +9,19 @@ const ProjectFeaturePage = () => {
       <div className=" rounded-lg shadow-lg">
         {/* Header Section */}
         <div className="text-center -mt-10 lg:-mt-0 p-1   mb-4 lg:mb-8">
-          <h1 className="md:text-4xl  text-black font-bold text-justify ">Explore stunning properties, find your dream home, and invest wisely</h1>
-          <p className=" text-black text-[12px] md:text-2xl mt-1">48, Bijoy Nagar (4th Floor), Paltan, Dhaka-1000.</p>
+          <h1 className="md:text-4xl lg:text-center  text-black font-bold text-justify ">Project Feature</h1>
+          <p className=" text-black text-[12px] md:text-2xl mt-1 -mb-5 ">Dhaka-Mawa 300 Feet Road, Amar Thikana, Green City.
+          </p>
         </div>
-
+        <h1 className='lg:text-4xl font-bold text-center mb-6 ' >Image Gallery</h1>
         <div className='' >
+
           <ProjectFeatureImgGallery></ProjectFeatureImgGallery>
         </div>
 
 
         {/* Project Details */}
         <div className="bg-white p-2 md:p-6  rounded-lg shadow-md md:mb-8">
-          <h2 className="md:text-2xl text-[15px] font-bold text-black  md:mb-4">Project Feature</h2>
           <p className="text-black md:text-lg text-justify text-[10px] mb-1 md:mb-6">
             Green Valley Apartments offers luxurious living spaces with modern amenities and eco-friendly features.
             Located in the heart of Dhaka, this project provides an ideal balance between urban living and serene

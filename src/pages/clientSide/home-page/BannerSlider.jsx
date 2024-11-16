@@ -51,12 +51,6 @@ export default function App() {
                     <img src="https://res.cloudinary.com/dnvmj9pvk/image/upload/v1731395353/Amer%20Thikana/yq40rcefanavaynfn1pj.jpg" className='w-full h-full' alt="" />
                 </SwiperSlide>
                
-               
-                
-
-                
-                
-
                 
                 <div className="autoplay-progress" slot="container-end">
                     <svg viewBox="0 0 48 48" ref={progressCircle}>

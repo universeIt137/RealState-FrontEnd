@@ -1,12 +1,12 @@
 import React from 'react'
 
 const AboutUs = () => {
-    // window.scrollTo(0, 0);
+    window.scrollTo(0, 0);
     return (
         <div className='w-11/12 mx-auto mt-16 lg:mt-20  ' >
             <div className='lg:py-10 py-4  ' >
                 <div className="bg-white">
-                    <div className=" flex flex-col items-center text-justify lg:flex-row lg:text-justify lg:items-start">
+                    <div className=" flex flex-col lg:items-center text-justify lg:flex-row lg:text-justify ">
                         {/* Left Content */}
                         <div className="md:w-3/5">
                             <h1 className="lg:text-4xl font-bold leading-tight text-black">
@@ -18,7 +18,7 @@ const AboutUs = () => {
                         </div>
 
                         {/* Right Logo */}
-                        <div className="lg:mt-8 mt-3 lg:w-2/5 flex justify-center lg:justify-end">
+                        <div className="lg:mt-4 mt-2  lg:w-2/5 flex justify-center lg:justify-end">
                             <img
                                 src="https://res.cloudinary.com/dnvmj9pvk/image/upload/v1731389139/Amer%20Thikana/uptnnqpi80uojvcs7bzh.png"
                                 alt="Universe Soft Tech Logo"
@@ -28,7 +28,7 @@ const AboutUs = () => {
                     </div>
                 </div>
                 <div className="bg-white  my-4 lg:my-10 ">
-                    <div className="flx flex-col lg:flex lg:flex-row lg:gap-8 items-center">
+                    <div className="flx flex-col lg:flex lg:flex-row lg:gap-8 items-center ">
                         {/* Left Content (Image and Badge) */}
                         <div className="relative">
                             <img

@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 const Footer = () => {
   return (
     <footer className="bg-[#027f3d] bg-opacity-70  lg:py-8 p-4 ">
-      <div className="w-11/12 mx-auto text-black">
+      <div className="w-11/12 mx-auto text-white">
         
         {/* Top Section: About, Useful Links, Subscription */}
         <div className="flex flex-col lg:gap-8 lg:flex-row lg:justify-between lg:items-start">
@@ -72,7 +72,7 @@ const Footer = () => {
       </div>
 
       {/* Footer Bottom */}
-      <div className="bg-green-500 text-black text-center lg:py-4 lg:mt-8 mt-3 ">
+      <div className="bg-green-500 text-white text-center lg:py-4 lg:mt-8 mt-3 ">
         <p className="lg:text-lg text-[12px] ">
           All rights reserved © Universe Soft Tech. | Design & Developed
         </p>
