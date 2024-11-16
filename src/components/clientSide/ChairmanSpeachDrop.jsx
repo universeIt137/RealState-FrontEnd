@@ -4,7 +4,7 @@ import { IoPlayCircleSharp } from 'react-icons/io5';
 
 import ReactPlayer from 'react-player';
 
-const ChairmanSpeech = () => {
+const ChairmanSpeachDrop = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);    //Modal open/close state
   const [seeMore, setSeeMore] = useState(false);
   const [modalVideoSrc, setModalVideoSrc] = useState(null);
@@ -21,9 +21,11 @@ const ChairmanSpeech = () => {
     setIsModalOpen(false);       // Close the modal
   };
 
+  window.scrollTo(0, 0);
+
 
   return (
-    <div className="w-11/12 mx-auto">
+    <div className="w-11/12 mx-auto mt-64 lg:mt-28 lg:mb-5 ">
       <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between -mt-4   bg-white  rounded-lg">
         <div className="lg:w-1/2  relative -mt-40 lg:mt-0">
           <div
@@ -88,4 +90,4 @@ const ChairmanSpeech = () => {
   );
 };
 
-export default ChairmanSpeech;
+export default ChairmanSpeachDrop;

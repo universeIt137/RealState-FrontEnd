@@ -110,7 +110,7 @@ const Navbar = () => {
           </div>
 
           {/* Toggle Button for Mobile */}
-          <button onClick={toggleDrawer} className="lg:hidden text-white">
+          <button onClick={toggleDrawer} className="lg:hidden  text-white">
             {!isDrawerOpen ? <RiMenuUnfold4Fill size={30} className="font-bold block ml-40" /> : <span></span>}
           </button>
 
@@ -189,31 +189,33 @@ const Navbar = () => {
               </ul>
             </nav>
           </div>
-          <div className='flex  items-center gap-3 ' >
-            {/* Phone Number in center */}
-            <div className="flex items-center justify-center w-full">
-              <div className="flex items-center border border-white px-3 py-1 text-white">
-                <FaPhoneAlt />
-                <span className="ml-2 text-sm">( +880 ) 1751586230</span>
+          <div className='hidden lg:block ' >
+            <div className='flex  items-center gap-3 ' >
+              {/* Phone Number in center */}
+              <div className="flex items-center justify-center w-full">
+                <div className="flex items-center border border-white px-3 py-1 text-white">
+                  <FaPhoneAlt />
+                  <span className="ml-2 text-sm">( +880 ) 1751586230</span>
+                </div>
               </div>
-            </div>
-            {/* Social Icons to the right */}
-            <div className="flex space-x-3 justify-end">
-              <Link to={``} className="hover:text-gray-300">
-                <FaFacebookF />
-              </Link>
-              <Link to={``} className="hover:text-gray-300">
-                <FaYoutube />
-              </Link>
-              <Link to={``} className="hover:text-gray-300">
-                <FaLinkedinIn />
-              </Link>
-              <Link to={``} className="hover:text-gray-300">
-                <FaInstagram />
-              </Link>
-              <Link to={``} className="hover:text-gray-300">
-                <FaTwitter />
-              </Link>
+              {/* Social Icons to the right */}
+              <div className="flex space-x-3 justify-end">
+                <Link to={``} className="hover:text-gray-300">
+                  <FaFacebookF />
+                </Link>
+                <Link to={``} className="hover:text-gray-300">
+                  <FaYoutube />
+                </Link>
+                <Link to={``} className="hover:text-gray-300">
+                  <FaLinkedinIn />
+                </Link>
+                <Link to={``} className="hover:text-gray-300">
+                  <FaInstagram />
+                </Link>
+                <Link to={``} className="hover:text-gray-300">
+                  <FaTwitter />
+                </Link>
+              </div>
             </div>
           </div>
         </div>
