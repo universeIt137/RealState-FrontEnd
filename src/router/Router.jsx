@@ -19,6 +19,7 @@ import Dashboard from "../pages/adminSide/dasboard/Dashboard";
 import ManageContent from "../pages/adminSide/websiteContentRelatedPages/ManageContent";
 import ClientReview from "../components/clientSide/ClientReview";
 import AboutUs from './../pages/clientSide/about-us-page/AboutUs';
+import ChairmanSpeachDrop from "../components/clientSide/ChairmanSpeachDrop";
 
 
 
@@ -94,6 +95,10 @@ export const router = createBrowserRouter([
             {
                 path : "about-us",
                 element : <AboutUs></AboutUs>
+            },
+            {
+                path : "chairman-speech",
+                element : <ChairmanSpeachDrop></ChairmanSpeachDrop>
             }
         ]
     },
