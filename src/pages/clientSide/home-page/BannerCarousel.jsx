@@ -95,7 +95,7 @@ const BannerCarousel = () => {
                         BOOKING FORM
                     </button>
                     <button className="px-2 py-1   text-[8px]  lg:text-xl text-center rounded-lg">
-                        <Link to="/contact">CONTACT US</Link>
+                        <Link to="/contact-us">CONTACT US</Link>
                     </button>
                     <button className="px-2 py-1   text-[8px]  lg:text-xl text-center rounded-lg">
                         <Link to="/about-us">ABOUT US</Link>

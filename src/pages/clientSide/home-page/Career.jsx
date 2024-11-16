@@ -8,7 +8,7 @@ const Career = () => {
   window.scrollTo(0, 0);
   return (
     <div className="md:w-1/2 mx-5 my-20 mb-8 md:my-28 md:mx-auto">
-      <div className="p-4 bg-[#21c45e] border rounded-lg shadow-md">
+      <div className="p-4 bg-[#21c45e] opacity-70 border rounded-lg shadow-md">
         <h2 className="md:text-3xl text-center font-bold text-white">Backend developer</h2>
         <div className="mt-2 md:text-[17px] text-white">
           <div className="flex md:text-[16px] text-sm items-center md:w-1/2 mx-auto">
