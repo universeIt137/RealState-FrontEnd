@@ -1,9 +1,12 @@
 import React from 'react';
+import ProjectFeatureImgGallery from '../home-page/ProjectFeatureImgGallery';
+import ProjectFeatureVideoGallery from '../home-page/ProjectFeatureVideoGallery';
 
 const ProjectDetails = () => {
+    window.scrollTo(0, 0);
     const property = {
         heading: "Luxurious Apartment in Downtown",
-        location: "123 Main St, Downtown, City",
+        location: "48, Bijoy Nagar (4th Floor), Paltan, Dhaka-1000",
         images: [
             "https://via.placeholder.com/800x400", // Replace with actual image URLs
             "https://via.placeholder.com/800x400",
@@ -20,59 +23,59 @@ const ProjectDetails = () => {
         ],
     };
 
+    const amenitiesList = [
+        "Swimming Pool",
+        "Gym & Fitness Center",
+        "24/7 Security",
+        "Parking Facility",
+        "Playground",
+        "Community Hall",
+    ];
+
     return (
-        <div className="w-11/12  mx-auto px-4 py-8 space-y-8">
+        <div className="w-11/12  mx-auto px-4 py-20 lg:py-24">
             {/* Heading and Location */}
-            <div className="text-center space-y-2">
-                <h1 className="text-3xl lg:text-5xl font-bold text-gray-800">{property.heading}</h1>
-                <p className="text-lg lg:text-xl text-gray-600">{property.location}</p>
+            <div className=" text-center lg:space-y-2">
+                <h1 className="lg:text-4xl text-[17px]    font-bold text-black">{property.heading}</h1>
+                <p className="lg:text-[16px]  text-[10px] lg:mb-0 mb-3 text-black">{property.location}</p>
             </div>
 
             {/* Image Gallery */}
-            <div className="bg-white rounded-lg shadow-lg p-6 space-y-4">
-                <h2 className="text-2xl font-semibold text-gray-800">Property Images</h2>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    {property.images.map((img, index) => (
-                        <div key={index} className="relative h-64 bg-cover bg-center rounded-lg shadow-lg" style={{ backgroundImage: `url(${img})` }}>
-                            <span className="absolute inset-0 bg-black bg-opacity-25"></span>
-                        </div>
-                    ))}
-                </div>
+            <div className="bg-white rounded-lg shadow-lg p-3 border-2 lg:mt-4 lg:p-6 lg:space-y-4">
+                <h2 className="lg:text-2xl text-[15px] font-semibold text-gray-800">Property Images</h2>
+                <ProjectFeatureImgGallery />
             </div>
 
             {/* Video Section */}
-            <div className="bg-white rounded-lg shadow-lg p-6 space-y-4">
-                <h2 className="text-2xl font-semibold text-gray-800">Property Video</h2>
-                <div className="rounded-lg overflow-hidden shadow-lg aspect-w-16 aspect-h-9">
-                    <iframe
-                        width="100%"
-                        height="100%"
-                        src={property.video}
-                        title="Property Video"
-                        frameBorder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowFullScreen
-                    ></iframe>
+            <div className="bg-white border-2 rounded-lg shadow-lg lg:px-6 p-3 my-4 lg:my-8 lg:space-y-4">
+                <h2 className="lg:text-2xl text-[15px] font-semibold text-gray-800">Property Video</h2>
+                <div className='block mt-1  lg:mt-0  ' >
+                    <ProjectFeatureVideoGallery></ProjectFeatureVideoGallery>
                 </div>
             </div>
 
             {/* Description */}
-            <div className="bg-white rounded-lg shadow-lg p-6 space-y-4">
-                <h2 className="text-2xl font-semibold text-gray-800">Property Description</h2>
-                <p className="text-gray-600 text-lg">{property.description}</p>
+            <div className="bg-white rounded-lg shadow-lg p-3 text-justify lg:p-6 space-y-1 lg:space-y-4">
+                <h2 className="text-black lg:text-3xl text-[16px] font-bold ">Property Description</h2>
+                <p className="text-black lg:text-[17px] text-[10px] ">{property.description}</p>
             </div>
 
             {/* Features */}
-            <div className="bg-gray-50 rounded-lg shadow-lg p-6 space-y-4">
-                <h2 className="text-2xl font-semibold text-gray-800">Property Features</h2>
-                <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2">
-                    {property.features.map((feature, index) => (
-                        <li key={index} className="text-gray-600 text-lg flex items-center space-x-2">
-                            <span className="text-green-600">✔</span>
-                            <span>{feature}</span>
-                        </li>
-                    ))}
-                </ul>
+            <div className=" rounded-lg shadow-lg my-6 border-2 p-3 lg:p-6 lg:space-y-4">
+                <h2 className="text-black lg:text-3xl text-[16px] font-bold">Property Features</h2>
+                <div className="md:mb-8">
+                    <ul className="flex flex-col md:grid md:grid-cols-2 lg:grid-cols-3 text-black gap-2 mt-2 lg:mt-0 lg:gap-4">
+                        {amenitiesList.map((amenity, index) => (
+                            <li
+                                key={index}
+                                className="flex items-center shadow-lg border border-gray-300 p-2 md:p-4 rounded-lg space-x-1 md:space-x-2"
+                            >
+                                <span className="md:ml-0 ml-2 text-[10px] md:text-[16px]">✅</span>
+                                <span className="text-[10px] md:text-[16px]">{amenity}</span>
+                            </li>
+                        ))}
+                    </ul>
+                </div>
             </div>
         </div>
     );

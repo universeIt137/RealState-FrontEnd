@@ -65,7 +65,7 @@ const ProjectFeatureImgGallery = () => {
         <div className="fixed inset-0 bg-black bg-opacity-80 flex justify-center items-center z-50">
           <div className="relative">
             <button
-              className="absolute top-4 right-4 p-3 text-white font-bold text-2xl bg-[#21c45e] rounded-full"
+              className="absolute top-4 right-4 p-3 text-white font-bold text-2xl bg-black rounded-full"
               onClick={closeModal} // Close modal
             >
               <IoCloseSharp size={30} />
