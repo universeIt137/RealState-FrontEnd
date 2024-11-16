@@ -2,6 +2,28 @@ import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
 
+const initiatives = [
+  {
+    title: "Affordable Housing",
+    description:
+      "We are committed to making housing accessible to everyone. Our affordable housing projects aim to provide quality living spaces to underserved communities.",
+    link: "#",
+  },
+  {
+    title: "Environmental Sustainability",
+    description:
+      "Our green building practices focus on reducing environmental impact, from energy-efficient designs to waste management.",
+    link: "#",
+  },
+  {
+    title: "Community Development",
+    description:
+      "We partner with local organizations to support education, healthcare, and economic development in the communities we serve.",
+    link: "#",
+  },
+  // You can add more initiatives here
+];
+
 const CSRPage = () => {
   window.scrollTo(0, 0);
   return (
@@ -24,54 +46,28 @@ const CSRPage = () => {
           {/* CSR Initiatives Section */}
           <section className="bg-gray-100 rounded-lg shadow-lg p-4 mt-6 lg:p-8 mb-5 lg:mb-10">
             <h2 className="lg:text-4xl font-bold text-green-600 text-center mb-3 lg:mb-6">Our CSR Initiatives</h2>
-            <div className="grid grid-cols-1  lg:grid-cols-3 gap-6">
-
-              {/* Initiative 1 */}
-              <div className="bg-[#027F3D] opacity-70 p-3 lg:p-6 lg:text-start text-center rounded-lg shadow-lg transform transition-transform duration-300 hover:scale-105">
-                <div className='lg:h-24 lg:my-auto ' >
-                  <h3 className=" lg:text-2xl  font-bold text-white lg:mb-4">Affordable Housing</h3>
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+              {initiatives.map((initiative, index) => (
+                <div
+                  key={index}
+                  className="bg-[#027F3D] opacity-70 p-3 lg:p-6 lg:text-start  text-center rounded-lg shadow-lg transform transition-transform duration-300 hover:scale-105"
+                >
+                  <div className="lg:h-24 lg:my-auto overflow-hidden">
+                    <h3 className="lg:text-2xl font-bold text-white lg:mb-4">{initiative.title}</h3>
+                  </div>
+                  <div className="lg:h-24 lg:my-auto overflow-hidden">
+                    <p className="text-white text-[9px] lg:text-[16px] lg:mb-4">{initiative.description}</p>
+                  </div>
+                  <div className="my-auto">
+                    <Link
+                      to={initiative.link}
+                      className="text-[9px] lg:text-[16px] text-white text-center block font-semibold hover:underline"
+                    >
+                      Learn More
+                    </Link>
+                  </div>
                 </div>
-                <div className=' lg:h-24 lg:my-auto overflow-hidden' >
-                  <p className="text-white  text-[9px] lg:text-[16px] lg:mb-4">
-                    We are committed to making housing accessible to everyone. Our affordable housing projects aim to provide quality living spaces to underserved communities.
-                  </p>
-                </div>
-                <div className='lg:my-auto' >
-                  <Link to={""} className=" text-[9px] lg:text-[16px] text-white text-center block font-semibold hover:underline">Learn More</Link>
-                </div>
-              </div>
-
-              {/* Initiative 2 */}
-              <div className="bg-[#027F3D] opacity-70 lg:text-start text-center p-3 lg:p-6 rounded-lg shadow-lg transform transition-transform duration-300 hover:scale-105">
-                <div className='lg:h-24 lg:my-auto overflow-hidden ' >
-                  <h3 className=" lg:text-2xl  font-bold text-white lg:mb-4">Environmental Sustainability</h3>
-                </div>
-                <div className='lg:h-24 lg:my-auto overflow-hidden' >
-                  <p className="text-white  text-[9px] lg:text-[16px] lg:mb-4">
-                    Our green building practices focus on reducing environmental impact, from energy-efficient designs to waste management.
-                  </p>
-                </div>
-                <div className='my-auto' >
-                  <Link to={""} className=" text-[9px] lg:text-[16px] text-white text-center block font-semibold hover:underline">Learn More</Link>
-                </div>
-              </div>
-
-              {/* Initiative 3 */}
-              <div className="bg-[#027F3D] opacity-70 p-3 lg:p-6 lg:text-start text-center  rounded-lg shadow-lg transform transition-transform duration-300 hover:scale-105">
-                <div className='lg:h-24 lg:my-auto overflow-hidden ' >
-                  <h3 className="lg:text-2xl font-bold text-white lg:mb-4">Community Development</h3>
-                </div>
-                <div className='lg:h-24 lg:my-auto overflow-hidden' >
-                  <p className="text-white  text-[9px] lg:text-[16px] lg:mb-4">
-                    We partner with local organizations to support education, healthcare, and economic development in the communities we serve.
-                  </p>
-                </div>
-                <div className='my-auto' >
-                  <Link to={""} className="text-[9px] lg:text-[16px] text-white block font-semibold hover:underline">Learn More</Link>
-                </div>
-              </div>
-
-              {/* Additional Initiatives */}
+              ))}
             </div>
           </section>
         </div>
