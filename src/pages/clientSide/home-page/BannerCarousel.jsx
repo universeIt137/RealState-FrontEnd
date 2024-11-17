@@ -37,7 +37,7 @@ const BannerCarousel = () => {
     };
 
     return (
-        <div className="relative -mt-12  lg:mt-0    h-screen overflow-hidden">
+        <div className="relative -mt-[100px]  lg:mt-0  overflow-hidden">
             {/* Slides Container */}
             <div
                 className="flex transition-transform duration-700"
@@ -86,7 +86,7 @@ const BannerCarousel = () => {
             </div> */}
 
             {/* Bottom Buttons */}
-            <div className="absolute lg:bottom-24 bottom-[110px]   left-0 right-0 bg-[#027f3d] bg-opacity-50  lg:py-3 text-white z-10 font-semibold">
+            <div className="absolute lg:bottom-24 bottom-[190px]   left-0 right-0 bg-[#027f3d] bg-opacity-50  lg:py-3 text-white z-10 font-semibold">
                 <div className="flex lg:space-x-10 lg:w-3/4 mx-auto w-full  lg:gap-3 px-1 lg:px-4">
                     <button className="px-2 py-1   text-[8px]  lg:text-xl text-center rounded-lg flex items-center gap-2 ">
                         <Link to="/project-details">PROJECT FEATURE</Link>
