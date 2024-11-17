@@ -19,7 +19,7 @@ const Layout = () => {
   };
 
   return (
-    <div className="">
+    <div className="bg-white">
       {isModalOpen && (
         <div className="fixed pt-16 inset-0 bg-black bg-opacity-60 flex justify-center items-center z-50">
           <div className="relative bg-white rounded-lg shadow-lg w-full max-w-xs sm:max-w-sm md:w-1/2 lg:w-1/3">
