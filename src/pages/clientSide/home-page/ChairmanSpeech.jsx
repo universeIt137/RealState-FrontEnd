@@ -44,16 +44,16 @@ const ChairmanSpeech = () => {
         </div>
 
         <div className="lg:w-1/2 mt-5 lg:mt-0 p-1 lg:pl-10">
-          <p className="lg:text-2xl  text-black font-semibold text-center lg:text-start ">CHAIRMAN</p>
-          <h1 className=" text-center lg:text-4xl lg:text-start font-bold text-black uppercase">
-            Md. Mahabur Alam
-          </h1>
+
           <p className=" lg:text-lg text-10px text-justify overflow-hidden lg:mt-2 lg:block">
             Edison Real Estate has the bold vision of making high-quality and nicely designed residences that are available within the purchasing power of a wider segment of the population. We clearly understand the need for more trusted and reliable companies in the real estate sector.
 
             Companies will fill up this vacuum in the market and there will be a continuous effort to delight customers. We are a competent and motivated group of people, suppliers, and partners who will work closely to ensure strict processes and policies are followed in order to provide complete and consistent customer values. We will listen to our customers to drive continuous improvement and serve them with premium service in every way possible.
           </p>
-
+          <p className="lg:text-2xl  text-black font-extralight mt-2 text-center lg:text-start ">CHAIRMAN</p>
+          <h1 className=" text-center lg:text-4xl lg:text-start font-bold text-black uppercase">
+            Md. Mahabur Alam
+          </h1>
         </div>
       </div>
 
