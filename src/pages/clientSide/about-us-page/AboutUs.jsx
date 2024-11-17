@@ -46,7 +46,7 @@ const AboutUs = () => {
     window.scrollTo(0, 0);
 
     return (
-        <div className="w-11/12 mx-auto mt-16 lg:mt-20">
+        <div className="w-11/12 mx-auto  bg-white mt-16 lg:mt-20">
             {/* Header Section */}
             <div className="lg:py-10 py-4">
                 <div className="bg-white">
@@ -148,7 +148,7 @@ const AboutUs = () => {
                     </div>
                 </div>
 
-                <InfoCard></InfoCard>
+                {/* <InfoCard></InfoCard> */}
             </div>
         </div>
     );
