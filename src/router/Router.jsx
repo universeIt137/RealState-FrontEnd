@@ -25,6 +25,7 @@ import ManageFeaturePage from "../pages/adminSide/projectFeatureRelatedPage/Mana
 import ClientReview from "../components/clientSide/ClientReview";
 import AboutUs from './../pages/clientSide/about-us-page/AboutUs';
 import ChairmanSpeachDrop from "../components/clientSide/ChairmanSpeachDrop";
+import BlogDetails from "../pages/clientSide/blog-details-page/BlogDetails";
 
 
 
@@ -104,6 +105,10 @@ export const router = createBrowserRouter([
             {
                 path : "chairman-speech",
                 element : <ChairmanSpeachDrop></ChairmanSpeachDrop>
+            },
+            {
+                path : "blog-details/:id",
+                element : <BlogDetails></BlogDetails>
             }
         ]
     },
