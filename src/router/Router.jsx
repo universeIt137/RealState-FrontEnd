@@ -17,6 +17,11 @@ import ImageGallery from './../pages/clientSide/image-gallery-page/ImageGallery'
 import DashboardLayout from "../layout/DashboardLayout";
 import Dashboard from "../pages/adminSide/dasboard/Dashboard";
 import ManageContent from "../pages/adminSide/websiteContentRelatedPages/ManageContent";
+import UpdateContent from "../pages/adminSide/websiteContentRelatedPages/UpdateContent";
+import ManageChairman from "../pages/adminSide/chairmainRelatedPages/ManageChairman";
+import UpdateChairman from "../pages/adminSide/chairmainRelatedPages/UpdateChairman";
+import ManageProjectOverview from "../pages/adminSide/projectOverviewRelatedPage/ManageProjectOverview";
+import ManageFeaturePage from "../pages/adminSide/projectFeatureRelatedPage/ManageFeaturePage";
 import ClientReview from "../components/clientSide/ClientReview";
 import AboutUs from './../pages/clientSide/about-us-page/AboutUs';
 import ChairmanSpeachDrop from "../components/clientSide/ChairmanSpeachDrop";
@@ -113,6 +118,27 @@ export const router = createBrowserRouter([
             {
                 path: "add-content",
                 element: <ManageContent></ManageContent>
+            },
+            {
+                path: "update-content/:id",
+                element: <UpdateContent></UpdateContent>
+            },
+            {
+                path: "add-chairman",
+                element: <ManageChairman></ManageChairman>
+            },
+            {
+                path: "update-chairman/:id",
+                element: <UpdateChairman></UpdateChairman>
+            },
+
+            {
+                path: "add-overview",
+                element: <ManageProjectOverview></ManageProjectOverview>
+            },
+            {
+                path: "add-features",
+                element: <ManageFeaturePage></ManageFeaturePage>
             }
         ]
     }

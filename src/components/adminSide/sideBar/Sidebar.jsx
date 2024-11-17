@@ -32,13 +32,26 @@ const Sidebar = () => {
             <NavigationItem to="/dashboard/add-content" icon={MdAddCircle} label="Manage Contents" />
         </>
 
+    const chairmanUrls =
+        <>
+            <NavigationItem to="/dashboard/add-chairman" icon={MdAddCircle} label="Manage Chairman" />
+        </>
 
+    const overviewUrls =
+        <>
+            <NavigationItem to="/dashboard/add-overview" icon={MdAddCircle} label="Manage Overview" />
+        </>
+    
+    const featureUrls =
+    <>
+        <NavigationItem to="/dashboard/add-features" icon={MdAddCircle} label="Manage Feature" />
+    </>
 
 
     return (
         <>
             <aside
-                className={`bg-gradient-to-b from-indigo-600 to-indigo-800 text-white transition-all duration-300 ${isSidebarOpen ? 'w-64' : 'w-14'
+                className={`bg-[#21c45e]  text-white transition-all duration-300 ${isSidebarOpen ? 'w-64' : 'w-14'
                     }`}
             >
                 <div className="flex justify-between items-center p-4 gap-8">
@@ -52,7 +65,7 @@ const Sidebar = () => {
                         {isSidebarOpen ? <IoCloseCircleOutline className='text-4xl' /> : <MdMenuOpen className='text-3xl' />}
                     </button>
                 </div>
-                
+
                 <nav className="flex-1 p-4">
                     <ul className={`space-y-2 pb-20 list-none ${!isSidebarOpen && 'hidden'} `}>
                         {/* <NavigationItem to="/dashboard" icon={FaHome} label="Dashboard" /> */}
@@ -67,15 +80,16 @@ const Sidebar = () => {
                         </li>
 
                         <li className="mb-4">
-                            <Dropdown buttonText="Chairman Content" urls={courseUrls} />
+                            <Dropdown buttonText="Chairman Content" urls={chairmanUrls} />
+                        </li>
+
+
+                        <li className="mb-4">
+                            <Dropdown buttonText="Project Overview" urls={overviewUrls} />
                         </li>
 
                         <li className="mb-4">
-                            <Dropdown buttonText="Project Overview" urls={courseUrls} />
-                        </li>
-
-                        <li className="mb-4">
-                            <Dropdown buttonText="Project Features" urls={courseUrls} />
+                            <Dropdown buttonText="Project Features" urls={featureUrls} />
                         </li>
 
 
