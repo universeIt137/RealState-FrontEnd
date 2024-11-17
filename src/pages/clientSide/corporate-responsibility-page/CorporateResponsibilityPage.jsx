@@ -55,6 +55,12 @@ const CSRPage = () => {
                   <div className="lg:h-24 lg:my-auto overflow-hidden">
                     <h3 className="lg:text-2xl font-bold text-white lg:mb-4">{initiative.title}</h3>
                   </div>
+                  <figure className="px-10 pt-10">
+                    <img
+                      src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
+                      alt="Shoes"
+                      className="rounded-xl" />
+                  </figure>
                   <div className="lg:h-24 lg:my-auto overflow-hidden">
                     <p className="text-white text-[9px] lg:text-[16px] lg:mb-4">{initiative.description}</p>
                   </div>
