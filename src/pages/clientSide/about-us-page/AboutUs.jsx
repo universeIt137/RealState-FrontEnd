@@ -1,4 +1,5 @@
 import React from "react";
+import InfoCard from "./InfoCard";
 
 // Content Data
 const aboutUsContent = {
@@ -146,6 +147,8 @@ const AboutUs = () => {
                         </div>
                     </div>
                 </div>
+
+                <InfoCard></InfoCard>
             </div>
         </div>
     );

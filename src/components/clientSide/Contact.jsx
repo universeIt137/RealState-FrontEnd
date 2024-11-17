@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { Helmet } from "react-helmet-async";
 import { FaMapMarkerAlt, FaPhoneAlt, FaEnvelope } from "react-icons/fa";
+import InfoCard from "../../pages/clientSide/about-us-page/InfoCard";
 
 const Contact = () => {
   useEffect(() => {
@@ -19,53 +20,17 @@ const Contact = () => {
       </Helmet>
       <div className="w-11/12 mx-auto">
         <div>
-          <h1 className="text-center lg:text-4xl mt-16 lg:mt-24 lg:mb-8 text-black font-bold">
+          <h1 className="text-center lg:text-4xl mt-20 lg:mt-24 lg:mb-8 text-black font-bold">
             Visit Our Office
           </h1>
-          <div className="flex flex-col lg:flex-row items-center justify-center gap-9">
-            {/* Office Card */}
-            <div className="hover:scale-105 transition-transform duration-300 ease-out flex flex-col border border-green-500 items-start bg-white shadow-lg p-6 rounded-lg w-full lg:w-1/2 mb-6 lg:mb-0">
-              <div className="flex items-center justify-center bg-green-500 h-12 lg:h-20 w-full rounded-t-lg">
-                <h2 className="text-[16px] lg:text-4xl font-bold text-black">
-                  Amar Thikana Real Estate Ltd.
-                </h2>
-              </div>
-              <div className="text-left space-y-4 mt-4">
-                {/* Address */}
-                <div className="flex items-center">
-                  <FaMapMarkerAlt className="text-green-500 text-lg lg:text-2xl mr-2 mt-1" />
-                  <div>
-                    <p className="text-[16px] lg:text-[20px] text-black font-bold">
-                      Address: 48, Bijoy Nagar (4th Floor), Paltan, Dhaka-1000.
-                    </p>
-                  </div>
-                </div>
+          <div className=" flex flex-col lg:flex-row items-center justify-center gap-9">
 
-                {/* Phone */}
-                <div className="flex items-center">
-                  <div>
-                    <FaPhoneAlt className=" text-lg lg:text-2xl mr-2 mt-1" />
-                  </div>
-                  <div>
-                    <p className="text-[16px] lg:text-[20px] text-black font-bold">
-                      Phone: <span className="mt-1  " >+88 01747-516981</span>
-                    </p>
-                  </div>
-                </div>
+            
 
-                {/* Email */}
-                <div className="flex items-start">
-                  <div>
-                  <FaEnvelope className="text-green-500 text-lg lg:text-2xl mr-2 mt-1" />
-                  </div>
-                  <div>
-                    <p className="text-[16px] lg:text-[20px] text-black font-bold">
-                      Email:amarthikana06@gmail.com
-                    </p>
-                  </div>
-                </div>
-              </div>
+            <div className="lg:w-1/2">
+              <InfoCard></InfoCard>
             </div>
+
 
             {/* Contact Form */}
             <div className="w-full lg:w-1/2">
