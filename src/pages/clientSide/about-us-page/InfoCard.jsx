@@ -6,14 +6,14 @@ const InfoCard = () => {
     return (
         <div className="relative bg-white shadow-lg p-6 rounded-md lg:h-[350px]  overflow-hidden flex justify-center items-center">
             {/* Top Left Green Curved Design */}
-            <div className="hidden lg:block absolute lg:-top-20 lg:-left-20 w-44 h-44 bg-green rounded-full"></div>
+            <div className="hidden lg:block absolute lg:-top-20 lg:-left-20 w-44 h-44 bg-[#45a170]  rounded-full"></div>
 
             {/* Bottom Right Green Rectangle */}
-            <div className="hidden lg:block absolute bottom-0 right-0 w-20 h-20 bg-green"></div>
+            <div className="hidden lg:block absolute bottom-0 right-0 w-20 h-20 bg-[#45a170] "></div>
 
             {/* Main Content */}
             <div className=" z-10">
-                <h2 className="lg:text-4xl text-xl font-semibold text-green mb-4 text-center lg:text-start">
+                <h2 className="lg:text-4xl text-xl font-semibold text-[#45a170] mb-4 text-center lg:text-start">
                     Amar Thikana Real Estate Ltd.
                 </h2>
                 <div className="text-gray-700 lg:space-y-3">
