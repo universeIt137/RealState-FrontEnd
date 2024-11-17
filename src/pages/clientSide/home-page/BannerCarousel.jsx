@@ -9,7 +9,7 @@ const BannerCarousel = () => {
     const slides = [
         { url: 'https://res.cloudinary.com/dnvmj9pvk/image/upload/v1731577621/amar1_xch9zp.jpg', title: 'Reviving You on Every Step' },
         { url: 'https://res.cloudinary.com/dnvmj9pvk/image/upload/v1731577621/amar1_xch9zp.jpg', title: 'Reviving You on Every Step' },
-        { url: 'https://res.cloudinary.com/dnvmj9pvk/image/upload/v1731577621/amar1_xch9zp.jpg', title: 'Reviving You on Every Step' },{ url: 'https://res.cloudinary.com/dnvmj9pvk/image/upload/v1731577621/amar1_xch9zp.jpg', title: 'Reviving You on Every Step' },
+        { url: 'https://res.cloudinary.com/dnvmj9pvk/image/upload/v1731834102/jlkm_wjkhfh.jpg', title: 'Reviving You on Every Step' },{ url: 'https://res.cloudinary.com/dnvmj9pvk/image/upload/v1731577621/amar1_xch9zp.jpg', title: 'Reviving You on Every Step' },
         // { url: 'https://res.cloudinary.com/dnvmj9pvk/image/upload/v1731493217/Amer%20Thikana/ynjhagwufmak2cxk5gl7.jpg', title: 'Discover More' },
         // { url: 'https://res.cloudinary.com/dnvmj9pvk/image/upload/v1731493294/Amer%20Thikana/kel7ucjs1x7xt9e7k1zz.jpg', title: 'Experience Quality' },
     ];
