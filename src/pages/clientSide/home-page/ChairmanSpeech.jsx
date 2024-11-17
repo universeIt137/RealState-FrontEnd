@@ -44,6 +44,9 @@ const ChairmanSpeech = () => {
         </div>
 
         <div className="lg:w-1/2 mt-5 lg:mt-0 p-1 lg:pl-10">
+          <h1 className=" text-center lg:text-4xl lg:text-start font-extra-light text-black uppercase">
+            Chairman Speech
+          </h1>
 
           <p className=" lg:text-lg text-10px text-justify overflow-hidden lg:mt-2 lg:block">
             Edison Real Estate has the bold vision of making high-quality and nicely designed residences that are available within the purchasing power of a wider segment of the population. We clearly understand the need for more trusted and reliable companies in the real estate sector.

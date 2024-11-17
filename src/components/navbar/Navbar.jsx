@@ -225,7 +225,7 @@ const Navbar = () => {
 
         {/* Drawer */}
         {isDrawerOpen && (
-          <div className="fixed top-0 right-0 bg-[#027F3D] z-30 opacity-70 text-white w-3/4 h-screen z-50 lg:w-1/4 p-5 shadow-lg">
+          <div className="fixed top-0 right-0 bg-[#027F3D]  text-white w-3/4 h-screen z-50 lg:w-1/4 p-5 shadow-lg">
             <button
               onClick={toggleDrawer}
               className="absolute top-3 right-3 text-white text-xl"

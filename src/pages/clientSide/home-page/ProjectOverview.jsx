@@ -30,7 +30,7 @@ const ProjectOverview = () => {
                     <div className="md:pr-10 text-black">
                         <h1 className=' text-[13px] md:text-xl font-bold  uppercase my-2 lg:my-4 text-center' >Project Overview</h1>
                         <h1 className="lg:text-3xl  font-bold  uppercase">
-                            Amer Thikana | Green City
+                            Amer Thikana Green City
                         </h1>
 
                     </div>
