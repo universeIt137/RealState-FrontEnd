@@ -78,8 +78,10 @@ const VideoGalleryPage = () => {
     return `${minutes}:${remainingSeconds < 10 ? '0' + remainingSeconds : remainingSeconds}`;
   };
 
+  window.scrollTo(0, 0);
+
   return (
-    <div className="w-11/12 mx-auto lg:mt-24">
+    <div className="w-11/12 mx-auto mt-20 mb-9 lg:mt-24">
       <div className="mx-auto relative w-full overflow-hidden">
         <h1 className="lg:text-4xl my-2 font-bold text-center text-black lg:mb-8">Video Gallery</h1>
 
