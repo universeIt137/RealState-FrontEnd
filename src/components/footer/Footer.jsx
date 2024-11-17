@@ -4,14 +4,14 @@ import { Link } from 'react-router-dom';
 
 const Footer = () => {
   return (
-    <footer className="bg-[#027F3D] bg-opacity-70  lg:py-8 p-4 ">
+    <footer className="bg-[#027F3D] bg-opacity-70   lg:py-8 p-4 ">
       <div className="w-11/12 mx-auto text-white">
         
         {/* Top Section: About, Useful Links, Subscription */}
         <div className="flex flex-col lg:gap-8 lg:flex-row lg:justify-between lg:items-start">
           
           {/* About Company */}
-          <div className="lg:w-1/3">
+          <div className="lg:w-1/3 ">
             <h2 className=" lg:text-2xl  font-bold">About Company</h2>
             <hr className="w-16 border-white border-t-2 lg:mb-4 mb-2 " />
             <p className="font-bold lg:text-lg">Amar Thikana Properties Ltd.</p>
