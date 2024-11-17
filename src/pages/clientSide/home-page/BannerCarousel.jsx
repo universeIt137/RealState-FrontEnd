@@ -37,7 +37,7 @@ const BannerCarousel = () => {
     };
 
     return (
-        <div className="relative -mt-[100px]  lg:mt-0  overflow-hidden">
+        <div className="relative   lg:mt-0  overflow-hidden">
             {/* Slides Container */}
             <div
                 className="flex transition-transform duration-700"
@@ -46,7 +46,7 @@ const BannerCarousel = () => {
                 {slides.map((slide, index) => (
                     <div
                         key={index}
-                        className="lg:w-screen lg:h-screen w-screen h-screen flex-shrink-0 relative"
+                        className="lg:w-screen lg:h-screen w-screen h-[50vh] flex-shrink-0 relative"
                         style={{
                             backgroundImage: `url(${slide.url})`,
                             backgroundSize: 'contain', // Ensures entire image fits without cropping
@@ -55,8 +55,7 @@ const BannerCarousel = () => {
                             
                         }}
                     >
-                        {/* Dark Overlay */}
-                        {/* <div className="absolute inset-0 bg-black bg-opacity-40"></div> */}
+                       
                     </div>
                 ))}
             </div>
@@ -66,27 +65,16 @@ const BannerCarousel = () => {
                 {slides.map((_, index) => (
                     <button
                         key={index}
-                        className={`w-2 h-2 rounded-full ${index === currentIndex ? 'bg-white' : 'bg-gray-400'}`}
+                        className={`w-2 h-2 rounded-full ${index === currentIndex ? 'bg-white' : 'bg-white'}`}
                         onClick={() => goToSlide(index)}
                     />
                 ))}
             </div>
 
-            {/* Bottom Text and Buttons */}
-            {/* <div className="absolute bottom-44 left-0 right-0 py-6 text-white z-10">
-                <div className="w-3/4 mx-auto text-center">
-                    <h2
-                        key={currentIndex}
-                        className="  md:text-4xl lg:text-5xl font-bold mb-4"
-                        data-aos="fade-up"
-                    >
-                        {slides[currentIndex].title}
-                    </h2>
-                </div>
-            </div> */}
+            
 
             {/* Bottom Buttons */}
-            <div className="absolute lg:bottom-24 bottom-[190px]   left-0 right-0 bg-[#027f3d] bg-opacity-50  lg:py-3 text-white z-10 font-semibold">
+            <div className="absolute lg:bottom-24 bottom-[90px]   left-0 right-0 bg-[#027f3d] bg-opacity-50  lg:py-3 text-white z-10 font-semibold">
                 <div className="flex lg:space-x-10 lg:w-3/4 mx-auto w-full  lg:gap-3 px-1 lg:px-4">
                     <button className="px-2 py-1   text-[8px]  lg:text-xl text-center rounded-lg flex items-center gap-2 ">
                         <Link to="/project-details">PROJECT FEATURE</Link>

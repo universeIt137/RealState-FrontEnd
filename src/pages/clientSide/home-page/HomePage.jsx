@@ -29,7 +29,10 @@ const HomePage = () => {
       </div>  */}
 
       <BannerCarousel></BannerCarousel>
+      <div className="  ">
+        
       <ChairmanSpeech></ChairmanSpeech>
+      </div>
       <ProjectOverview></ProjectOverview>
       <ProjectFeaturePage></ProjectFeaturePage>
       {/* <ProjectInfo></ProjectInfo> */}
