@@ -30,7 +30,6 @@ const ProjectFeaturePage = () => {
 
           {/* Project Info */}
 
-
           {/* Amenities Section */}
           <div className="  md:mb-8">
             <h3 className="md:text-3xl font-bold text-black text-[15px] mb-1 lg:mb-4">Amenities</h3>
