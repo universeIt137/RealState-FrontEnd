@@ -5,15 +5,15 @@ import { Link } from 'react-router-dom';
 const Footer = () => {
   return (
     <footer className="bg-[#027F3D] bg-opacity-70   lg:py-8 p-4 ">
-      <div className="w-11/12 mx-auto text-white">
+      <div className="w-11/12 mx-auto text-white ">
         
         {/* Top Section: About, Useful Links, Subscription */}
-        <div className="flex flex-col lg:gap-8 lg:flex-row lg:justify-between lg:items-start">
+        <div className="flex flex-col lg:gap-8 lg:flex-row justify-center items-center lg:justify-between lg:items-start ">
           
           {/* About Company */}
-          <div className="lg:w-1/3 ">
-            <h2 className=" lg:text-2xl  font-bold">About Company</h2>
-            <hr className="w-16 border-white border-t-2 lg:mb-4 mb-2 " />
+          <div className="lg:w-1/3 text-center lg:text-start ">
+            <h2 className=" lg:text-2xl  font-bold ">About Company</h2>
+            <hr className="w-16 border-white border-t-2 lg:mb-4 mb-2 hidden lg:block" />
             <p className="font-bold lg:text-lg">Amar Thikana Properties Ltd.</p>
             <p className="text-[9px] lg:text-lg mt-1 lg:mt-2">Place: ৪৮, বিজয় নগর (৪র্থ তলা), পল্টন, ঢাকা-১০০০।</p>
             <p className="text-[9px] lg:text-lg mt-1 lg:mt-2">Phone: +88 01747-516981</p>
@@ -21,10 +21,10 @@ const Footer = () => {
           </div>
 
           {/* Useful Links */}
-          <div className="lg:w-1/3">
+          <div className="lg:w-1/3 ">
             <h2 className="lg:text-2xl mt-2 lg:mt-0  font-bold">Useful Links</h2>
-            <hr className="w-16 border-white border-t-2 lg:mb-4 mb-1 " />
-            <ul className="lg:space-y-2 -space-y-1 ">
+            <hr className="w-16 border-white border-t-2 lg:mb-4 mb-1 hidden lg:block" />
+            <ul className="lg:space-y-2 -space-y-1 text-center lg:text-start">
               {['Help', 'FAQ', 'Contact', 'About Company', 'Blogs'].map((linkText, index) => (
                 <li key={index}>
                   <Link
@@ -40,8 +40,8 @@ const Footer = () => {
 
           {/* Email Subscription */}
           <div className="lg:w-1/3">
-            <h2 className="lg:text-2xl mt-2 lg:mt-0  font-bold">Email Subscription</h2>
-            <hr className="w-16 border-white border-t-2 mb-2 lg:mb-4" />
+            <h2 className="lg:text-2xl mt-2 lg:mt-0  font-bold text-center lg:text-start">Email Subscription</h2>
+            <hr className="w-16 border-white border-t-2 mb-2 lg:mb-4 hidden lg:block" />
             <form className="flex gap-2">
               <input
                 type="email"
@@ -58,8 +58,8 @@ const Footer = () => {
 
             {/* Social Media Links */}
             <div className="lg:mt-6 mt-2 ">
-              <h2 className="lg:text-xl font-semibold mb-2">Connect With Us</h2>
-              <div className="flex space-x-2 lg:space-x-4">
+              <h2 className="lg:text-xl font-semibold mb-2 text-center lg:text-start">Connect With Us</h2>
+              <div className="flex justify-center lg:justify-start space-x-2 lg:space-x-4">
                 {[FaFacebook, FaTwitter, FaLinkedinIn, FaYoutube].map((Icon, index) => (
                   <Link key={index} to="" className="lg:p-2 p-1 border rounded-full shadow-lg">
                     <Icon className="text-lg" />
