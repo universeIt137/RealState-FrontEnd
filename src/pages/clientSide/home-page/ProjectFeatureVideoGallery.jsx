@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import ReactPlayer from 'react-player';
 import { AiOutlinePlayCircle, AiOutlinePauseCircle } from "react-icons/ai";
 import { IoMdCloseCircleOutline } from 'react-icons/io';
+import { IoCloseSharp } from 'react-icons/io5';
 
 // Sample video data
 const videosData = [
@@ -72,7 +73,7 @@ const ProjectFeatureVideoGallery = () => {
 
     return (
         <div className="mx-auto relative w-full overflow-hidden">
-            <h1 className="md:text-3xl my-2 font-bold text-center text-black md:mb-8">Video Gallery</h1>
+            <h1 className="md:text-3xl  font-bold text-center text-black "></h1>
 
             {/* Container for images with horizontal scroll */}
             <div className="relative w-full overflow-hidden">
@@ -83,12 +84,12 @@ const ProjectFeatureVideoGallery = () => {
                     }}
                 >
                     {videosData.map((video, index) => (
-                        <div key={index} className="relative flex-shrink-0 w-full sm:w-1/2 md:w-1/3 px-1">
+                        <div key={index} className="relative  flex-shrink-0 w-full sm:w-1/2 md:w-1/3 px-1 ">
                             <img
                                 src={video.thumbnail}
                                 alt={video.title}
                                 onClick={() => openModal(video)}
-                                className="w-full h-56 object-cover rounded-lg shadow-md cursor-pointer"
+                                className="w-full h-52 object-cover rounded-lg shadow-md cursor-pointer"
                             />
                             <div className="absolute inset-0 hidden group-hover:flex items-center justify-center">
                                 <AiOutlinePlayCircle
@@ -105,9 +106,9 @@ const ProjectFeatureVideoGallery = () => {
                 <div className="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50">
                     <button
                         onClick={closeModal}
-                        className="absolute top-4 right-4 text-2xl text-gray-300 z-10"
+                        className="absolute top-4 right-4 text-2xl bg-green p-2 rounded-full text-gray-300 z-10"
                     >
-                        <IoMdCloseCircleOutline />
+                        <IoCloseSharp size={30} />
                     </button>
 
                     {/* Modal for Video Player */}

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import ReactPlayer from 'react-player';
-import { AiOutlinePlayCircle, AiOutlinePauseCircle } from "react-icons/ai";
-import { IoMdCloseCircleOutline } from 'react-icons/io';
+import { AiOutlinePlayCircle, AiOutlinePauseCircle } from 'react-icons/ai';
+import { IoCloseCircleOutline } from "react-icons/io5";
 
 // Sample video data
 const videosData = [
@@ -9,18 +9,19 @@ const videosData = [
     id: 1,
     title: "Cloudinary Video 1",
     thumbnail: "https://res.cloudinary.com/dnvmj9pvk/image/upload/v1730889998/offer-3_zr81a8.png",
-    url: "https://res.cloudinary.com/dj2edy2rg/video/upload/v1731341221/wquwm1xejbwpzmvlyrnz.mp4"
-  }, {
-    id: 1,
-    title: "Cloudinary Video 1",
-    thumbnail: "https://res.cloudinary.com/dnvmj9pvk/image/upload/v1730889998/offer-3_zr81a8.png",
-    url: "https://res.cloudinary.com/dj2edy2rg/video/upload/v1731341221/wquwm1xejbwpzmvlyrnz.mp4"
+    url: "https://res.cloudinary.com/dj2edy2rg/video/upload/v1731341221/wquwm1xejbwpzmvlyrnz.mp4",
   },
   {
-    id: 1,
-    title: "Cloudinary Video 1",
+    id: 2,
+    title: "Cloudinary Video 2",
     thumbnail: "https://res.cloudinary.com/dnvmj9pvk/image/upload/v1730889998/offer-3_zr81a8.png",
-    url: "https://res.cloudinary.com/dj2edy2rg/video/upload/v1731341221/wquwm1xejbwpzmvlyrnz.mp4"
+    url: "https://res.cloudinary.com/dj2edy2rg/video/upload/v1731341221/wquwm1xejbwpzmvlyrnz.mp4",
+  },
+  {
+    id: 3,
+    title: "Cloudinary Video 3",
+    thumbnail: "https://res.cloudinary.com/dnvmj9pvk/image/upload/v1730889998/offer-3_zr81a8.png",
+    url: "https://res.cloudinary.com/dj2edy2rg/video/upload/v1731341221/wquwm1xejbwpzmvlyrnz.mp4",
   },
 ];
 
@@ -30,13 +31,20 @@ const VideoGalleryPage = () => {
   const [isPlaying, setIsPlaying] = useState(false);
   const [videoProgress, setVideoProgress] = useState({ played: 0, duration: 0 });
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % videosData.length);
     }, 3000); // Slide every 3 seconds
 
-    return () => clearInterval(interval);
+    const handleResize = () => setWindowWidth(window.innerWidth); // Resize handler
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      clearInterval(interval);
+      window.removeEventListener('resize', handleResize);
+    };
   }, []);
 
   const openModal = (video) => {
@@ -71,25 +79,25 @@ const VideoGalleryPage = () => {
   };
 
   return (
-    <div className='w-11/12 mx-auto ' >
+    <div className="w-11/12 mx-auto lg:mt-24">
       <div className="mx-auto relative w-full overflow-hidden">
-        <h1 className="md:text-3xl my-2 font-bold text-center text-[#21c45e] md:mb-8">Video Gallery</h1>
+        <h1 className="lg:text-4xl my-2 font-bold text-center text-black lg:mb-8">Video Gallery</h1>
 
         {/* Container for images with horizontal scroll */}
         <div className="relative w-full overflow-hidden">
           <div
-            className="flex transition-transform duration-500 md:mb-7"
+            className="flex transition-transform duration-500 lg:mb-7"
             style={{
-              transform: `translateX(-${currentIndex * (window.innerWidth < 640 ? 100 : 33.33)}%)`,
+              transform: `translateX(-${currentIndex * (windowWidth < 640 ? 100 : 33.33)}%)`,
             }}
           >
             {videosData.map((video, index) => (
-              <div key={index} className="relative flex-shrink-0 w-full sm:w-1/2 md:w-1/3 px-1">
+              <div key={index} className="relative flex-shrink-0 w-full sm:w-1/2 lg:w-1/3 px-1">
                 <img
                   src={video.thumbnail}
                   alt={video.title}
                   onClick={() => openModal(video)}
-                  className="w-full h-48 object-cover rounded-lg shadow-md cursor-pointer"
+                  className="w-full h-48 object-cover rounded-lg shadow-lg cursor-pointer"
                 />
                 <div className="absolute inset-0 hidden group-hover:flex items-center justify-center">
                   <AiOutlinePlayCircle
@@ -108,7 +116,7 @@ const VideoGalleryPage = () => {
               onClick={closeModal}
               className="absolute top-4 right-4 text-2xl text-gray-300 z-10"
             >
-              <IoMdCloseCircleOutline />
+              <IoCloseCircleOutline size={50}/>
             </button>
 
             {/* Modal for Video Player */}

@@ -9,7 +9,7 @@ const testimonialData = [
   { id: 4, name: 'Mrs. Emily Clark', role: 'Property Investor', text: 'The best real estate experience we could ask for.', video: 'https://res.cloudinary.com/demo/video/upload/v1481234567/sample_video.mp4' },
 ];
 
-function AboutUs() {
+function ClientReview() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [autoChange, setAutoChange] = useState(true);
   const [showModal, setShowModal] = useState(false);
@@ -128,4 +128,4 @@ function AboutUs() {
   );
 }
 
-export default AboutUs;
+export default ClientReview;

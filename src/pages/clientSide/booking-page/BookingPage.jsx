@@ -29,10 +29,10 @@ const BookingPage = () => {
 
     return (
         <div>
-        <div className='max-w-screen-xl mx-auto'>
+        <div className='max-w-screen-xl lg:mt-28 mx-auto'>
             <div className='lg:ml-10'>
                 <img className=" block mx-auto w-[900px] " src="https://res.cloudinary.com/dnvmj9pvk/image/upload/v1730635616/real-state-form_lfoa16.jpg" alt="Real Estate Form" />
-                <button className='btn md:text-lg bg-green-600 text-white hover:text-black my-10 block mx-auto' onClick={downloadForm}>Download</button>
+                <button className='btn md:text-lg bg-green-600 bg-[#027f3d] bg-opacity-70  text-black my-10 block mx-auto' onClick={downloadForm}>Download</button>
             </div>
         </div>
     </div>
