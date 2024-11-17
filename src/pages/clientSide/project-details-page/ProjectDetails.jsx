@@ -30,8 +30,10 @@ const ProjectDetails = () => {
         <div className="w-11/12  mx-auto px-4 py-20 ">
             {/* Heading and Location */}
             <div className=" text-center lg:space-y-2">
-                <h1 className="lg:text-4xl text-[17px]    font-bold text-black">{property.heading}</h1>
-                <p className="lg:text-[16px]  text-[10px] lg:mb-0 mb-3 text-black">{property.location}</p>
+            <h1 className="lg:text-4xl text-[17px]  font-bold text-black">Amer Thikana Green City</h1>
+
+                <h1 className="lg:text-xl text-[17px]  font-bold text-black">Secure Your Safe Living Space – Become a Landowner Today!</h1>
+                <p className="lg:text-[16px]  text-[10px] lg:mb-0 mb-3 text-black">Project Location : {property.location}</p>
             </div>
 
             {/* Image Gallery */}

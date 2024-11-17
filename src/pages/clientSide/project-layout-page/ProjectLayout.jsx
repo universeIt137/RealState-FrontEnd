@@ -52,7 +52,7 @@ const ProjectLayout = () => {
                     <img
                         src={images[0]}
                         alt="Gallery Thumbnail"
-                        className="cursor-pointer w-[00px] h-[300px] rounded-lg  transition-transform transform hover:scale-105"
+                        className="cursor-pointer w-[300px] h-[300px] rounded-lg  transition-transform transform hover:scale-105"
                         onClick={() => openModal(0)}
                     />
                 </div>

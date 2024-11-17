@@ -55,20 +55,7 @@ const ScheduleMeeting = () => {
                                 />
                             </div>
 
-                            <div>
-                                <label htmlFor="time" className="sr-only">Select A Time</label>
-                                <select
-                                    id="time"
-                                    className="w-full border-2 border-black px-4 py-2 lg:py-4 focus:outline-none "
-                                >
-                                    <option value="">Select A Time</option>
-                                    <option value="9am">9:00 AM</option>
-                                    <option value="10am">10:00 AM</option>
-                                    <option value="11am">11:00 AM</option>
-                                    <option value="1pm">1:00 PM</option>
-                                    <option value="2pm">2:00 PM</option>
-                                </select>
-                            </div>
+                            
 
                             <div>
                                 <button
