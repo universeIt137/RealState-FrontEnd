@@ -4,7 +4,7 @@ import React from "react";
 const aboutUsContent = {
     header: {
         title: "Creating a Better",
-        highlight: "Real Estate Solutions",
+        highlight: "Residence Solutions",
         description:
             "Amar Thikana is a Bangladesh-based Real Estate Company. Amar Thikana specializes in offering top-notch real estate solutions, maintaining a high standard of property development and management. The main objective is to provide customers with the best possible living and investment opportunities.",
         imageUrl:
