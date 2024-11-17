@@ -37,7 +37,7 @@ const BannerCarousel = () => {
     };
 
     return (
-        <div className="relative -mt-5  lg:mt-0    h-screen overflow-hidden">
+        <div className="relative -mt-12  lg:mt-0    h-screen overflow-hidden">
             {/* Slides Container */}
             <div
                 className="flex transition-transform duration-700"
