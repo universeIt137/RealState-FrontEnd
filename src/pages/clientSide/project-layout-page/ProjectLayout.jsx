@@ -44,7 +44,7 @@ const ProjectLayout = () => {
     return (
         <div className="bg-white">
             <Helmet>
-                <title>Amar Thikana | Photo Gallery</title>
+                <title>Amar Thikana | Project Layout</title>
             </Helmet>
             <div className="w-11/12 mx-auto">
                 {/* Show Only the First Image */}
@@ -52,7 +52,7 @@ const ProjectLayout = () => {
                     <img
                         src={images[0]}
                         alt="Gallery Thumbnail"
-                        className="cursor-pointer w-[400px] h-[300px] rounded-lg shadow-md transition-transform transform hover:scale-105"
+                        className="cursor-pointer w-[400px] h-[300px] rounded-lg  transition-transform transform hover:scale-105"
                         onClick={() => openModal(0)}
                     />
                 </div>
@@ -80,9 +80,9 @@ const ProjectLayout = () => {
                             >
                                 <button
                                     onClick={closeModal}
-                                    className="absolute top-4 right-4 text-2xl text-gray-300 z-10"
+                                    className="absolute top-4 right-4 text-2xl text-black bg-[#027F3D] opacity-70 p-1 rounded-full shadow-2xl"
                                 >
-                                    <IoCloseCircleOutline size={50} />
+                                    <IoCloseCircleOutline size={40} />
                                 </button>
 
                             </button>
@@ -101,7 +101,7 @@ const ProjectLayout = () => {
                                         e.stopPropagation();
                                         goToPrevious();
                                     }}
-                                    className="text-black bg-gray-200 p-2 rounded-full shadow hover:bg-gray-300"
+                                    className="text-white bg-black p-3 rounded-full shadow-2xl"
                                 >
                                     &#10094;
                                 </button>
@@ -112,7 +112,7 @@ const ProjectLayout = () => {
                                         e.stopPropagation();
                                         goToNext();
                                     }}
-                                    className="text-black bg-gray-200 p-2 rounded-full shadow hover:bg-gray-300"
+                                    className="text-white bg-black p-3 rounded-full shadow-2xl "
                                 >
                                     &#10095;
                                 </button>

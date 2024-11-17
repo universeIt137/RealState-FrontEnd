@@ -72,7 +72,8 @@ const ProjectDetails = () => {
                 </div>
             </div>
             {/* Project Layout  */}
-            <div className='border-2' >
+            <h1 className='lg:text-4xl font-bold mt-5 mb-5 py-2 ml-6 '  >Project Layout</h1>
+            <div className='' >
                 <ProjectLayout></ProjectLayout>
             </div>
         </div>
