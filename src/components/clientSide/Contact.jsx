@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { Helmet } from "react-helmet-async";
+import { FaMapMarkerAlt, FaPhoneAlt, FaEnvelope } from "react-icons/fa";
 
 const Contact = () => {
   useEffect(() => {
@@ -29,32 +30,47 @@ const Contact = () => {
                   Amar Thikana Real Estate Ltd.
                 </h2>
               </div>
-              <div className="text-left">
-                <p className="text-[16px] lg:text-[20px] text-black font-bold">
-                  Address:
-                </p>
-                <p className="text-[13px] lg:text-[18px] text-black font-semibold">
-                  48, Bijoy Nagar (4th Floor), Paltan, Dhaka-1000.
-                </p>
-                <p className="text-[16px] lg:text-[20px] text-black font-bold lg:mt-1">
-                  Phone:
-                </p>
-                <p className="text-[13px] lg:text-[18px] text-black font-semibold">
-                  +88 01747-516981
-                </p>
-                <p className="text-[16px] lg:text-[20px] text-black font-bold lg:mt-1">
-                  Email:
-                </p>
-                <p className="text-[13px] lg:text-[18px] text-black font-semibold">
-                  amarthikana06@gmail.com
-                </p>
+              <div className="text-left space-y-4 mt-4">
+                {/* Address */}
+                <div className="flex items-center">
+                  <FaMapMarkerAlt className="text-green-500 text-lg lg:text-2xl mr-2 mt-1" />
+                  <div>
+                    <p className="text-[16px] lg:text-[20px] text-black font-bold">
+                      Address: 48, Bijoy Nagar (4th Floor), Paltan, Dhaka-1000.
+                    </p>
+                  </div>
+                </div>
+
+                {/* Phone */}
+                <div className="flex items-center">
+                  <div>
+                    <FaPhoneAlt className=" text-lg lg:text-2xl mr-2 mt-1" />
+                  </div>
+                  <div>
+                    <p className="text-[16px] lg:text-[20px] text-black font-bold">
+                      Phone: <span className="mt-1  " >+88 01747-516981</span>
+                    </p>
+                  </div>
+                </div>
+
+                {/* Email */}
+                <div className="flex items-start">
+                  <div>
+                  <FaEnvelope className="text-green-500 text-lg lg:text-2xl mr-2 mt-1" />
+                  </div>
+                  <div>
+                    <p className="text-[16px] lg:text-[20px] text-black font-bold">
+                      Email:amarthikana06@gmail.com
+                    </p>
+                  </div>
+                </div>
               </div>
             </div>
 
             {/* Contact Form */}
-            <div className=" w-full lg:w-1/2">
-              <div className="flex flex-col items-center ">
-                <div className="w-full  p-4 lg:p-6 bg-white rounded-lg shadow-lg">
+            <div className="w-full lg:w-1/2">
+              <div className="flex flex-col items-center">
+                <div className="w-full p-4 lg:p-6 bg-white rounded-lg shadow-lg">
                   <form onSubmit={handleSubmit}>
                     <div className="mb-2 lg:mb-6">
                       <label
@@ -104,7 +120,7 @@ const Contact = () => {
                     <div className="flex items-center justify-center">
                       <button
                         type="submit"
-                        className="bg-green-500 text-black bg-[#027f3d] bg-opacity-70 font-bold py-2 px-6 rounded focus:outline-none focus:shadow-outline"
+                        className="bg-[#027F3D] text-black bg-opacity-70 font-bold py-2 px-6 rounded focus:outline-none focus:shadow-outline"
                       >
                         Submit
                       </button>
@@ -117,7 +133,7 @@ const Contact = () => {
         </div>
 
         {/* Google Map */}
-        <div className=" mb-8 hover:scale-105 transition-transform duration-300 ease-out w-full flex items-center justify-center mt-10">
+        <div className="mb-8 hover:scale-105 transition-transform duration-300 ease-out w-full flex items-center justify-center mt-10">
           <iframe
             className="w-full h-[250px] lg:h-[320px] rounded-lg shadow-lg"
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3648.710984205232!2d90.41311227466215!3d23.747391186395585!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755b897c80d156d%3A0x2fbaade374fa61ed!2sMatrichaya%20Properties%20Ltd.!5e0!3m2!1sen!2sbd!4v1699971081492!5m2!1sen!2sbd"

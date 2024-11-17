@@ -23,8 +23,8 @@ const ChairmanSpeech = () => {
 
 
   return (
-    <div className="w-11/12 mx-auto">
-      <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between -mt-4   bg-white  rounded-lg">
+    <div className="w-11/12 mx-auto  ">
+      <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between mt-24 -mt-4   bg-white  rounded-lg">
         <div className="lg:w-1/2  relative -mt-40 lg:mt-0">
           <div
             className="relative   rounded-lg shadow-md cursor-pointer overflow-hidden">

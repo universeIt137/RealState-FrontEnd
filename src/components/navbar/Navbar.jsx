@@ -150,7 +150,7 @@ const Navbar = () => {
                         </button>
                         {link.title === 'Corporate' && isCorporateOpen && (
                           <div
-                            className="absolute z-50 left-0 mt-5 bg-[#027f3d] bg-opacity-70 text-black rounded-md shadow-lg w-64"
+                            className="absolute z-50 left-0 mt-5 bg-white text-black rounded-md shadow-lg w-64"
                             onMouseEnter={handleMouseEnterCorporate}
                             onMouseLeave={handleMouseLeaveCorporate}
                           >
@@ -158,16 +158,17 @@ const Navbar = () => {
                               <NavLink
                                 to={dropdownLink.path}
                                 key={idx}
-                                className="block px-4 py-2 text-black  font-bold transform scale-95 hover:scale-105 transition-all duration-300 ease-out"
+                                className="relative block px-4 py-2 text-black hover:bg-blue-100 font-bold transform scale-95 hover:scale-105 transition-all duration-300 ease-out group"
                               >
                                 {dropdownLink.title}
+                                <span className="absolute bottom-0 left-0 h-0.5 w-0 bg-green transition-all duration-300 ease-in-out group-hover:w-full"></span>
                               </NavLink>
                             ))}
                           </div>
                         )}
                         {link.title === 'Gallery' && isGalleryOpen && (
                           <div
-                            className="absolute left-0 mt-2 z-50 bg-[#027F3D] text-lg opacity-70 text-black font-bold rounded-md shadow-lg w-64"
+                            className="absolute left-0 mt-2 z-50  text-lg opacity-70 text-black font-bold rounded-md shadow-lg w-64"
                             onMouseEnter={handleMouseEnterGallery}
                             onMouseLeave={handleMouseLeaveGallery}
                           >
@@ -175,9 +176,10 @@ const Navbar = () => {
                               <NavLink
                                 to={dropdownLink.path}
                                 key={idx}
-                                className="block px-4 py-2 hover:bg-blue-100 transform scale-95 hover:scale-105 transition-all duration-300 ease-out"
+                                className="block px-4 py-2 bg-white hover:bg-blue-200 transform scale-95 hover:scale-105 transition-all duration-300 ease-out"
                               >
                                 {dropdownLink.title}
+                                <span className="absolute bottom-0 left-0 h-0.5 w-0 bg-green transition-all duration-300 ease-in-out group-hover:w-full"></span>
                               </NavLink>
                             ))}
                           </div>

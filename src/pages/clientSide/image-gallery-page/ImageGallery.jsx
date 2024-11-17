@@ -11,6 +11,7 @@ const images = [
 ];
 
 const ImageGallery = () => {
+    window.scrollTo(0, 0);
     const [isOpen, setIsOpen] = useState(false);
     const [currentIndex, setCurrentIndex] = useState(0);
 

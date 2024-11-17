@@ -1,26 +1,20 @@
 import React from 'react';
 import ProjectFeatureImgGallery from '../home-page/ProjectFeatureImgGallery';
 import ProjectFeatureVideoGallery from '../home-page/ProjectFeatureVideoGallery';
+import ProjectLayout from '../project-layout-page/ProjectLayout';
 
 const ProjectDetails = () => {
     window.scrollTo(0, 0);
     const property = {
         heading: "Luxurious Apartment in Downtown",
-        location: "48, Bijoy Nagar (4th Floor), Paltan, Dhaka-1000",
+        location: "Dhaka-Mawa 300 Feet Road, Amar Thikana, Green City.",
         images: [
             "https://via.placeholder.com/800x400", // Replace with actual image URLs
             "https://via.placeholder.com/800x400",
         ],
         video: "https://www.youtube.com/embed/your_video_id", // Replace with actual video URL
         description: "This stunning downtown apartment offers breathtaking city views, modern amenities, and convenient access to shops and restaurants.",
-        features: [
-            "3 Bedrooms",
-            "2 Bathrooms",
-            "Swimming Pool",
-            "Gym Access",
-            "24/7 Security",
-            "2 Parking Spaces",
-        ],
+
     };
 
     const amenitiesList = [
@@ -33,7 +27,7 @@ const ProjectDetails = () => {
     ];
 
     return (
-        <div className="w-11/12  mx-auto px-4 py-20 lg:py-24">
+        <div className="w-11/12  mx-auto px-4 py-20 ">
             {/* Heading and Location */}
             <div className=" text-center lg:space-y-2">
                 <h1 className="lg:text-4xl text-[17px]    font-bold text-black">{property.heading}</h1>
@@ -42,13 +36,13 @@ const ProjectDetails = () => {
 
             {/* Image Gallery */}
             <div className="bg-white rounded-lg shadow-lg p-3 border-2 lg:mt-4 lg:p-6 lg:space-y-4">
-                <h2 className="lg:text-2xl text-[15px] font-semibold text-gray-800">Property Images</h2>
+                <h2 className="lg:text-2xl text-[15px] font-semibold text-gray-800">Project Images</h2>
                 <ProjectFeatureImgGallery />
             </div>
 
             {/* Video Section */}
             <div className="bg-white border-2 rounded-lg shadow-lg lg:px-6 p-3 my-4 lg:my-8 lg:space-y-4">
-                <h2 className="lg:text-2xl text-[15px] font-semibold text-gray-800">Property Video</h2>
+                <h2 className="lg:text-2xl text-[15px] font-semibold text-gray-800">Project Video</h2>
                 <div className='block mt-1  lg:mt-0  ' >
                     <ProjectFeatureVideoGallery></ProjectFeatureVideoGallery>
                 </div>
@@ -56,13 +50,13 @@ const ProjectDetails = () => {
 
             {/* Description */}
             <div className="bg-white rounded-lg shadow-lg p-3 text-justify lg:p-6 space-y-1 lg:space-y-4">
-                <h2 className="text-black lg:text-3xl text-[16px] font-bold ">Property Description</h2>
+                <h2 className="text-black lg:text-3xl text-[16px] font-bold ">Project Description</h2>
                 <p className="text-black lg:text-[17px] text-[10px] ">{property.description}</p>
             </div>
 
             {/* Features */}
             <div className=" rounded-lg shadow-lg my-6 border-2 p-3 lg:p-6 lg:space-y-4">
-                <h2 className="text-black lg:text-3xl text-[16px] font-bold">Property Features</h2>
+                <h2 className="text-black lg:text-3xl text-[16px] font-bold">Project Features</h2>
                 <div className="md:mb-8">
                     <ul className="flex flex-col md:grid md:grid-cols-2 lg:grid-cols-3 text-black gap-2 mt-2 lg:mt-0 lg:gap-4">
                         {amenitiesList.map((amenity, index) => (
@@ -76,6 +70,10 @@ const ProjectDetails = () => {
                         ))}
                     </ul>
                 </div>
+            </div>
+            {/* Project Layout  */}
+            <div className='border-2' >
+                <ProjectLayout></ProjectLayout>
             </div>
         </div>
     );
