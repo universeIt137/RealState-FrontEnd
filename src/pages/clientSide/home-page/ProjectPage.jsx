@@ -1,20 +1,20 @@
 import React from 'react'
 const features = [
     {
-        title: "Lush Green Spaces",
-        description: "Enjoy beautifully landscaped gardens and open spaces that bring you closer to nature.",
+        title: "20 feet and 30 feet wide roads.",
+        description: "Spacious 20 and 30 feet wide roads are ideal for modern transportation, ensuring easy and safe travel.",
     },
     {
-        title: "Luxury Swimming Pool",
-        description: "Relax and unwind in our luxurious swimming pool, a perfect escape from the daily hustle.",
+        title: "All civic amenities, including water and electricity, are available.",
+        description: "Ensured civic amenities including water and electricity. Your lifestyle will be comfortable and secure.",
     },
     {
-        title: "Fully-Equipped Gym",
-        description: "Stay fit and healthy with access to a state-of-the-art gym facility within the premises.",
+        title: "An area monitored by round-the-clock security guards.",
+        description: "Round-the-clock monitoring to maintain a safe living space.",
     },
     {
-        title: "24/7 Security",
-        description: "Enjoy peace of mind with round-the-clock security and surveillance for a safe living environment.",
+        title: "Enjoy a well-rounded community with places of worship, education, and recreation.",
+        description: "The project area also includes a mosque, madrasa, school, college, university, playground, hospital, and an international-standard market, along with all other amenities.",
     },
     {
         title: "Vibrant Community",
@@ -47,7 +47,7 @@ const ProjectPage = () => {
                                 key={index}
                                 className="bg-white shadow-lg rounded-lg border p-3 lg:p-6 text-justify"
                             >
-                                <h3 className="lg:text-2xl text-[10px] font-bold lg:mb-2 text-black">
+                                <h3 className="lg:text-xl  text-[10px] font-bold lg:mb-2 text-green opacity-70">
                                     {feature.title}
                                 </h3>
                                 <p className="text-black lg:text-lg text-[10px]">
