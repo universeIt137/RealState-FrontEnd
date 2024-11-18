@@ -9,7 +9,8 @@ const imagesData = [
   { id: 5, src: 'https://res.cloudinary.com/dnvmj9pvk/image/upload/v1730799891/Amer%20Thikana/cdmwebyklefwysceljmu.jpg', alt: 'Image 5' },
 ];
 
-const ProjectFeatureImgGallery = () => {
+const ProjectFeatureImgGallery = ({ images }) => {
+  console.log(images);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [modalImage, setModalImage] = useState('');
@@ -45,16 +46,16 @@ const ProjectFeatureImgGallery = () => {
           transform: `translateX(-${currentIndex * (window.innerWidth < 640 ? 100 : 33.33)}%)`,
         }}
       >
-        {imagesData.map((image) => (
+        {images?.map((image) => (
           <div
             key={image.id}
             className={`flex-shrink-0 px-2 ${window.innerWidth < 640 ? 'w-full' : 'w-1/3'}`}
           >
             <img
-              src={image.src}
-              alt={image.alt}
+              src={image}
+              
               className="w-full h-56 object-cover rounded-lg shadow-md cursor-pointer"
-              onClick={() => openModal(image.src)} // Open modal on image click
+              onClick={() => openModal(image)} // Open modal on image click
             />
           </div>
         ))}

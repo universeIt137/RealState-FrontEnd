@@ -9,8 +9,8 @@ const ManageFeaturePage = () => {
     const [heading, setHeading] = useState('');
     const [address, setAddress] = useState('');
     const [description, setDescription] = useState('');
-    const [title, setTitle] = useState('');
-    const [featureName, setFeatureName] = useState('');
+    // const [title, setTitle] = useState('');
+    // const [featureName, setFeatureName] = useState('');
     const [contents, setContents] = useState([{ content_name: '' }]);
     const [videos, setVideos] = useState([{ videoUrl: '' }]);
     const [images, setImages] = useState([]); // Array to store uploaded image URLs
@@ -64,9 +64,9 @@ const ManageFeaturePage = () => {
             heading,
             address,
             description,
-            title,
+            // title,
             contents,
-            featureName,
+            // featureName,
             images: imageUrls, // Array of image URLs
             videos
         };
@@ -125,7 +125,7 @@ const ManageFeaturePage = () => {
                     </div>
                 </div>
 
-                <div className="grid lg:grid-cols-2 gap-3">
+                {/* <div className="grid lg:grid-cols-2 gap-3">
                     <div className="mb-4">
                         <label className="block text-gray-700 font-semibold mb-2">Feature Title</label>
                         <input
@@ -149,12 +149,12 @@ const ManageFeaturePage = () => {
                             required
                         />
                     </div>
-                </div>
+                </div> */}
 
                 {/* Multiple Image Upload */}
                 <div className="p-2 w-full">
                     <div className="relative">
-                        <label className="leading-7 text-sm text-gray-600 font-bold">Package Banner Images</label><br />
+                        <label className="leading-7 text-sm text-gray-600 font-bold">Upload Multiple Project Images</label><br />
                         <input
                             type="file"
                             name="images"
@@ -213,6 +213,8 @@ const ManageFeaturePage = () => {
                                     placeholder="Enter Video URL"
                                     required
                                 />
+
+                               
                                 {videos.length > 1 && (
                                     <button
                                         type="button"

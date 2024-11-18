@@ -1,13 +1,17 @@
-import React, { useState, useRef } from 'react';
+import { useQuery } from '@tanstack/react-query';
+import React, { useState, useRef, useEffect } from 'react';
 
 import { IoPlayCircleSharp } from 'react-icons/io5';
 
 import ReactPlayer from 'react-player';
+import useAxiosPublic from '../../../hooks/useAxiosPublic';
 
 const ChairmanSpeech = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);    //Modal open/close state
   const [seeMore, setSeeMore] = useState(false);
   const [modalVideoSrc, setModalVideoSrc] = useState(null);
+
+  const [chairmanData, setChairmanData] = useState({});
 
   // Function to open the modal and set video source
   const handlePlayButtonClick = (videoSrc) => {
@@ -22,6 +26,28 @@ const ChairmanSpeech = () => {
   };
 
 
+  const axiosPublic = useAxiosPublic();
+  const { data: contents = [] } = useQuery({
+    queryKey: ['chairman speech'],
+    queryFn: async () => {
+      const res = await axiosPublic.get('/chairman');
+      return res.data;
+    }
+  })
+
+  // Update chairman data when contents change
+  useEffect(() => {
+    if (contents.length > 0) {
+      setChairmanData(contents[0]);
+    }
+  }, [contents]);
+
+ 
+
+
+
+
+
   return (
     <div className="w-11/12 mx-auto  ">
       <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between mt-24 -mt-4   bg-white  rounded-lg">
@@ -29,11 +55,11 @@ const ChairmanSpeech = () => {
           <div
             className="relative   rounded-lg shadow-md cursor-pointer overflow-hidden">
             <div
-              onClick={() => handlePlayButtonClick('https://www.youtube.com/watch?v=nWyi1fbSalo&t=1s')}
+              onClick={() => handlePlayButtonClick(`${chairmanData?.youtubeVideos ? chairmanData?.youtubeVideos : chairmanData?.videoUrl }`)}
               className="h-[35.9vw] lg:h-[25.9vw] cursor-pointer  rounded-lg overflow-hidden"
             >
               <ReactPlayer
-                url={`https://www.youtube.com/watch?v=nWyi1fbSalo&t=1s`}
+                url={`${chairmanData?.youtubeVideos ? chairmanData?.youtubeVideos : chairmanData?.videoUrl }`}
                 width="100%"
                 height="100%"
                 light={`https://res.cloudinary.com/dnvmj9pvk/image/upload/v1731320619/Amer%20Thikana/ios2ysxylei3yemy0fgk.jpg`} // Display image thumbnail before the video plays
@@ -49,13 +75,11 @@ const ChairmanSpeech = () => {
           </h1>
 
           <p className=" lg:text-lg text-10px text-justify overflow-hidden lg:mt-2 lg:block">
-            Edison Real Estate has the bold vision of making high-quality and nicely designed residences that are available within the purchasing power of a wider segment of the population. We clearly understand the need for more trusted and reliable companies in the real estate sector.
-
-            Companies will fill up this vacuum in the market and there will be a continuous effort to delight customers. We are a competent and motivated group of people, suppliers, and partners who will work closely to ensure strict processes and policies are followed in order to provide complete and consistent customer values. We will listen to our customers to drive continuous improvement and serve them with premium service in every way possible.
+            {chairmanData?.chairmanSpeech}
           </p>
           <p className="lg:text-2xl  text-black font-extralight mt-2 text-center lg:text-start ">CHAIRMAN</p>
           <h1 className=" text-center lg:text-4xl lg:text-start font-bold text-black uppercase">
-            Md. Mahabur Alam
+            {chairmanData?.chairman_name}
           </h1>
         </div>
       </div>
