@@ -46,7 +46,7 @@ const BannerCarousel = () => {
                 {slides.map((slide, index) => (
                     <div
                         key={index}
-                        className="lg:w-screen lg:h-screen w-screen h-[50vh] flex-shrink-0 relative"
+                        className="lg:w-screen lg:h-screen w-screen h-[42vh] flex-shrink-0 relative"
                         style={{
                             backgroundImage: `url(${slide.url})`,
                             backgroundSize: 'contain', // Ensures entire image fits without cropping
@@ -77,7 +77,7 @@ const BannerCarousel = () => {
             <div className="absolute lg:bottom-24 bottom-[90px]   left-0 right-0 bg-[#027f3d] bg-opacity-50  lg:py-3 text-white z-10 font-semibold">
                 <div className="flex lg:space-x-10 lg:w-3/4 mx-auto w-full  lg:gap-3 px-1 lg:px-4">
                     <button className="px-2 py-1   text-[8px]  lg:text-xl text-center rounded-lg flex items-center gap-2 ">
-                        <Link to="/project-details">PROJECT FEATURE</Link>
+                        <Link to="/project-details">PROJECT DETAILS</Link>
                     </button>
                     <button className="px-2 py-1   text-[8px]  lg:text-xl text-center rounded-lg flex items-center gap-2 ">
                         <Link to={"/booking-form"}>BOOKING FORM</Link>
