@@ -13,7 +13,8 @@ export default {
       },
       backgroundColor: {
         primary: '#3490dc', // Custom background primary color
-        black: '#111111', // Custom background black color
+        black: '#111111',
+        custom_green: 'rgba(70, 161, 111, 0.9)', // Custom background black color
       },
       animation: {
         marquee: 'marquee 30s linear infinite', // Increased duration to 30 seconds
