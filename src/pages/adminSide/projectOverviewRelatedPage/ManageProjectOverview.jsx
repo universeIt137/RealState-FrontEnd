@@ -52,7 +52,6 @@ const ManageProjectOverview = () => {
 
                     })
                     .catch((err) => {
-                        console.log(err);
 
                     });
             }
@@ -67,7 +66,6 @@ const ManageProjectOverview = () => {
         const description = form.description.value;
 
         const GalleryImage = form.image1.files[0];
-        // console.log(GalleryImage)
 
 
         let ImageUrl = '';

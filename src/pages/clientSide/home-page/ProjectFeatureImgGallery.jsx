@@ -10,7 +10,6 @@ const imagesData = [
 ];
 
 const ProjectFeatureImgGallery = ({ images }) => {
-  console.log(images);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [modalImage, setModalImage] = useState('');

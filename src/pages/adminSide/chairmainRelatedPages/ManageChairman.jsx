@@ -63,7 +63,6 @@ const ManageChairman = () => {
         try {
             const data = { chairman_name, chairmanSpeech, chairmanImageUrl, youtubeVideos, videoUrl }
 
-            console.log(data);
             axiosPublic.post(`/chairman`, data)
                 .then(res => {
                     if (res) {

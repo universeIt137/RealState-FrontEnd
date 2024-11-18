@@ -42,7 +42,6 @@ const DataTable = () => {
                        
                     })
                     .catch((err) => {
-                        console.log(err);
                        
                     });
             }

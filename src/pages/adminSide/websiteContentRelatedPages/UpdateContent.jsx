@@ -81,7 +81,6 @@ const UpdateContent = () => {
         try {
             const data = { name, bannerTitle, bannerSubTitle, mainBannerUrl, bannerDescription, latestNews, youtubeVideos, logoImageUrl, aboutbannerImageUrl, aboutTitle, aboutSubTitle, relatedSearch, phone, whatsapp, email, address }
 
-            console.log(data);
             axiosPublic.put(`/content/${id}`, data)
                 .then(res => {
                     if (res) {
