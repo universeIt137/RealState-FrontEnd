@@ -64,8 +64,8 @@ const ProjectFeaturePage = () => {
         {/* video gallery */}
         <ProjectFeatureVideoGallery></ProjectFeatureVideoGallery>
         {/* CTA Button */}
-        <div className="text-center">
-          <button className="md:px-6 px-3 py-2 text-[10px] md:text-[16px] md:py-3 bg-[#027F3D] opacity-60 text-white my-3 font-bold rounded-lg hover:bg-green-600 transition-colors duration-300">
+        <div className="text-center   ">
+          <button className="md:px-6 px-3 py-2 text-[10px] md:text-[16px] md:py-3 bg-custom_green opacity-70 text-white my-3 font-bold rounded-lg hover:bg-green-600 transition-colors duration-300">
             <Link to={"/booking-form"}>Schedule a Visit</Link>
           </button>
         </div>
