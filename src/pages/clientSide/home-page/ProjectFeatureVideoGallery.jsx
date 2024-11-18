@@ -25,7 +25,7 @@ const videosData = [
     },
 ];
 
-const ProjectFeatureVideoGallery = () => {
+const ProjectFeatureVideoGallery = ({ videos }) => {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [currentVideo, setCurrentVideo] = useState(null);
     const [isPlaying, setIsPlaying] = useState(false);
@@ -41,6 +41,7 @@ const ProjectFeatureVideoGallery = () => {
     }, []);
 
     const openModal = (video) => {
+        console.log(video);
         setCurrentVideo(video);
         setIsModalOpen(true);
         setIsPlaying(false);
@@ -83,20 +84,29 @@ const ProjectFeatureVideoGallery = () => {
                         transform: `translateX(-${currentIndex * (window.innerWidth < 640 ? 100 : 33.33)}%)`,
                     }}
                 >
-                    {videosData.map((video, index) => (
+                    {videos?.map((video, index) => (
                         <div key={index} className="relative  flex-shrink-0 w-full sm:w-1/2 md:w-1/3 px-1 ">
-                            <img
-                                src={video.thumbnail}
-                                alt={video.title}
-                                onClick={() => openModal(video)}
-                                className="w-full h-52 object-cover rounded-lg shadow-md cursor-pointer"
-                            />
-                            <div className="absolute inset-0 hidden group-hover:flex items-center justify-center">
-                                <AiOutlinePlayCircle
-                                    size={50}
-                                    className="text-[#21c45e] opacity-80 hover:opacity-100 cursor-pointer"
+                            
+                            <div onClick={() => openModal(video?.videoUrl)} className="relative">
+                                {/* Custom Play Icon */}
+                                <div className="absolute inset-0 flex items-center justify-center cursor-pointer z-10">
+                                    <AiOutlinePlayCircle size={50} className="text-white opacity-80 hover:opacity-100" />
+                                </div>
+
+                                {/* React Player without default play icon */}
+                                <ReactPlayer
+                                    url={video?.videoUrl}
+                                    playing={isPlaying}
+                                    width="100%"
+                                    height="208px"
+                                    style={{ borderRadius: '8px' }}
+                                    playIcon={false}  
                                 />
                             </div>
+
+
+
+
                         </div>
                     ))}
                 </div>
@@ -114,7 +124,7 @@ const ProjectFeatureVideoGallery = () => {
                     {/* Modal for Video Player */}
                     <div className="relative w-full max-w-4xl h-[70vh] flex items-center justify-center bg-gray-900 rounded-lg">
                         <ReactPlayer
-                            url={currentVideo.url}
+                            url={currentVideo}
                             playing={isPlaying}
                             width="100%"
                             height="100%"

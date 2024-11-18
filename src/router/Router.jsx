@@ -26,6 +26,9 @@ import ClientReview from "../components/clientSide/ClientReview";
 import AboutUs from './../pages/clientSide/about-us-page/AboutUs';
 import ChairmanSpeachDrop from "../components/clientSide/ChairmanSpeachDrop";
 import BlogDetails from "../pages/clientSide/blog-details-page/BlogDetails";
+import AddReview from "../pages/adminSide/reviewRelatedPages/AddReview";
+import ManageAboutUs from "../pages/adminSide/aboutPageRelated/ManageAboutUs";
+import UpdateAboutUs from "../pages/adminSide/aboutPageRelated/UpdateAboutUs";
 
 
 
@@ -144,6 +147,18 @@ export const router = createBrowserRouter([
             {
                 path: "add-features",
                 element: <ManageFeaturePage></ManageFeaturePage>
+            },
+            {
+                path: "add-review",
+                element: <AddReview></AddReview>
+            },
+            {
+                path: "manage-aboutPage",
+                element: <ManageAboutUs></ManageAboutUs>
+            },
+            {
+                path: "update-about/:id",
+                element: <UpdateAboutUs></UpdateAboutUs>
             }
         ]
     }

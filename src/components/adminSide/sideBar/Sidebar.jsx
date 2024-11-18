@@ -41,11 +41,23 @@ const Sidebar = () => {
         <>
             <NavigationItem to="/dashboard/add-overview" icon={MdAddCircle} label="Manage Overview" />
         </>
-    
+
     const featureUrls =
-    <>
-        <NavigationItem to="/dashboard/add-features" icon={MdAddCircle} label="Manage Feature" />
-    </>
+        <>
+            <NavigationItem to="/dashboard/add-features" icon={MdAddCircle} label="Manage Feature" />
+        </>
+
+    const reviewUrls =
+        <>
+            <NavigationItem to="/dashboard/add-review" icon={MdAddCircle} label="Add Review" />
+            <NavigationItem to="/dashboard/add-features" icon={MdAddCircle} label="Manage Review" />
+        </>
+    
+    const aboutPageUrls =
+        <>
+            <NavigationItem to="/dashboard/manage-aboutPage" icon={MdAddCircle} label="Manage About Page" />
+        </>
+
 
 
     return (
@@ -90,6 +102,14 @@ const Sidebar = () => {
 
                         <li className="mb-4">
                             <Dropdown buttonText="Project Features" urls={featureUrls} />
+                        </li>
+
+                        <li className="mb-4">
+                            <Dropdown buttonText="Client Reviews" urls={reviewUrls} />
+                        </li>
+
+                        <li className="mb-4">
+                            <Dropdown buttonText="Pages" urls={aboutPageUrls} />
                         </li>
 
 

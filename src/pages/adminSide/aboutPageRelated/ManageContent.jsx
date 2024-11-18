@@ -1,20 +1,22 @@
 import { useQuery } from '@tanstack/react-query';
-import React, { useState } from 'react';
-import useAxiosPublic from '../../../hooks/useAxiosPublic';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Swal from 'sweetalert2';
+import useAxiosPublic from '../../../hooks/useAxiosPublic';
 
-const FeatureDataTable = () => {
+const ManageContent = () => {
     const axiosPublic = useAxiosPublic();
 
-
     const { data: contents = [], refetch } = useQuery({
-        queryKey: ['allData'],
+        queryKey: ['content'],
         queryFn: async () => {
-            const res = await axiosPublic.get('/feature');
+            const res = await axiosPublic.get(`/about-us`);
             return res.data;
         }
     })
+
+   
+
 
 
     const handleDelete = (id) => {
@@ -29,16 +31,17 @@ const FeatureDataTable = () => {
             if (result.isConfirmed) {
 
                 axiosPublic
-                    .delete(`/feature/${id}`)
+                    .delete(`/about-us/${id}`)
                     .then((res) => {
                         if (res) {
                             Swal.fire({
                                 title: 'Deleted!',
-                                text: 'Feature data has been deleted.',
+                                text: 'Data has been deleted.',
                                 icon: 'success',
                             });
-                            refetch();
+
                         }
+                        refetch();
 
                     })
                     .catch((err) => {
@@ -55,8 +58,8 @@ const FeatureDataTable = () => {
             <table className="min-w-full bg-white border border-gray-300">
                 <thead>
                     <tr>
-                        <th className="px-4 py-2 border">Project Heading</th>
-                        {/* <th className="px-4 py-2 border">Project Title</th> */}
+                        <th className="px-4 py-2 border">First Heading</th>
+                        <th className="px-4 py-2 border">First Description</th>
                         <th className="px-4 py-2 border">Actions</th>
                     </tr>
                 </thead>
@@ -64,12 +67,17 @@ const FeatureDataTable = () => {
                     {
                         contents?.map((content) => (
                             <tr key={content?._id} className="text-center">
-                                <td className="px-4 py-2 border font-semibold">{content?.heading}</td>
-                                {/* <td className="px-4 py-2 border">
-                                    {content?.title}
-                                </td> */}
+                                <td className="px-4 py-2 border font-semibold">{content?.firstHeading}</td>
+                                <td className="px-4 py-2 border font-semibold">
+                                    {content?.secondHeading}
+                                </td>
                                 <td className="px-4 py-2 border">
-                                    
+                                    <button
+
+                                        className="px-2 py-1 bg-blue-500 text-white rounded mr-2"
+                                    >
+                                        <Link to={`/dashboard/update-about/${content?._id}`}>Update</Link>
+                                    </button>
                                     <button
                                         onClick={() => handleDelete(content?._id)}
                                         className="px-2 py-1 bg-red-500 text-white rounded"
@@ -85,4 +93,4 @@ const FeatureDataTable = () => {
     );
 };
 
-export default FeatureDataTable;
+export default ManageContent;
