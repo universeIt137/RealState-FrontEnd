@@ -23,11 +23,7 @@ const ExpandableCards = () => {
       image: 'https://res.cloudinary.com/dnvmj9pvk/image/upload/v1730889949/offer-2_s0dp1u.png',
       live_link: 'https://quantum-builders.onrender.com',
     },
-    {
-      name: 'Project 05',
-      image: 'https://res.cloudinary.com/dnvmj9pvk/image/upload/v1731500291/Amer%20Thikana/ynqygmetpfbezjjofbez.jpg',
-      live_link: 'https://quantum-builders.onrender.com',
-    },
+   
   ];
 
   return (
