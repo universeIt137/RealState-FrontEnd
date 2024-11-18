@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { IoCloseSharp } from "react-icons/io5";
 
 const imagesData = [
-  { id: 1, src: 'https://res.cloudinary.com/dnvmj9pvk/image/upload/v1730889998/offer-3_zr81a8.png', alt: 'Image 1' },
+  { id: 1, src: 'https://res.cloudinary.com/dnvmj9pvk/image/upload/v1731492226/Amer%20Thikana/dmbxeyr2odm9vrrwh290.png ', alt: 'Image 1' },
   { id: 2, src: 'https://res.cloudinary.com/dnvmj9pvk/image/upload/v1730889949/offer-2_s0dp1u.png', alt: 'Image 2' },
   { id: 3, src: 'https://res.cloudinary.com/dnvmj9pvk/image/upload/v1730889949/offer-2_s0dp1u.png', alt: 'Image 3' },
   { id: 4, src: 'https://res.cloudinary.com/dnvmj9pvk/image/upload/v1730889904/offer-1_bajmsf.png', alt: 'Image 4' },
@@ -65,7 +65,7 @@ const ProjectFeatureImgGallery = () => {
         <div className="fixed inset-0 bg-black bg-opacity-80 flex justify-center items-center z-50">
           <div className="relative">
             <button
-              className="absolute top-4 right-4 p-3 text-white font-bold text-2xl bg-black rounded-full"
+              className="absolute top-20 right-4 p-3 text-white font-bold text-2xl bg-black rounded-full"
               onClick={closeModal} // Close modal
             >
               <IoCloseSharp size={30} />
@@ -73,7 +73,7 @@ const ProjectFeatureImgGallery = () => {
             <img
               src={modalImage}
               alt="Modal Image"
-              className="min-w-[70vw] min-h-[70vh] object-contain" 
+              className="min-w-[50vw] min-h-[50vh] object-contain" 
             />
           </div>
         </div>
