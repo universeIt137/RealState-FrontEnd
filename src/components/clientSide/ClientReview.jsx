@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { FaPlay, FaArrowLeft, FaArrowRight, FaTimes } from 'react-icons/fa';
 import ReactPlayer from 'react-player';
+import clientReviewStore from '../../api-request/client-review-api/clientStore';
 
 const testimonialData = [
   { id: 1, name: 'Mr. Navid Rahman', role: 'Apartment Owner', text: 'Hear from our homeowners sharing their tales of happiness.', video: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ' },
@@ -14,24 +15,30 @@ function ClientReview() {
   const [autoChange, setAutoChange] = useState(true);
   const [showModal, setShowModal] = useState(false);
   const [currentVideo, setCurrentVideo] = useState(null);
+  const { clientReviewDataListApi, clientReviewDataList } = clientReviewStore();
+  useEffect(() => {
+    (async () => {
+      await clientReviewDataListApi()
+    })()
+  }, [])
 
   useEffect(() => {
     if (!autoChange) return;
 
     const interval = setInterval(() => {
-      setCurrentIndex((prevIndex) => (prevIndex === testimonialData.length - 1 ? 0 : prevIndex + 1));
+      setCurrentIndex((prevIndex) => (prevIndex === clientReviewDataList.length - 1 ? 0 : prevIndex + 1));
     }, 5000);
 
     return () => clearInterval(interval);
   }, [autoChange]);
 
   const handlePrev = () => {
-    setCurrentIndex((prevIndex) => (prevIndex === 0 ? testimonialData.length - 1 : prevIndex - 1));
+    setCurrentIndex((prevIndex) => (prevIndex === 0 ? clientReviewDataList.length - 1 : prevIndex - 1));
     setAutoChange(false);
   };
 
   const handleNext = () => {
-    setCurrentIndex((prevIndex) => (prevIndex === testimonialData.length - 1 ? 0 : prevIndex + 1));
+    setCurrentIndex((prevIndex) => (prevIndex === clientReviewDataList.length - 1 ? 0 : prevIndex + 1));
     setAutoChange(false);
   };
 
@@ -45,7 +52,8 @@ function ClientReview() {
     setCurrentVideo(null);
   };
 
-  const currentTestimonial = testimonialData[currentIndex];
+  const currentTestimonial = clientReviewDataList[currentIndex];
+  console.log(currentTestimonial);
 
   return (
     <div className="w-11/12  mx-auto ">
@@ -57,7 +65,7 @@ function ClientReview() {
         {/* Video Section */}
         <div className="relative w-full h-72 lg:h-80">
           <ReactPlayer
-            url={currentTestimonial.video}
+            url={currentTestimonial?.youtubeVideo}
             className="w-full h-full object-cover hover:scale-105 transform transition duration-300 ease-in-out "
             playing={false}
             light
@@ -65,7 +73,7 @@ function ClientReview() {
             height="100%"
           />
           <button
-            onClick={() => handlePlay(currentTestimonial.video)}
+            onClick={() => handlePlay(currentTestimonial.youtubeVideo)}
             className="absolute inset-0 flex justify-center items-center text-white text-3xl rounded-full"
           >
             <FaPlay className="bg-white text-red-600 p-2 rounded-full w-12 h-12" />
@@ -75,17 +83,19 @@ function ClientReview() {
         {/* Text Section */}
         <div className="lg:-mt-2 mt-2  flex-1">
           <h2 className=" lg:text-2xl font-semibold text-black">
-            Homeowner’s Reflections on Apartments
+            {
+              currentTestimonial?.heading
+            }
           </h2>
           <div className='lg:h-16 my-auto overflow-hidden ' >
-            <p className="text-black lg:text-lg text-[9px] mt-1 lg:mt-4">{currentTestimonial.text}</p>
+            <p className="text-black lg:text-lg text-[9px] mt-1 lg:mt-4">{currentTestimonial?.description}</p>
           </div>
           <div className='my-auto' >
-            <p className="md:mt-6 mt-1 font-semibold text-black lg:text-lg text-[10px]">{currentTestimonial.name}</p>
+            <p className="md:mt-6 mt-1 font-semibold text-black lg:text-lg text-[10px]">{currentTestimonial?.name}</p>
           </div>
           <div>
-            <p className="text-black text-[10px] lg:text-xl ">{currentTestimonial.role}</p>
-            
+            <p className="text-black text-[10px] lg:text-xl ">{currentTestimonial?.role}</p>
+
           </div>
 
           {/* Arrows for navigation */}
