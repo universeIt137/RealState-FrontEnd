@@ -71,7 +71,6 @@ const ManageFeaturePage = () => {
             videos
         };
 
-        console.log('Package Data:', packageData);
 
         // Submit data to the server or process it as needed
         axiosPublic.post('/feature', packageData)

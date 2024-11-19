@@ -45,7 +45,6 @@ const ManageContent = () => {
 
                     })
                     .catch((err) => {
-                        console.log(err);
 
                     });
             }

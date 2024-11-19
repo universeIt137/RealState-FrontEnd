@@ -42,7 +42,6 @@ const FeatureDataTable = () => {
 
                     })
                     .catch((err) => {
-                        console.log(err);
 
                     });
             }
