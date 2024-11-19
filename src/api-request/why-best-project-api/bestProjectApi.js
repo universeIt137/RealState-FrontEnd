@@ -13,17 +13,33 @@ const bestProjectStore = create((set) => ({
             console.log(error);
         }
     },
-    bestProjectsDelete : async (id)=>{
+    bestProjectsDelete: async (id) => {
         try {
             let res = await axiosPublic.delete(`/best-project/${id}`);
-            console.log(res);
-            if(res.data.deletedCount === 1){
-                return true;
+            if (res.data.deletedCount === 1) {
+                return true
             }
         } catch (error) {
             console.log(error);
         }
-    }
+    },
+    singleBestProjectData: [],
+    singleBestProjectApi: async (id) => {
+        try {
+            let res = await axiosPublic.get(`/best-project/${id}`);
+            set({ singleBestProjectData: res.data });
+        } catch (error) {
+            console.log(error);
+        }
+    },
+    bestProjectsUpdate: async (id, data) => {
+        try {
+            let res = await axiosPublic.put(`/best-project/${id}`, data);
+            return true;
+        } catch (error) {
+            console.log(error);
+        }
+    },
 }));
 
 export default bestProjectStore;

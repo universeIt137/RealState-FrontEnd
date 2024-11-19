@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import bestProjectStore from '../../../api-request/why-best-project-api/bestProjectApi';
-import { deleteAlert } from '../../../hook/deleteAlert';
+import { deleteAlert } from '../../../helper/deleteAlert';
 import Swal from 'sweetalert2';
+import { Link } from 'react-router-dom';
 
 const ManageBestProject = () => {
     const { bestProjectsApi, bestProjectsData, bestProjectsDelete } = bestProjectStore();
@@ -14,7 +15,7 @@ const ManageBestProject = () => {
 
     const projectDelete = async (id) => {
         console.log(id);
-        let resp = await deleteAlert();
+        let resp = await deleteAlert ();
         if (resp.isConfirmed) {
             let res = await bestProjectsDelete(id);
             if (res) {
@@ -61,10 +62,10 @@ const ManageBestProject = () => {
                                             Delete
                                         </button>
                                         <button
-                                            // onClick={() => handleEdit(project)}
+
                                             className="px-2 py-1 bg-blue-500 text-white rounded"
                                         >
-                                            Update
+                                            <Link to={`/dashboard/update/${project._id}`}>Update</Link>
                                         </button>
                                     </td>
                                 </tr>
