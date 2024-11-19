@@ -4,13 +4,19 @@ import useAxiosPublic from '../../../hooks/useAxiosPublic';
 import { Link } from 'react-router-dom';
 import Swal from 'sweetalert2';
 
-const DataTable = ({allData, refetch}) => {
+const ManageReview = () => {
     const axiosPublic = useAxiosPublic();
+   
 
+    const { data: contents = [], refetch } = useQuery({
+        queryKey: ['allData'],
+        queryFn: async () => {
+            const res = await axiosPublic.get('/client-review');
+            return res.data;
+        }
+    })
 
     
-
-
     const handleDelete = (id) => {
         Swal.fire({
             title: 'Are you sure?',
@@ -21,19 +27,19 @@ const DataTable = ({allData, refetch}) => {
             cancelButtonText: 'Cancel',
         }).then((result) => {
             if (result.isConfirmed) {
-
+               
                 axiosPublic
-                    .delete(`/website-content/${id}`)
+                    .delete(`/client-review/${id}`)
                     .then((res) => {
                         if (res) {
                             Swal.fire({
                                 title: 'Deleted!',
-                                text: 'Website data has been deleted.',
+                                text: 'Data has been deleted.',
                                 icon: 'success',
                             });
                             refetch();
                         }
-
+                       
                     })
                     .catch((err) => {
                         console.log(err);
@@ -49,23 +55,30 @@ const DataTable = ({allData, refetch}) => {
             <table className="min-w-full bg-white border border-gray-300">
                 <thead>
                     <tr>
-                        <th className="px-4 py-2 border">Mission</th>
-                        <th className="px-4 py-2 border">Vission</th>
+                        <th className="px-4 py-2 border">Client's Name</th>
+                        <th className="px-4 py-2 border">Image</th>
                         <th className="px-4 py-2 border">Actions</th>
                     </tr>
                 </thead>
                 <tbody>
                     {
-                        allData?.map((content) => (
+                        contents?.map((content) => (
                             <tr key={content?._id} className="text-center">
-                                <td className="px-4 py-2 border font-semibold">{content?.mission_desc}</td><td className="px-4 py-2 border font-semibold">{content?.vision_desc}</td>
-                                
-                                <td className="px-4 py-2 border flex">
+                                <td className="px-4 py-2 border font-semibold">{content?.name}</td>
+                                <td className="px-4 py-2 border">
+                                    <div className="avatar">
+                                        <div className="w-12 rounded">
+                                            
+                                            <img src={content?.thumbnailUrl} />
+                                        </div>
+                                    </div>
+                                </td>
+                                <td className="px-4 py-2 border">
                                     <button
-
+                                       
                                         className="px-2 py-1 bg-blue-500 text-white rounded mr-2"
                                     >
-                                        <Link to={`/dashboard/update-content/${content?._id}`}>Update</Link>
+                                        <Link to={`/dashboard/update-review/${content?._id}`}>Update</Link>
                                     </button>
                                     <button
                                         onClick={() => handleDelete(content?._id)}
@@ -82,4 +95,4 @@ const DataTable = ({allData, refetch}) => {
     );
 };
 
-export default DataTable;
+export default ManageReview;

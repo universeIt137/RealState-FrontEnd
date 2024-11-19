@@ -1,5 +1,7 @@
 import React from "react";
 import InfoCard from "./InfoCard";
+import useAxiosPublic from "../../../hooks/useAxiosPublic";
+import { useQuery } from "@tanstack/react-query";
 
 // Content Data
 const aboutUsContent = {
@@ -42,29 +44,41 @@ const aboutUsContent = {
     },
 };
 
+
+
 const AboutUs = () => {
     window.scrollTo(0, 0);
+    const axiosPublic = useAxiosPublic();
+    const { data: content = {} } = useQuery({
+        queryKey: ['all data'],
+        queryFn: async () => {
+            const res = await axiosPublic.get('/about-us');
+            return res.data[0];
+        }
+    })
+
+    console.log(content);
 
     return (
         <div className="w-11/12 mx-auto  bg-white mt-16 lg:mt-20">
-            {/* Header Section */}
+            {/* First Section */}
             <div className="lg:py-10 py-4">
                 <div className="bg-white">
                     <div className="flex flex-col lg:items-center text-justify lg:flex-row lg:text-justify">
                         <div className="md:w-3/5">
-                            <h1 className="lg:text-4xl font-bold leading-tight text-black">
-                                {aboutUsContent.header.title}{" "}
+                            <h1 className="lg:text-4xl font-bold  text-black">
+                                {content?.firstHeading}
                                 <span className="text-[#027f3d] bg-opacity-70">
-                                    {aboutUsContent.header.highlight}
+
                                 </span>
                             </h1>
                             <p className="lg:mt-4 mt-1 text-[10px] lg:text-[20px] text-black">
-                                {aboutUsContent.header.description}
+                                {content?.firstDes}
                             </p>
                         </div>
                         <div className="lg:mt-4 mt-2 lg:w-2/5 flex justify-center lg:justify-end">
                             <img
-                                src={aboutUsContent.header.imageUrl}
+                                src={content?.firstLogoUrl}
                                 alt="Real Estate Solutions"
                                 className="w-40 md:w-48"
                             />
@@ -72,12 +86,12 @@ const AboutUs = () => {
                     </div>
                 </div>
 
-                {/* Milestones Section */}
+                {/* Second Section */}
                 <div className="bg-white my-4 lg:my-10">
                     <div className="flex flex-col lg:flex-row lg:gap-8 items-center">
                         <div className="relative">
                             <img
-                                src={aboutUsContent.milestones.imageUrl}
+                                src={content?.secondLogoUrl}
                                 alt="Building"
                                 className="rounded-lg block lg:ml-0 shadow-lg"
                             />
@@ -89,9 +103,9 @@ const AboutUs = () => {
                         </div>
                         <div>
                             <h2 className="lg:text-4xl lg:mt-3 text-center lg:text-start mt-3 font-bold text-black">
-                                {aboutUsContent.milestones.about.title}{" "}
+                                {content?.secondHeading}
                                 <span className="text-[#027f3d] bg-opacity-70">
-                                    {aboutUsContent.milestones.about.highlight}
+                                    
                                 </span>
                             </h2>
                             {aboutUsContent.milestones.about.description.map(
@@ -100,15 +114,14 @@ const AboutUs = () => {
                                         key={index}
                                         className="lg:mt-4 mt-1 lg:text-[20px] text-[10px] text-justify text-black"
                                     >
-                                        {text}
+                                        {content?.secondDesc}
                                     </p>
                                 )
                             )}
                             <ul className="lg:mt-6 mt-2 lg:text-lg text-[10px] space-y-1 lg:space-y-3">
                                 {aboutUsContent.milestones.about.points.map((point, index) => (
                                     <li key={index} className="flex items-center">
-                                        <span className="text-black mr-2">✔️</span>
-                                        {point}
+                                       
                                     </li>
                                 ))}
                             </ul>
@@ -116,30 +129,30 @@ const AboutUs = () => {
                     </div>
                 </div>
 
-                {/* About Us Section */}
+                {/* Third Section */}
                 <div className="bg-white">
                     <div className="flex flex-col lg:flex-row gap-4 lg:gap-8 items-center">
                         <div>
                             <h2 className="lg:text-4xl text-center font-bold text-black lg:text-justify">
-                                {aboutUsContent.aboutUs.title.split(" ")[0]}{" "}
+                                {content?.thirdHeading}
                                 <span className="text-black underline">
-                                    {aboutUsContent.aboutUs.title.split(" ")[1]}
+                                    
                                 </span>{" "}
-                                {aboutUsContent.aboutUs.title.split(" ")[2]}
+                                
                             </h2>
                             {aboutUsContent.aboutUs.description.map((text, index) => (
                                 <p
                                     key={index}
                                     className="lg:mt-4 lg:text-justify text-justify mt-1 text-[10px] lg:text-lg text-black"
                                 >
-                                    {text}
+                                    {content?.thirdDesc}
                                 </p>
                             ))}
                         </div>
                         <div className="relative">
                             <div className="w-[50vh] aspect-square overflow-hidden rounded-full shadow-lg">
                                 <img
-                                    src={aboutUsContent.aboutUs.imageUrl}
+                                    src={content?.thirdLogoUrl}
                                     alt="Team"
                                     className="h-full w-full object-cover"
                                 />

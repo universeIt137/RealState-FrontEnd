@@ -5,14 +5,8 @@ import { BsBricks } from 'react-icons/bs';
 import { FaPlay } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 
-const BannerCarousel = () => {
-    const slides = [
-        { url: 'https://res.cloudinary.com/dnvmj9pvk/image/upload/v1731577621/amar1_xch9zp.jpg', title: 'Reviving You on Every Step' },
-        { url: 'https://res.cloudinary.com/dnvmj9pvk/image/upload/v1731577621/amar1_xch9zp.jpg', title: 'Reviving You on Every Step' },
-        { url: 'https://res.cloudinary.com/dnvmj9pvk/image/upload/v1731834102/jlkm_wjkhfh.jpg', title: 'Reviving You on Every Step' },{ url: 'https://res.cloudinary.com/dnvmj9pvk/image/upload/v1731577621/amar1_xch9zp.jpg', title: 'Reviving You on Every Step' },
-        // { url: 'https://res.cloudinary.com/dnvmj9pvk/image/upload/v1731493217/Amer%20Thikana/ynjhagwufmak2cxk5gl7.jpg', title: 'Discover More' },
-        // { url: 'https://res.cloudinary.com/dnvmj9pvk/image/upload/v1731493294/Amer%20Thikana/kel7ucjs1x7xt9e7k1zz.jpg', title: 'Experience Quality' },
-    ];
+const BannerCarousel = ({banner_images}) => {
+    
 
     const [currentIndex, setCurrentIndex] = useState(0);
 
@@ -22,11 +16,11 @@ const BannerCarousel = () => {
 
     useEffect(() => {
         const interval = setInterval(() => {
-            setCurrentIndex((prevIndex) => (prevIndex + 1) % slides.length);
+            setCurrentIndex((prevIndex) => (prevIndex + 1) % banner_images?.length);
         }, 7000);
 
         return () => clearInterval(interval);
-    }, [slides.length]);
+    }, [banner_images?.length]);
 
     useEffect(() => {
         AOS.refreshHard();
@@ -43,12 +37,12 @@ const BannerCarousel = () => {
                 className="flex transition-transform duration-700"
                 style={{ transform: `translateX(-${currentIndex * 100}vw)` }}
             >
-                {slides.map((slide, index) => (
+                {banner_images?.map((slide, index) => (
                     <div
                         key={index}
                         className="lg:w-screen lg:h-screen w-screen h-[42vh] flex-shrink-0 relative"
                         style={{
-                            backgroundImage: `url(${slide.url})`,
+                            backgroundImage: `url(${slide})`,
                             backgroundSize: 'contain', // Ensures entire image fits without cropping
                             backgroundRepeat: 'no-repeat',
                             backgroundPosition: 'center  ',
@@ -62,7 +56,7 @@ const BannerCarousel = () => {
 
             {/* Navigation Dots */}
             <div className="absolute right-4 top-1/2 transform -translate-y-1/2 flex flex-col space-y-3 z-10">
-                {slides.map((_, index) => (
+                {banner_images?.map((_, index) => (
                     <button
                         key={index}
                         className={`w-2 h-2 rounded-full ${index === currentIndex ? 'bg-white' : 'bg-white'}`}

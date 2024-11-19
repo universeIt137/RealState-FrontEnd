@@ -10,74 +10,82 @@ import DataTable from "./DataTable";
 const ManageContent = () => {
     const axiosPublic = useAxiosPublic();
 
-    const { data: content = [], refetch } = useQuery({
-        queryKey: ['content'],
+
+
+    const { data: allData = [], refetch } = useQuery({
+        queryKey: ['allData'],
         queryFn: async () => {
-            const res = await axiosPublic.get('/content');
-            return res.data[0];
+            const res = await axiosPublic.get('/website-content');
+            return res.data;
         }
     })
 
 
-   
+
 
     const [loading, setLoading] = useState(false);
+    const [images, setImages] = useState([]);
+    const [contents, setContents] = useState([{ heading: '', short_des: '' }]);
 
-   
+    const handleImageChange = (e) => {
+        setImages([...e.target.files]); // Set selected images
+    };
+
+    const handleContentChange = (index, field, value) => {
+        const updatedContents = contents.map((content, i) =>
+            i === index ? { ...content, [field]: value } : content
+        );
+        setContents(updatedContents);
+    };
+
+    const removeContent = (index) => {
+        setContents(contents.filter((_, i) => i !== index));
+    };
+
+    const addContent = () => {
+        setContents([...contents, { content_name: '' }]);
+    };
+
+
+
 
     const handleSubmit = async (e) => {
         setLoading(true);
         e.preventDefault();
         const form = e.target;
 
-        const name = form.name.value;
-        const bannerTitle = form.bannerTitle.value;
-        const bannerSubTitle = form.bannerSubTitle.value;
-        const mainbanner = form.mainbanner.files[0];
-        const bannerDescription = form.bannerDescription.value;
-        const latestNews = form.latestNews.value;
-        const youtubeVideos = form.youtubeVideos.value;
-
-        const logo = form.logo.files[0];
-        const banner = form.aboutBanner.files[0];
-        const aboutTitle = form.aboutTitle.value;
-        const aboutSubTitle = form.aboutSubTitle.value;
-        const relatedSearch = form.relatedSearch.value;
-        const phone = form.phone.value;
-        const whatsapp = form.whatsapp.value;
-        const email = form.email.value;
-        const address = form.address.value;
+        // Upload each image individually
+        const imageUrls = await Promise.all(
+            images.map(async (image) => await uploadImg(image))
+        );
 
 
-        let mainBannerUrl = ''
-        if (!mainbanner?.name) {
-            mainBannerUrl = content?.mainBannerUrl
-        } else {
-            mainBannerUrl = await uploadImg(mainbanner);
 
+
+        const mission_desc = form.mission_desc.value;
+        const vision_desc = form.vision_desc.value;
+        const phone_number = form.phone_number.value;
+        const facebook_url = form.facebook_url.value;
+        const youtube_url = form.youtube_url.value;
+        const linkedin_url = form.linkedin_url.value;
+        const instagrame_url = form.instagrame_url.value;
+        const twitter_url = form.twitter_url.value;
+        const scheduleImage = form.scheduleImage.files[0];
+        console.log(scheduleImage);
+
+
+        let scheduleImageUrl = '';
+        if (scheduleImage?.name) {
+            
+            scheduleImageUrl = await uploadImg(scheduleImage);
+            
         }
-
-        let logoImageUrl = ''
-        if (!logo?.name) {
-            logoImageUrl = content?.logoImageUrl
-        } else {
-            logoImageUrl = await uploadImg(logo);
-
-        }
-
-        let aboutbannerImageUrl = ''
-        if (!banner?.name) {
-            aboutbannerImageUrl = content?.bannerImageUrl
-        } else {
-            aboutbannerImageUrl = await uploadImg(banner);
-
-        }
-
+        
         setLoading(true);
 
         // Simulate form submission
         try {
-            const data = { name, bannerTitle, bannerSubTitle, mainBannerUrl, bannerDescription, latestNews, youtubeVideos, logoImageUrl, aboutbannerImageUrl, aboutTitle, aboutSubTitle, relatedSearch, phone, whatsapp, email, address }
+            const data = { mission_desc, vision_desc, scheduleImageUrl, phone_number, facebook_url, youtube_url, linkedin_url, instagrame_url, twitter_url, banner_images: imageUrls, core_values: contents }
 
             axiosPublic.post(`/content`, data)
                 .then(res => {
@@ -85,7 +93,7 @@ const ManageContent = () => {
                         Swal.fire({
                             position: "top-end",
                             icon: "success",
-                            title: "Data has been saved", 
+                            title: "Data has been saved",
                             showConfirmButton: false,
                             timer: 1500
                         });
@@ -111,104 +119,116 @@ const ManageContent = () => {
 
                 <div className="grid lg:grid-cols-2 gap-4">
                     <div className="">
-                        <label htmlFor="name">Website Name</label>
-                        <input type="text" name="name"  className="w-full px-4 py-2 border rounded-md" />
+                        <label htmlFor="name">Mission Description</label>
+                        <textarea rows={5} type="text" name="mission_desc" className="w-full px-4 py-2 border rounded-md" />
                     </div>
 
 
                     <div>
-                        <label htmlFor="name">Banner Title</label>
-                        <input type="text" name="bannerTitle"  className="w-full px-4 py-2 border rounded-md" />
+                        <label htmlFor="name">Vision Description</label>
+                        <textarea rows={5} type="text" name="vision_desc" className="w-full px-4 py-2 border rounded-md" />
                     </div>
 
                     <div className="">
-                        <label htmlFor="">Banner sub title</label>
-                        <input type="text" name="bannerSubTitle"  className="w-full px-4 py-2 border rounded-md" />
-                    </div>
-
-                    <div className=" w-full">
-                        <div className="relative">
-                            <p>Upload Banner Image</p>
-                            <input type="file" name='mainbanner' className="file-input file-input-bordered file-input-md w-full "  />
-                        </div>
-                        
-                    </div>
-
-
-                    <div>
-                        <label htmlFor="">Banner Description</label>
-                        <textarea rows={6} name="bannerDescription" className="w-full px-4 py-2 border rounded-md" />
-                    </div>
-
-                    <div>
-                        <label htmlFor="">Latest News</label>
-                        <textarea rows={6} name="latestNews"  className="w-full px-4 py-2 border rounded-md" />
-                    </div>
-
-                    <div>
-                        <label htmlFor="">Youtube video</label>
-                        <input type="text" name="youtubeVideos"  className="w-full px-4 py-2 border rounded-md" />
-                    </div>
-
-
-                    <div className=" w-full">
-                        <div className="relative">
-                            <p>Upload website logo</p>
-                            <input type="file" name='logo' className="file-input file-input-bordered file-input-md w-full " placeholder="Upload website logo" />
-                        </div>
-
-                        
-                    </div>
-
-                    <div className=" w-full">
-                        <div className="relative">
-                            <p>Upload About Banner</p>
-                            <input type="file" name='aboutBanner' className="file-input file-input-bordered file-input-md w-full " placeholder="Upload  about banner" />
-                        </div>
-                        
-                    </div>
-
-
-
-
-                    <div>
-                        <label htmlFor="">About title</label>
-                        <input type="text" name="aboutTitle"  className="w-full px-4 py-2 border rounded-md" />
-                    </div>
-
-                    <div>
-                        <label htmlFor="">About Sub Title</label>
-                        <input type="text" name="aboutSubTitle"  className="w-full px-4 py-2 border rounded-md" />
-
-                    </div>
-
-                    <div>
-                        <label htmlFor="">Related Search</label>
-                        <textarea name="relatedSearch"  className="w-full px-4 py-2 border rounded-md" />
-                    </div>
-
-                    <div>
                         <label htmlFor="">Phone Number</label>
-                        <input type="text" name="phone"  className="w-full px-4 py-2 border rounded-md" />
+                        <input type="text" name="phone_number" className="w-full px-4 py-2 border rounded-md" />
+                    </div>
 
+
+
+
+                    <div>
+                        <label htmlFor="">Facebook Url</label>
+                        <input name="facebook_url" className="w-full px-4 py-2 border rounded-md" />
                     </div>
 
                     <div>
-                        <label htmlFor="">WhatsApp Number</label>
-                        <input type="text" name="whatsapp"  className="w-full px-4 py-2 border rounded-md" />
-
+                        <label htmlFor="">Youtube Url</label>
+                        <input name="youtube_url" className="w-full px-4 py-2 border rounded-md" />
                     </div>
 
                     <div>
-                        <label htmlFor="">Email</label>
-                        <input type="email" name="email"  className="w-full px-4 py-2 border rounded-md" />
-
+                        <label htmlFor="">Linkedin Url</label>
+                        <input type="text" name="linkedin_url" className="w-full px-4 py-2 border rounded-md" />
                     </div>
+
+
                     <div>
-                        <label htmlFor="">Address</label>
-                        <input type="text" name="address"  className="w-full px-4 py-2 border rounded-md" />
+                        <label htmlFor="">Instagram Url</label>
+                        <input type="text" name="instagrame_url" className="w-full px-4 py-2 border rounded-md" />
+                    </div>
+
+                    <div>
+                        <label htmlFor="">Twitter Url</label>
+                        <input type="text" name="twitter_url" className="w-full px-4 py-2 border rounded-md" />
 
                     </div>
+
+                    {/* Multiple Image Upload */}
+                    <div className="p-2 w-full">
+                        <div className="relative">
+                            <label className="leading-7 text-sm text-gray-600 font-bold">Upload Multiple Banner Images</label><br />
+                            <input
+                                type="file"
+                                name="images"
+                                multiple // Allows selecting multiple images
+                                onChange={handleImageChange}
+                                className="file-input file-input-bordered file-input-md w-full"
+                            />
+                        </div>
+                    </div>
+
+                    {/* Feature content Section */}
+                    <div className="mb-4">
+                        <label className="block text-gray-700 font-semibold mb-2 text-xl">Core Values</label>
+                        {contents.map((content, index) => (
+                            <div key={index} className="flex gap-4 mb-2">
+                                <input
+                                    type="text"
+                                    value={content?.heading}
+                                    onChange={(e) => handleContentChange(index, 'heading', e.target.value)}
+                                    className="w-1/2 p-2 border border-gray-300 rounded focus:outline-none focus:border-pink-500"
+                                    placeholder="Enter Heading"
+                                    required
+                                />
+
+                                <input
+                                    type="text"
+                                    value={content?.short_des}
+                                    onChange={(e) => handleContentChange(index, 'short_des', e.target.value)}
+                                    className="w-1/2 p-2 border border-gray-300 rounded focus:outline-none focus:border-pink-500"
+                                    placeholder="Enter Short description"
+                                    required
+                                />
+
+                                {contents.length > 1 && (
+                                    <button
+                                        type="button"
+                                        onClick={() => removeContent(index)}
+                                        className="bg-red-500 text-white px-2 py-1 rounded hover:bg-red-600 transition duration-300"
+                                    >
+                                        Remove
+                                    </button>
+                                )}
+                            </div>
+                        ))}
+                        <button
+                            type="button"
+                            onClick={addContent}
+                            className="mt-2 bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition duration-300"
+                        >
+                            Add Content
+                        </button>
+                    </div>
+
+                    <div className=" w-full">
+                        <div className="relative">
+                            <p>Schedule Section Image</p>
+                            <input type="file" name='scheduleImage' className="file-input file-input-bordered file-input-md w-full " placeholder="Upload website logo" />
+                        </div>
+                    </div>
+
+
                 </div>
 
                 <button type="submit" className="w-full py-2 bg-blue-500 text-white rounded-md">
@@ -216,7 +236,7 @@ const ManageContent = () => {
                 </button>
             </form>
 
-            <DataTable></DataTable>
+            <DataTable allData={allData} refetch={refetch}></DataTable>
         </div>
     );
 };
