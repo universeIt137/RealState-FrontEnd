@@ -4,7 +4,8 @@ import Swal from 'sweetalert2';
 import scheduleStore from '../../../api-request/schedule-api/scheduleStore';
 
 
-const ScheduleMeeting = () => {
+const ScheduleMeeting = ({banner}) => {
+    const axiosPublic = useAxiosPublic();
     const [loader, setLoader] = useState(false);
     const { scheduleCreateApi,scheduleDataListApi } = scheduleStore();
     const handleSubmit = async (e) => {
@@ -57,16 +58,15 @@ const ScheduleMeeting = () => {
             <div className="justify-center -mt-14 lg:-mt-0 ">
                 <div className="lg:gap-10 overflow-hidden lg:flex">
                     {/* Left Side - Background Image with Overlay */}
-                    <div className="relative hidden lg:block lg:w-1/2">
+                    <div className="relative hidden lg:block lg:w-1/2 rounded-lg">
                         {/* Background Image */}
                         <div
-                            className="absolute inset-0 bg-cover bg-center"
-                            style={{
-                                backgroundImage: `url('https://res.cloudinary.com/dnvmj9pvk/image/upload/v1730799878/Amer%20Thikana/m0zytoaeovvwdx5pkcqa.jpg')`,
-                            }}
-                        ></div>
+                            className="absolute inset-0 bg-cover bg-center border  rounded-lg flex justify-center items-center"
+                           
+                        >
+                            <img src={banner} alt="" className='rounded-lg '/>
+                        </div>
                         {/* Overlay to control opacity */}
-                        <div className="absolute inset-0 bg-black opacity-20"></div>
                     </div>
 
                     {/* Right Side - Form */}

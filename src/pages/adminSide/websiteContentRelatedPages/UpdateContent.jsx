@@ -12,10 +12,10 @@ const UpdateContent = () => {
     const axiosPublic = useAxiosPublic();
     const { id } = useParams();
 
-    const { data: content = [], refetch } = useQuery({
-        queryKey: ['content'],
+    const { data: singleData = {}, refetch } = useQuery({
+        queryKey: ['singleData'],
         queryFn: async () => {
-            const res = await axiosPublic.get(`/content/${id}`);
+            const res = await axiosPublic.get(`/website-content/${id}`);
             return res.data;
         }
     })
@@ -24,83 +24,111 @@ const UpdateContent = () => {
 
 
     const [loading, setLoading] = useState(false);
+    const [images, setImages] = useState([]);
+    const [contents, setContents] = useState([{ heading: '', short_des: '' }]);
+
+
+    const handleImageChange = (e) => {
+        setImages([...e.target.files]); // Set selected images
+    };
+
+    const handleContentChange = (index, field, value) => {
+        const updatedContents = contents.map((content, i) =>
+            i === index ? { ...content, [field]: value } : content
+        );
+        setContents(updatedContents);
+    };
+
+    const removeContent = (index) => {
+        setContents(contents.filter((_, i) => i !== index));
+    };
+
+    const addContent = () => {
+        setContents([...contents, { content_name: '' }]);
+    };
+
 
 
 
     const handleSubmit = async (e) => {
         setLoading(true);
         e.preventDefault();
+
         const form = e.target;
+        const missionDesc = form.mission_desc.value;
+        const visionDesc = form.vision_desc.value;
+        const phoneNumber = form.phone_number.value;
+        const facebookUrl = form.facebook_url.value;
+        const youtubeUrl = form.youtube_url.value;
+        const linkedinUrl = form.linkedin_url.value;
+        const instagramUrl = form.instagrame_url.value;
+        const twitterUrl = form.twitter_url.value;
+        const scheduleImage = form.scheduleImage.files[0];
 
-        const name = form.name.value;
-        const bannerTitle = form.bannerTitle.value;
-        const bannerSubTitle = form.bannerSubTitle.value;
-        const mainbanner = form.mainbanner.files[0];
-        const bannerDescription = form.bannerDescription.value;
-        const latestNews = form.latestNews.value;
-        const youtubeVideos = form.youtubeVideos.value;
-
-        const logo = form.logo.files[0];
-        const aboutbanner = form.aboutBanner.files[0];
-        const aboutTitle = form.aboutTitle.value;
-        const aboutSubTitle = form.aboutSubTitle.value;
-        const relatedSearch = form.relatedSearch.value;
-        const phone = form.phone.value;
-        const whatsapp = form.whatsapp.value;
-        const email = form.email.value;
-        const address = form.address.value;
-
-
-        let mainBannerUrl = content?.mainBannerUrl;
-        if (!mainbanner?.name) {
-            mainBannerUrl = content?.mainBannerUrl
-        } else {
-            mainBannerUrl = await uploadImg(mainbanner);
-
+        let scheduleImageUrl = singleData?.scheduleImageUrl;
+        if (scheduleImage?.name) {
+            scheduleImageUrl = await uploadImg(scheduleImage);
         }
 
-        let logoImageUrl = ''
-        if (!logo?.name) {
-            logoImageUrl = content?.logoImageUrl
-        } else {
-            logoImageUrl = await uploadImg(logo);
-
+        // Upload new images if any
+        let uploadedImages = [];
+        if (images.length > 0) {
+            uploadedImages = await Promise.all(images.map(img => uploadImg(img)));
         }
 
-        let aboutbannerImageUrl = ''
-        if (!aboutbanner?.name) {
-            aboutbannerImageUrl = content?.bannerImageUrl
-        } else {
-            aboutbannerImageUrl = await uploadImg(aboutbanner);
 
-        }
+        // Set the new images as the updated banner images
+        const updatedBannerImages = uploadedImages;
 
-        setLoading(true);
 
-        // Simulate form submission
+
+        // Consolidate core values
+        const updatedCoreValues = contents.map(content => ({
+            heading: content.heading,
+            short_des: content.short_des,
+        }));
+
         try {
-            const data = { name, bannerTitle, bannerSubTitle, mainBannerUrl, bannerDescription, latestNews, youtubeVideos, logoImageUrl, aboutbannerImageUrl, aboutTitle, aboutSubTitle, relatedSearch, phone, whatsapp, email, address }
+            const updatedData = {
+                mission_desc: missionDesc,
+                vision_desc: visionDesc,
+                scheduleImageUrl: scheduleImageUrl,
+                phone_number: phoneNumber,
+                facebook_url: facebookUrl,
+                youtube_url: youtubeUrl,
+                linkedin_url: linkedinUrl,
+                instagrame_url: instagramUrl,
+                twitter_url: twitterUrl,
+                banner_images: updatedBannerImages,
+                core_values: updatedCoreValues,
+            };
 
-            axiosPublic.put(`/content/${id}`, data)
-                .then(res => {
-                    if (res) {
-                        Swal.fire({
-                            position: "top-end",
-                            icon: "success",
-                            title: "Data has been updated",
-                            showConfirmButton: false,
-                            timer: 1500
-                        });
-                        refetch();
-                    }
-                })
+            console.log(updatedData);
+            const response = await axiosPublic.put(`/website-content/${id}`, updatedData);
 
+            if (response.data) {
+                Swal.fire({
+                    position: "top-end",
+                    icon: "success",
+                    title: "Content updated successfully!",
+                    showConfirmButton: false,
+                    timer: 1500,
+                });
+                refetch();
+            }
         } catch (error) {
-            console.error("Error submitting form:", error.message);
+            console.error("Error updating content:", error);
+            Swal.fire({
+                position: "top-end",
+                icon: "error",
+                title: "Failed to update content",
+                showConfirmButton: true,
+            });
         } finally {
             setLoading(false);
         }
     };
+
 
     return (
         <div className="w-10/12 mx-auto p-4">
@@ -113,119 +141,147 @@ const UpdateContent = () => {
 
                 <div className="grid lg:grid-cols-2 gap-4">
                     <div className="">
-                        <label htmlFor="name">Website Name</label>
-                        <input type="text" name="name" defaultValue={content?.name} className="w-full px-4 py-2 border rounded-md" />
+                        <label htmlFor="name">Mission Description</label>
+                        <textarea rows={5} type="text" defaultValue={singleData?.mission_desc} name="mission_desc" className="w-full px-4 py-2 border rounded-md" />
                     </div>
 
 
                     <div>
-                        <label htmlFor="name">Banner Title</label>
-                        <input type="text" name="bannerTitle" defaultValue={content?.bannerTitle} className="w-full px-4 py-2 border rounded-md" />
+                        <label htmlFor="name">Vision Description</label>
+                        <textarea rows={5} type="text" defaultValue={singleData?.vision_desc} name="vision_desc" className="w-full px-4 py-2 border rounded-md" />
                     </div>
 
                     <div className="">
-                        <label htmlFor="">Banner sub title</label>
-                        <input type="text" name="bannerSubTitle" defaultValue={content?.bannerSubTitle} className="w-full px-4 py-2 border rounded-md" />
-                    </div>
-
-                    <div className=" w-full">
-                        <div className="relative">
-                            <p>Upload Banner Image</p>
-                            <input type="file" name='mainbanner' className="file-input file-input-bordered file-input-md w-full " />
-                        </div>
-                        <div className="avatar">
-                            <div className="w-24 rounded">
-                                <p>Already uploaded</p>
-                                <img src={content?.mainBannerUrl} />
-                            </div>
-                        </div>
-                    </div>
-
-
-                    <div>
-                        <label htmlFor="">Banner Description</label>
-                        <textarea rows={6} name="bannerDescription" defaultValue={content?.bannerDescription} className="w-full px-4 py-2 border rounded-md" />
-                    </div>
-
-                    <div>
-                        <label htmlFor="">Latest News</label>
-                        <textarea rows={6} name="latestNews" defaultValue={content?.latestNews} className="w-full px-4 py-2 border rounded-md" />
-                    </div>
-
-                    <div>
-                        <label htmlFor="">Youtube video</label>
-                        <input type="text" name="youtubeVideos" defaultValue={content?.youtubeVideos} className="w-full px-4 py-2 border rounded-md" />
-                    </div>
-
-
-                    <div className=" w-full">
-                        <div className="relative">
-                            <p>Upload website logo</p>
-                            <input type="file" name='logo' className="file-input file-input-bordered file-input-md w-full " placeholder="Upload website logo" />
-                        </div>
-                        <div className="avatar">
-                            <div className="w-24 rounded">
-                                <p>Already uploaded</p>
-                                <img src={content?.logoImageUrl} />
-                            </div>
-                        </div>
-
-                    </div>
-
-                    <div className=" w-full">
-                        <div className="relative">
-                            <p>Upload About Banner</p>
-                            <input type="file" name='aboutBanner' className="file-input file-input-bordered file-input-md w-full " placeholder="Upload  about banner" />
-                        </div>
-
-                        <div className="avatar">
-                            <div className="w-24 rounded">
-                                <p>Already uploaded</p>
-                                <img src={content?.aboutbannerImageUrl} />
-                            </div>
-                        </div>
-                    </div>
-
-
-
-
-                    <div>
-                        <label htmlFor="">About title</label>
-                        <input type="text" name="aboutTitle" defaultValue={content?.aboutTitle} className="w-full px-4 py-2 border rounded-md" />
-                    </div>
-
-                    <div>
-                        <label htmlFor="">About Sub Title</label>
-                        <input type="text" name="aboutSubTitle" defaultValue={content?.aboutSubTitle} className="w-full px-4 py-2 border rounded-md" />
-
-                    </div>
-
-                    <div>
-                        <label htmlFor="">Related Search</label>
-                        <textarea name="relatedSearch" defaultValue={content?.relatedSearch} className="w-full px-4 py-2 border rounded-md" />
-                    </div>
-
-                    <div>
                         <label htmlFor="">Phone Number</label>
-                        <input type="text" name="phone" defaultValue={content?.phone} className="w-full px-4 py-2 border rounded-md" />
+                        <input type="text" defaultValue={singleData?.phone_number} name="phone_number" className="w-full px-4 py-2 border rounded-md" />
+                    </div>
 
+
+
+
+                    <div>
+                        <label htmlFor="">Facebook Url</label>
+                        <input name="facebook_url" defaultValue={singleData?.facebook_url} className="w-full px-4 py-2 border rounded-md" />
                     </div>
 
                     <div>
-                        <label htmlFor="">WhatsApp Number</label>
-                        <input type="text" name="whatsapp" defaultValue={content?.whatsapp} className="w-full px-4 py-2 border rounded-md" />
-
+                        <label htmlFor="">Youtube Url</label>
+                        <input name="youtube_url" defaultValue={singleData?.youtube_url} className="w-full px-4 py-2 border rounded-md" />
                     </div>
 
                     <div>
-                        <label htmlFor="">Email</label>
-                        <input type="email" name="email" defaultValue={content?.email} className="w-full px-4 py-2 border rounded-md" />
+                        <label htmlFor="">Linkedin Url</label>
+                        <input type="text" name="linkedin_url" defaultValue={singleData?.linkedin_url} className="w-full px-4 py-2 border rounded-md" />
+                    </div>
+
+
+                    <div>
+                        <label htmlFor="">Instagram Url</label>
+                        <input type="text" name="instagrame_url" defaultValue={singleData?.instagrame_url} className="w-full px-4 py-2 border rounded-md" />
+                    </div>
+
+                    <div>
+                        <label htmlFor="">Twitter Url</label>
+                        <input type="text" name="twitter_url" defaultValue={singleData?.twitter_url} className="w-full px-4 py-2 border rounded-md" />
 
                     </div>
-                    <div>
-                        <label htmlFor="">Address</label>
-                        <input type="text" name="address" defaultValue={content?.address} className="w-full px-4 py-2 border rounded-md" />
 
+                    {/* Multiple Image Upload */}
+                    <div className="p-2 w-full">
+                        <div className="relative">
+                            <label className="leading-7 text-sm text-gray-600 font-bold">Upload Multiple Banner Images</label><br />
+                            <input
+                                type="file"
+                                name="images"
+                                multiple // Allows selecting multiple images
+                                onChange={handleImageChange}
+                                className="file-input file-input-bordered file-input-md w-full"
+                            />
+                        </div>
+                        <p className="my-4">Already uploaded:</p>
+                        {
+                            singleData.banner_images?.map((image, index) => <div key={index} className="avatar">
+                                <div className="w-32 mx-2 rounded">
+
+                                    <img src={image} />
+                                </div>
+                            </div>)
+                        }
+                    </div>
+
+                    {/* Feature content Section */}
+                    <div className="mb-4">
+                        <div className="mb-4">
+                            <label className="block text-gray-700 font-semibold mb-2 text-xl">Core Values</label>
+                            {contents.map((content, index) => (
+                                <div key={index} className="flex gap-4 mb-2">
+                                    <input
+                                        type="text"
+                                        value={content?.heading}
+                                        onChange={(e) => handleContentChange(index, 'heading', e.target.value)}
+                                        className="w-1/2 p-2 border border-gray-300 rounded focus:outline-none focus:border-pink-500"
+                                        placeholder="Enter Heading"
+                                    />
+
+                                    <input
+                                        type="text"
+                                        value={content?.short_des}
+                                        onChange={(e) => handleContentChange(index, 'short_des', e.target.value)}
+                                        className="w-1/2 p-2 border border-gray-300 rounded focus:outline-none focus:border-pink-500"
+                                        placeholder="Enter Short description"
+                                    />
+
+                                    {contents.length > 1 && (
+                                        <button
+                                            type="button"
+                                            onClick={() => removeContent(index)}
+                                            className="bg-red-500 text-white px-2 py-1 rounded hover:bg-red-600 transition duration-300"
+                                        >
+                                            Remove
+                                        </button>
+                                    )}
+
+
+                                </div>
+                            ))}
+                            <button
+                                type="button"
+                                onClick={addContent}
+                                className="mt-2 bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition duration-300"
+                            >
+                                Add Content
+                            </button>
+                        </div>
+
+
+                        <div className="">
+                            <p className="my-4">Already uploaded:</p>
+                            <div className="">
+                                {
+                                    singleData?.core_values?.map((value, index) =>
+                                        <div key={index} className="flex justify-between gap-5 border">
+                                            <p className="font-bold" key={index}>{value?.heading}</p>
+                                            <p key={index}>{value?.short_des}</p>
+                                        </div>
+                                    )
+                                }
+                            </div>
+                        </div>
+
+
+                    </div>
+
+                    <div className=" w-full">
+                        <div className="relative">
+                            <p>Schedule Section Image</p>
+                            <input type="file" name='scheduleImage' className="file-input file-input-bordered file-input-md w-full " placeholder="Upload website logo" />
+                        </div>
+                        <div className="avatar">
+                            <div className="w-32 rounded">
+                                <p>Already uploaded:</p>
+                                <img src={singleData?.scheduleImageUrl} />
+                            </div>
+                        </div>
                     </div>
                 </div>
 

@@ -15,10 +15,25 @@ import BannerSlider from './BannerSlider'
 import BannerCarousel from './BannerCarousel'
 import ScheduleMeeting from './ScheduleMeeting'
 import ProjectPage from './ProjectPage'
+import useAxiosPublic from '../../../hooks/useAxiosPublic'
+import { useQuery } from '@tanstack/react-query'
 
 
 const HomePage = () => {
   window.scrollTo(0, 0);
+
+  const axiosPublic = useAxiosPublic();
+  const { data: webContent = {} } = useQuery({
+    queryKey: ['web content'],
+    queryFn: async () => {
+      const res = await axiosPublic.get('/website-content');
+      return res.data[0];
+    }
+  })
+
+  
+
+
   return (
     <div className='space-y-16' >
       {/* carousel */}
@@ -28,7 +43,7 @@ const HomePage = () => {
         <BannerSlider></BannerSlider>
       </div>  */}
 
-      <BannerCarousel></BannerCarousel>
+      <BannerCarousel banner_images={webContent?.banner_images}></BannerCarousel>
       <div className="  ">
         
       <ChairmanSpeech></ChairmanSpeech>
@@ -40,7 +55,7 @@ const HomePage = () => {
       {/* <Team></Team> */}
       {/* <TestimonialCard></TestimonialCard> */}
       {/* <LayoutVisual></LayoutVisual> */}
-      <ScheduleMeeting></ScheduleMeeting>
+      <ScheduleMeeting banner={webContent?.scheduleImageUrl}></ScheduleMeeting>
       <ProjectPage></ProjectPage>
     </div>
   )

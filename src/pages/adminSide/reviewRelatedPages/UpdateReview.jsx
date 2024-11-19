@@ -1,32 +1,25 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
+import { Helmet } from 'react-helmet-async';
+import { uploadImg } from '../../../uploadFile/uploadImg';
+import { uploadVideo } from '../../../uploadFile/uploadVideo';
+import useAxiosPublic from '../../../hooks/useAxiosPublic';
+import Swal from 'sweetalert2';
+import { useQuery } from '@tanstack/react-query';
+import { useParams } from 'react-router-dom';
 
-import { useQuery } from "@tanstack/react-query";
-import Swal from "sweetalert2";
-import { Helmet } from "react-helmet-async";
-import useAxiosPublic from "../../../hooks/useAxiosPublic";
-import { uploadImg } from "../../../uploadFile/uploadImg";
-import { uploadVideo } from "../../../uploadFile/uploadVideo";
-import ManageReview from "./ManageReview";
-
-
-
-const AddReview = () => {
+const UpdateReview = () => {
+    const [loading, setLoading] = useState(false);
     const axiosPublic = useAxiosPublic();
-
-    const { data: content = [], refetch } = useQuery({
-        queryKey: ['content'],
+    const { id } = useParams();
+    const { data: review = {}, refetch } = useQuery({
+        queryKey: ['reviews'],
         queryFn: async () => {
-            const res = await axiosPublic.get('/chairman');
+            const res = await axiosPublic.get(`/client-review/${id}`);
             return res.data;
         }
     })
 
-
-
-
-    const [loading, setLoading] = useState(false);
-
-
+    console.log(review);
 
     const handleSubmit = async (e) => {
         setLoading(true);
@@ -45,15 +38,15 @@ const AddReview = () => {
 
 
 
-        let thumbnailUrl = ''
+        let thumbnailUrl = review?.thumbnailUrl;
         if (!image?.name) {
-            thumbnailUrl = ''
+            thumbnailUrl = review?.thumbnailUrl;
         } else {
             thumbnailUrl = await uploadImg(image);
 
         }
 
-        let videoUrl = '';
+        let videoUrl = review?.videoUrl;
         if (selectedVideo) {
             videoUrl = await uploadVideo(selectedVideo);
         }
@@ -64,15 +57,16 @@ const AddReview = () => {
 
         // Simulate form submission
         try {
-            const data = { heading, name, role, youtubeVideo, thumbnailUrl, videoUrl,description }
+            const data = { heading, name, role, youtubeVideo, thumbnailUrl, videoUrl, description }
 
-            axiosPublic.post(`/chairman`, data)
+            console.log(data);
+            axiosPublic.put(`/client-review/${id}`, data)
                 .then(res => {
                     if (res) {
                         Swal.fire({
                             position: "top-end",
                             icon: "success",
-                            title: "Data has been saved",
+                            title: "Data has been updated",
                             showConfirmButton: false,
                             timer: 1500
                         });
@@ -86,35 +80,34 @@ const AddReview = () => {
             setLoading(false);
         }
     };
-
     return (
-        <div className="w-10/12 mx-auto p-4">
+        <div>
             <Helmet>
-                <title>Dashboard | Add Review</title>
+                <title>Dashboard | Update Review</title>
             </Helmet>
-            <h2 className="text-2xl font-semibold mb-4">Upload Review</h2>
+            <h2 className="text-2xl font-semibold mb-4">Update Review</h2>
             <form onSubmit={handleSubmit} className="space-y-4">
                 {loading && <p className="text-blue-500">Uploading data...</p>}
 
                 <div className="grid lg:grid-cols-2 gap-4">
                     <div className="">
                         <label htmlFor="name">Heading</label>
-                        <input type="text" name="heading" className="w-full px-4 py-2 border rounded-md" />
+                        <input type="text" defaultValue={review?.heading} name="heading" className="w-full px-4 py-2 border rounded-md" />
                     </div>
 
                     <div>
                         <label htmlFor="">Name</label>
-                        <input type="text" name="name" className="w-full px-4 py-2 border rounded-md" />
+                        <input type="text" defaultValue={review?.name} name="name" className="w-full px-4 py-2 border rounded-md" />
                     </div>
 
                     <div>
                         <label htmlFor="">Role</label>
-                        <input type="text" name="role" className="w-full px-4 py-2 border rounded-md" />
+                        <input type="text" defaultValue={review?.role} name="role" className="w-full px-4 py-2 border rounded-md" />
                     </div>
 
                     <div>
                         <label htmlFor="">Paste Review video Youtube Url</label>
-                        <input type="text" name="youtubeVideo" className="w-full px-4 py-2 border rounded-md" />
+                        <input type="text" defaultValue={review?.youtubeVideo} name="youtubeVideo" className="w-full px-4 py-2 border rounded-md" />
                     </div>
 
 
@@ -127,7 +120,12 @@ const AddReview = () => {
                             <p>Upload Thumbnil Image</p>
                             <input type="file" name='image' className="file-input file-input-bordered file-input-md w-full " placeholder="Upload website logo" />
                         </div>
-
+                        <div className="avatar">
+                            <div className="w-32 rounded">
+                                <p>Already uploaded:</p>
+                                <img src={review?.thumbnailUrl} />
+                            </div>
+                        </div>
 
                     </div>
 
@@ -143,20 +141,17 @@ const AddReview = () => {
 
                 <div>
                     <label htmlFor="">Short Description</label>
-                    <textarea rows={6} name="description" className="w-full px-4 py-2 border rounded-md" />
+                    <textarea rows={6} defaultValue={review?.description} name="description" className="w-full px-4 py-2 border rounded-md" />
                 </div>
 
                 <div className="w-1/4 mx-auto">
                     <button type="submit" className="w-full py-2 bg-blue-500 text-white rounded-md">
-                        {loading ? "Uploading..." : "Submit"}
+                        {loading ? "Updating..." : "Submit"}
                     </button>
                 </div>
             </form>
-
-            <ManageReview></ManageReview>
-
         </div>
     );
 };
 
-export default AddReview;
+export default UpdateReview;
