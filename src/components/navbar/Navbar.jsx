@@ -2,6 +2,8 @@ import React, { useState, useEffect, useRef } from 'react';
 import { FaPhoneAlt, FaFacebookF, FaYoutube, FaLinkedinIn, FaInstagram, FaTwitter } from 'react-icons/fa';
 import { Link, NavLink } from 'react-router-dom';
 import { RiMenuUnfold4Fill } from 'react-icons/ri';
+import useAxiosPublic from '../../hooks/useAxiosPublic';
+import { useQuery } from '@tanstack/react-query';
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -9,6 +11,15 @@ const Navbar = () => {
   const [isCorporateOpen, setIsCorporateOpen] = useState(false);
   const [isGalleryOpen, setIsGalleryOpen] = useState(false);
   const timeoutRef = useRef(null); // For managing the timeout in hover behavior
+
+  const axiosPublic = useAxiosPublic();
+  const { data: webContent = {} } = useQuery({
+    queryKey: ['website content'],
+    queryFn: async () => {
+      const res = await axiosPublic.get('/website-content');
+      return res.data[0];
+    }
+  })
 
   const navLinks = [
     { title: 'Home', path: '/', isDropdown: false },
@@ -197,26 +208,51 @@ const Navbar = () => {
               <div className="flex items-center justify-center w-full">
                 <div className="flex items-center border border-white px-3 py-1 text-white">
                   <FaPhoneAlt />
-                  <span className="ml-2 text-sm">( +880 ) 1751586230</span>
+                  <span className="ml-2 text-sm">( +880 ) {webContent?.phone_number}</span>
                 </div>
               </div>
               {/* Social Icons to the right */}
               <div className="flex space-x-3 justify-end">
-                <Link to={``} className="hover:text-gray-300">
+                <a
+                  href={webContent?.facebook_url?.startsWith("http") ? webContent.facebook_url : `https://${webContent.facebook_url}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-gray-300"
+                >
                   <FaFacebookF />
-                </Link>
-                <Link to={``} className="hover:text-gray-300">
+                </a>
+                <a
+                  href={webContent?.youtube_url?.startsWith("http") ? webContent.youtube_url : `https://${webContent.youtube_url}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-gray-300"
+                >
                   <FaYoutube />
-                </Link>
-                <Link to={``} className="hover:text-gray-300">
+                </a>
+                <a
+                  href={webContent?.linkedin_url?.startsWith("http") ? webContent.linkedin_url : `https://${webContent.linkedin_url}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-gray-300"
+                >
                   <FaLinkedinIn />
-                </Link>
-                <Link to={``} className="hover:text-gray-300">
+                </a>
+                <a
+                  href={webContent?.instagrame_url?.startsWith("http") ? webContent.instagrame_url : `https://${webContent.instagrame_url}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-gray-300"
+                >
                   <FaInstagram />
-                </Link>
-                <Link to={``} className="hover:text-gray-300">
+                </a>
+                <a
+                  href={webContent?.twitter_url?.startsWith("http") ? webContent.twitter_url : `https://${webContent.twitter_url}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-gray-300"
+                >
                   <FaTwitter />
-                </Link>
+                </a>
               </div>
             </div>
           </div>
