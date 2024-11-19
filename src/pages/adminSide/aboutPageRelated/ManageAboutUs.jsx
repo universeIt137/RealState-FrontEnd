@@ -106,7 +106,12 @@ const ManageAboutUs = () => {
             <Helmet>
                 <title>Dashboard | Manage About Us</title>
             </Helmet>
-            <h2 className="text-2xl font-semibold mb-4">Upload About Us page's Content</h2>
+
+
+            <ManageContent></ManageContent>
+            
+
+            <h2 className="text-2xl font-semibold mt-20 mb-4">Upload About Us page's Content</h2>
             <form onSubmit={handleSubmit} className="space-y-4">
                 {loading && <p className="text-blue-500">Uploading data...</p>}
 
@@ -178,7 +183,6 @@ const ManageAboutUs = () => {
                 </div>
             </form>
 
-            <ManageContent></ManageContent>
         </div>
     );
 };

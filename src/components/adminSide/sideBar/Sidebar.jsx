@@ -49,8 +49,7 @@ const Sidebar = () => {
 
     const reviewUrls =
         <>
-            <NavigationItem to="/dashboard/add-review" icon={MdAddCircle} label="Add Review" />
-            <NavigationItem to="/dashboard/add-features" icon={MdAddCircle} label="Manage Review" />
+            <NavigationItem to="/dashboard/add-review" icon={MdAddCircle} label="Manage Review" />
         </>
     
     const aboutPageUrls =
