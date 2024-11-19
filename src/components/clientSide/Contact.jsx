@@ -85,7 +85,7 @@ const Contact = () => {
                     <div className="flex items-center justify-center">
                       <button
                         type="submit"
-                        className="bg-[#027F3D] text-white bg-opacity-70 font-bold py-2 px-6 rounded focus:outline-none focus:shadow-outline"
+                        className="bg-gradient-to-r from-[#027F3D] to-[#034A26] bg-opacity-90 text-white  font-bold py-2 px-6 rounded focus:outline-none focus:shadow-outline"
                       >
                         Submit
                       </button>

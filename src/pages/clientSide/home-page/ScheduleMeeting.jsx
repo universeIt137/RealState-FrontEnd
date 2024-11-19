@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import useAxiosPublic from '../../../hooks/useAxiosPublic';
 import Swal from 'sweetalert2';
+import scheduleStore from '../../../api-request/schedule-api/scheduleStore';
 
 
 const ScheduleMeeting = ({banner}) => {
     const axiosPublic = useAxiosPublic();
     const [loader, setLoader] = useState(false);
+    const { scheduleCreateApi,scheduleDataListApi } = scheduleStore();
     const handleSubmit = async (e) => {
         e.preventDefault();
         const form = e.target;
@@ -14,13 +16,14 @@ const ScheduleMeeting = ({banner}) => {
         const phone_number = form.phone_number.value;
         const payload = { full_name, email_address, phone_number };
 
-
         try {
             setLoader(true)
-            let res = await axiosPublic.post(`schedule`, payload);
+            let res = await scheduleCreateApi(payload);
             setLoader(false);
-            console.log(res.status);
-            if (res.status === 200) {
+            if (res) {
+                setLoader(true);
+                await scheduleDataListApi();
+                setLoader(false);
                 Swal.fire({
                     position: "top-end",
                     icon: "success",
@@ -29,6 +32,15 @@ const ScheduleMeeting = ({banner}) => {
                     timer: 1500
                 });
                 form.reset();
+                return;
+            } else {
+                Swal.fire({
+                    position: "top-end",
+                    icon: "error",
+                    title: "Your work has been save failed",
+                    showConfirmButton: false,
+                    timer: 1500
+                });
             }
         } catch (error) {
             Swal.fire({
@@ -105,7 +117,7 @@ const ScheduleMeeting = ({banner}) => {
                                     className="lg:py-3 py-1 border border-black px-8 text-black font-semibold hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50"
                                 >
                                     {
-                                        loader? 'Loading...' : 'Submit'
+                                        loader ? 'Loading...' : 'Submit'
                                     }
                                 </button>
                             </div>

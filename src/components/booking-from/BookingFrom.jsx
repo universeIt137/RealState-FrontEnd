@@ -30,7 +30,7 @@ const BookingForm = () => {
             <div className='max-w-screen-xl mx-auto lg:mt-32 '>
                 <div className='lg:ml-10'>
                     <img className="h-[600px] block mx-auto w-[900px] " src="https://res.cloudinary.com/dnvmj9pvk/image/upload/v1730635616/real-state-form_lfoa16.jpg" alt="Real Estate Form" />
-                    <button className=' md:text-lg bg-green text-black  my-10 block mx-auto' onClick={downloadForm}>Download</button>
+                    <button className=' md:text-lg bg-gradient-to-r from-[#027F3D] to-[#034A26] bg-opacity-90 text-white  my-10 block mx-auto' onClick={downloadForm}>Download</button>
                 </div>
             </div>
         </div>

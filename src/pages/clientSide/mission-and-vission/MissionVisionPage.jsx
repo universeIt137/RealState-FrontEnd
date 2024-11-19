@@ -29,7 +29,7 @@ const MissionVision = () => {
 
       <div className='w-11/12 mx-auto'>
         {/* Header */}
-        <header className="text-center py-4 mt-20 md:mt-28 md:py-16 bg-[#027F3D] opacity-70 text-white rounded-lg shadow-xl transform transition duration-500 hover:scale-105">
+        <header className="text-center py-4 mt-20 md:mt-28 md:py-16 bg-gradient-to-r from-[#027F3D] to-[#034A26] bg-opacity-90 text-white rounded-lg shadow-xl transform transition duration-500 hover:scale-105">
           <h1 className="md:text-4xl  font-bold">Our Mission & Vision</h1>
           <p className="text-[10px] md:text-lg md:mt-2 opacity-75">
             Leading the way in sustainable and community-focused real estate.
@@ -37,7 +37,7 @@ const MissionVision = () => {
         </header>
 
         {/* Mission Section */}
-        <section className="bg-[#027F3D] opacity-70 p-3 md:p-12 rounded-lg shadow-lg my-4 md:my-12 transform transition duration-300 hover:scale-105">
+        <section className="bg-gradient-to-r from-[#027F3D] to-[#034A26] bg-opacity-90 p-3 md:p-12 rounded-lg shadow-lg my-4 md:my-12 transform transition duration-300 hover:scale-105">
           <div>
             <h2 className=" md:text-4xl font-bold text-white text-center  md:mb-4">Our Mission</h2>
           </div>
@@ -50,7 +50,7 @@ const MissionVision = () => {
         </section>
 
         {/* Vision Section */}
-        <section className="bg-[#027F3D] opacity-70 p-3 md:p-12 rounded-lg shadow-lg my-4 md:my-12 transform transition duration-300 hover:scale-105">
+        <section className="bg-gradient-to-r from-[#027F3D] to-[#034A26] bg-opacity-90 p-3 md:p-12 rounded-lg shadow-lg my-4 md:my-12 transform transition duration-300 hover:scale-105">
           <div className='md:h-24 my-auto ' >
             <h2 className=" md:text-4xl font-bold text-white text-center md:mb-4">Our Vision</h2>
           </div>
@@ -73,7 +73,7 @@ const MissionVision = () => {
             {coreValues.map((value, index) => (
               <div
                 key={index}
-                className="bg-[#027F3D] opacity-70 p-3 md:p-6 rounded-lg shadow-lg flex flex-col items-center text-center transform transition duration-300 hover:scale-105"
+                className=" bg-gradient-to-r from-[#027F3D] to-[#034A26] bg-opacity-90 p-3 md:p-6 rounded-lg shadow-lg flex flex-col items-center text-center transform transition duration-300 hover:scale-105"
               >
                 <h3 className="md:text-4xl font-bold text-white md:mb-4">
                   {value.title}
