@@ -3,25 +3,29 @@ import { Helmet } from 'react-helmet-async';
 import useAxiosPublic from '../../../hooks/useAxiosPublic';
 import Swal from 'sweetalert2';
 import ManageBestProject from './ManageBestProject';
+import bestProjectStore from '../../../api-request/why-best-project-api/bestProjectApi';
 
 const axiosPublic = useAxiosPublic();
 
 const UploadFrom = () => {
-    const [loading , setLoading] = useState(false);
-    const handleSubmit = async (e)=>{
+    const [loading, setLoading] = useState(false);
+    const { bestProjectsApi, bestProjectsData, bestProjectsDelete } = bestProjectStore();
+
+    const handleSubmit = async (e) => {
         e.preventDefault();
         const heading = e.target.heading.value;
         const short_description = e.target.short_description.value;
-        const payload = {heading, short_description}
+        const payload = { heading, short_description }
         console.log(payload);
         try {
             setLoading(true);
-            let res = await axiosPublic.post(`/best-project`,payload);
+            let res = await axiosPublic.post(`/best-project`, payload);
             setLoading(false);
-            if(res.status === 200){
+            if (res.status === 200) {
+                bestProjectsApi();
                 Swal.fire({
                     position: 'top-end',
-                    icon:'success',
+                    icon: 'success',
                     title: 'Data has been saved',
                     showConfirmButton: false,
                     timer: 1500
@@ -52,14 +56,17 @@ const UploadFrom = () => {
                     <div className="grid lg:grid-cols-2 gap-4">
                         <div className="">
                             <label htmlFor="name">Heading</label>
-                            <input type="text" name="heading" className="w-full px-4 py-2 border rounded-md" />
+                            <input type="text" name="heading" required
+                                className="w-full px-4 py-2 border rounded-md" />
                         </div>
                     </div>
 
 
                     <div>
                         <label htmlFor="">Short Description</label>
-                        <textarea rows={6} name="short_description" className="w-full px-4 py-2 border rounded-md" />
+                        <textarea rows={6} name="short_description"
+                            required
+                            className="w-full px-4 py-2 border rounded-md" />
                     </div>
 
                     <div className="w-1/4 mx-auto">

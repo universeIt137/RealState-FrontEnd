@@ -1,41 +1,40 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import bestProjectStore from '../../../api-request/why-best-project-api/bestProjectApi';
+import { deleteAlert } from '../../../hook/deleteAlert';
+import Swal from 'sweetalert2';
 
 const ManageBestProject = () => {
-    // Example dynamic project data
-    const [projects, setProjects] = useState([
-        { id: 1, heading: "Project 1", description: "Description for project 1" },
-        { id: 2, heading: "Project 2", description: "Description for project 2" },
-        { id: 3, heading: "Project 3", description: "Description for project 3" },
-    ]);
+    const { bestProjectsApi, bestProjectsData, bestProjectsDelete } = bestProjectStore();
 
-    // State for editing a project
-    const [editingProject, setEditingProject] = useState(null);
-    const [newHeading, setNewHeading] = useState("");
-    const [newDescription, setNewDescription] = useState("");
+    useEffect(() => {
+        (async () => {
+            await bestProjectsApi();
+        })()
+    }, []);
 
-    // Handle delete action
-    const handleDelete = (projectId) => {
-        const updatedProjects = projects.filter(project => project.id !== projectId);
-        setProjects(updatedProjects);
-    };
+    const projectDelete = async (id) => {
+        console.log(id);
+        let resp = await deleteAlert();
+        if (resp.isConfirmed) {
+            let res = await bestProjectsDelete(id);
+            if (res) {
+                await bestProjectsApi()
+                Swal.fire({
+                    title: "Deleted!",
+                    text: "Your file has been deleted.",
+                    icon: "success"
+                });
+                return;
+            } else {
+                Swal.fire({
+                    title: "Failed!",
+                    text: "Failed to delete the file.",
+                    icon: "error"
+                });
+            }
+        }
+    }
 
-    // Start editing a project
-    const handleEdit = (project) => {
-        setEditingProject(project.id);
-        setNewHeading(project.heading);
-        setNewDescription(project.description);
-    };
-
-    // Handle the update of a project
-    const handleUpdate = (projectId) => {
-        const updatedProjects = projects.map(project =>
-            project.id === projectId
-                ? { ...project, heading: newHeading, description: newDescription }
-                : project
-        );
-        setProjects(updatedProjects);
-        setEditingProject(null); // Reset edit state after updating
-    };
 
     return (
         <div>
@@ -49,20 +48,20 @@ const ManageBestProject = () => {
                         </tr>
                     </thead>
                     <tbody>
-                        {projects.length > 0 ? (
-                            projects.map((project) => (
-                                <tr key={project.id} className="text-center">
+                        {bestProjectsData.length > 0 ? (
+                            bestProjectsData.map((project) => (
+                                <tr key={project._id} className="text-center">
                                     <td className="px-4 py-2 border font-semibold">{project.heading}</td>
-                                    <td className="px-4 py-2 border">{project.description}</td>
+                                    <td className="px-4 py-2 border">{project.short_description}</td>
                                     <td className="px-4 py-2 border">
                                         <button
-                                            onClick={() => handleDelete(project.id)}
+                                            onClick={() => projectDelete(project._id)}
                                             className="px-2 py-1 bg-red-500 text-white rounded mr-2"
                                         >
                                             Delete
                                         </button>
                                         <button
-                                            onClick={() => handleEdit(project)}
+                                            // onClick={() => handleEdit(project)}
                                             className="px-2 py-1 bg-blue-500 text-white rounded"
                                         >
                                             Update
@@ -80,7 +79,7 @@ const ManageBestProject = () => {
             </div>
 
             {/* Update Form (Visible when editingProject is not null) */}
-            {editingProject && (
+            {/* {editingProject && (
                 <div className="mt-5 p-4 border border-gray-300 bg-gray-50">
                     <h2 className="text-lg font-semibold mb-3">Update Project</h2>
                     <div>
@@ -108,7 +107,7 @@ const ManageBestProject = () => {
                         Update Project
                     </button>
                 </div>
-            )}
+            )} */}
         </div>
     );
 }
