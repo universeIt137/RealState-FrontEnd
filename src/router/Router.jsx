@@ -31,6 +31,7 @@ import ManageAboutUs from "../pages/adminSide/aboutPageRelated/ManageAboutUs";
 import UpdateAboutUs from "../pages/adminSide/aboutPageRelated/UpdateAboutUs";
 import UploadFrom from "../pages/adminSide/whyBestProjectPages/UploadFrom";
 import UpdateForm from "../pages/adminSide/whyBestProjectPages/UpdateForm";
+import ScheduleList from "../pages/adminSide/schedule/ScheduleList";
 
 
 
@@ -169,6 +170,10 @@ export const router = createBrowserRouter([
             {
                 path : "update/:id",
                 element : <UpdateForm></UpdateForm>
+            },
+            {
+                path : "schedule-list",
+                element : <ScheduleList></ScheduleList>
             }
             
         ]

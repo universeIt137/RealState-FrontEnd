@@ -39,7 +39,7 @@ const CSRPage = () => {
         <div className='my-20 lg:mt-28  ' >
 
           {/* Header Section */}
-          <header className="bg-[#027F3D] opacity-70 text-white rounded-lg shadow-lg p-4 lg:p-8 text-center mb-2 lg:mb-10">
+          <header className="bg-gradient-to-r from-[#027F3D] to-[#034A26] bg-opacity-90 text-white rounded-lg shadow-lg p-4 lg:p-8 text-center mb-2 lg:mb-10">
             <h1 className="lg:text-4xl font-bold lg:mb-2">Our Commitment to Corporate Social Responsibility</h1>
             <p className="lg:text-lg text-[9px] mt-1 lg:mt-2">
               At Amar Thikana, we believe in building not just homes, but also a better future for our communities and our planet.
@@ -53,11 +53,11 @@ const CSRPage = () => {
               {initiatives.map((initiative, index) => (
                 <div
                   key={index}
-                  className="p-3 border-2 lg:p-6 lg:text-start  text-center rounded-lg shadow-lg transform transition-transform duration-300 hover:scale-105"
+                  className="bg-gradient-to-r from-[#027F3D] to-[#034A26] bg-opacity-90 border-2 lg:p-6 lg:text-start  text-center rounded-lg shadow-lg transform transition-transform duration-300 hover:scale-105"
                 >
                   <Link to={`/blog-details/${initiative.id}`}>
                     <div className=" lg:my-auto overflow-hidden">
-                      <h3 className="lg:text-2xl font-bold text-center text-black opacity-70 lg:mb-4">{initiative.title}</h3>
+                      <h3 className="lg:text-2xl font-bold text-center text-white  lg:mb-4">{initiative.title}</h3>
                     </div>
                     <figure className="px-10 ">
                       <img
@@ -66,12 +66,12 @@ const CSRPage = () => {
                         className="rounded-xl" />
                     </figure>
                     <div className=" lg:h-32 lg:my-auto overflow-hidden">
-                      <p className="text-black opacity-70 text-justify my-4 text-[9px] lg:text-[16px] lg:mb-4">{initiative.description}</p>
+                      <p className="text-white  text-justify my-4 text-[9px] lg:text-[16px] lg:mb-4">{initiative.description}</p>
                     </div>
                     <div className=" ">
                       <Link
                         to={`/blog-details/${initiative.id}`}
-                        className="text-[9px] lg:text-[16px] text-black opacity-70 text-center block font-semibold hover:underline"
+                        className="text-[9px] lg:text-[16px] text-white  text-center block font-semibold hover:underline"
                       >
                         Read More
                       </Link>

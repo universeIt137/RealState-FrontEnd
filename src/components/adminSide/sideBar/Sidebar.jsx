@@ -63,7 +63,11 @@ const Sidebar = () => {
             <NavigationItem to="/dashboard/best-upload-form" icon={MdAddCircle} label="Upload" />
             {/* <NavigationItem to="/dashboard/manage" icon={MdAddCircle} label="Manage" /> */}
         </>
-
+    const Schedule =
+    <>
+        <NavigationItem to="/dashboard/schedule-list" icon={MdAddCircle} label="Schedule List" />
+        {/* <NavigationItem to="/dashboard/manage" icon={MdAddCircle} label="Manage" /> */}
+    </>
 
 
     return (
@@ -120,6 +124,10 @@ const Sidebar = () => {
 
                         <li className="mb-4">
                             <Dropdown buttonText="Why Best Project" urls={whyBestProjects} />
+                        </li>
+
+                        <li className="mb-4">
+                            <Dropdown buttonText="Meting Schedule" urls={Schedule} />
                         </li>
 
 

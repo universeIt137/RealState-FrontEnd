@@ -16,6 +16,9 @@ export default {
         black: '#111111',
         custom_green: 'rgba(70, 161, 111, 0.9)', // Custom background black color
       },
+      backgroundImage: {
+        gradientColor: 'linear-gradient(to right, #027F3D, #034A26)', // Gradient shorthand
+      },
       animation: {
         marquee: 'marquee 30s linear infinite', // Increased duration to 30 seconds
         'pulse-custom': 'pulse-custom 1.5s ease-in-out infinite',

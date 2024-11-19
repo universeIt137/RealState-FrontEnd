@@ -168,7 +168,7 @@ const Navbar = () => {
                         )}
                         {link.title === 'Gallery' && isGalleryOpen && (
                           <div
-                            className="absolute left-0 mt-2 z-50  text-lg opacity-70 text-black font-bold rounded-md shadow-lg w-64"
+                            className="absolute left-0 mt-2 z-50   opacity-70 text-black font-bold rounded-md shadow-lg w-64"
                             onMouseEnter={handleMouseEnterGallery}
                             onMouseLeave={handleMouseLeaveGallery}
                           >
