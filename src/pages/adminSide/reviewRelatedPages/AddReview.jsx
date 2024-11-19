@@ -66,7 +66,7 @@ const AddReview = () => {
         try {
             const data = { heading, name, role, youtubeVideo, thumbnailUrl, videoUrl,description }
 
-            axiosPublic.post(`/chairman`, data)
+            axiosPublic.post(`/client-review`, data)
                 .then(res => {
                     if (res) {
                         Swal.fire({
