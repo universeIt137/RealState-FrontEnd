@@ -40,7 +40,7 @@ const BannerCarousel = ({banner_images}) => {
                 {banner_images?.map((slide, index) => (
                     <div
                         key={index}
-                        className="lg:w-screen lg:h-screen w-screen h-[42vh] flex-shrink-0 relative"
+                        className="lg:w-screen lg:h-screen w-screen h-[42vh] flex-shrink-0 relative "
                         style={{
                             backgroundImage: `url(${slide})`,
                             backgroundSize: 'contain', // Ensures entire image fits without cropping

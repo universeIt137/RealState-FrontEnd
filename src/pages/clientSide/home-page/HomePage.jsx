@@ -17,6 +17,7 @@ import ScheduleMeeting from './ScheduleMeeting'
 import ProjectPage from './ProjectPage'
 import useAxiosPublic from '../../../hooks/useAxiosPublic'
 import { useQuery } from '@tanstack/react-query'
+import { Helmet } from 'react-helmet-async'
 
 
 const HomePage = () => {
@@ -36,6 +37,9 @@ const HomePage = () => {
 
   return (
     <div className='space-y-16' >
+      <Helmet>
+        <title>Amer Thikana</title>
+      </Helmet>
       {/* carousel */}
        {/* <Carousel></Carousel> */}
 

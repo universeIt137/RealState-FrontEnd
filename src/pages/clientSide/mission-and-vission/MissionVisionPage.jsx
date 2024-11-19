@@ -1,6 +1,8 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
+import useAxiosPublic from '../../../hooks/useAxiosPublic';
+import { useQuery } from '@tanstack/react-query';
 const coreValues = [
   {
     title: "Integrity",
@@ -19,7 +21,17 @@ const coreValues = [
   },
 ];
 const MissionVision = () => {
-  // window.scrollTo(0, 0);
+  window.scrollTo(0, 0);
+
+  const axiosPublic = useAxiosPublic();
+
+  const { data: webContent = {} } = useQuery({
+    queryKey: ['website content'],
+    queryFn: async () => {
+      const res = await axiosPublic.get('website-content');
+      return res.data[0];
+    }
+  })
 
   return (
     <>
@@ -43,8 +55,7 @@ const MissionVision = () => {
           </div>
           <div>
             <p className="text-white text-[10px] md:text-lg text-center leading-relaxed">
-              At Amar Thikana, our mission is to provide reliable, sustainable, and community-centered real estate solutions.
-              We are dedicated to creating spaces where families thrive and businesses grow, building a foundation for future generations.
+              {webContent?.mission_desc}
             </p>
           </div>
         </section>
@@ -56,8 +67,7 @@ const MissionVision = () => {
           </div>
           <div className='' >
             <p className="text-white text-[10px] md:text-lg text-center leading-relaxed">
-              Our vision is to lead the industry in sustainable and innovative real estate development. We aim to transform
-              communities by building high-quality, energy-efficient spaces that reflect modern needs and respect our environment.
+              {webContent?.vision_desc}
             </p>
           </div>
         </section>
@@ -76,10 +86,10 @@ const MissionVision = () => {
                 className=" bg-gradient-to-r from-[#027F3D] to-[#034A26] bg-opacity-90 p-3 md:p-6 rounded-lg shadow-lg flex flex-col items-center text-center transform transition duration-300 hover:scale-105"
               >
                 <h3 className="md:text-4xl font-bold text-white md:mb-4">
-                  {value.title}
+                  {value?.heading}
                 </h3>
                 <p className="text-white text-[10px] md:text-lg text-center leading-relaxed">
-                  {value.description}
+                  {value?.short_des}
                 </p>
               </div>
             ))}
