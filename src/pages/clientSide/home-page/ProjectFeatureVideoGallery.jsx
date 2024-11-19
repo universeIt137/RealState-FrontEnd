@@ -41,7 +41,6 @@ const ProjectFeatureVideoGallery = ({ videos }) => {
     }, []);
 
     const openModal = (video) => {
-        console.log(video);
         setCurrentVideo(video);
         setIsModalOpen(true);
         setIsPlaying(false);

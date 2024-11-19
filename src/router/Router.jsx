@@ -30,6 +30,7 @@ import AddReview from "../pages/adminSide/reviewRelatedPages/AddReview";
 import ManageAboutUs from "../pages/adminSide/aboutPageRelated/ManageAboutUs";
 import UpdateAboutUs from "../pages/adminSide/aboutPageRelated/UpdateAboutUs";
 import UpdateReview from "../pages/adminSide/reviewRelatedPages/UpdateReview";
+import UploadFrom from "../pages/adminSide/whyBestProjectPages/UploadFrom";
 
 
 
@@ -164,7 +165,12 @@ export const router = createBrowserRouter([
             {
                 path: "update-about/:id",
                 element: <UpdateAboutUs></UpdateAboutUs>
-            }
+            },
+            {
+                path : "best-upload-form",
+                element : <UploadFrom></UploadFrom>
+            },
+            
         ]
     }
 

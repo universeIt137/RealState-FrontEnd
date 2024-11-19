@@ -13,7 +13,6 @@ import ManageContent from "./ManageContent";
 const ManageAboutUs = () => {
     const axiosPublic = useAxiosPublic();
 
-    // console.log(content)
 
 
 
@@ -79,7 +78,6 @@ const ManageAboutUs = () => {
         try {
             const data = { firstHeading, firstDes,firstLogoUrl, secondHeading, secondDesc, secondLogoUrl,thirdHeading, thirdDesc, thirdLogoUrl }
 
-            console.log(data);
             axiosPublic.post(`/about-us`, data)
                 .then(res => {
                     if (res) {

@@ -37,7 +37,7 @@ const DataTable = ({allData, refetch}) => {
                     })
                     .catch((err) => {
                         console.log(err);
-
+                       
                     });
             }
         });

@@ -87,8 +87,7 @@ const ManageContent = () => {
         try {
             const data = { mission_desc, vision_desc, scheduleImageUrl, phone_number, facebook_url, youtube_url, linkedin_url, instagrame_url, twitter_url, banner_images: imageUrls, core_values: contents }
 
-            console.log(data);
-            axiosPublic.post(`/website-content`, data)
+            axiosPublic.post(`/content`, data)
                 .then(res => {
                     if (res) {
                         Swal.fire({

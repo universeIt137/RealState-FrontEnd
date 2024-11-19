@@ -63,7 +63,6 @@ const UpdateChairman = () => {
         try {
             const data = { chairman_name, chairmanSpeech, chairmanImageUrl, youtubeVideos, videoUrl }
 
-            console.log(data);
             axiosPublic.put(`/chairman/${id}`, data)
                 .then(res => {
                     if (res) {

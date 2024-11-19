@@ -72,7 +72,6 @@ const UpdateAboutUs = () => {
             const data = { firstHeading, firstDes, firstLogoUrl, secondHeading, secondDesc, secondLogoUrl, thirdHeading, thirdDesc, thirdLogoUrl }
 
 
-            console.log(data);
             axiosPublic.put(`/about-us/${id}`, data)
                 .then(res => {
                     if (res) {

@@ -18,7 +18,6 @@ const ProjectFeaturePage = () => {
     }
   })
 
-  console.log(features);
 
 
   // Update chairman data when contents change
@@ -27,7 +26,6 @@ const ProjectFeaturePage = () => {
       setFeature(features[0]);
     }
   }, [features]);
-  console.log(feature)
 
   return (
     <div className='w-11/12   mx-auto ' >
