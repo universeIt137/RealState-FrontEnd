@@ -179,7 +179,7 @@ const Navbar = () => {
                         )}
                         {link.title === 'Gallery' && isGalleryOpen && (
                           <div
-                            className="absolute left-0 mt-2 z-50   opacity-70 text-black font-bold rounded-md shadow-lg w-64"
+                            className="absolute left-0 mt-5 z-50    text-black font-bold rounded-md shadow-lg w-64"
                             onMouseEnter={handleMouseEnterGallery}
                             onMouseLeave={handleMouseLeaveGallery}
                           >
@@ -187,7 +187,7 @@ const Navbar = () => {
                               <NavLink
                                 to={dropdownLink.path}
                                 key={idx}
-                                className="block px-4 py-2 bg-white hover:bg-blue-200 transform scale-95 hover:scale-105 transition-all duration-300 ease-out"
+                                className="block px-4 py-2 bg-white hover:bg-blue-100 transform scale-95 hover:scale-105 transition-all duration-300 ease-out"
                               >
                                 {dropdownLink.title}
                                 <span className="absolute bottom-0 left-0 h-0.5 w-0 bg-green transition-all duration-300 ease-in-out group-hover:w-full"></span>
