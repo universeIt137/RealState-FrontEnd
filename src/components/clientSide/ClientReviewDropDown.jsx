@@ -2,9 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { FaPlay, FaArrowLeft, FaArrowRight, FaTimes } from 'react-icons/fa';
 import ReactPlayer from 'react-player';
 import { useQuery } from '@tanstack/react-query';
-import useAxiosPublic from '../../../hooks/useAxiosPublic';
+import useAxiosPublic from '../../hooks/useAxiosPublic';
 
-function ClientReviewHome() {
+function ClientReviewDropDown() {
     const axiosPublic = useAxiosPublic();
     const [currentIndex, setCurrentIndex] = useState(0);
     const [autoChange, setAutoChange] = useState(true);
@@ -12,7 +12,7 @@ function ClientReviewHome() {
     const [currentVideo, setCurrentVideo] = useState(null);
 
     const { data: reviewData = [] } = useQuery({
-        queryKey: ['reviewDataList'],
+        queryKey: ['reviewDataItem'],
         queryFn: async () => {
             let res = await axiosPublic.get(`/client-review`);
             return res.data;
@@ -52,7 +52,7 @@ function ClientReviewHome() {
     const currentTestimonial = reviewData[currentIndex];
 
     return (
-        <div className="w-11/12 mx-auto">
+        <div className="w-11/12 lg:mt-28 mx-auto">
             <div className="lg:ml-[60px] -mt-10 lg:-mt-6 text-black font-bold">
                 <h1 className="lg:text-4xl uppercase">What customers</h1>
                 <h1 className="lg:text-4xl uppercase">say about us</h1>
@@ -131,4 +131,4 @@ function ClientReviewHome() {
     );
 }
 
-export default ClientReviewHome;
+export default ClientReviewDropDown;
