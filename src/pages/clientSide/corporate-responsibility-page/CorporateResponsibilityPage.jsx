@@ -1,6 +1,9 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
+import useAxiosPublic from '../../../hooks/useAxiosPublic';
+import { useQuery } from '@tanstack/react-query';
+import { LuArrowUpRight } from 'react-icons/lu';
 
 const initiatives = [
   {
@@ -29,6 +32,16 @@ const initiatives = [
 
 const CSRPage = () => {
   window.scrollTo(0, 0);
+
+  const axiosPublic = useAxiosPublic();
+  const { data: contents = [] } = useQuery({
+    queryKey: ['all csr'],
+    queryFn: async () => {
+      const res = await axiosPublic.get('/csr');
+      return res.data;
+    }
+  })
+
   return (
     <>
       <Helmet>
@@ -49,36 +62,33 @@ const CSRPage = () => {
           {/* CSR Initiatives Section */}
           <section className=" rounded-lg  p-4 mt-6 lg:p-8 mb-5 lg:mb-10">
             <h2 className="lg:text-4xl font-bold text-green-600 text-center mb-3 lg:mb-6">Our CSR Initiatives</h2>
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-              {initiatives.map((initiative, index) => (
-                <div
-                  key={index}
-                  className="bg-gradient-to-r from-[#027F3D] to-[#034A26] bg-opacity-90 border-2 lg:p-6 lg:text-start  text-center rounded-lg shadow-lg transform transition-transform duration-300 hover:scale-105"
-                >
-                  <Link to={`/blog-details/${initiative.id}`}>
-                    <div className=" lg:my-auto overflow-hidden">
-                      <h3 className="lg:text-2xl font-bold text-center text-white  lg:mb-4">{initiative.title}</h3>
+            <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
+              {
+                contents?.map((data, index) =>
+                  <Link key={index} to={`/blog-details/${data?._id}`}>
+                    <div className={`card bg-gradient-to-r from-[#027F3D] to-[#034A26] text-white mx-auto w-[80vw] max-w-[280px] sm:w-[340px] sm:max-w-[300px] min-h-[280px] lg:min-h-[350px]  flex flex-col justify-between border`}>
+                      <figure className="h-[100px] sm:h-[170px] relative">
+
+                        <img
+                          className="w-full h-full object-fill rounded-lg shadow-md"
+                          src={data?.BannerImageUrl}
+                          alt="Course Banner"
+                        />
+                      </figure>
+                      <div className="card-body  flex flex-col justify-between px-3 sm:px-8 ">
+                        <div className="">
+
+                          <h2 className="font-bold text-text_color text-[12px] lg:text-2xl text-center">
+                            {data?.title.slice(0, 20)}...
+                          </h2>
+                          <p className="">
+                            {data?.description.slice(0, 100)}...
+                          </p>
+                        </div>  
+                      </div>
                     </div>
-                    <figure className="px-10 ">
-                      <img
-                        src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
-                        alt="Shoes"
-                        className="rounded-xl" />
-                    </figure>
-                    <div className=" lg:h-32 lg:my-auto overflow-hidden">
-                      <p className="text-white  text-justify my-4 text-[9px] lg:text-[16px] lg:mb-4">{initiative.description}</p>
-                    </div>
-                    <div className=" ">
-                      <Link
-                        to={`/blog-details/${initiative.id}`}
-                        className="text-[9px] lg:text-[16px] text-white  text-center block font-semibold hover:underline"
-                      >
-                        Read More
-                      </Link>
-                    </div>
-                  </Link>
-                </div>
-              ))}
+                  </Link>)
+              }
             </div>
           </section>
         </div>
