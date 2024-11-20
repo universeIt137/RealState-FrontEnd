@@ -34,6 +34,8 @@ import UpdateForm from "../pages/adminSide/whyBestProjectPages/UpdateForm";
 import ScheduleList from "../pages/adminSide/schedule/ScheduleList";
 import ClientReviewDropDown from "../components/clientSide/ClientReviewDropDown";
 import AddCSR from "../pages/adminSide/csrRelatedPages/AddCSR";
+import ManageCSR from "../pages/adminSide/csrRelatedPages/ManageCSR";
+import UpdateCSR from "../pages/adminSide/csrRelatedPages/UpdateCSR";
 
 
 
@@ -185,6 +187,14 @@ export const router = createBrowserRouter([
             {
                 path: "add-csr",
                 element: <AddCSR></AddCSR>
+            },
+            {
+                path: "manage-csr",
+                element: <ManageCSR></ManageCSR>
+            },
+            {
+                path: "update-csr/:id",
+                element: <UpdateCSR></UpdateCSR>
             }
             
         ]
