@@ -1,7 +1,6 @@
 import React from 'react'
 import Carousel from './Carousel'
 import Team from '../../../components/clientSide/Team'
-import AboutUs from '../../../components/clientSide/ClientReview'
 import ProjectInfo from '../../../components/clientSide/ProjectInfo'
 
 import TestimonialCard from './Reviews'
@@ -18,6 +17,7 @@ import ProjectPage from './ProjectPage'
 import useAxiosPublic from '../../../hooks/useAxiosPublic'
 import { useQuery } from '@tanstack/react-query'
 import { Helmet } from 'react-helmet-async'
+import ClientReviewHome from './ClientReviewHome';
 
 
 const HomePage = () => {
@@ -55,7 +55,8 @@ const HomePage = () => {
       <ProjectOverview></ProjectOverview>
       <ProjectFeaturePage></ProjectFeaturePage>
       {/* <ProjectInfo></ProjectInfo> */}
-      <AboutUs></AboutUs>
+      {/* <AboutUs></AboutUs> */}
+      <ClientReviewHome></ClientReviewHome>
       {/* <Team></Team> */}
       {/* <TestimonialCard></TestimonialCard> */}
       {/* <LayoutVisual></LayoutVisual> */}
