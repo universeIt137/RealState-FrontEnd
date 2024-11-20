@@ -5,57 +5,32 @@ import Swal from 'sweetalert2';
 import { useState } from 'react';
 import useAxiosPublic from '../../../hooks/useAxiosPublic';
 import { uploadImg } from '../../../uploadFile/uploadImg';
+import { useNavigate, useParams } from 'react-router-dom';
 
 
-const BannerUpload = () => {
-
+const BannerUpdatePage = () => {
+    const { id } = useParams();
 
 
     const axiosPublic = useAxiosPublic();
     const [loading, setLoading] = useState(false);
 
 
-    const { data: allPhotos = [], refetch, isLoading } = useQuery({
-        queryKey: ['bannerGallery'],
+    const { data: singleBannerData = [], refetch, isLoading } = useQuery({
+        queryKey: ['singleBanner'],
         queryFn: async () => {
-            const res = await axiosPublic.get('/banner');
+            const res = await axiosPublic.get(`/banner/${id}`);
             return res.data;
         }
-    })
+    });
+
+    const navigate = useNavigate();
 
 
 
+    const {img : upcommingImg } = singleBannerData;
 
 
-    const handleDeleteImage = (id) => {
-        Swal.fire({
-            title: 'Are you sure?',
-            text: 'You won’t be able to revert this!',
-            icon: 'warning',
-            showCancelButton: true,
-            confirmButtonText: 'Yes, delete it!',
-            cancelButtonText: 'Cancel',
-        }).then((result) => {
-            if (result.isConfirmed) {
-                axiosPublic
-                    .delete(`/banner/${id}`).then((res) => {
-                        if (res) {
-                            Swal.fire({
-                                title: 'Deleted!',
-                                text: 'Photo has been deleted.',
-                                icon: 'success',
-                            });
-                            refetch();
-                        }
-
-                    })
-                    .catch((err) => {
-                        console.log(err);
-
-                    });
-            }
-        });
-    };
 
     const handleSubmit = async (event) => {
         setLoading(true);
@@ -67,17 +42,19 @@ const BannerUpload = () => {
         const img = form.img.files[0];
         // console.log(GalleryImage)
 
+        let updateImgUrl = upcommingImg;
 
-        let imageUrl = '';
         if (img?.name) {
-            imageUrl = await uploadImg(img);
+            updateImgUrl = upcommingImg;
         }
+        updateImgUrl = await uploadImg(img)
 
-        const data = { img: imageUrl, banner_text };
+        const data = { img: updateImgUrl, banner_text };
 
-        axiosPublic.post(`/banner`, data)
+        axiosPublic.put(`/banner/${id}`, data)
             .then(res => {
-                if (res.data.insertedId) {
+                if (res) {
+                    
                     Swal.fire({
                         position: "top-end",
                         icon: "success",
@@ -87,7 +64,9 @@ const BannerUpload = () => {
                     });
                     refetch();
                     form.reset();
-                    setLoading(false)
+                    navigate("/dashboard/manage-banner");
+                    setLoading(false);
+                    return;
                 }
             })
     };
@@ -106,6 +85,12 @@ const BannerUpload = () => {
 
                         <div className='grid grid-cols-1 '>
 
+                            <div className="avatar">
+                                <div className="ring-primary ring-offset-base-100 w-24 rounded-full ring ring-offset-2">
+                                    <img src={singleBannerData?.img} />
+                                </div>
+                            </div>
+
                             {/* Overview images */}
                             <div className='w-full md:col-span-2'>
 
@@ -121,7 +106,7 @@ const BannerUpload = () => {
 
                             <div>
                                 <label className="leading-7 text-sm text-gray-600 font-medium">Description</label><br />
-                                <textarea rows={6} name="banner_text" className="w-full px-4 py-2 border rounded-md" />
+                                <textarea rows={6} name="banner_text" defaultValue={singleBannerData?.banner_text} key={Date.now()} className="w-full px-4 py-2 border rounded-md" />
                             </div>
 
                         </div>
@@ -137,31 +122,11 @@ const BannerUpload = () => {
 
                     </form>
                 </div>
-                <p className=' text-2xl text-center font-bold my-5'>Already Uploaded Images</p>
-                <div className="grid grid-cols-3 gap-3  w-10/12 mx-auto">
-                    {
-                        allPhotos?.map(photo =>
-                            <div key={photo?._id} className="">
-                                <div onClick={() => handleDeleteImage(photo?._id)} className="text-4xl cursor-pointer ">
-                                    <MdDeleteForever className='text-red-700' />
-                                </div>
-                                <div className="avatar">
-                                    <div className="rounded-xl">
-                                        <img src={photo?.img} />
 
-                                    </div>
-                                </div>
-                                <p className="">
-                                    {photo?.banner_text.slice(0, 40)}
-                                </p>
-                            </div>
-                        )
-                    }
-                </div>
 
             </div>
         </>
     );
 };
 
-export default BannerUpload;
+export default BannerUpdatePage;

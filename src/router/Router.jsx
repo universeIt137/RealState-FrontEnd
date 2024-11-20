@@ -37,6 +37,8 @@ import AddCSR from "../pages/adminSide/csrRelatedPages/AddCSR";
 import ManageCSR from "../pages/adminSide/csrRelatedPages/ManageCSR";
 import UpdateCSR from "../pages/adminSide/csrRelatedPages/UpdateCSR";
 import BannerUpload from "../pages/adminSide/bannerRelatedPage/BannerUpload";
+import ManageBannerPage from "../pages/adminSide/bannerRelatedPage/ManageBannerPage";
+import BannerUpdatePage from "../pages/adminSide/bannerRelatedPage/BannerUpdatePage";
 
 
 
@@ -200,6 +202,14 @@ export const router = createBrowserRouter([
             {
                 path :  "banner-upload",
                 element : <BannerUpload></BannerUpload>
+            },
+            {
+                path :  "manage-banner",
+                element : <ManageBannerPage></ManageBannerPage>
+            },
+            {
+                path : "update-banner/:id",
+                element : <BannerUpdatePage></BannerUpdatePage>
             }
             
         ]
