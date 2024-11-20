@@ -42,6 +42,7 @@ import BannerUpdatePage from "../pages/adminSide/bannerRelatedPage/BannerUpdateP
 import AddCertificate from "../pages/adminSide/certificateRelatedPages/AddCertificate";
 import ManageCertificate from "../pages/adminSide/certificateRelatedPages/ManageCertificate";
 import UpdateCertificate from "../pages/adminSide/certificateRelatedPages/UpdateCertificate";
+import ManageOffer from "../pages/adminSide/offerRelatedPages/ManageOffer";
 
 
 
@@ -226,6 +227,11 @@ export const router = createBrowserRouter([
             {
                 path: "update-certificate/:id",
                 element: <UpdateCertificate></UpdateCertificate>
+            },
+            // offer related routes 
+            {
+                path: "manage-offer",
+                element: <ManageOffer></ManageOffer>
             }
             
         ]
