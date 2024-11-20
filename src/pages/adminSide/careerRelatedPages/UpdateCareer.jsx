@@ -4,14 +4,23 @@ import { useQuery } from "@tanstack/react-query";
 import Swal from "sweetalert2";
 import { Helmet } from "react-helmet-async";
 import useAxiosPublic from "../../../hooks/useAxiosPublic";
+import { useParams } from "react-router-dom";
 
 
 
 
 
-const AddCareer = () => {
+const UpdateCareer = () => {
     const axiosPublic = useAxiosPublic();
 
+    const { id } = useParams();
+    const { data: content = {} } = useQuery({
+        queryKey: ['career'],
+        queryFn: async () => {
+            const res = await axiosPublic.get(`/career/${id}`);
+            return res.data;
+        }
+    })
 
 
 
@@ -41,13 +50,13 @@ const AddCareer = () => {
             const data = { job_title, job_location, salary, education, responsibility }
 
             console.log(data);
-            axiosPublic.post(`/career`, data)
+            axiosPublic.put(`/career/${id}`, data)
                 .then(res => {
                     if (res) {
                         Swal.fire({
                             position: "top-end",
                             icon: "success",
-                            title: "Data has been saved",
+                            title: "Data has been updated",
                             showConfirmButton: false,
                             timer: 1500
                         });
@@ -67,30 +76,30 @@ const AddCareer = () => {
             <Helmet>
                 <title>Dashboard | Add Career</title>
             </Helmet>
-            <h2 className="text-2xl font-semibold mb-4">Upload Career</h2>
+            <h2 className="text-2xl font-semibold mb-4">Update Career</h2>
             <form onSubmit={handleSubmit} className="space-y-4">
                 {loading && <p className="text-blue-500">Uploading data...</p>}
 
                 <div className="grid lg:grid-cols-2 gap-4">
                     <div className="">
                         <label htmlFor="name">Job Title</label>
-                        <input type="text" name="job_title" className="w-full px-4 py-2 border rounded-md" />
+                        <input type="text" defaultValue={content?.job_title} name="job_title" className="w-full px-4 py-2 border rounded-md" />
                     </div>
 
                     <div>
                         <label htmlFor="">Job Location</label>
-                        <input type="text" name="job_location" className="w-full px-4 py-2 border rounded-md" />
+                        <input type="text" defaultValue={content?.job_location} name="job_location" className="w-full px-4 py-2 border rounded-md" />
                     </div>
 
                     <div>
                         <label htmlFor="">Salary</label>
-                        <input type="text" name="salary" className="w-full px-4 py-2 border rounded-md" />
+                        <input type="text" name="salary" defaultValue={content?.salary} className="w-full px-4 py-2 border rounded-md" />
                     </div>
 
 
                     <div>
                         <label htmlFor="">Education</label>
-                        <input type="text" name="education" className="w-full px-4 py-2 border rounded-md" />
+                        <input type="text" name="education" defaultValue={content?.education} className="w-full px-4 py-2 border rounded-md" />
                     </div>
 
 
@@ -101,7 +110,7 @@ const AddCareer = () => {
 
                 <div>
                     <label htmlFor="">Responsibility</label>
-                    <textarea rows={8} type="text" name="responsibility" className="w-full px-4 py-2 border rounded-md" />
+                    <textarea rows={8} defaultValue={content?.responsibility} type="text" name="responsibility" className="w-full px-4 py-2 border rounded-md" />
                 </div>
 
 
@@ -118,4 +127,4 @@ const AddCareer = () => {
     );
 };
 
-export default AddCareer;
+export default UpdateCareer;

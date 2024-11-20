@@ -45,6 +45,9 @@ import UpdateCertificate from "../pages/adminSide/certificateRelatedPages/Update
 import ManageOffer from "../pages/adminSide/offerRelatedPages/ManageOffer";
 import UploadVideo from "../pages/adminSide/videoGalleryRelatedPage/UploadVideo";
 import ManageVideoGallery from "../pages/adminSide/videoGalleryRelatedPage/ManageVideoGallery";
+import AddCareer from "../pages/adminSide/careerRelatedPages/AddCareer";
+import ManageCareer from "../pages/adminSide/careerRelatedPages/ManageCareer";
+import UpdateCareer from "../pages/adminSide/careerRelatedPages/UpdateCareer";
 
 
 
@@ -242,6 +245,19 @@ export const router = createBrowserRouter([
             {
                 path : "manage-video",
                 element : <ManageVideoGallery></ManageVideoGallery>
+            },
+            // career related routes 
+            {
+                path: "add-career",
+                element: <AddCareer></AddCareer>
+            },
+            {
+                path: "manage-career",
+                element:<ManageCareer></ManageCareer>
+            },
+            {
+                path: "update-career/:id",
+                element: <UpdateCareer></UpdateCareer>
             }
             
         ]

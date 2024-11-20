@@ -96,6 +96,12 @@ const Sidebar = () => {
             <NavigationItem to="/dashboard/upload-video" icon={MdAddCircle} label="Upload Video" />
             <NavigationItem to="/dashboard/manage-video" icon={MdAddCircle} label="Manage Video" />
         </>
+    
+    const careerUrl =
+        <>
+            <NavigationItem to="/dashboard/add-career" icon={MdAddCircle} label="Add Career" />
+            <NavigationItem to="/dashboard/manage-career" icon={MdAddCircle} label="Manage Career" />
+        </>
 
 
     return (
@@ -174,6 +180,10 @@ const Sidebar = () => {
                         </li>
                         <li className="mb-4">
                             <Dropdown buttonText="Video Gallery" urls={videoGalleryUrl} />
+                        </li>
+
+                        <li className="mb-4">
+                            <Dropdown buttonText="Career" urls={careerUrl} />
                         </li>
                     </ul>
                 </nav>
