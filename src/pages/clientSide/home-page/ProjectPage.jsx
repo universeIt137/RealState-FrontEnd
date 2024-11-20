@@ -1,5 +1,7 @@
+import { useQuery } from '@tanstack/react-query';
 import React from 'react'
 import { FiArrowRight } from 'react-icons/fi';
+import useAxiosPublic from '../../../hooks/useAxiosPublic';
 const features = [
     {
         title: "20 feet and 30 feet wide roads.",
@@ -27,6 +29,15 @@ const features = [
     },
 ];
 const ProjectPage = () => {
+    const axiosPublic = useAxiosPublic();
+    const { data: projectHighlightData = [] } = useQuery({
+        queryKey: ['bestProject'],
+        queryFn: async () => {
+            let res = await axiosPublic.get(`/best-project`);
+            return res.data;
+        }
+    });
+    console.log(projectHighlightData);
     return (
         <div className='w-11/12 mx-auto  ' >
             <div className="-mt-10 lg:-mt-0 ">
@@ -39,28 +50,35 @@ const ProjectPage = () => {
                     </div>
                 </section>
 
-                <div className="bg-gradient-to-r from-[#027F3D] to-[#034A26] bg-opacity-90 my-6 text-white p-6 rounded-lg shadow-lg w-80">
-                    {/* Icon or Logo */}
-                    <div className="mb-4">
-                        <div className="h-8 w-8 bg-white rounded flex items-center justify-center">
-                            <div className="h-4 w-4 bg-teal-600"></div>
-                        </div>
-                    </div>
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 bg-opacity-90 my-6 text-white">
+                    {projectHighlightData &&
+                        projectHighlightData.map((item, i) => (
+                            <div
+                                className="bg-gradient-to-r from-[#027F3D] to-[#034A26] p-6 rounded-lg shadow-lg"
+                                key={i}
+                            >
+                                {/* Icon or Logo */}
+                                <div className="mb-4">
+                                    <div className="h-8 w-8 bg-white rounded flex items-center justify-center">
+                                        <div className="h-4 w-4 bg-teal-600"></div>
+                                    </div>
+                                </div>
 
-                    {/* Title */}
-                    <h2 className="text-xl font-bold mb-2">Marketing</h2>
+                                {/* Title */}
+                                <h2 className="text-xl font-bold mb-2">{item?.heading}</h2>
 
-                    {/* Description */}
-                    <p className="text-sm mb-6">
-                        Marketing and analytics of the beauty and wellness markets
-                    </p>
+                                {/* Description */}
+                                <p className="text-sm mb-6">{item?.short_description}</p>
 
-                    {/* Button */}
-                    <button className="flex items-center  px-4 py-2 rounded-full  transition">
-                        <span className="mr-2">Learn more</span>
-                        <FiArrowRight className="text-lg" />
-                    </button>
+                                {/* Button */}
+                                {/* <button className="flex items-center px-4 py-2 rounded-full transition">
+                                    <span className="mr-2">Learn more</span>
+                                    <FiArrowRight className="text-lg" />
+                                </button> */}
+                            </div>
+                        ))}
                 </div>
+
 
                 {/* Call to Action */}
                 <section className=" py-5   text-center">
