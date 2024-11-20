@@ -5,6 +5,7 @@ import { useQuery } from '@tanstack/react-query';
 import useAxiosPublic from '../../hooks/useAxiosPublic';
 
 function ClientReviewDropDown() {
+    window.scrollTo(0, 0);
     const axiosPublic = useAxiosPublic();
     const [currentIndex, setCurrentIndex] = useState(0);
     const [autoChange, setAutoChange] = useState(true);
@@ -52,7 +53,7 @@ function ClientReviewDropDown() {
     const currentTestimonial = reviewData[currentIndex];
 
     return (
-        <div className="w-11/12 lg:mt-28 mx-auto">
+        <div className="w-11/12 lg:mt-28 mt-28 mx-auto">
             <div className="lg:ml-[60px] -mt-10 lg:-mt-6 text-black font-bold">
                 <h1 className="lg:text-4xl uppercase">What customers</h1>
                 <h1 className="lg:text-4xl uppercase">say about us</h1>
