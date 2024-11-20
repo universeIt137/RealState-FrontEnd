@@ -36,6 +36,7 @@ import ClientReviewDropDown from "../components/clientSide/ClientReviewDropDown"
 import AddCSR from "../pages/adminSide/csrRelatedPages/AddCSR";
 import ManageCSR from "../pages/adminSide/csrRelatedPages/ManageCSR";
 import UpdateCSR from "../pages/adminSide/csrRelatedPages/UpdateCSR";
+import BannerUpload from "../pages/adminSide/bannerRelatedPage/BannerUpload";
 
 
 
@@ -195,6 +196,10 @@ export const router = createBrowserRouter([
             {
                 path: "update-csr/:id",
                 element: <UpdateCSR></UpdateCSR>
+            },
+            {
+                path :  "banner-upload",
+                element : <BannerUpload></BannerUpload>
             }
             
         ]

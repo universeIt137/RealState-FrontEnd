@@ -74,6 +74,12 @@ const Sidebar = () => {
         <NavigationItem to="/dashboard/manage-csr" icon={MdAddCircle} label="Manage CSR" />
     </>
 
+const banner =
+<>
+    <NavigationItem to="/dashboard/banner-upload" icon={MdAddCircle} label="Upload Banner" />
+    <NavigationItem to="/dashboard/manage-banner" icon={MdAddCircle} label="Manage Banner" />
+</>
+
 
     return (
         <>
@@ -137,6 +143,10 @@ const Sidebar = () => {
 
                         <li className="mb-4">
                             <Dropdown buttonText="CSR" urls={CSRUrls} />
+                        </li>
+
+                        <li className="mb-4">
+                            <Dropdown buttonText="Banner" urls={banner} />
                         </li>
 
 
