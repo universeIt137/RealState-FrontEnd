@@ -12,6 +12,6 @@ export const uploadVideo = async (file) => {
         const { secure_url } = res.data;
         return secure_url
     } catch (error) {
-
+        console.log(error)
     }
 }

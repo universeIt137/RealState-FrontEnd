@@ -33,6 +33,7 @@ import UploadFrom from "../pages/adminSide/whyBestProjectPages/UploadFrom";
 import UpdateForm from "../pages/adminSide/whyBestProjectPages/UpdateForm";
 import ScheduleList from "../pages/adminSide/schedule/ScheduleList";
 import ClientReviewDropDown from "../components/clientSide/ClientReviewDropDown";
+import AddCSR from "../pages/adminSide/csrRelatedPages/AddCSR";
 
 
 
@@ -179,6 +180,11 @@ export const router = createBrowserRouter([
             {
                 path : "schedule-list",
                 element : <ScheduleList></ScheduleList>
+            },
+            // csr related routes 
+            {
+                path: "add-csr",
+                element: <AddCSR></AddCSR>
             }
             
         ]
