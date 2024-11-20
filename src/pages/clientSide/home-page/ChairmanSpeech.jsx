@@ -27,20 +27,14 @@ const ChairmanSpeech = () => {
 
 
   const axiosPublic = useAxiosPublic();
-  const { data: contents = [] } = useQuery({
+  const { data: content = {} } = useQuery({
     queryKey: ['chairman speech'],
     queryFn: async () => {
       const res = await axiosPublic.get('/chairman');
-      return res.data;
+      return res.data[0];
     }
   })
 
-  // Update chairman data when contents change
-  useEffect(() => {
-    if (contents.length > 0) {
-      setChairmanData(contents[0]);
-    }
-  }, [contents]);
 
  
 
@@ -55,14 +49,14 @@ const ChairmanSpeech = () => {
           <div
             className="relative   rounded-lg shadow-md cursor-pointer overflow-hidden">
             <div
-              onClick={() => handlePlayButtonClick(`${chairmanData?.youtubeVideos ? chairmanData?.youtubeVideos : chairmanData?.videoUrl }`)}
+              onClick={() => handlePlayButtonClick(`${content?.youtubeVideos ? content?.youtubeVideos : content?.videoUrl }`)}
               className="h-[35.9vw] lg:h-[25.9vw] cursor-pointer  rounded-lg overflow-hidden"
             >
               <ReactPlayer
-                url={`${chairmanData?.youtubeVideos ? chairmanData?.youtubeVideos : chairmanData?.videoUrl }`}
+                url={`${content?.youtubeVideos ? content?.youtubeVideos : content?.videoUrl }`}
                 width="100%"
                 height="100%"
-                light={`https://res.cloudinary.com/dnvmj9pvk/image/upload/v1731320619/Amer%20Thikana/ios2ysxylei3yemy0fgk.jpg`} // Display image thumbnail before the video plays
+                light={content?.chairmanImageUrl} // Display image thumbnail before the video plays
                 playIcon={<IoPlayCircleSharp className="text-7xl text-red-600" />} // Custom play button
               />
             </div>
@@ -75,11 +69,11 @@ const ChairmanSpeech = () => {
           </h1>
 
           <p className=" lg:text-lg text-10px text-justify overflow-hidden lg:mt-2 lg:block">
-            {chairmanData?.chairmanSpeech}
+            {content?.chairmanSpeech}
           </p>
           <p className="lg:text-2xl  text-black font-extralight mt-2 text-center lg:text-start ">CHAIRMAN</p>
           <h1 className=" text-center lg:text-4xl lg:text-start font-bold text-black uppercase">
-            {chairmanData?.chairman_name}
+            {content?.chairman_name}
           </h1>
         </div>
       </div>
