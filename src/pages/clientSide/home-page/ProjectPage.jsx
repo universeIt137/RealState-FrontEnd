@@ -37,7 +37,6 @@ const ProjectPage = () => {
             return res.data;
         }
     });
-    console.log(projectHighlightData);
     return (
         <div className='w-11/12 mx-auto  ' >
             <div className="-mt-10 lg:-mt-0 ">
