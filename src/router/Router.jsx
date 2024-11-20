@@ -43,6 +43,8 @@ import AddCertificate from "../pages/adminSide/certificateRelatedPages/AddCertif
 import ManageCertificate from "../pages/adminSide/certificateRelatedPages/ManageCertificate";
 import UpdateCertificate from "../pages/adminSide/certificateRelatedPages/UpdateCertificate";
 import ManageOffer from "../pages/adminSide/offerRelatedPages/ManageOffer";
+import UploadVideo from "../pages/adminSide/videoGalleryRelatedPage/UploadVideo";
+import ManageVideoGallery from "../pages/adminSide/videoGalleryRelatedPage/ManageVideoGallery";
 
 
 
@@ -232,6 +234,14 @@ export const router = createBrowserRouter([
             {
                 path: "manage-offer",
                 element: <ManageOffer></ManageOffer>
+            },
+            {
+                path : "upload-video",
+                element : <UploadVideo></UploadVideo>
+            },
+            {
+                path : "manage-video",
+                element : <ManageVideoGallery></ManageVideoGallery>
             }
             
         ]
