@@ -22,7 +22,6 @@ import ManageChairman from "../pages/adminSide/chairmainRelatedPages/ManageChair
 import UpdateChairman from "../pages/adminSide/chairmainRelatedPages/UpdateChairman";
 import ManageProjectOverview from "../pages/adminSide/projectOverviewRelatedPage/ManageProjectOverview";
 import ManageFeaturePage from "../pages/adminSide/projectFeatureRelatedPage/ManageFeaturePage";
-import ClientReview from "../components/clientSide/ClientReview";
 import AboutUs from './../pages/clientSide/about-us-page/AboutUs';
 import ChairmanSpeachDrop from "../components/clientSide/ChairmanSpeachDrop";
 import BlogDetails from "../pages/clientSide/blog-details-page/BlogDetails";
@@ -33,6 +32,7 @@ import UpdateReview from "../pages/adminSide/reviewRelatedPages/UpdateReview";
 import UploadFrom from "../pages/adminSide/whyBestProjectPages/UploadFrom";
 import UpdateForm from "../pages/adminSide/whyBestProjectPages/UpdateForm";
 import ScheduleList from "../pages/adminSide/schedule/ScheduleList";
+import ClientReviewDropDown from "../components/clientSide/ClientReviewDropDown";
 
 
 
@@ -85,7 +85,7 @@ export const router = createBrowserRouter([
             },
             {
                 path : "client-review",
-                element : <ClientReview></ClientReview>
+                element : <ClientReviewDropDown></ClientReviewDropDown>
             }
             ,
             {
