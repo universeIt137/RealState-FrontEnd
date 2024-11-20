@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { FaPlay, FaArrowLeft, FaArrowRight, FaTimes } from 'react-icons/fa';
 import ReactPlayer from 'react-player';
-import clientReviewStore from '../../api-request/client-review-api/clientStore';
+import { useQuery } from '@tanstack/react-query';
+import useAxiosPublic from '../../../hooks/useAxiosPublic';
 
 const testimonialData = [
   { id: 1, name: 'Mr. Navid Rahman', role: 'Apartment Owner', text: 'Hear from our homeowners sharing their tales of happiness.', video: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ' },
@@ -10,35 +11,40 @@ const testimonialData = [
   { id: 4, name: 'Mrs. Emily Clark', role: 'Property Investor', text: 'The best real estate experience we could ask for.', video: 'https://res.cloudinary.com/demo/video/upload/v1481234567/sample_video.mp4' },
 ];
 
-function ClientReview() {
+function ClientReviewHome() {
+    const axiosPublic = useAxiosPublic()
   const [currentIndex, setCurrentIndex] = useState(0);
   const [autoChange, setAutoChange] = useState(true);
   const [showModal, setShowModal] = useState(false);
   const [currentVideo, setCurrentVideo] = useState(null);
-  const { clientReviewDataListApi, clientReviewDataList } = clientReviewStore();
-  useEffect(() => {
-    (async () => {
-      await clientReviewDataListApi()
-    })()
-  }, [])
+  const {  data : reviewData = [] } = useQuery({
+    queryKey: ['reviewDataList'],
+    queryFn: async ()=>{
+        let res = await axiosPublic.get(`/client-review`);
+        return res.data;
+    }
+  });
+
+//   console.log(data);
+  
 
   useEffect(() => {
     if (!autoChange) return;
 
     const interval = setInterval(() => {
-      setCurrentIndex((prevIndex) => (prevIndex === clientReviewDataList.length - 1 ? 0 : prevIndex + 1));
+      setCurrentIndex((prevIndex) => (prevIndex === reviewData.length - 1 ? 0 : prevIndex + 1));
     }, 5000);
 
     return () => clearInterval(interval);
   }, [autoChange]);
 
   const handlePrev = () => {
-    setCurrentIndex((prevIndex) => (prevIndex === 0 ? clientReviewDataList.length - 1 : prevIndex - 1));
+    setCurrentIndex((prevIndex) => (prevIndex === 0 ? reviewData.length - 1 : prevIndex - 1));
     setAutoChange(false);
   };
 
   const handleNext = () => {
-    setCurrentIndex((prevIndex) => (prevIndex === clientReviewDataList.length - 1 ? 0 : prevIndex + 1));
+    setCurrentIndex((prevIndex) => (prevIndex === reviewData.length - 1 ? 0 : prevIndex + 1));
     setAutoChange(false);
   };
 
@@ -52,7 +58,7 @@ function ClientReview() {
     setCurrentVideo(null);
   };
 
-  const currentTestimonial = clientReviewDataList[currentIndex];
+  const currentTestimonial = reviewData[currentIndex];
 
   return (
     <div className="w-11/12  mx-auto ">
@@ -137,4 +143,5 @@ function ClientReview() {
   );
 }
 
-export default ClientReview;
+export default ClientReviewHome;
+
