@@ -138,7 +138,7 @@ const banner =
                         </li>
 
                         <li className="mb-4">
-                            <Dropdown buttonText="Meting Schedule" urls={Schedule} />
+                            <Dropdown buttonText="Meeting Schedule" urls={Schedule} />
                         </li>
 
                         <li className="mb-4">
