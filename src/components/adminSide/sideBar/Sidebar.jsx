@@ -86,6 +86,11 @@ const Sidebar = () => {
             <NavigationItem to="/dashboard/manage-certificate" icon={MdAddCircle} label="Manage Certificate" />
         </>
 
+const offerUrl =
+<>
+    <NavigationItem to="/dashboard/manage-offer" icon={MdAddCircle} label="Manage Offer" />
+</>
+
 
     return (
         <>
@@ -158,41 +163,12 @@ const Sidebar = () => {
                         <li className="mb-4">
                             <Dropdown buttonText="Certificate" urls={certificateUrl} />
                         </li>
-
-
-                        {/* <li className="mb-4">
-                            <Dropdown buttonText="Seminar" urls={seminarUrls} />
+                        <li className="mb-4">
+                            <Dropdown buttonText="Offer" urls={offerUrl} />
                         </li>
 
-                        <li className="mb-4">
-                            <Dropdown buttonText="All Requests" urls={requestUrls} />
-                        </li>
 
-                        <li className="mb-4">
-                            <Dropdown buttonText="Blogs" urls={blogUrls} />
-                        </li>
-                        <li className="mb-4">
-                            <Dropdown buttonText="Comments" urls={comments} />
-                        </li>
-
-                        <li className="mb-4">
-                            <Dropdown buttonText="HomePage content" urls={homepageUrls} />
-                        </li>
-
-                        <li className="mb-4">
-                            <Dropdown buttonText="Faculty" urls={facultyUrls} />
-                        </li>
-
-                        <li className="mb-4">
-                            <Dropdown buttonText="Testimonial" urls={testimonialUrls} />
-                        </li>
-
-                        <li className="mb-4">
-                            <Dropdown
-                                buttonText="Student Gallary"
-                                urls={studentGallaryUrls}
-                            />
-                        </li> */}
+                        
                     </ul>
                 </nav>
             </aside></>
