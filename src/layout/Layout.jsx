@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import Navbar from '../components/navbar/Navbar';
 import Footer from '../components/footer/Footer';
 import { Outlet } from 'react-router-dom';
+import useAxiosPublic from '../hooks/useAxiosPublic';
+import { useQuery } from '@tanstack/react-query';
 
 const Layout = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -17,6 +19,17 @@ const Layout = () => {
   const closeModal = () => {
     setIsModalOpen(false);
   };
+
+  const axiosPublic = useAxiosPublic();
+  const { data: content = {} } = useQuery({
+    queryKey: ['content'],
+    queryFn: async () => {
+      const res = await axiosPublic.get('offer');
+      return res.data[0];
+    }
+  })
+
+  console.log(content)
 
   return (
     <div className="bg-white">
@@ -46,7 +59,7 @@ const Layout = () => {
 
             {/* Modal Content */}
             <img
-              src="https://res.cloudinary.com/dnvmj9pvk/image/upload/v1731838514/Amer%20Thikana/yv3g7nenkgyabzju0x5a.jpg"
+              src={content?.ImageUrl}
               alt="Welcome"
               className="w-full rounded-lg"
             />
