@@ -79,17 +79,23 @@ const Sidebar = () => {
             <NavigationItem to="/dashboard/banner-upload" icon={MdAddCircle} label="Upload Banner" />
             <NavigationItem to="/dashboard/manage-banner" icon={MdAddCircle} label="Manage Banner" />
         </>
-    
+
     const certificateUrl =
         <>
             <NavigationItem to="/dashboard/add-certificate" icon={MdAddCircle} label="Add Certificate" />
             <NavigationItem to="/dashboard/manage-certificate" icon={MdAddCircle} label="Manage Certificate" />
         </>
 
-const offerUrl =
-<>
-    <NavigationItem to="/dashboard/manage-offer" icon={MdAddCircle} label="Manage Offer" />
-</>
+    const offerUrl =
+        <>
+            <NavigationItem to="/dashboard/manage-offer" icon={MdAddCircle} label="Manage Offer" />
+        </>
+
+    const videoGalleryUrl =
+        <>
+            <NavigationItem to="/dashboard/upload-video" icon={MdAddCircle} label="Upload Video" />
+            <NavigationItem to="/dashboard/manage-video" icon={MdAddCircle} label="Manage Video" />
+        </>
 
 
     return (
@@ -166,9 +172,9 @@ const offerUrl =
                         <li className="mb-4">
                             <Dropdown buttonText="Offer" urls={offerUrl} />
                         </li>
-
-
-                        
+                        <li className="mb-4">
+                            <Dropdown buttonText="Video Gallery" urls={videoGalleryUrl} />
+                        </li>
                     </ul>
                 </nav>
             </aside></>
