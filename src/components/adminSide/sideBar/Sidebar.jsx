@@ -71,7 +71,7 @@ const Sidebar = () => {
     const CSRUrls =
     <>
         <NavigationItem to="/dashboard/add-csr" icon={MdAddCircle} label="Add CSR" />
-        {/* <NavigationItem to="/dashboard/manage" icon={MdAddCircle} label="Manage" /> */}
+        <NavigationItem to="/dashboard/manage-csr" icon={MdAddCircle} label="Manage CSR" />
     </>
 
 
