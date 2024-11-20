@@ -1,17 +1,57 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Helmet } from "react-helmet-async";
 import { FaMapMarkerAlt, FaPhoneAlt, FaEnvelope } from "react-icons/fa";
 import InfoCard from "../../pages/clientSide/about-us-page/InfoCard";
+import useAxiosPublic from './../../hooks/useAxiosPublic';
+import Swal from "sweetalert2";
 
 const Contact = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
-  const handleSubmit = (e) => {
+  const [loader,setLoader] = useState(false);
+
+  const axiosPublic = useAxiosPublic();
+
+  const handleSubmit = async (e) => {
+
     e.preventDefault();
     alert("Form Submitted!");
+    const Name = e.target.Name.value;
+    const Email = e.target.Email.value;
+    const Message = e.target.Message.value;
+    const payload = {
+      Name, Email, Message
+    };
+
+    try {
+      setLoader(true);
+      let res = await axiosPublic.post(`contact`);
+      setLoader(false);
+      if (res) {
+        Swal.fire({
+          title: "Your Message Has Been Sent!",
+          text: "We will contact you soon.",
+          icon: "success",
+          confirmButtonText: "Close",
+        })
+      }else{
+        Swal.fire({
+          title: "Failed!",
+          text: "Failed to send your message. Please try again later.",
+          icon: "error",
+          confirmButtonText: "Close",
+        })
+      }
+    } catch (error) {
+      console.error(error);
+    }
+    e.target.reset();
+
   };
+
+
 
   return (
     <>
@@ -25,7 +65,7 @@ const Contact = () => {
           </h1>
           <div className=" flex flex-col lg:flex-row items-center justify-center gap-9">
 
-            
+
 
             <div className="lg:w-1/2">
               <InfoCard></InfoCard>
@@ -48,6 +88,7 @@ const Contact = () => {
                         aria-label="Name"
                         id="name"
                         type="text"
+                        name="Name"
                         placeholder="ex: Rahman Kabir"
                         className="shadow appearance-none border rounded w-full py-3 px-4 text-gray-700 focus:outline-none focus:shadow-outline"
                       />
@@ -63,6 +104,7 @@ const Contact = () => {
                         aria-label="Email"
                         id="email"
                         type="email"
+                        name="Email"
                         placeholder="ex: example@gmail.com"
                         className="shadow appearance-none border rounded w-full py-3 px-4 text-gray-700 focus:outline-none focus:shadow-outline"
                       />
@@ -77,6 +119,7 @@ const Contact = () => {
                       <textarea
                         aria-label="Message"
                         id="message"
+                        name="Message"
                         rows="4"
                         placeholder="Write your message here..."
                         className="shadow appearance-none border rounded w-full py-3 px-4 text-gray-700 focus:outline-none focus:shadow-outline"
@@ -87,7 +130,9 @@ const Contact = () => {
                         type="submit"
                         className="bg-gradient-to-r from-[#027F3D] to-[#034A26] bg-opacity-90 text-white  font-bold py-2 px-6 rounded focus:outline-none focus:shadow-outline"
                       >
-                        Submit
+                        {
+                          loader ? "Submit....." : "Submit"
+                        }
                       </button>
                     </div>
                   </form>
