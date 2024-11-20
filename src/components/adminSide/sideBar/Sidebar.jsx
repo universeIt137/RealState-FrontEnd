@@ -66,6 +66,12 @@ const Sidebar = () => {
     <>
         <NavigationItem to="/dashboard/schedule-list" icon={MdAddCircle} label="Schedule List" />
         {/* <NavigationItem to="/dashboard/manage" icon={MdAddCircle} label="Manage" /> */}
+        </>
+    
+    const CSRUrls =
+    <>
+        <NavigationItem to="/dashboard/schedule-list" icon={MdAddCircle} label="Schedule List" />
+        {/* <NavigationItem to="/dashboard/manage" icon={MdAddCircle} label="Manage" /> */}
     </>
 
 
@@ -127,6 +133,10 @@ const Sidebar = () => {
 
                         <li className="mb-4">
                             <Dropdown buttonText="Meting Schedule" urls={Schedule} />
+                        </li>
+
+                        <li className="mb-4">
+                            <Dropdown buttonText="CSR" urls={CSRUrls} />
                         </li>
 
 
