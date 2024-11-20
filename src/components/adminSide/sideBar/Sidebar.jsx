@@ -63,22 +63,28 @@ const Sidebar = () => {
             {/* <NavigationItem to="/dashboard/manage" icon={MdAddCircle} label="Manage" /> */}
         </>
     const Schedule =
-    <>
-        <NavigationItem to="/dashboard/schedule-list" icon={MdAddCircle} label="Schedule List" />
-        {/* <NavigationItem to="/dashboard/manage" icon={MdAddCircle} label="Manage" /> */}
+        <>
+            <NavigationItem to="/dashboard/schedule-list" icon={MdAddCircle} label="Schedule List" />
+            {/* <NavigationItem to="/dashboard/manage" icon={MdAddCircle} label="Manage" /> */}
+        </>
+
+    const CSRUrls =
+        <>
+            <NavigationItem to="/dashboard/add-csr" icon={MdAddCircle} label="Add CSR" />
+            <NavigationItem to="/dashboard/manage-csr" icon={MdAddCircle} label="Manage CSR" />
+        </>
+
+    const banner =
+        <>
+            <NavigationItem to="/dashboard/banner-upload" icon={MdAddCircle} label="Upload Banner" />
+            <NavigationItem to="/dashboard/manage-banner" icon={MdAddCircle} label="Manage Banner" />
         </>
     
-    const CSRUrls =
-    <>
-        <NavigationItem to="/dashboard/add-csr" icon={MdAddCircle} label="Add CSR" />
-        <NavigationItem to="/dashboard/manage-csr" icon={MdAddCircle} label="Manage CSR" />
-    </>
-
-const banner =
-<>
-    <NavigationItem to="/dashboard/banner-upload" icon={MdAddCircle} label="Upload Banner" />
-    <NavigationItem to="/dashboard/manage-banner" icon={MdAddCircle} label="Manage Banner" />
-</>
+    const certificateUrl =
+        <>
+            <NavigationItem to="/dashboard/add-certificate" icon={MdAddCircle} label="Add Certificate" />
+            <NavigationItem to="/dashboard/manage-certificate" icon={MdAddCircle} label="Manage Certificate" />
+        </>
 
 
     return (
@@ -147,6 +153,10 @@ const banner =
 
                         <li className="mb-4">
                             <Dropdown buttonText="Banner" urls={banner} />
+                        </li>
+
+                        <li className="mb-4">
+                            <Dropdown buttonText="Certificate" urls={certificateUrl} />
                         </li>
 
 

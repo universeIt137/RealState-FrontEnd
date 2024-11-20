@@ -39,6 +39,9 @@ import UpdateCSR from "../pages/adminSide/csrRelatedPages/UpdateCSR";
 import BannerUpload from "../pages/adminSide/bannerRelatedPage/BannerUpload";
 import ManageBannerPage from "../pages/adminSide/bannerRelatedPage/ManageBannerPage";
 import BannerUpdatePage from "../pages/adminSide/bannerRelatedPage/BannerUpdatePage";
+import AddCertificate from "../pages/adminSide/certificateRelatedPages/AddCertificate";
+import ManageCertificate from "../pages/adminSide/certificateRelatedPages/ManageCertificate";
+import UpdateCertificate from "../pages/adminSide/certificateRelatedPages/UpdateCertificate";
 
 
 
@@ -210,6 +213,19 @@ export const router = createBrowserRouter([
             {
                 path : "update-banner/:id",
                 element : <BannerUpdatePage></BannerUpdatePage>
+            },
+            // certificate related routes 
+            {
+                path: "add-certificate",
+                element: <AddCertificate></AddCertificate>
+            },
+            {
+                path: "manage-certificate",
+                element: <ManageCertificate></ManageCertificate>
+            },
+            {
+                path: "update-certificate/:id",
+                element: <UpdateCertificate></UpdateCertificate>
             }
             
         ]
