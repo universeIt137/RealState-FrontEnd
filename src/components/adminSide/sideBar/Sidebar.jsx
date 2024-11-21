@@ -101,7 +101,10 @@ const Sidebar = () => {
         <>
             <NavigationItem to="/dashboard/add-career" icon={MdAddCircle} label="Add Career" />
             <NavigationItem to="/dashboard/manage-career" icon={MdAddCircle} label="Manage Career" />
+            <NavigationItem to="/dashboard/manage-apply" icon={MdAddCircle} label="Manage Application" />
         </>
+    
+   
 
 
     return (
