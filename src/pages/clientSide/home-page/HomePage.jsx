@@ -18,6 +18,7 @@ import useAxiosPublic from '../../../hooks/useAxiosPublic'
 import { useQuery } from '@tanstack/react-query'
 import { Helmet } from 'react-helmet-async'
 import ClientReviewHome from './ClientReviewHome';
+import BannerCarousel2 from './BannerCarousel2'
 
 
 const HomePage = () => {
@@ -51,6 +52,7 @@ const HomePage = () => {
       </div>  */}
 
       <BannerCarousel banner_images={webContent?.banner_images}></BannerCarousel>
+      {/* <BannerCarousel2></BannerCarousel2> */}
       <div className="  ">
         
       <ChairmanSpeech></ChairmanSpeech>
