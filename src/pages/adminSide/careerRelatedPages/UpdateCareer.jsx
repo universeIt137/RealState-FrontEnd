@@ -74,11 +74,11 @@ const UpdateCareer = () => {
     return (
         <div className="w-10/12 mx-auto p-4">
             <Helmet>
-                <title>Dashboard | Add Career</title>
+                <title>Dashboard | Update Career</title>
             </Helmet>
             <h2 className="text-2xl font-semibold mb-4">Update Career</h2>
             <form onSubmit={handleSubmit} className="space-y-4">
-                {loading && <p className="text-blue-500">Uploading data...</p>}
+                {loading && <p className="text-blue-500">Updating data...</p>}
 
                 <div className="grid lg:grid-cols-2 gap-4">
                     <div className="">
