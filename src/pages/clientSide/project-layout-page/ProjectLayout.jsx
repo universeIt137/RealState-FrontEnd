@@ -3,11 +3,9 @@ import { Helmet } from 'react-helmet-async';
 import { IoCloseCircleOutline } from "react-icons/io5";
 
 const images = [
-    'https://res.cloudinary.com/dnvmj9pvk/image/upload/v1731389139/Amer%20Thikana/uptnnqpi80uojvcs7bzh.png',
-    'https://res.cloudinary.com/dnvmj9pvk/image/upload/v1731320619/Amer%20Thikana/ios2ysxylei3yemy0fgk.jpg',
-    'https://res.cloudinary.com/dnvmj9pvk/image/upload/v1730889998/offer-3_zr81a8.png',
-    'https://res.cloudinary.com/dnvmj9pvk/image/upload/v1730889949/offer-2_s0dp1u.png',
-    'https://res.cloudinary.com/dnvmj9pvk/image/upload/v1730889904/offer-1_bajmsf.png',
+    'https://res.cloudinary.com/dnvmj9pvk/image/upload/v1730962206/WhatsApp_Image_2024-10-29_at_9.25.17_PM_1_yntgfh.jpg'
+    ,
+    'https://res.cloudinary.com/dnvmj9pvk/image/upload/v1731838514/Amer%20Thikana/yv3g7nenkgyabzju0x5a.jpg'
 ];
 
 const ProjectLayout = () => {

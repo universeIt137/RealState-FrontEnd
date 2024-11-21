@@ -6,26 +6,7 @@ import { useQuery } from '@tanstack/react-query';
 import useAxiosPublic from '../../../hooks/useAxiosPublic';
 
 // Sample video data
-const videosData = [
-  {
-    id: 1,
-    title: "Cloudinary Video 1",
-    thumbnail: "https://res.cloudinary.com/dnvmj9pvk/image/upload/v1730889998/offer-3_zr81a8.png",
-    url: "https://res.cloudinary.com/dj2edy2rg/video/upload/v1731341221/wquwm1xejbwpzmvlyrnz.mp4",
-  },
-  {
-    id: 2,
-    title: "Cloudinary Video 2",
-    thumbnail: "https://res.cloudinary.com/dnvmj9pvk/image/upload/v1730889998/offer-3_zr81a8.png",
-    url: "https://res.cloudinary.com/dj2edy2rg/video/upload/v1731341221/wquwm1xejbwpzmvlyrnz.mp4",
-  },
-  {
-    id: 3,
-    title: "Cloudinary Video 3",
-    thumbnail: "https://res.cloudinary.com/dnvmj9pvk/image/upload/v1730889998/offer-3_zr81a8.png",
-    url: "https://res.cloudinary.com/dj2edy2rg/video/upload/v1731341221/wquwm1xejbwpzmvlyrnz.mp4",
-  },
-];
+
 
 const VideoGalleryPage = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -92,7 +73,6 @@ const VideoGalleryPage = () => {
     return `${minutes}:${remainingSeconds < 10 ? '0' + remainingSeconds : remainingSeconds}`;
   };
 
-  window.scrollTo(0, 0);
 
   return (
     <div className="w-11/12 mx-auto mt-20 mb-9 lg:mt-24">
