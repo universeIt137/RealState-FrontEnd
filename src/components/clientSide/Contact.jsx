@@ -17,7 +17,7 @@ const Contact = () => {
   const handleSubmit = async (e) => {
 
     e.preventDefault();
-    alert("Form Submitted!");
+    // alert("Form Submitted!");
     const Name = e.target.Name.value;
     const Email = e.target.Email.value;
     const Message = e.target.Message.value;

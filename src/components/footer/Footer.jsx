@@ -1,8 +1,20 @@
 import React from 'react';
 import { FaFacebook, FaLinkedinIn, FaTwitter, FaYoutube } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
+import useAxiosPublic from '../../hooks/useAxiosPublic';
+import { useQuery } from '@tanstack/react-query';
 
 const Footer = () => {
+
+  const axiosPublic = useAxiosPublic();
+  const { data: content = {} } = useQuery({
+    queryKey: ['content'],
+    queryFn: async () => {
+      const res = await axiosPublic.get('/website-content');
+      return res.data[0];
+    }
+  })
+
   return (
     <footer className="bg-gradient-to-r from-[#027F3D] to-[#034A26] bg-opacity-90 lg:py-8 p-4">
       <div className="w-11/12 mx-auto text-white">
@@ -97,14 +109,14 @@ const Footer = () => {
               <h2 className="lg:text-xl font-semibold mb-2 text-center lg:text-start">Connect With Us</h2>
               <div className="flex justify-center lg:justify-start space-x-2 lg:space-x-4">
 
-                <Link to="https://www.facebook.com/" className="lg:p-2 p-1 border rounded-full shadow-lg">
+                <Link to={content?.facebook_url} className="lg:p-2 p-1 border rounded-full shadow-lg">
                   <FaFacebook className="text-lg" />
                 </Link>
-                <Link to="https://x.com/?lang=en" className="lg:p-2 p-1 border rounded-full shadow-lg">
+                <Link to={content?.twitter_url} className="lg:p-2 p-1 border rounded-full shadow-lg">
                   <FaTwitter className="text-lg" />
                 </Link>
 
-                <Link to="https://www.youtube.com/" className="lg:p-2 p-1 border rounded-full shadow-lg">
+                <Link to={content?.youtube_url} className="lg:p-2 p-1 border rounded-full shadow-lg">
                   <FaYoutube className="text-lg" />
                 </Link>
 
