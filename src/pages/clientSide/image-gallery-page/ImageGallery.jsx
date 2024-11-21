@@ -66,7 +66,7 @@ const ImageGallery = () => {
                             key={index}
                             src={item?.imgUrl}
                             alt={`Gallery Image ${index + 1}`}
-                            className="cursor-pointer w-[400px] h-[300px] rounded-lg shadow-md transition-transform transform hover:scale-105"
+                            className="cursor-pointer lg:w-[400px] lg:h-[300px] rounded-lg shadow-md transition-transform transform hover:scale-105"
                             onClick={() => openModal(index)}
                         />
                     ))}
