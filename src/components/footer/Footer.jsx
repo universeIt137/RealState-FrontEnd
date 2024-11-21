@@ -25,16 +25,52 @@ const Footer = () => {
             <h2 className="lg:text-2xl mt-2 lg:mt-0 font-bold">Useful Links</h2>
             <hr className="w-16 border-white border-t-2 lg:mb-4 mb-1 hidden lg:block" />
             <ul className="lg:space-y-2 -space-y-1 text-center lg:text-start">
-              {['Help', 'FAQ', 'Contact', 'About Company', 'Blogs'].map((linkText, index) => (
-                <li key={index}>
-                  <Link
-                    to=""
-                    className="text-[10px] lg:text-lg hover:text-black hover:underline transform transition duration-300 hover:scale-105"
-                  >
-                    {linkText}
-                  </Link>
-                </li>
-              ))}
+
+              <li >
+                <Link
+                  to="/booking-form"
+                  className="text-[10px] lg:text-lg hover:text-black hover:underline transform transition duration-300 hover:scale-105"
+                >
+                  Booking Form
+                </Link>
+              </li>
+
+              <li >
+                <Link
+                  to="/contact-us"
+                  className="text-[10px] lg:text-lg hover:text-black hover:underline transform transition duration-300 hover:scale-105"
+                >
+                  Contact Us
+                </Link>
+              </li>
+
+              <li >
+                <Link
+                  to="/about-us"
+                  className="text-[10px] lg:text-lg hover:text-black hover:underline transform transition duration-300 hover:scale-105"
+                >
+                  About Us
+                </Link>
+              </li>
+
+              <li >
+                <Link
+                  to="/career"
+                  className="text-[10px] lg:text-lg hover:text-black hover:underline transform transition duration-300 hover:scale-105"
+                >
+                  Career
+                </Link>
+              </li>
+
+              <li >
+                <Link
+                  to="/mission"
+                  className="text-[10px] lg:text-lg hover:text-black hover:underline transform transition duration-300 hover:scale-105"
+                >
+                  Mission
+                </Link>
+              </li>
+
             </ul>
           </div>
 
@@ -60,11 +96,18 @@ const Footer = () => {
             <div className="lg:mt-6 mt-2">
               <h2 className="lg:text-xl font-semibold mb-2 text-center lg:text-start">Connect With Us</h2>
               <div className="flex justify-center lg:justify-start space-x-2 lg:space-x-4">
-                {[FaFacebook, FaTwitter, FaLinkedinIn, FaYoutube].map((Icon, index) => (
-                  <Link key={index} to="" className="lg:p-2 p-1 border rounded-full shadow-lg">
-                    <Icon className="text-lg" />
-                  </Link>
-                ))}
+
+                <Link to="https://www.facebook.com/" className="lg:p-2 p-1 border rounded-full shadow-lg">
+                  <FaFacebook className="text-lg" />
+                </Link>
+                <Link to="https://x.com/?lang=en" className="lg:p-2 p-1 border rounded-full shadow-lg">
+                  <FaTwitter className="text-lg" />
+                </Link>
+
+                <Link to="https://www.youtube.com/" className="lg:p-2 p-1 border rounded-full shadow-lg">
+                  <FaYoutube className="text-lg" />
+                </Link>
+
               </div>
             </div>
           </div>
@@ -74,7 +117,7 @@ const Footer = () => {
       {/* Footer Bottom */}
       <div className="bg-green-500 text-white text-center lg:py-4 lg:mt-8 mt-3">
         <p className="lg:text-lg text-[12px]">
-          All rights reserved © Amar Thikana Green City. Design & Developed by Universe Soft Tech.
+          All rights reserved © Amar Thikana Green City. Design & Developed by <Link target='_blank' to={`https://universesofttech.co/`}>Universe Soft Tech</Link>.
         </p>
       </div>
     </footer>
