@@ -4,7 +4,7 @@ import useAxiosPublic from '../../../hooks/useAxiosPublic';
 import { useQuery } from '@tanstack/react-query';
 
 const ImageGallery = () => {
-    window.scrollTo(0, 0);
+   
     const axiosPublic = useAxiosPublic();
 
     const [isOpen, setIsOpen] = useState(false);
@@ -59,7 +59,7 @@ const ImageGallery = () => {
                 <Helmet>
                     <title>Amar Thikana | ImgGallery</title>
                 </Helmet>
-                <h1 className='text-center text-black lg:text-4xl font-bold  ' >Img Gallery</h1>
+                {/* <h1 className='text-center text-black lg:text-4xl font-bold  ' >Img Gallery</h1> */}
                 <div className="gallery-container  mt-4 flex flex-col lg:grid grid-cols-2 lg:grid-cols-3 gap-4 p-4">
                     {imgList.map((item, index) => (
                         <img
