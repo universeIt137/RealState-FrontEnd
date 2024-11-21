@@ -103,6 +103,11 @@ const Sidebar = () => {
             <NavigationItem to="/dashboard/manage-career" icon={MdAddCircle} label="Manage Career" />
             <NavigationItem to="/dashboard/manage-apply" icon={MdAddCircle} label="Manage Application" />
         </>
+
+const imgGallery =
+<>
+    <NavigationItem to="/dashboard/img-upload" icon={MdAddCircle} label="Upload Img" />
+</>
     
    
 
@@ -187,6 +192,9 @@ const Sidebar = () => {
 
                         <li className="mb-4">
                             <Dropdown buttonText="Career" urls={careerUrl} />
+                        </li>
+                        <li className="mb-4">
+                            <Dropdown buttonText="Img Gallery" urls={imgGallery} />
                         </li>
                     </ul>
                 </nav>
