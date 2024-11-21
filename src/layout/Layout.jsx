@@ -2,8 +2,9 @@ import React, { useState, useEffect } from 'react';
 import Navbar from '../components/navbar/Navbar';
 import Footer from '../components/footer/Footer';
 import { Outlet } from 'react-router-dom';
-import useAxiosPublic from '../hooks/useAxiosPublic';
 import { useQuery } from '@tanstack/react-query';
+import useAxiosPublic from '../hooks/useAxiosPublic';
+import axios from 'axios';
 
 const Layout = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -21,15 +22,15 @@ const Layout = () => {
   };
 
   const axiosPublic = useAxiosPublic();
-  const { data: content = {} } = useQuery({
-    queryKey: ['content'],
+  const { data: offerData = {} } = useQuery({
+    queryKey: ['all data'],
     queryFn: async () => {
-      const res = await axiosPublic.get('offer');
+      const res = await axios.get('https://amer-thikana-server.vercel.app/offer')
       return res.data[0];
     }
   })
-
-  console.log(content)
+  
+  console.log('banner', offerData)
 
   return (
     <div className="bg-white">
@@ -59,7 +60,7 @@ const Layout = () => {
 
             {/* Modal Content */}
             <img
-              src={content?.ImageUrl}
+              src={offerData?.ImageUrl}
               alt="Welcome"
               className="w-full rounded-lg"
             />

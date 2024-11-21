@@ -19,7 +19,7 @@ const BannerCarousel = ({ banner_images }) => {
         }
     });
 
-    console.log(bannerDataList)
+    // console.log(bannerDataList)
 
 
     const [currentIndex, setCurrentIndex] = useState(0);
@@ -27,7 +27,7 @@ const BannerCarousel = ({ banner_images }) => {
     useEffect(() => {
         AOS.init({ duration: 1000, once: false });
     }, []);
-    console.log(bannerDataList?.length);
+    // console.log(bannerDataList?.length);
     useEffect(() => {
         const interval = setInterval(() => {
             setCurrentIndex((prevIndex) => (prevIndex + 1) % bannerDataList?.length);
