@@ -21,7 +21,7 @@ import ClientReviewHome from './ClientReviewHome';
 
 
 const HomePage = () => {
-  window.scrollTo(0, 0);
+  // window.scrollTo(0, 0);
 
   const axiosPublic = useAxiosPublic();
   const { data: webContent = {} } = useQuery({
