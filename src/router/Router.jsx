@@ -49,6 +49,9 @@ import AddCareer from "../pages/adminSide/careerRelatedPages/AddCareer";
 import ManageCareer from "../pages/adminSide/careerRelatedPages/ManageCareer";
 import UpdateCareer from "../pages/adminSide/careerRelatedPages/UpdateCareer";
 import ApplyForm from "../pages/clientSide/carrer-page/ApplyForm";
+import VideoGalleryUpdate from "../pages/adminSide/videoGalleryRelatedPage/VideoGalleryUpdate";
+import UploadImg from "../pages/adminSide/imgGalleryRelatedPage/UploadImg";
+import UpdateImg from "../pages/adminSide/imgGalleryRelatedPage/UpdateImg";
 
 
 
@@ -243,13 +246,27 @@ export const router = createBrowserRouter([
                 path: "manage-offer",
                 element: <ManageOffer></ManageOffer>
             },
+            // video gallery related api
             {
                 path : "upload-video",
                 element : <UploadVideo></UploadVideo>
             },
             {
+                path : "video-update/:id",
+                element : <VideoGalleryUpdate></VideoGalleryUpdate>
+            },
+            {
                 path : "manage-video",
                 element : <ManageVideoGallery></ManageVideoGallery>
+            },
+            // img gallery related routes
+            {
+                path : "img-upload",
+                element : <UploadImg></UploadImg>
+            },
+            {
+                path : "img-update/:id",
+                element : <UpdateImg></UpdateImg>
             },
             // career related routes 
             {
