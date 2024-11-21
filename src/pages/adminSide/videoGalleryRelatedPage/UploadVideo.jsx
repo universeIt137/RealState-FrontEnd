@@ -7,6 +7,7 @@ import useAxiosPublic from '../../../hooks/useAxiosPublic';
 import { uploadImg } from '../../../uploadFile/uploadImg';
 import { Link } from 'react-router-dom';
 import { uploadVideo } from '../../../uploadFile/uploadVideo';
+import { FaEdit } from 'react-icons/fa';
 
 
 const UploadVideo = () => {
@@ -17,7 +18,7 @@ const UploadVideo = () => {
     const [loading, setLoading] = useState(false);
 
 
-    const { data: videoGalleryData  = [], refetch, isLoading } = useQuery({
+    const { data: videoGalleryData = [], refetch, isLoading } = useQuery({
         queryKey: ['videoGallery'],
         queryFn: async () => {
             const res = await axiosPublic.get('/videoGallery');
@@ -70,21 +71,21 @@ const UploadVideo = () => {
 
         let imgUrl = '';
 
-        if(!img?.name){
+        if (!img?.name) {
             imgUrl = ""
         }
         imgUrl = await uploadImg(img);
 
         let videoUrl = ""
 
-        if(!name?.url){
+        if (!name?.url) {
             videoUrl = ""
         }
         videoUrl = await uploadVideo(url);
-        
-        
 
-        const data = { youtubeUrl : youtubeUrl , url:videoUrl,img:imgUrl };
+
+
+        const data = { youtubeUrl: youtubeUrl, url: videoUrl, img: imgUrl };
 
         axiosPublic.post(`/videoGallery`, data)
             .then(res => {
@@ -101,6 +102,11 @@ const UploadVideo = () => {
                     setLoading(false)
                 }
             })
+    };
+
+    const handleUpdateVideo =  async(id) => {
+        console.log(id)
+
     };
 
 
@@ -162,13 +168,18 @@ const UploadVideo = () => {
                     {
                         videoGalleryData?.map(photo =>
                             <div key={photo?._id} className="">
-                                <div onClick={() => handleDeleteImage(photo?._id)} className="text-4xl cursor-pointer ">
-                                    <MdDeleteForever className='text-red-700' />
+                                <div className='flex items-center gap-4 ' >
+                                    <div onClick={() => handleDeleteImage(photo?._id)} className="text-3xl cursor-pointer ">
+                                        <MdDeleteForever className='text-red-700' />
+                                    </div>
+                                    <div className="text-2xl cursor-pointer ">
+                                        <Link to={`/dashboard/video-update/${photo?._id}`}><FaEdit className='text-red-700' /></Link>
+                                    </div>
                                 </div>
-                                <Link to={photo?.youtubeUrl || photo?.url } >
-                                    <img className='w-20 h-20 '  src= {photo?.img}  alt="" />
+                                <Link to={photo?.youtubeUrl || photo?.url} >
+                                    <img className='w-20 h-20 ' src={photo?.img} alt="" />
                                 </Link>
-                                
+
                             </div>
                         )
                     }
