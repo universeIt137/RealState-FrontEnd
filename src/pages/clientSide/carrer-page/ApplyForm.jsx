@@ -37,6 +37,7 @@ const ApplyForm = () => {
         const name = form.name.value;
         const phone = form.phone.value;
         const location = form.location.value;
+        const job_title = content?.job_title;
 
         const image = form.image.files[0];
 
@@ -65,11 +66,11 @@ const ApplyForm = () => {
                 location,
                 phone,
                 cvImageUrl,
-                job_title: content?.job_title
+                job_title
             }
 
             console.log(data);
-            axiosPublic.post(`/chairman`, data)
+            axiosPublic.post(`/apply`, data)
                 .then(res => {
                     if (res) {
                         Swal.fire({
@@ -87,6 +88,7 @@ const ApplyForm = () => {
             console.error("Error submitting form:", error.message);
         } finally {
             setLoading(false);
+            form.reset();
         }
     };
 
