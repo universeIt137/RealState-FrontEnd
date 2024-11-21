@@ -81,7 +81,7 @@ const ProjectFeatureImgGallery = ({ images }) => {
     //     </div>
     //   )}
     // </div>
-    <div className='-mt-28' >
+    <div className='lg:-mt-28 -mt-5 ' >
         <ImageGallery></ImageGallery>
     </div>
   );

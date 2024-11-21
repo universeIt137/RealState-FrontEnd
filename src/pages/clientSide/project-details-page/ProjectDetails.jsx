@@ -43,13 +43,13 @@ const ProjectDetails = () => {
   
 
     return (
-        <div className="w-11/12  mx-auto px-4 py-20 ">
+        <div className="w-11/12  mx-auto px-4 py-20 lg:py-20 ">
             {/* Heading and Location */}
             <div className=" text-center lg:space-y-2">
             <h1 className="lg:text-4xl text-[17px]  font-bold text-black">Amer Thikana Green City</h1>
 
-                <h1 className="lg:text-xl text-[17px]  font-bold text-black">Secure Your Safe Living Space – Become a Landowner Today!</h1>
-                <p className="lg:text-[16px]  text-[10px] lg:mb-0 mb-3 text-black">Project Location : Dhaka-Mawa 300 Feet Road, Amar Thikana, Green City. </p>
+                <h1 className="lg:text-xl text-[15px] lg:text-center text-justify font-bold text-black">Secure Your Safe Living Space – Become a Landowner Today!</h1>
+                <p className="lg:text-[16px] text-justify lg:text-center  text-[10px] lg:mb-0 mb-3 text-black">Project Location : Dhaka-Mawa 300 Feet Road, Amar Thikana, Green City. </p>
             </div>
 
             {/* Image Gallery */}
@@ -71,7 +71,7 @@ const ProjectDetails = () => {
             {/* Description */}
             <div className="bg-white rounded-lg shadow-lg p-3 text-justify lg:p-6 space-y-1 lg:space-y-4">
                 <h2 className="text-black lg:text-3xl text-[16px] font-bold ">Project Description</h2>
-                <p className="text-black lg:text-[17px] text-[10px] ">{ feature?.description }</p>
+                <p className="text-black lg:text-[17px] text-[10px]  ">{ feature?.description }</p>
             </div>
 
             {/* Features */}
@@ -92,7 +92,7 @@ const ProjectDetails = () => {
                 </div>
             </div>
             {/* Project Layout  */}
-            <h1 className='lg:text-4xl font-bold mt-5 mb-5 py-2 ml-6 '  >Project Layout</h1>
+            <h1 className='lg:text-4xl font-bold lg:mt-5 lg:mb-5 lg:py-2 ml-6 '  >Project Layout</h1>
             <div className='' >
                 <ProjectLayout></ProjectLayout>
             </div>
