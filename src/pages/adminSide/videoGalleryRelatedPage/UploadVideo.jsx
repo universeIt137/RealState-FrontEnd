@@ -5,6 +5,8 @@ import Swal from 'sweetalert2';
 import { useState } from 'react';
 import useAxiosPublic from '../../../hooks/useAxiosPublic';
 import { uploadImg } from '../../../uploadFile/uploadImg';
+import { Link } from 'react-router-dom';
+import { uploadVideo } from '../../../uploadFile/uploadVideo';
 
 
 const UploadVideo = () => {
@@ -15,10 +17,10 @@ const UploadVideo = () => {
     const [loading, setLoading] = useState(false);
 
 
-    const { data: allPhotos = [], refetch, isLoading } = useQuery({
-        queryKey: ['bannerGallery'],
+    const { data: videoGalleryData  = [], refetch, isLoading } = useQuery({
+        queryKey: ['videoGallery'],
         queryFn: async () => {
-            const res = await axiosPublic.get('/banner');
+            const res = await axiosPublic.get('/videoGallery');
             return res.data;
         }
     })
@@ -38,11 +40,11 @@ const UploadVideo = () => {
         }).then((result) => {
             if (result.isConfirmed) {
                 axiosPublic
-                    .delete(`/banner/${id}`).then((res) => {
+                    .delete(`/videoGallery/${id}`).then((res) => {
                         if (res) {
                             Swal.fire({
                                 title: 'Deleted!',
-                                text: 'Photo has been deleted.',
+                                text: 'Video has been deleted.',
                                 icon: 'success',
                             });
                             refetch();
@@ -63,11 +65,26 @@ const UploadVideo = () => {
 
         const form = event.target;
         const youtubeUrl = form.youtubeUrl.value;
-        const url = form.url.value;
+        const url = form.url.files[0];
+        const img = event.target.img.files[0]
+
+        let imgUrl = '';
+
+        if(!img?.name){
+            imgUrl = ""
+        }
+        imgUrl = await uploadImg(img);
+
+        let videoUrl = ""
+
+        if(!name?.url){
+            videoUrl = ""
+        }
+        videoUrl = await uploadVideo(url);
         
         
 
-        const data = { youtubeUrl : youtubeUrl , url:url };
+        const data = { youtubeUrl : youtubeUrl , url:videoUrl,img:imgUrl };
 
         axiosPublic.post(`/videoGallery`, data)
             .then(res => {
@@ -116,6 +133,12 @@ const UploadVideo = () => {
                                             <input id='courseImageInputField' type="url" name='youtubeUrl' className="file-input file-input-bordered file-input-md w-full" />
                                         </div>
                                     </div>
+                                    <div className="p-2 w-full">
+                                        <div className="relative space-y-2">
+                                            <label htmlFor='img' className="leading-7 text-sm text-gray-600 font-medium">Upload Img </label><br />
+                                            <input id='img' type="file" name='img' className="file-input file-input-bordered file-input-md w-full" />
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
 
@@ -124,7 +147,7 @@ const UploadVideo = () => {
                         </div>
                         <div className="p-2 w-full">
                             <div className='flex justify-center items-center'>
-                                <button className='btn btn-primary'>
+                                <button className='btn bg-green text-white '>
                                     {
                                         loading ? 'Uploading....' : 'Submit'
                                     }
@@ -137,20 +160,15 @@ const UploadVideo = () => {
                 <p className=' text-2xl text-center font-bold my-5'>Already Uploaded Images</p>
                 <div className="grid grid-cols-3 gap-3  w-10/12 mx-auto">
                     {
-                        allPhotos?.map(photo =>
+                        videoGalleryData?.map(photo =>
                             <div key={photo?._id} className="">
                                 <div onClick={() => handleDeleteImage(photo?._id)} className="text-4xl cursor-pointer ">
                                     <MdDeleteForever className='text-red-700' />
                                 </div>
-                                <div className="avatar">
-                                    <div className="rounded-xl">
-                                        <img src={photo?.img} />
-
-                                    </div>
-                                </div>
-                                <p className="">
-                                    {photo?.banner_text.slice(0, 40)}
-                                </p>
+                                <Link to={photo?.youtubeUrl || photo?.url } >
+                                    <img className='w-20 h-20 '  src= {photo?.img}  alt="" />
+                                </Link>
+                                
                             </div>
                         )
                     }
