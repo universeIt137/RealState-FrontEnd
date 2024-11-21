@@ -103,7 +103,7 @@ const BannerCarousel = ({ banner_images }) => {
 
 
             {/* Bottom Buttons */}
-            <div className="absolute lg:bottom-24 bottom-[90px]   left-0 right-0 bg-gradient-to-r from-[#027F3D] to-[#034A26] bg-opacity-90 lg:py-3 text-white z-10 font-semibold">
+            <div className="absolute lg:bottom-24 bottom-[90px]   left-0 right-0 bg-[#027F3D]  bg-opacity-70 lg:py-3 text-white z-10 font-semibold">
                 <div className="flex lg:space-x-10 lg:w-3/4 mx-auto w-full  lg:gap-3 px-1 lg:px-4">
                     <button className="px-2 py-1   text-[8px]  lg:text-xl text-center rounded-lg flex items-center gap-2 ">
                         <Link to="/project-details">PROJECT DETAILS</Link>
