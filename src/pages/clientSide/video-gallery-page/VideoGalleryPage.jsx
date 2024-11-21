@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import ReactPlayer from 'react-player';
 import { AiOutlinePlayCircle, AiOutlinePauseCircle } from 'react-icons/ai';
 import { IoCloseCircleOutline } from "react-icons/io5";
+import { useQuery } from '@tanstack/react-query';
+import useAxiosPublic from '../../../hooks/useAxiosPublic';
 
 // Sample video data
 const videosData = [
@@ -32,6 +34,18 @@ const VideoGalleryPage = () => {
   const [videoProgress, setVideoProgress] = useState({ played: 0, duration: 0 });
   const [currentIndex, setCurrentIndex] = useState(0);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
+  const axiosPublic = useAxiosPublic(); 
+
+  const { data: videosData = [], refetch, isLoading } = useQuery({
+    queryKey: ['videoGallery'],
+    queryFn: async () => {
+        const res = await axiosPublic.get('/videoGallery');
+        // Ensure the response is an array
+        return res.data
+    },
+});
+
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -96,8 +110,8 @@ const VideoGalleryPage = () => {
             {videosData.map((video, index) => (
               <div key={index} className="relative flex-shrink-0 w-full sm:w-1/2 lg:w-1/3 px-1">
                 <img
-                  src={video.thumbnail}
-                  alt={video.title}
+                  src={video.img}
+                  // alt={video.title}
                   onClick={() => openModal(video)}
                   className="w-full h-48 object-cover rounded-lg shadow-lg cursor-pointer"
                 />
@@ -124,7 +138,7 @@ const VideoGalleryPage = () => {
             {/* Modal for Video Player */}
             <div className="relative w-full max-w-4xl h-[70vh] flex items-center justify-center bg-gray-900 rounded-lg">
               <ReactPlayer
-                url={currentVideo.url}
+                url={currentVideo?.youtubeUrl||currentVideo.url}
                 playing={isPlaying}
                 width="100%"
                 height="100%"

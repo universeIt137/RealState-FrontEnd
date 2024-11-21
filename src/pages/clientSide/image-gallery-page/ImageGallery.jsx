@@ -1,19 +1,22 @@
 import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
-
-// Sample images
-const images = [
-    'https://res.cloudinary.com/dnvmj9pvk/image/upload/v1731389139/Amer%20Thikana/uptnnqpi80uojvcs7bzh.png',
-    'https://res.cloudinary.com/dnvmj9pvk/image/upload/v1731320619/Amer%20Thikana/ios2ysxylei3yemy0fgk.jpg',
-    'https://res.cloudinary.com/dnvmj9pvk/image/upload/v1730889998/offer-3_zr81a8.png',
-    'https://res.cloudinary.com/dnvmj9pvk/image/upload/v1730889949/offer-2_s0dp1u.png',
-    'https://res.cloudinary.com/dnvmj9pvk/image/upload/v1730889904/offer-1_bajmsf.png',
-];
+import useAxiosPublic from '../../../hooks/useAxiosPublic';
+import { useQuery } from '@tanstack/react-query';
 
 const ImageGallery = () => {
     window.scrollTo(0, 0);
+    const axiosPublic = useAxiosPublic();
+
     const [isOpen, setIsOpen] = useState(false);
     const [currentIndex, setCurrentIndex] = useState(0);
+
+    const { data: imgList = [], refetch, isLoading } = useQuery({
+        queryKey: ['imgList'],
+        queryFn: async () => {
+            const res = await axiosPublic.get('/imageGallery');
+            return res.data; // Ensure the response is an array
+        },
+    });
 
     const openModal = (index) => {
         setCurrentIndex(index);
@@ -25,11 +28,11 @@ const ImageGallery = () => {
     };
 
     const goToNext = () => {
-        setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
+        setCurrentIndex((prevIndex) => (prevIndex + 1) % imgList.length);
     };
 
     const goToPrevious = () => {
-        setCurrentIndex((prevIndex) => (prevIndex - 1 + images.length) % images.length);
+        setCurrentIndex((prevIndex) => (prevIndex - 1 + imgList.length) % imgList.length);
     };
 
     // Close modal on outside click
@@ -51,18 +54,19 @@ const ImageGallery = () => {
     }, []);
 
     return (
-        <div className='bg-white' >
-            <div className="w-11/12 mx-auto  ">
+        <div className="bg-white">
+            <div className="w-11/12 mx-auto lg:mt-28  ">
                 <Helmet>
-                    <title>Amar Thikana | photoGallery</title>
+                    <title>Amar Thikana | ImgGallery</title>
                 </Helmet>
-                <div className="gallery-container  mt-32 flex flex-col lg:grid grid-cols-2 lg:grid-cols-3  gap-4 p-4  ">
-                    {images.map((src, index) => (
+                <h1 className='text-center text-black lg:text-4xl font-bold  ' >Img Gallery</h1>
+                <div className="gallery-container  mt-4 flex flex-col lg:grid grid-cols-2 lg:grid-cols-3 gap-4 p-4">
+                    {imgList.map((item, index) => (
                         <img
                             key={index}
-                            src={src}
+                            src={item?.imgUrl}
                             alt={`Gallery Image ${index + 1}`}
-                            className="cursor-pointer w-[400px]  h-[300px] rounded-lg shadow-md transition-transform transform hover:scale-105"
+                            className="cursor-pointer w-[400px] h-[300px] rounded-lg shadow-md transition-transform transform hover:scale-105"
                             onClick={() => openModal(index)}
                         />
                     ))}
@@ -74,14 +78,8 @@ const ImageGallery = () => {
                             onClick={handleOutsideClick}
                         >
                             <div className="relative max-w-3xl w-full p-4">
-                                {/* <button
-                            className="absolute top-2 right-2 text-white text-2xl font-bold"
-                            onClick={closeModal}
-                        >
-                            &times;
-                        </button> */}
                                 <img
-                                    src={images[currentIndex]}
+                                    src={imgList[currentIndex]?.imgUrl} // Access the imgUrl property
                                     alt={`Zoomed Image ${currentIndex + 1}`}
                                     className="w-full h-auto rounded-lg"
                                 />

@@ -22,7 +22,6 @@ const UploadImg = () => {
             return res.data
         },
     });
-    console.log(imgGalleryDataList)
 
     const handleDeleteImage = (id) => {
         Swal.fire({
