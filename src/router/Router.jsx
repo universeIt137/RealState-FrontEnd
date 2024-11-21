@@ -48,6 +48,7 @@ import ManageVideoGallery from "../pages/adminSide/videoGalleryRelatedPage/Manag
 import AddCareer from "../pages/adminSide/careerRelatedPages/AddCareer";
 import ManageCareer from "../pages/adminSide/careerRelatedPages/ManageCareer";
 import UpdateCareer from "../pages/adminSide/careerRelatedPages/UpdateCareer";
+import ApplyForm from "../pages/clientSide/carrer-page/ApplyForm";
 
 
 
@@ -108,10 +109,14 @@ export const router = createBrowserRouter([
                 element : <VideoGalleryPage></VideoGalleryPage>
             },
             {
-                path:"career-details",
+                path:"career-details/:id",
                 element:<CareerDetailsPage></CareerDetailsPage>
             }
             ,
+            {
+                path: "apply-form/:id",
+                element: <ApplyForm></ApplyForm>
+            },
             {
                 path : "project-details",
                 element : <ProjectDetails></ProjectDetails>

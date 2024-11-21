@@ -1,6 +1,9 @@
 import React from 'react';
 import { FiAlertTriangle, FiPhone, FiMail } from 'react-icons/fi';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
+import useAxiosPublic from '../../../hooks/useAxiosPublic';
+import { useQuery } from '@tanstack/react-query';
+import { Helmet } from 'react-helmet-async';
 
 const CareerDetailsPage = () => {
   // Scrolls to the top of the page when the component is loaded
@@ -8,17 +11,38 @@ const CareerDetailsPage = () => {
     // window.scrollTo(0, 0);
   }, []);
 
+  const { id } = useParams();
+  const axiosPublic = useAxiosPublic();
+  const { data: job = {} } = useQuery({
+    queryKey: ['single job'],
+    queryFn: async () => {
+      const res = await axiosPublic.get(`/career/${id}`);
+      return res.data;
+    }
+  })
+
   return (
     <div className="w-11/12 mx-auto my-20 md:my-28">
       {/* Job Header */}
+      <Helmet>
+        <title>Amer Thikana | Career Details</title>
+      </Helmet>
+
       <div className="bg-white p-8 border border-gray-200 rounded-lg shadow-lg mt-10">
-        <div>
-          <div className=" font-bold md:text-2xl xl:text-4xl text-[#21c45e] md:mb-2">UNIVERSE SOFT TECH</div>
-          <div className="text-[#21c45e] text-[14px] font-semibold md:text-2xl">Universe IT Group</div>
-          <div className="text-[#21c45e] md:text-2xl xl:text-4xl font-bold md:mt-4">React Js Frontend Developer</div>
+        <div className=' flex justify-between items-center'>
+          <div className="">
+            <div className=" font-bold md:text-2xl xl:text-4xl text-[#21c45e] md:mb-2">Amer Thikana </div>
+            <div className="text-[#21c45e] text-[14px] font-semibold md:text-2xl">Green City</div>
+            <div className="text-[#21c45e] md:text-2xl xl:text-4xl font-bold md:mt-4">{job?.job_title}</div>
+          </div>
+          <div className="">
+            <img src="https://res.cloudinary.com/dnvmj9pvk/image/upload/v1731909272/gnnban9axhlru9k0n6de.jpg" className='w-44 rounded-lg' alt="" />
+          </div>
         </div>
         <button className="md:mt-6 bg-[#21c45e]  text-white font-bold md:py-2 py-1 px-2 md:text-[16px] text-[10px] md:px-6 rounded-lg">
-          Apply Now
+          <Link to={`/apply-form/${job?._id}`}>
+            Apply Now
+          </Link>
         </button>
       </div>
 
@@ -27,23 +51,17 @@ const CareerDetailsPage = () => {
         <h2 className="text-[#21c45e] font-bold lg:text-4xl md:text-2xl md:mb-4">Summary</h2>
         <div className="grid md:grid-cols-2 gap-y-1 md:gap-y-4 text-[#21c45e]">
           <div>
-            <span className="font-semibold md:text-[16px] lg:text-[18px] text-[12px]">Salary :</span> <span className="font-semibold md:text-[16px] lg:text-[18px] text-[10px]">234676 BDT</span>
+            <span className="font-semibold md:text-[16px] lg:text-[18px] text-[12px]">Salary :</span> <span className="font-semibold md:text-[16px] lg:text-[18px] text-[10px]">{job?.salary} BDT</span>
           </div>
           <div>
-            <span className="font-semibold md:text-[16px] lg:text-[18px] text-[12px]">Education :</span> <span className="font-semibold md:text-[16px] lg:text-[18px] text-[10px]">BSc in Computer Science</span>
+            <span className="font-semibold md:text-[16px] lg:text-[18px] text-[12px]">Education :</span> <span className="font-semibold md:text-[16px] lg:text-[18px] text-[10px]">{job?.education}</span>
           </div>
+
+
           <div>
-            <span className="font-semibold md:text-[16px] lg:text-[18px] text-[12px]">Experience :</span> <span className="font-semibold md:text-[16px] lg:text-[18px] text-[10px]">At least 3 years</span>
+            <span className="font-semibold md:text-[16px] lg:text-[18px] text-[12px]">Job Location :</span> <span className="font-semibold md:text-[16px] lg:text-[18px] text-[10px]">{job?.job_location}</span>
           </div>
-          <div>
-            <span className="font-semibold md:text-[16px] lg:text-[18px] text-[12px]">Skills :</span> <span className="font-semibold md:text-[16px] lg:text-[18px] text-[10px]">HTML, CSS, JavaScript, Bootstrap, Tailwind CSS, React.js</span>
-          </div>
-          <div>
-            <span className="font-semibold md:text-[16px] lg:text-[18px] text-[12px]">Job Location :</span> <span className="font-semibold md:text-[16px] lg:text-[18px] text-[10px]">Merul Badda Aftabnagar, East West University Dhaka</span>
-          </div>
-          <div>
-            <span className="font-semibold md:text-[16px] lg:text-[18px] text-[12px]">Workplace :</span> <span className="font-semibold md:text-[16px] lg:text-[18px] text-[10px]">Onsite</span>
-          </div>
+
         </div>
       </div>
 
@@ -59,51 +77,30 @@ const CareerDetailsPage = () => {
         <section className="md:mb-4 mb-1 ">
           <h3 className="text-[#21c45e] text-[12px] md:text-[16px] font-semibold">Education</h3>
           <ul className="list-disc list-inside">
-            <li className='md:text-[16px] text-[10px] text-[#21c45e] ' >BSc in Computer Science</li>
+            <li className='md:text-[16px] text-[10px] text-[#21c45e] ' >{job?.education}</li>
           </ul>
         </section>
 
-        <section className=" mb-1 md:mb-4">
-          <h3 className="text-[#21c45e] text-[12px] md:text-[16px] font-semibold">Skills</h3>
-          <ul className='list-disc list-inside' >
-          <li className='md:text-[16px] text-[10px] text-[#21c45e] ' >HTML, CSS, JavaScript, Bootstrap, Tailwind CSS, React.js</li>
-          </ul>
-        </section>
 
-        <section className="md:mb-4 mb-1 ">
-          <h3 className="text-[#21c45e] text-[12px] md:text-[16px] font-semibold">Experience</h3>
-          <ul className="list-disc list-inside">
-            <li className='md:text-[16px] text-[10px] text-[#21c45e] ' >3 years</li>
-          </ul>
-        </section>
+
+
 
         <section className="md:mb-4 mb-1">
           <h3 className="text-[#21c45e] text-[12px] md:text-[16px] font-semibold">Responsibilities & Context</h3>
           <ul className="list-disc list-inside">
-            <li className='md:text-[16px] text-[10px] text-[#21c45e] '  >Must have communication skills in the native language. Collaborate with the front-end team.</li>
+            <li className='md:text-[16px] text-[10px] text-[#21c45e] '  >
+              {job?.responsibility}
+            </li>
           </ul>
         </section>
 
         <section className="md:mb-4 mb-1">
           <h3 className="text-[#21c45e] text-[12px] md:text-[16px] font-semibold">Workplace</h3>
           <ul className="list-disc list-inside">
-            <li className='md:text-[16px] text-[10px] text-[#21c45e]'> Onside </li>
+            <li className='md:text-[16px] text-[10px] text-[#21c45e]'> {job?.job_location} </li>
           </ul>
         </section>
 
-        <section className="md:mb-4 mb-1">
-          <h3 className="text-[#21c45e] text-[12px] md:text-[16px] font-semibold">Employment Status</h3>
-          <ul className="list-disc list-inside">
-            <li className='md:text-[16px] text-[10px] text-[#21c45e]'> Pending </li>
-          </ul>
-        </section>
-
-        <section className="mb-4">
-          <h3 className="text-[#21c45e] text-[12px] md:text-[16px] font-semibold">Job Location</h3>
-          <ul className="list-disc list-inside">
-            <li className='md:text-[16px] text-[10px] text-[#21c45e]'> Merul Badda, Aftabnagar, East West University, Dhaka </li>
-          </ul>
-        </section>
       </div>
 
       {/* Job Highlights Section */}
