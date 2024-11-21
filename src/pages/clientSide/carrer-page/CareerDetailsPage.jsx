@@ -11,6 +11,8 @@ const CareerDetailsPage = () => {
     // window.scrollTo(0, 0);
   }, []);
 
+  window.scrollTo(0, 0);
+
   const { id } = useParams();
   const axiosPublic = useAxiosPublic();
   const { data: job = {} } = useQuery({

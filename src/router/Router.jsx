@@ -52,6 +52,7 @@ import ApplyForm from "../pages/clientSide/carrer-page/ApplyForm";
 import VideoGalleryUpdate from "../pages/adminSide/videoGalleryRelatedPage/VideoGalleryUpdate";
 import UploadImg from "../pages/adminSide/imgGalleryRelatedPage/UploadImg";
 import UpdateImg from "../pages/adminSide/imgGalleryRelatedPage/UpdateImg";
+import ManageApply from "../pages/adminSide/careerRelatedPages/ManageApply";
 
 
 
@@ -280,6 +281,11 @@ export const router = createBrowserRouter([
             {
                 path: "update-career/:id",
                 element: <UpdateCareer></UpdateCareer>
+            },
+            // apply related routes 
+            {
+                path: "manage-apply",
+                element: <ManageApply></ManageApply>
             }
             
         ]
