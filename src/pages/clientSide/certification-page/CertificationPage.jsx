@@ -46,7 +46,7 @@ const CertificationPage = () => {
             Awards of AmarThikana Properties Limited
           </h2>
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 lg:gap-8 px-3 lg:px-6">
-            {contents?.map((award) => (
+            {contents && contents?.map((award) => (
               <div
                 key={award._id}
                 className="bg-gradient-to-r from-[#027F3D] to-[#034A26] bg-opacity-90 rounded-lg shadow-2xl overflow-hidden lg:-mb-9 transform transition duration-300 hover:scale-105"

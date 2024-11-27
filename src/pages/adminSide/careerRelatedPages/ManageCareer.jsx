@@ -6,7 +6,7 @@ import useAxiosPublic from '../../../hooks/useAxiosPublic';
 
 const ManageCareer = () => {
     const axiosPublic = useAxiosPublic();
-
+    window.scrollTo(0, 0);
 
     const { data: allData = [], refetch } = useQuery({
         queryKey: ['careerData'],

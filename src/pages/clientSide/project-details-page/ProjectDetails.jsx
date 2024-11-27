@@ -5,6 +5,7 @@ import ProjectLayout from '../project-layout-page/ProjectLayout';
 import VideoGalleryPage from '../video-gallery-page/VideoGalleryPage';
 import useAxiosPublic from '../../../hooks/useAxiosPublic';
 import { useQuery } from '@tanstack/react-query';
+import { Helmet } from 'react-helmet-async';
 
 const ProjectDetails = () => {
     window.scrollTo(0, 0);
@@ -33,23 +34,25 @@ const ProjectDetails = () => {
 
     const axiosPublic = useAxiosPublic();
     const { data: feature = {} } = useQuery({
-      queryKey: ['features'],
-      queryFn: async () => {
-        const res = await axiosPublic.get('/feature');
-        return res.data[0];
-      }
+        queryKey: ['features'],
+        queryFn: async () => {
+            const res = await axiosPublic.get('/feature');
+            return res.data[0];
+        }
     })
-    console.log(feature);
-  
+
 
     return (
         <div className="w-11/12  mx-auto px-4 py-20 lg:py-20 ">
+            <Helmet>
+                <title>Amar Thikana | Project Details</title>
+            </Helmet>
             {/* Heading and Location */}
             <div className=" text-center lg:space-y-2">
-            <h1 className="lg:text-4xl text-[17px]  font-bold text-black">Amer Thikana Green City</h1>
+                <h1 className="lg:text-4xl text-[17px]  font-bold text-black">আমার ঠিকান গ্রিন সিটি</h1>
 
-                <h1 className="lg:text-xl text-[15px] lg:text-center text-justify font-bold text-black">Secure Your Safe Living Space – Become a Landowner Today!</h1>
-                <p className="lg:text-[16px] text-justify lg:text-center  text-[10px] lg:mb-0 mb-3 text-black">Project Location : Dhaka-Mawa 300 Feet Road, Amar Thikana, Green City. </p>
+                <h1 className="lg:text-xl text-[15px] lg:text-center text-justify font-bold text-black">নিরাপদ জীবনযাপনের স্থান নিশ্চিত করুন – আজই জমির মালিক হোন!</h1>
+                <p className="lg:text-[16px] text-justify lg:text-center  text-[10px] lg:mb-0 mb-3 text-black">প্রকল্পের অবস্থান: ঢাকা-মাওয়া ৩০০ ফুট রোড, আমার ঠিকানা, গ্রীন সিটি।</p>
             </div>
 
             {/* Image Gallery */}
@@ -63,7 +66,7 @@ const ProjectDetails = () => {
                 <h2 className="lg:text-2xl text-[15px] font-semibold text-gray-800">Project Video</h2>
                 <div className='block mt-1  lg:mt-0  ' >
                     <div className="">
-                       <ProjectFeatureVideoGallery></ProjectFeatureVideoGallery>
+                        <ProjectFeatureVideoGallery></ProjectFeatureVideoGallery>
                     </div>
                 </div>
             </div>
@@ -71,7 +74,7 @@ const ProjectDetails = () => {
             {/* Description */}
             <div className="bg-white rounded-lg shadow-lg p-3 text-justify lg:p-6 space-y-1 lg:space-y-4">
                 <h2 className="text-black lg:text-3xl text-[16px] font-bold ">Project Description</h2>
-                <p className="text-black lg:text-[17px] text-[10px]  ">{ feature?.description }</p>
+                <p className="text-black lg:text-[17px] text-[10px]  ">{feature?.description}</p>
             </div>
 
             {/* Features */}

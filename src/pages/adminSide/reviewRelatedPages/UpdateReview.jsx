@@ -19,7 +19,7 @@ const UpdateReview = () => {
         }
     })
 
-    console.log(review);
+    window.scrollTo(0, 0);
 
     const handleSubmit = async (e) => {
         setLoading(true);

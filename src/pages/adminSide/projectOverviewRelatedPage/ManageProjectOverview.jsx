@@ -9,7 +9,7 @@ import { uploadImg } from '../../../uploadFile/uploadImg';
 
 
 const ManageProjectOverview = () => {
-
+    window.scrollTo(0, 0);
 
 
     const axiosPublic = useAxiosPublic();
@@ -96,7 +96,7 @@ const ManageProjectOverview = () => {
     return (
         <>
             <Helmet>
-                <title>Dashboard | Manage Photo Gallery</title>
+                <title>Dashboard | Manage Project Overview</title>
             </Helmet>
             <div className="bg-white p-5 mx-4 rounded-lg">
                 <p className='text-2xl font-bold text-center'>Manage Project Overview</p>

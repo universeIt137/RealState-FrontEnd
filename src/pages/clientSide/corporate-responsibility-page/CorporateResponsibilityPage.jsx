@@ -66,25 +66,29 @@ const CSRPage = () => {
               {
                 contents?.map((data, index) =>
                   <Link key={index} to={`/blog-details/${data?._id}`}>
-                    <div className={`card bg-gradient-to-r from-[#027F3D] to-[#034A26] text-white mx-auto w-[80vw] max-w-[280px] sm:w-[340px] sm:max-w-[300px] min-h-[280px] lg:min-h-[350px]  flex flex-col justify-between border`}>
+                    <div className={`card bg-gradient-to-r from-[#027F3D] to-[#034A26] text-white mx-auto sm:max-w-[300px] min-h-[280px] lg:min-h-[350px]  flex flex-col justify-between border`}>
                       <figure className="h-[100px] sm:h-[170px] relative">
 
                         <img
-                          className="w-full h-full object-fill rounded-lg shadow-md"
+                          className="w-full h-full object-fill rounded-lg shadow-md my-auto "
                           src={data?.BannerImageUrl}
                           alt="Course Banner"
                         />
                       </figure>
                       <div className="card-body  flex flex-col justify-between px-3 sm:px-8 ">
-                        <div className="">
-
-                          <h2 className="font-bold text-text_color text-[12px] lg:text-2xl text-center">
-                            {data?.title.slice(0, 20)}...
-                          </h2>
-                          <p className="">
-                            {data?.description.slice(0, 100)}...
-                          </p>
-                        </div>  
+                        <div className=" ">
+                          <div className='lg:h-16' >
+                            <h2 className="font-bold text-text_color  text-[12px] lg:text-lg text-center">
+                              {data?.title.slice(0, 20)}...
+                            </h2>
+                          </div>
+                          
+                          <div className=' h-24 ' >
+                            <p className="my-auto">
+                              {data?.description.slice(0, 100)}...
+                            </p>
+                          </div>
+                        </div>
                       </div>
                     </div>
                   </Link>)

@@ -4,6 +4,7 @@ import { AiOutlinePlayCircle, AiOutlinePauseCircle } from 'react-icons/ai';
 import { IoCloseCircleOutline } from "react-icons/io5";
 import { useQuery } from '@tanstack/react-query';
 import useAxiosPublic from '../../../hooks/useAxiosPublic';
+import { Helmet } from 'react-helmet-async';
 
 // Sample video data
 
@@ -76,6 +77,9 @@ const VideoGalleryPage = () => {
 
   return (
     <div className="w-11/12 mx-auto mt-20 mb-9 lg:mt-24">
+      <Helmet>
+        <title>Amar Thikana | Video Gallery </title>
+      </Helmet>
       <div className="mx-auto relative w-full overflow-hidden">
         <h1 className="lg:text-4xl my-2 font-bold text-center text-black lg:mb-8">Video Gallery</h1>
 

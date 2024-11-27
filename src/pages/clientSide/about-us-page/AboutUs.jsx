@@ -2,6 +2,7 @@ import React from "react";
 import InfoCard from "./InfoCard";
 import useAxiosPublic from "../../../hooks/useAxiosPublic";
 import { useQuery } from "@tanstack/react-query";
+import { Helmet } from "react-helmet-async";
 
 // Content Data
 const aboutUsContent = {
@@ -61,6 +62,9 @@ const AboutUs = () => {
 
     return (
         <div className="w-11/12 mx-auto  bg-white mt-16 lg:mt-20">
+            <Helmet>
+                <title>Amar Thikana | About Us </title>
+            </Helmet>
             {/* First Section */}
             <div className="lg:py-10 py-4">
                 <div className="bg-white">

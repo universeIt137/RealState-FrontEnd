@@ -11,15 +11,8 @@ import useAxiosPublic from "../../../hooks/useAxiosPublic";
 
 const AddCareer = () => {
     const axiosPublic = useAxiosPublic();
-
-
-
-
-
     const [loading, setLoading] = useState(false);
-
-
-
+    window.scrollTo(0,0);
     const handleSubmit = async (e) => {
         setLoading(true);
         e.preventDefault();
