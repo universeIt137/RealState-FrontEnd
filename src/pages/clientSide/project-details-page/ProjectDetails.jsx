@@ -49,7 +49,7 @@ const ProjectDetails = () => {
             </Helmet>
             {/* Heading and Location */}
             <div className=" text-center lg:space-y-2">
-                <h1 className="lg:text-4xl text-[17px]  font-bold text-black">আমার ঠিকান গ্রিন সিটি</h1>
+                <h1 className="lg:text-4xl text-[17px]  font-bold text-black">আমার ঠিকানা গ্রীন সিটি</h1>
 
                 <h1 className="lg:text-xl text-[15px] lg:text-center text-justify font-bold text-black">নিরাপদ জীবনযাপনের স্থান নিশ্চিত করুন – আজই জমির মালিক হোন!</h1>
                 <p className="lg:text-[16px] text-justify lg:text-center  text-[10px] lg:mb-0 mb-3 text-black">প্রকল্পের অবস্থান: ঢাকা-মাওয়া ৩০০ ফুট রোড, আমার ঠিকানা, গ্রীন সিটি।</p>
