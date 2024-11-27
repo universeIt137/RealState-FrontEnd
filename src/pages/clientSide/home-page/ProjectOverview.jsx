@@ -20,20 +20,20 @@ const ProjectOverview = () => {
         setIsModalOpen(false);       // Close the modal
     };
 
-    
+
 
     return (
         <div>
             <div className="w-11/12 mx-auto ">
                 <div className="flex justify-center lg:py-0 py-5 px-6 bg-white  rounded-lg">
-                   
 
 
-                    
+
+
                     <div className="md:pr-10 text-black">
                         <h1 className=' text-[13px] md:text-xl font-bold  uppercase my-2 lg:my-4 text-center' >Project Overview</h1>
                         <h1 className="lg:text-3xl  font-bold  uppercase">
-                            Amer Thikana Green City
+                            আমার ঠিকানা গ্রীন সিটি
                         </h1>
 
                     </div>

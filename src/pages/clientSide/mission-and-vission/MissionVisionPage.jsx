@@ -3,6 +3,7 @@ import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
 import useAxiosPublic from '../../../hooks/useAxiosPublic';
 import { useQuery } from '@tanstack/react-query';
+import CoreValue from './CoreValue';
 const coreValues = [
   {
     title: "Integrity",
@@ -73,10 +74,10 @@ const MissionVision = () => {
         </section>
 
         {/* Core Values Section */}
-        <section className="p-3 md:p-12 rounded-lg shadow-lg my-4 md:my-12">
+        {/* <section className="p-3 md:p-12 rounded-lg shadow-lg my-4 md:my-12">
           <div>
             <h2 className="md:text-4xl font-bold text-green-600 text-center md:mb-6">
-              Our Core Values
+              আমাদের বৈশিষ্ট্য
             </h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -95,7 +96,8 @@ const MissionVision = () => {
                 </div>
               ))}
           </div>
-        </section>
+        </section> */}
+        <CoreValue></CoreValue>
 
 
       </div>

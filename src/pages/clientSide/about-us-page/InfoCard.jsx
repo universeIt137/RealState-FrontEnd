@@ -14,7 +14,7 @@ const InfoCard = () => {
             {/* Main Content */}
             <div className=" z-10">
                 <h2 className="lg:text-4xl text-xl font-semibold text-[#45a170] mb-4 text-center lg:text-start">
-                    Amar Thikana Real Estate Ltd.
+                আমার ঠিকানা গ্রীন সিটি
                 </h2>
                 <div className="text-gray-700 lg:space-y-3">
                     <div className="flex items-center gap-2">
