@@ -8,7 +8,7 @@ import { Helmet } from 'react-helmet-async';
 
 const ManageApply = () => {
     const axiosPublic = useAxiosPublic();
-
+    window.scrollTo(0, 0);
 
     const { data: allData = [], refetch } = useQuery({
         queryKey: ['careerData'],

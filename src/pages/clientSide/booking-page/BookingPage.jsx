@@ -27,7 +27,6 @@ const BookingPage = () => {
         }
     };
     
-
     return (
         <div>
             <Helmet>

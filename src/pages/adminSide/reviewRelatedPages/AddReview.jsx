@@ -87,10 +87,11 @@ const AddReview = () => {
         }
     };
 
+    window.scrollTo(0, 0);
     return (
         <div className="w-10/12 mx-auto p-4">
             <Helmet>
-                <title>Dashboard | Add Review</title>
+                <title>Dashboard | Upload Review</title>
             </Helmet>
             <h2 className="text-2xl font-semibold mb-4">Upload Review</h2>
             <form onSubmit={handleSubmit} className="space-y-4">

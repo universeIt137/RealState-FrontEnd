@@ -52,13 +52,15 @@ const UpdateForm = () => {
         }
     };
 
+    window.scrollTo(0,0);
+
     return (
         <div>
             <div className="w-10/12 mx-auto p-4">
                 <Helmet>
-                    <title>Dashboard | Upload Best Update</title>
+                    <title>Dashboard | Update Best Update</title>
                 </Helmet>
-                <h2 className="text-2xl font-semibold mb-4">Upload</h2>
+                <h2 className="text-2xl font-semibold mb-4">Update</h2>
                 <form onSubmit={handleSubmit} className="space-y-4">
                     {loading && <p className="text-blue-500">Uploading data...</p>}
 

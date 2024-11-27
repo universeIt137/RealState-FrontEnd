@@ -22,6 +22,7 @@ const UpdateCareer = () => {
         }
     })
 
+    window.scrollTo(0,0);
 
 
 

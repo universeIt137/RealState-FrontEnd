@@ -54,7 +54,7 @@ const ManageBestProject = () => {
                                 <tr key={project._id} className="text-center">
                                     <td className="px-4 py-2 border font-semibold">{project.heading}</td>
                                     <td className="px-4 py-2 border">{project.short_description}</td>
-                                    <td className="px-4 py-2 border">
+                                    <td className="px-4 py-2 border flex ">
                                         <button
                                             onClick={() => projectDelete(project._id)}
                                             className="px-2 py-1 bg-red-500 text-white rounded mr-2"

@@ -22,6 +22,8 @@ const UpdateChairman = () => {
         }
     })
 
+    window.scrollTo(0, 0);
+
 
 
 
