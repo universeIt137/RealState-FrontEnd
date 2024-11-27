@@ -95,6 +95,9 @@ const ManageFeaturePage = () => {
             <Helmet>
                 <title>Dashboard | Add Feature</title>
             </Helmet>
+
+            <FeatureDataTable></FeatureDataTable>
+
             <h2 className="text-2xl font-bold text-center mb-6">Add Feature</h2>
             <form onSubmit={handleSubmit}>
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
@@ -263,7 +266,7 @@ const ManageFeaturePage = () => {
                 </div>
             </form>
 
-            <FeatureDataTable></FeatureDataTable>
+            
         </div>
     );
 };

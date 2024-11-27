@@ -59,7 +59,7 @@ const BannerCarousel = ({ banner_images }) => {
                         >
 
                             {/* Dark Overlay */}
-                            <div className="absolute inset-0 bg-black bg-opacity-25"></div>
+                            <div className="absolute inset-0 bg-black bg-opacity-40"></div>
                         </div>
                     ))}
             </div>
@@ -91,10 +91,10 @@ const BannerCarousel = ({ banner_images }) => {
                     {/* Title */}
                     <h2
                         key={currentIndex} // Unique key to re-render and trigger animation
-                        className="text-5xl font-bold mb-4"
+                        className="text-5xl font-bold mb-4 "
                         data-aos="fade-up" // AOS fade-up effect
                     >
-                        {bannerDataList[currentIndex]?.banner_text || 'No Banner Text'}
+                        {bannerDataList[currentIndex]?.banner_text || ''}
                     </h2>
                 </div>
             </div>

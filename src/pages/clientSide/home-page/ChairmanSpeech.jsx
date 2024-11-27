@@ -36,11 +36,6 @@ const ChairmanSpeech = () => {
   })
 
 
- 
-
-
-
-
 
   return (
     <div className="w-11/12 mx-auto  ">
@@ -48,7 +43,9 @@ const ChairmanSpeech = () => {
         <div className="lg:w-1/2  relative -mt-40 lg:mt-0">
           <div
             className="relative   rounded-lg shadow-md cursor-pointer overflow-hidden">
-            <div
+            {
+              (content?.youtubeVideos || content?.videoUrl ) ?
+              <div
               onClick={() => handlePlayButtonClick(`${content?.youtubeVideos ? content?.youtubeVideos : content?.videoUrl }`)}
               className="h-[35.9vw] lg:h-[25.9vw] cursor-pointer  rounded-lg overflow-hidden"
             >
@@ -60,6 +57,11 @@ const ChairmanSpeech = () => {
                 playIcon={<IoPlayCircleSharp className="text-7xl text-red-600" />} // Custom play button
               />
             </div>
+            :
+            <div className="">
+              <img src={content?.chairmanImageUrl} className='bg-cover' alt="" />
+            </div>
+            }
           </div>
         </div>
 
