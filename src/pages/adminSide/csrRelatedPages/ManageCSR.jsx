@@ -49,6 +49,8 @@ const ManageCSR = () => {
         });
     };
 
+    window.scrollTo(0, 0);
+
 
     return (
         <div className="overflow-x-auto w-full my-5">
@@ -63,7 +65,7 @@ const ManageCSR = () => {
                 </thead>
                 <tbody>
                     {
-                        contents?.map((content) => (
+                        contents && contents?.map((content) => (
                             <tr key={content?._id} className="text-center">
                                 <td className="px-4 py-2 border font-semibold">{content?.title}</td>
                                 <td className="px-4 py-2 border">
@@ -74,7 +76,7 @@ const ManageCSR = () => {
                                         </div>
                                     </div>
                                 </td>
-                                <td className="px-4 py-2 border">
+                                <td className="px-4 py-2 border flex ">
                                     <button
                                        
                                         className="px-2 py-1 bg-blue-500 text-white rounded mr-2"

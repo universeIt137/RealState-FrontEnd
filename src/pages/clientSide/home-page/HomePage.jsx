@@ -19,6 +19,7 @@ import { useQuery } from '@tanstack/react-query'
 import { Helmet } from 'react-helmet-async'
 import ClientReviewHome from './ClientReviewHome';
 import BannerCarousel2 from './BannerCarousel2'
+import CoreValue from '../mission-and-vission/CoreValue'
 
 
 const HomePage = () => {
@@ -56,6 +57,7 @@ const HomePage = () => {
       <ProjectFeaturePage></ProjectFeaturePage>
       {/* <ProjectInfo></ProjectInfo> */}
       {/* <AboutUs></AboutUs> */}
+      <CoreValue></CoreValue>
       <ClientReviewHome></ClientReviewHome>
       {/* <Team></Team> */}
       {/* <TestimonialCard></TestimonialCard> */}
