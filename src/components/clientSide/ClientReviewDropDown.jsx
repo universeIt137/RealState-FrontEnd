@@ -3,6 +3,7 @@ import { FaPlay, FaArrowLeft, FaArrowRight, FaTimes } from 'react-icons/fa';
 import ReactPlayer from 'react-player';
 import { useQuery } from '@tanstack/react-query';
 import useAxiosPublic from '../../hooks/useAxiosPublic';
+import { Helmet } from 'react-helmet-async';
 
 function ClientReviewDropDown() {
     window.scrollTo(0, 0);
@@ -19,6 +20,8 @@ function ClientReviewDropDown() {
             return res.data;
         }
     });
+
+    window.scrollTo(0, 0);
 
     useEffect(() => {
         if (!autoChange) return;
@@ -54,6 +57,9 @@ function ClientReviewDropDown() {
 
     return (
         <div className="w-11/12 lg:mt-28 mt-28 mx-auto">
+            <Helmet>
+                <title>Amar Thikana | Client Review</title>
+            </Helmet>
             <div className="lg:ml-[60px] -mt-10 lg:-mt-6 text-black font-bold">
                 <h1 className="lg:text-4xl uppercase">What customers</h1>
                 <h1 className="lg:text-4xl uppercase">say about us</h1>

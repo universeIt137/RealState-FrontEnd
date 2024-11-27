@@ -22,7 +22,7 @@ import BannerCarousel2 from './BannerCarousel2'
 
 
 const HomePage = () => {
-  // window.scrollTo(0, 0);
+  window.scrollTo(0, 0);
 
   const axiosPublic = useAxiosPublic();
   const { data: webContent = {} } = useQuery({
@@ -44,12 +44,7 @@ const HomePage = () => {
       <Helmet>
         <title>Amer Thikana</title>
       </Helmet>
-      {/* carousel */}
-       {/* <Carousel></Carousel> */}
-
-      {/* <div className="">
-        <BannerSlider></BannerSlider>
-      </div>  */}
+      
 
       <BannerCarousel banner_images={webContent?.banner_images}></BannerCarousel>
       {/* <BannerCarousel2></BannerCarousel2> */}

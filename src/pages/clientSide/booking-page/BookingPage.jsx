@@ -1,4 +1,5 @@
 import React from 'react';
+import { Helmet } from 'react-helmet-async';
 
 const BookingPage = () => {
 
@@ -29,6 +30,9 @@ const BookingPage = () => {
 
     return (
         <div>
+            <Helmet>
+                <title>Amar Thikana | Booking Form</title>
+            </Helmet>
         <div className='max-w-screen-xl lg:mt-28 mx-auto'>
             <div className='lg:ml-10'>
                 <img className=" block mx-auto w-[900px] " src="https://res.cloudinary.com/dnvmj9pvk/image/upload/v1730635616/real-state-form_lfoa16.jpg" alt="Real Estate Form" />
