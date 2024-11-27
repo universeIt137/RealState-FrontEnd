@@ -37,7 +37,7 @@ const ProjectFeaturePage = () => {
             {feature?.address}
           </p>
         </div>
-        <h1 className='lg:text-4xl font-bold text-center mb-6 ' >Image Gallery</h1>
+        {/* <h1 className='lg:text-4xl font-bold text-center mb-6 ' >Image Gallery</h1> */}
         <div className='' >
 
           <ProjectFeatureImgGallery images={feature?.images}></ProjectFeatureImgGallery>
@@ -72,7 +72,7 @@ const ProjectFeaturePage = () => {
           </div>
         </div>
         {/* video gallery */}
-        <ProjectFeatureVideoGallery videos = {feature?.videos}></ProjectFeatureVideoGallery>
+        <ProjectFeatureVideoGallery videosData = {feature?.videos}></ProjectFeatureVideoGallery>
         {/* CTA Button */}
         <div className="text-center  bg-cover bg-center">
           <button className="md:px-6 px-3 py-2 text-[10px] md:text-[16px] md:py-3 bg-gradient-to-r from-[#027F3D] to-[#034A26] bg-opacity-90 text-white my-3 font-bold rounded-lg hover:bg-green-600 transition-colors duration-300">

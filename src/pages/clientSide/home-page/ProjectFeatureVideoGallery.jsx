@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import ReactPlayer from 'react-player';
 import { AiOutlinePlayCircle, AiOutlinePauseCircle } from 'react-icons/ai';
-import { IoCloseCircleOutline } from "react-icons/io5";
+import { IoCloseCircleOutline, IoPlayCircleSharp } from "react-icons/io5";
 import { useQuery } from '@tanstack/react-query';
 import useAxiosPublic from '../../../hooks/useAxiosPublic';
 
 // Sample video data
 
 
-const ProjectFeatureVideoGallery = () => {
+const ProjectFeatureVideoGallery = ({ videosData }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [currentVideo, setCurrentVideo] = useState(null);
   const [isPlaying, setIsPlaying] = useState(false);
@@ -16,21 +16,14 @@ const ProjectFeatureVideoGallery = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
-  const axiosPublic = useAxiosPublic(); 
 
-  const { data: videosData = [], refetch, isLoading } = useQuery({
-    queryKey: ['videoGallery'],
-    queryFn: async () => {
-        const res = await axiosPublic.get('/videoGallery');
-        // Ensure the response is an array
-        return res.data
-    },
-});
+
+
 
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentIndex((prevIndex) => (prevIndex + 1) % videosData.length);
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % videosData?.length);
     }, 3000); // Slide every 3 seconds
 
     const handleResize = () => setWindowWidth(window.innerWidth); // Resize handler
@@ -87,18 +80,23 @@ const ProjectFeatureVideoGallery = () => {
               transform: `translateX(-${currentIndex * (windowWidth < 640 ? 100 : 33.33)}%)`,
             }}
           >
-            {videosData.map((video, index) => (
+            {videosData?.map((video, index) => (
               <div key={index} className="relative flex-shrink-0 w-full sm:w-1/2 lg:w-1/3 px-1">
-                <img
-                  src={video.img}
-                  // alt={video.title}
+                <div
                   onClick={() => openModal(video)}
-                  className="w-full h-48 object-cover rounded-lg shadow-lg cursor-pointer"
-                />
-                <div className="absolute inset-0 hidden group-hover:flex items-center justify-center">
-                  <AiOutlinePlayCircle
-                    size={50}
-                    className="text-[#21c45e] opacity-80 hover:opacity-100 cursor-pointer"
+                  className="h-[35.9vw] lg:h-[12.9vw] cursor-pointer  rounded-lg overflow-hidden"
+                >
+
+
+                  <ReactPlayer
+                    url={`${video?.videoUrl}`}
+                    width="100%"
+                    height="100%"
+                    playing={false} // Ensure the video doesn't autoplay
+                    controls={false} // Disable controls
+                    light={false} // Ensure no light mode is active
+                    className="pointer-events-none" // Disable player interaction
+                    playIcon={<IoPlayCircleSharp className="text-7xl text-red-600" />} // Custom play button
                   />
                 </div>
               </div>
@@ -112,13 +110,13 @@ const ProjectFeatureVideoGallery = () => {
               onClick={closeModal}
               className="absolute top-4 right-4 text-2xl text-gray-300 z-10"
             >
-              <IoCloseCircleOutline size={50}/>
+              <IoCloseCircleOutline size={50} />
             </button>
 
             {/* Modal for Video Player */}
             <div className="relative w-full max-w-4xl h-[70vh] flex items-center justify-center bg-gray-900 rounded-lg">
               <ReactPlayer
-                url={currentVideo?.youtubeUrl||currentVideo.url}
+                url={currentVideo?.videoUrl}
                 playing={isPlaying}
                 width="100%"
                 height="100%"

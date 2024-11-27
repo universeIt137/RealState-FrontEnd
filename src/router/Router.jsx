@@ -53,6 +53,7 @@ import VideoGalleryUpdate from "../pages/adminSide/videoGalleryRelatedPage/Video
 import UploadImg from "../pages/adminSide/imgGalleryRelatedPage/UploadImg";
 import UpdateImg from "../pages/adminSide/imgGalleryRelatedPage/UpdateImg";
 import ManageApply from "../pages/adminSide/careerRelatedPages/ManageApply";
+import UpdateFeaturePage from "../pages/adminSide/projectFeatureRelatedPage/UpdateFeaturePage";
 
 
 
@@ -172,9 +173,15 @@ export const router = createBrowserRouter([
                 path: "add-overview",
                 element: <ManageProjectOverview></ManageProjectOverview>
             },
+
+            // Feature related routes 
             {
                 path: "add-features",
                 element: <ManageFeaturePage></ManageFeaturePage>
+            },
+            {
+                path: "update-features/:id",
+                element: <UpdateFeaturePage></UpdateFeaturePage>
             },
             {
                 path: "add-review",

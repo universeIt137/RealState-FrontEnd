@@ -54,8 +54,8 @@ const FeatureDataTable = () => {
             <table className="min-w-full bg-white border border-gray-300">
                 <thead>
                     <tr>
-                        <th className="px-4 py-2 border">Project Heading</th>
-                        {/* <th className="px-4 py-2 border">Project Title</th> */}
+                        <th className="px-4 py-2 border"> Name</th>
+                        <th className="px-4 py-2 border">Address</th>
                         <th className="px-4 py-2 border">Actions</th>
                     </tr>
                 </thead>
@@ -64,11 +64,17 @@ const FeatureDataTable = () => {
                         contents?.map((content) => (
                             <tr key={content?._id} className="text-center">
                                 <td className="px-4 py-2 border font-semibold">{content?.heading}</td>
-                                {/* <td className="px-4 py-2 border">
-                                    {content?.title}
-                                </td> */}
                                 <td className="px-4 py-2 border">
-                                    
+                                    {content?.address}
+                                </td>
+                                <td className="px-4 py-2 border flex justify-center gap-4">
+                                    <button
+
+                                        className="px-2 py-1 bg-blue-500 text-white rounded"
+                                    >
+                                        <Link to={`/dashboard/update-features/${content?._id}`}>Update</Link>
+                                        
+                                    </button>
                                     <button
                                         onClick={() => handleDelete(content?._id)}
                                         className="px-2 py-1 bg-red-500 text-white rounded"

@@ -39,51 +39,51 @@ const ProjectFeatureImgGallery = ({ images }) => {
   };
 
   return (
-    // <div className="relative w-full overflow-hidden">
-    //   {/* Image Slider */}
-    //   <div
-    //     className="flex transition-transform duration-500 md:mb-7"
-    //     style={{
-    //       transform: `translateX(-${currentIndex * (window.innerWidth < 640 ? 100 : 33.33)}%)`,
-    //     }}
-    //   >
-    //     {images?.map((image) => (
-    //       <div
-    //         key={image.id}
-    //         className={`flex-shrink-0 px-2 ${window.innerWidth < 640 ? 'w-full' : 'w-1/3'}`}
-    //       >
-    //         <img
-    //           src={image}
+    <div className="relative w-full overflow-hidden">
+      {/* Image Slider */}
+      <div
+        className="flex transition-transform duration-500 md:mb-7"
+        style={{
+          transform: `translateX(-${currentIndex * (window.innerWidth < 640 ? 100 : 33.33)}%)`,
+        }}
+      >
+        {images?.map((image) => (
+          <div
+            key={image.id}
+            className={`flex-shrink-0 px-2 ${window.innerWidth < 640 ? 'w-full' : 'w-1/3'}`}
+          >
+            <img
+              src={image}
               
-    //           className="w-full h-56 object-cover rounded-lg shadow-md cursor-pointer"
-    //           onClick={() => openModal(image)} // Open modal on image click
-    //         />
-    //       </div>
-    //     ))}
-    //   </div>
+              className="w-full h-56 object-cover rounded-lg shadow-md cursor-pointer"
+              onClick={() => openModal(image)} // Open modal on image click
+            />
+          </div>
+        ))}
+      </div>
 
-    //   {/* Modal */}
-    //   {isModalOpen && (
-    //     <div className="fixed inset-0 bg-black bg-opacity-80 flex justify-center items-center z-50">
-    //       <div className="relative">
-    //         <button
-    //           className="absolute top-20 right-4 p-3 text-white font-bold text-2xl bg-black rounded-full"
-    //           onClick={closeModal} // Close modal
-    //         >
-    //           <IoCloseSharp size={30} />
-    //         </button>
-    //         <img
-    //           src={modalImage}
-    //           alt="Modal Image"
-    //           className="min-w-[50vw] min-h-[50vh] object-contain" 
-    //         />
-    //       </div>
-    //     </div>
-    //   )}
-    // </div>
-    <div className='lg:-mt-28 -mt-5 ' >
-        <ImageGallery></ImageGallery>
+      {/* Modal */}
+      {isModalOpen && (
+        <div className="fixed inset-0 bg-black bg-opacity-80 flex justify-center items-center z-50">
+          <div className="relative">
+            <button
+              className="absolute top-20 right-4 p-3 text-white font-bold text-2xl bg-black rounded-full"
+              onClick={closeModal} // Close modal
+            >
+              <IoCloseSharp size={30} />
+            </button>
+            <img
+              src={modalImage}
+              alt="Modal Image"
+              className="min-w-[50vw] min-h-[50vh] object-contain" 
+            />
+          </div>
+        </div>
+      )}
     </div>
+    // <div className='lg:-mt-28 -mt-5 ' >
+    //     <ImageGallery></ImageGallery>
+    // </div>
   );
 };
 
