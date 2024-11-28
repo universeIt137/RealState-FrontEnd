@@ -96,7 +96,10 @@ const ManageFeaturePage = () => {
                 <title>Dashboard | Add Feature</title>
             </Helmet>
 
-            <FeatureDataTable></FeatureDataTable>
+            <div className="mb-20">
+                <h2 className="text-2xl font-bold text-center mb-6">Manage Feature</h2>
+                <FeatureDataTable></FeatureDataTable>
+            </div>
 
             <h2 className="text-2xl font-bold text-center mb-6">Add Feature</h2>
             <form onSubmit={handleSubmit}>
@@ -216,7 +219,7 @@ const ManageFeaturePage = () => {
                                     required
                                 />
 
-                               
+
                                 {videos.length > 1 && (
                                     <button
                                         type="button"
@@ -258,7 +261,7 @@ const ManageFeaturePage = () => {
                 <div className="text-center">
                     <button
                         type="submit"
-                        className={`mt-4 bg-green-500 text-white bg-blue-500 px-6 py-2 rounded hover:bg-green-600 transition duration-300 ${loading ? 'opacity-50 cursor-not-allowed' : ''}`}
+                        className={`mt-4 bg-green-500 text-white bg-green px-6 py-2 rounded hover:bg-green-600 transition duration-300 ${loading ? 'opacity-50 cursor-not-allowed' : ''}`}
                         disabled={loading}
                     >
                         {loading ? 'Uploading...' : 'Submit'}
@@ -266,7 +269,7 @@ const ManageFeaturePage = () => {
                 </div>
             </form>
 
-            
+
         </div>
     );
 };

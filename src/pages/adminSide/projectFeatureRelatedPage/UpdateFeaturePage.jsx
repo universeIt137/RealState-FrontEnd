@@ -274,13 +274,15 @@ const UpdateFeaturePage = () => {
                     </button>
                 </div>
 
-                <button
-                    type="submit"
-                    disabled={loading}
-                    className={`mt-4 w-full bg-green text-white p-3 rounded ${loading && 'opacity-50 cursor-not-allowed'}`}
-                >
-                    {loading ? 'Updating...' : 'Update Feature'}
-                </button>
+                <div className="w-1/3 mx-auto">
+                    <button
+                        type="submit"
+                        disabled={loading}
+                        className={`mt-4 w-full bg-green text-white p-3 rounded ${loading && 'opacity-50 cursor-not-allowed'}`}
+                    >
+                        {loading ? 'Updating...' : 'Update Feature'}
+                    </button>
+                </div>
             </form>
         </div>
     );

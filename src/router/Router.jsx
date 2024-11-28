@@ -54,6 +54,8 @@ import UploadImg from "../pages/adminSide/imgGalleryRelatedPage/UploadImg";
 import UpdateImg from "../pages/adminSide/imgGalleryRelatedPage/UpdateImg";
 import ManageApply from "../pages/adminSide/careerRelatedPages/ManageApply";
 import UpdateFeaturePage from "../pages/adminSide/projectFeatureRelatedPage/UpdateFeaturePage";
+import ManageCharacteristics from "../pages/adminSide/bestCharacteristicsRelatedPage/ManageCharacteristics";
+import UpdateCharacteristics from "../pages/adminSide/bestCharacteristicsRelatedPage/UpdateCharacteristics";
 
 
 
@@ -293,7 +295,18 @@ export const router = createBrowserRouter([
             {
                 path: "manage-apply",
                 element: <ManageApply></ManageApply>
+            },
+
+            // Best characteristics related routes 
+            {
+                path: "manage-characteristics",
+                element: <ManageCharacteristics></ManageCharacteristics>
+            },
+            {
+                path: "update-characteristics/:id",
+                element: <UpdateCharacteristics></UpdateCharacteristics>
             }
+
             
         ]
     }

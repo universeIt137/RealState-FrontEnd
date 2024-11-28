@@ -2,6 +2,7 @@ import { useQuery } from '@tanstack/react-query';
 import React from 'react'
 import { FiArrowRight } from 'react-icons/fi';
 import useAxiosPublic from '../../../hooks/useAxiosPublic';
+import { Link } from 'react-router-dom';
 const features = [
     {
         title: "20 feet and 30 feet wide roads.",
@@ -44,8 +45,8 @@ const ProjectPage = () => {
                 <section className="relative bg-cover bg-center " >
                     <div className="absolute inset-0  opacity-50"></div>
                     <div className="relative z-10 flex flex-col justify-center items-center text-black text-justify px-2 lg:px-4">
-                        <h1 className="lg:text-4xl font-bold">Discover Why Our Project is the Best</h1>
-                        <p className="text-[10px] lg:text-xl lg:my-4 text-justify max-w-2xl">Experience modern living in a serene environment with top-notch amenities, built to suit your lifestyle.</p>
+                        <h1 className="lg:text-4xl font-bold">কেন আমাদের প্রকল্প সেরা </h1>
+                        <p className="text-[10px] lg:text-xl lg:my-4 text-center max-w-2xl">আপনার লাইফস্টাইলের সাথে মানানসই তৈরি করা সেরা সুবিধা সহ একটি নির্মল পরিবেশে আধুনিক জীবনযাপনের অভিজ্ঞতা নিন।</p>
                     </div>
                 </section>
 
@@ -84,7 +85,9 @@ const ProjectPage = () => {
                     <h2 className=" lg:text-4xl text-black font-bold  lg:mb-2">Ready to Make This Your Home?</h2>
                     <p className="text-black text-[10px] lg:text-xl mb-2 lg:mb-2">Schedule a tour today and see for yourself why our project is the perfect place to live.</p>
                     <button className=" bg-gradient-to-r from-[#027F3D] to-[#034A26] bg-opacity-90  font-semibold px-8 py-3 rounded-lg text-[10px] lg:text-[16px] text-white ">
-                        Schedule a Tour
+                        <Link to={'/contact-us'}>
+                            Schedule a Tour
+                        </Link>
                     </button>
                 </section>
             </div>

@@ -64,7 +64,7 @@ const AddReview = () => {
 
         // Simulate form submission
         try {
-            const data = { heading, name, role, youtubeVideo, thumbnailUrl, videoUrl,description }
+            const data = { heading, name, role, youtubeVideo, thumbnailUrl, videoUrl, description }
 
             axiosPublic.post(`/client-review`, data)
                 .then(res => {
@@ -93,6 +93,14 @@ const AddReview = () => {
             <Helmet>
                 <title>Dashboard | Upload Review</title>
             </Helmet>
+
+            <div className="mb-20">
+            <h2 className="text-2xl font-semibold mb-4 text-center">Manage Review</h2>
+
+                <ManageReview></ManageReview>
+
+            </div>
+
             <h2 className="text-2xl font-semibold mb-4">Upload Review</h2>
             <form onSubmit={handleSubmit} className="space-y-4">
                 {loading && <p className="text-blue-500">Uploading data...</p>}
@@ -148,13 +156,12 @@ const AddReview = () => {
                 </div>
 
                 <div className="w-1/4 mx-auto">
-                    <button type="submit" className="w-full py-2 bg-blue-500 text-white rounded-md">
+                    <button type="submit" className="w-full py-2 bg-green text-white rounded-md">
                         {loading ? "Uploading..." : "Submit"}
                     </button>
                 </div>
             </form>
 
-            <ManageReview></ManageReview>
 
         </div>
     );

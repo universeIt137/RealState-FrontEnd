@@ -61,15 +61,15 @@ function ClientReviewHome() {
                 {/* Video Section */}
                 <div className="relative w-full h-72 lg:h-80">
                     <ReactPlayer
-                        url={currentTestimonial?.youtubeVideo}
+                        url={currentTestimonial?.youtubeVideo || currentTestimonial?.videoUrl}
                         className="w-full h-full object-cover hover:scale-105 transform transition duration-300 ease-in-out"
                         playing={false}
-                        light
+                        light={currentTestimonial?.thumbnailUrl}
                         width="100%"
                         height="100%"
                     />
                     <button
-                        onClick={() => handlePlay(currentTestimonial.youtubeVideo)}
+                        onClick={() => handlePlay(currentTestimonial?.youtubeVideo || currentTestimonial?.videoUrl)}
                         className="absolute inset-0 flex justify-center items-center text-white text-3xl rounded-full"
                     >
                         <FaPlay className="bg-white text-red-600 p-2 rounded-full w-12 h-12" />

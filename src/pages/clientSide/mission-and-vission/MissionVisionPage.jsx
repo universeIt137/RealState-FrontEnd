@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import useAxiosPublic from '../../../hooks/useAxiosPublic';
 import { useQuery } from '@tanstack/react-query';
 import CoreValue from './CoreValue';
+import Characteristics from './Characteristics';
 const coreValues = [
   {
     title: "Integrity",
@@ -97,7 +98,7 @@ const MissionVision = () => {
               ))}
           </div>
         </section> */}
-        <CoreValue></CoreValue>
+        <Characteristics></Characteristics>
 
 
       </div>

@@ -7,29 +7,12 @@ import useAxiosPublic from '../../../hooks/useAxiosPublic';
 import { useQuery } from '@tanstack/react-query';
 import { Helmet } from 'react-helmet-async';
 import ProjectLayout2 from '../project-layout-page/ProjectLayout2';
+import Characteristics from '../mission-and-vission/Characteristics';
+import ProjectPage from '../home-page/ProjectPage';
+import Characteristics2 from '../mission-and-vission/Characteristics2';
 
 const ProjectDetails = () => {
     window.scrollTo(0, 0);
-    const property = {
-        heading: "Luxurious Apartment in Downtown",
-        location: "Dhaka-Mawa 300 Feet Road, Amar Thikana, Green City.",
-        images: [
-            "https://via.placeholder.com/800x400", // Replace with actual image URLs
-            "https://via.placeholder.com/800x400",
-        ],
-        video: "https://www.youtube.com/embed/your_video_id", // Replace with actual video URL
-        description: "This stunning downtown apartment offers breathtaking city views, modern amenities, and convenient access to shops and restaurants.",
-
-    };
-
-    const amenitiesList = [
-        "Swimming Pool",
-        "Gym & Fitness Center",
-        "24/7 Security",
-        "Parking Facility",
-        "Playground",
-        "Community Hall",
-    ];
 
 
 
@@ -59,7 +42,7 @@ const ProjectDetails = () => {
             {/* Image Gallery */}
             <div className="bg-white rounded-lg shadow-lg p-3 border-2 lg:mt-4 lg:p-6 ">
                 <h2 className="lg:text-2xl text-[15px] font-semibold text-gray-800">Project Images</h2>
-                <ProjectFeatureImgGallery />
+                <ProjectFeatureImgGallery images={feature?.images} />
             </div>
 
             {/* Video Section */}
@@ -67,7 +50,7 @@ const ProjectDetails = () => {
                 <h2 className="lg:text-2xl text-[15px] font-semibold text-gray-800">Project Video</h2>
                 <div className='block mt-1  lg:mt-0  ' >
                     <div className="">
-                        <ProjectFeatureVideoGallery></ProjectFeatureVideoGallery>
+                        <ProjectFeatureVideoGallery videosData={feature?.videos}></ProjectFeatureVideoGallery>
                     </div>
                 </div>
             </div>
@@ -80,7 +63,7 @@ const ProjectDetails = () => {
 
             {/* Features */}
             <div className=" rounded-lg shadow-lg my-6 border-2 p-3 lg:p-6 lg:space-y-4">
-                <h2 className="text-black lg:text-3xl text-[16px] font-bold">Project Features</h2>
+                <h2 className="text-black lg:text-3xl text-[16px] font-bold">নাগরিক সুবিধা</h2>
                 <div className="md:mb-8">
                     <ul className="flex flex-col md:grid md:grid-cols-2 lg:grid-cols-3 text-black gap-2 mt-2 lg:mt-0 lg:gap-4">
                         {feature.contents?.map((amenity, index) => (
@@ -95,11 +78,15 @@ const ProjectDetails = () => {
                     </ul>
                 </div>
             </div>
+            <Characteristics2></Characteristics2>
             {/* Project Layout  */}
             <h1 className='lg:text-4xl font-bold lg:mt-5 lg:mb-5 lg:py-2 ml-6 '  >Project Layout</h1>
-            <div className='' >
+            <div className='my-5' >
                 {/* <ProjectLayout></ProjectLayout> */}
                 <ProjectLayout2></ProjectLayout2>
+            </div>
+            <div className="mt-20 ">
+                <ProjectPage></ProjectPage>
             </div>
         </div>
     );
