@@ -52,7 +52,7 @@ const ManageBannerPage = () => {
 
     return (
         <div className="overflow-x-auto w-full my-5">
-            <p className="text-2xl font-bold text-center mb-2">Manage CSR</p>
+            <p className="text-2xl font-bold text-center mb-2">Manage Banner</p>
             <table className="min-w-full bg-white border border-gray-300">
                 <thead>
                     <tr>

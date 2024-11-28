@@ -89,7 +89,14 @@ const ManageChairman = () => {
             <Helmet>
                 <title>Dashboard | Manage Chairman</title>
             </Helmet>
-            <h2 className="text-2xl font-semibold mb-4">Upload Chairman's Content</h2>
+
+            <div className="">
+            <h2 className="text-2xl font-semibold mb-4 text-center">Manage Chairman's Data</h2>
+
+                <ChairmanDataTable></ChairmanDataTable>
+            </div>
+
+            <h2 className="text-2xl font-semibold mb-4 text-center">or <br />Upload Chairman's Content</h2>
             <form onSubmit={handleSubmit} className="space-y-4">
                 {loading && <p className="text-blue-500">Uploading data...</p>}
 
@@ -136,7 +143,6 @@ const ManageChairman = () => {
                 </div>
             </form>
 
-            <ChairmanDataTable></ChairmanDataTable>
         </div>
     );
 };

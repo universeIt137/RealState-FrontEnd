@@ -4,8 +4,8 @@ import { MdDelete, MdDeleteForever, MdEditSquare } from 'react-icons/md';
 import Swal from 'sweetalert2';
 import { useState } from 'react';
 import useAxiosPublic from '../../../hooks/useAxiosPublic';
-import { uploadImg } from '../../../uploadFile/uploadImg';
 import { useNavigate, useParams } from 'react-router-dom';
+import { uploadImg } from '../../../uploadFile/uploadImg';
 
 
 const BannerUpdatePage = () => {
@@ -16,7 +16,7 @@ const BannerUpdatePage = () => {
     const [loading, setLoading] = useState(false);
 
 
-    const { data: singleBannerData = [], refetch, isLoading } = useQuery({
+    const { data: singleBannerData = {}, refetch, isLoading } = useQuery({
         queryKey: ['singleBanner'],
         queryFn: async () => {
             const res = await axiosPublic.get(`/banner/${id}`);
@@ -27,8 +27,9 @@ const BannerUpdatePage = () => {
     const navigate = useNavigate();
 
 
+    // console.log('from line 30', singleBannerData);
 
-    const {img : upcommingImg } = singleBannerData;
+  
 
 
 
@@ -39,18 +40,17 @@ const BannerUpdatePage = () => {
         const form = event.target;
         const banner_text = form.banner_text.value;
 
-        const img = form.img.files[0];
-        // console.log(GalleryImage)
+        const image = form.img.files[0];
 
-        let updateImgUrl = upcommingImg;
+        let img = singleBannerData?.img;
 
-        if (img?.name) {
-            updateImgUrl = upcommingImg;
+        if (image?.name) {
+            img = await uploadImg(image)
         }
-        updateImgUrl = await uploadImg(img)
 
-        const data = { img: updateImgUrl, banner_text };
+        const data = {  img, banner_text };
 
+        // console.log('from line 54',data);
         axiosPublic.put(`/banner/${id}`, data)
             .then(res => {
                 if (res) {
@@ -112,7 +112,7 @@ const BannerUpdatePage = () => {
                         </div>
                         <div className="p-2 w-full">
                             <div className='flex justify-center items-center'>
-                                <button className='btn btn-primary'>
+                                <button className='btn text-white bg-green'>
                                     {
                                         loading ? 'Uploading....' : 'Submit'
                                     }

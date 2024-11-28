@@ -28,7 +28,7 @@ const CoreValue = () => {
                                 key={index}
                                 className=" bg-gradient-to-r from-[#027F3D] to-[#034A26] bg-opacity-90 p-3 md:p-6 rounded-lg shadow-lg flex flex-col items-center text-center transform transition duration-300 hover:scale-105"
                             >
-                                <h3 className="md:text-4xl font-bold text-white md:mb-4">
+                                <h3 className="md:text-2xl font-bold text-white md:mb-4">
                                     {value?.heading}
                                 </h3>
                                 <p className="text-white text-[10px] md:text-lg text-center leading-relaxed">
