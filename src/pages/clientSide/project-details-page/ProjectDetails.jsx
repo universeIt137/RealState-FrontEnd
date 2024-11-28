@@ -6,6 +6,7 @@ import VideoGalleryPage from '../video-gallery-page/VideoGalleryPage';
 import useAxiosPublic from '../../../hooks/useAxiosPublic';
 import { useQuery } from '@tanstack/react-query';
 import { Helmet } from 'react-helmet-async';
+import ProjectLayout2 from '../project-layout-page/ProjectLayout2';
 
 const ProjectDetails = () => {
     window.scrollTo(0, 0);
@@ -52,7 +53,7 @@ const ProjectDetails = () => {
                 <h1 className="lg:text-4xl text-[17px]  font-bold text-black">আমার ঠিকানা গ্রীন সিটি</h1>
 
                 <h1 className="lg:text-xl text-[15px] lg:text-center text-justify font-bold text-black">নিরাপদ জীবনযাপনের স্থান নিশ্চিত করুন – আজই জমির মালিক হোন!</h1>
-                <p className="lg:text-[16px] text-justify lg:text-center  text-[10px] lg:mb-0 mb-3 text-black">প্রকল্পের অবস্থান: ঢাকা-মাওয়া ৩০০ ফুট রোড, আমার ঠিকানা, গ্রীন সিটি।</p>
+                <p className="lg:text-[16px] text-justify lg:text-center  text-[10px] lg:mb-0 mb-3 text-black"><span className='font-bold'>প্রকল্পের অবস্থান:</span> ঢাকা গুলিস্থান জিরো পয়েন্ট থেকে মাত্র ২০ মিনিট দূরত্ব, বাবুবাজার ব্রীজ থেকে ১০ মিনিটের দূরত্বে ঢাকা-মাওয়া ৪০০ ফিট এক্সপ্রেস হাইওয়ের সন্নিকটে হাসাড়ায় গড়ে উঠছে "আমার ঠিকানা গ্রীন সিটি" সম্পূর্ন সবুজে ঘেরা ও আন্তর্জাতিক মানের সকল নাগরিক সুবিধা সম্বলিত আবাসন প্রকল্প "আমার ঠিকানা গ্রীন সিটি"</p>
             </div>
 
             {/* Image Gallery */}
@@ -97,7 +98,8 @@ const ProjectDetails = () => {
             {/* Project Layout  */}
             <h1 className='lg:text-4xl font-bold lg:mt-5 lg:mb-5 lg:py-2 ml-6 '  >Project Layout</h1>
             <div className='' >
-                <ProjectLayout></ProjectLayout>
+                {/* <ProjectLayout></ProjectLayout> */}
+                <ProjectLayout2></ProjectLayout2>
             </div>
         </div>
     );

@@ -127,7 +127,7 @@ const BannerUpload = () => {
                         </div>
                         <div className="p-2 w-full">
                             <div className='flex justify-center items-center'>
-                                <button className='btn btn-primary'>
+                                <button className='btn text-white bg-green'>
                                     {
                                         loading ? 'Uploading....' : 'Submit'
                                     }

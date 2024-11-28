@@ -92,7 +92,7 @@ const VideoGalleryPage = () => {
             }}
           >
             {videosData.map((video, index) => (
-              <div key={index} className="relative flex-shrink-0 w-full sm:w-1/2 lg:w-1/3 px-1">
+              <div key={index} className="relative flex-shrink-0 w-full sm:w-1/2 lg:w-1/4  px-5">
                 <img
                   src={video.img}
                   // alt={video.title}

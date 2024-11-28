@@ -27,6 +27,13 @@ const Sidebar = () => {
     };
 
 
+
+    const aboutPageUrls =
+        <>
+            <NavigationItem to="/dashboard/add-chairman" icon={MdAddCircle} label="Manage Chairman" />
+            <NavigationItem to="/dashboard/manage-aboutPage" icon={MdAddCircle} label="Manage About Page" />
+        </>
+    
     const courseUrls =
         <>
             <NavigationItem to="/dashboard/add-content" icon={MdAddCircle} label="Manage Contents" />
@@ -52,10 +59,7 @@ const Sidebar = () => {
             <NavigationItem to="/dashboard/add-review" icon={MdAddCircle} label="Manage Review" />
         </>
 
-    const aboutPageUrls =
-        <>
-            <NavigationItem to="/dashboard/manage-aboutPage" icon={MdAddCircle} label="Manage About Page" />
-        </>
+    
 
     const whyBestProjects =
         <>
@@ -96,7 +100,7 @@ const Sidebar = () => {
             <NavigationItem to="/dashboard/upload-video" icon={MdAddCircle} label="Upload Video" />
             <NavigationItem to="/dashboard/manage-video" icon={MdAddCircle} label="Manage Video" />
         </>
-    
+
     const careerUrl =
         <>
             <NavigationItem to="/dashboard/add-career" icon={MdAddCircle} label="Add Career" />
@@ -104,12 +108,12 @@ const Sidebar = () => {
             <NavigationItem to="/dashboard/manage-apply" icon={MdAddCircle} label="Manage Application" />
         </>
 
-const imgGallery =
-<>
-    <NavigationItem to="/dashboard/img-upload" icon={MdAddCircle} label="Upload Img" />
-</>
-    
-   
+    const imgGallery =
+        <>
+            <NavigationItem to="/dashboard/img-upload" icon={MdAddCircle} label="Upload Img" />
+        </>
+
+
 
 
     return (
@@ -140,12 +144,14 @@ const imgGallery =
                         />
 
                         <li className="mb-4">
-                            <Dropdown buttonText="Website Content" urls={courseUrls} />
+                            <Dropdown buttonText="Dynamic Pages Content" urls={aboutPageUrls} />
                         </li>
 
                         <li className="mb-4">
-                            <Dropdown buttonText="Chairman Content" urls={chairmanUrls} />
+                            <Dropdown buttonText="Website Content" urls={courseUrls} />
                         </li>
+
+                       
 
 
                         <li className="mb-4">
@@ -160,9 +166,7 @@ const imgGallery =
                             <Dropdown buttonText="Client Reviews" urls={reviewUrls} />
                         </li>
 
-                        <li className="mb-4">
-                            <Dropdown buttonText="Pages" urls={aboutPageUrls} />
-                        </li>
+
 
                         <li className="mb-4">
                             <Dropdown buttonText="Why Best Project" urls={whyBestProjects} />

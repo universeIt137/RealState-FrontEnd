@@ -4,32 +4,19 @@ import { Link } from 'react-router-dom';
 import useAxiosPublic from '../../../hooks/useAxiosPublic';
 import { useQuery } from '@tanstack/react-query';
 
-const awards = [
-  {
-    id: 1,
-    title: "REHAB CERTIFICATIONS  FAIR 2019",
-    category: "Awards",
-    image: "https://res.cloudinary.com/dnvmj9pvk/image/upload/v1731217393/certificate_rizubv.jpg",
-  },
-  {
-    id: 2,
-    title: "REHAB FAIR 2016",
-    category: "Awards",
-    image: "https://res.cloudinary.com/dnvmj9pvk/image/upload/v1731217466/img-2-certificate_y39ngn.png",
-  },
-  // Additional award objects...
-];
+
 
 const CertificationPage = () => {
 
   const axiosPublic = useAxiosPublic();
-  const { data: contents = [] } = useQuery({
-    queryKey: ['all data'],
+  const { data: certificate = [] } = useQuery({
+    queryKey: ['certificate'],
     queryFn: async () => {
       const res = await axiosPublic.get('/certificate');
       return res.data;
     }
   });
+  console.log(certificate)
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -46,7 +33,7 @@ const CertificationPage = () => {
             Awards of AmarThikana Properties Limited
           </h2>
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 lg:gap-8 px-3 lg:px-6">
-            {contents && contents?.map((award) => (
+            {certificate?.map((award) => (
               <div
                 key={award?._id}
                 className="bg-gradient-to-r from-[#027F3D] to-[#034A26] bg-opacity-90 rounded-lg shadow-2xl overflow-hidden lg:-mb-9 transform transition duration-300 hover:scale-105"
