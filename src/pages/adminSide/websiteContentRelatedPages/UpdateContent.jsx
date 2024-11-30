@@ -189,7 +189,7 @@ const UpdateContent = () => {
                     </div>
 
                     {/* Multiple Image Upload */}
-                    <div className="p-2 w-full">
+                    {/* <div className="p-2 w-full">
                         <div className="relative">
                             <label className="leading-7 text-sm text-gray-600 font-bold">Upload Multiple Banner Images</label><br />
                             <input
@@ -209,10 +209,10 @@ const UpdateContent = () => {
                                 </div>
                             </div>)
                         }
-                    </div>
+                    </div> */}
 
                     {/* Feature content Section */}
-                    <div className="mb-4">
+                    {/* <div className="mb-4">
                         <div className="mb-4">
                             <label className="block text-gray-700 font-semibold mb-2 text-xl">Core Values</label>
                             {contents.map((content, index) => (
@@ -271,7 +271,7 @@ const UpdateContent = () => {
                         </div>
 
 
-                    </div>
+                    </div> */}
 
                     <div className=" w-full">
                         <div className="relative">

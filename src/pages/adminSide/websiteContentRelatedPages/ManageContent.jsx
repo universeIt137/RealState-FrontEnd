@@ -165,7 +165,7 @@ const ManageContent = () => {
                     </div>
 
                     {/* Multiple Image Upload */}
-                    <div className="p-2 w-full">
+                    {/* <div className="p-2 w-full">
                         <div className="relative">
                             <label className="leading-7 text-sm text-gray-600 font-bold">Upload Multiple Banner Images</label><br />
                             <input
@@ -176,10 +176,10 @@ const ManageContent = () => {
                                 className="file-input file-input-bordered file-input-md w-full"
                             />
                         </div>
-                    </div>
+                    </div> */}
 
                     {/* Feature content Section */}
-                    <div className="mb-4">
+                    {/* <div className="mb-4">
                         <label className="block text-gray-700 font-semibold mb-2 text-xl">Core Values</label>
                         {contents.map((content, index) => (
                             <div key={index} className="flex gap-4 mb-2">
@@ -219,7 +219,7 @@ const ManageContent = () => {
                         >
                             Add Content
                         </button>
-                    </div>
+                    </div> */}
 
                     <div className=" w-full">
                         <div className="relative">

@@ -10,6 +10,8 @@ import ProjectLayout2 from '../project-layout-page/ProjectLayout2';
 import Characteristics from '../mission-and-vission/Characteristics';
 import ProjectPage from '../home-page/ProjectPage';
 import Characteristics2 from '../mission-and-vission/Characteristics2';
+import CurrentImageSlider from './components/CurrentImageSlider';
+import CustomMarquee from '../../../components/clientSide/CustomMarquee';
 
 const ProjectDetails = () => {
     window.scrollTo(0, 0);
@@ -24,6 +26,8 @@ const ProjectDetails = () => {
             return res.data[0];
         }
     })
+
+   
 
 
     return (
@@ -41,23 +45,24 @@ const ProjectDetails = () => {
 
             {/* Image Gallery */}
             <div className="bg-white rounded-lg shadow-lg p-3 border-2 lg:mt-4 lg:p-6 ">
-                <h2 className="lg:text-2xl text-[15px] font-semibold text-gray-800">Project Images</h2>
+                <h2 className="lg:text-2xl text-[15px] font-semibold text-gray-800">প্রকল্পের ছবি</h2>
                 <ProjectFeatureImgGallery images={feature?.images} />
             </div>
 
             {/* Video Section */}
             <div className="bg-white border-2 rounded-lg shadow-lg lg:px-6 p-3 my-4 lg:my-8 lg:space-y-4">
-                <h2 className="lg:text-2xl text-[15px] font-semibold text-gray-800">Project Video</h2>
+                <h2 className="lg:text-2xl text-[15px] font-semibold text-gray-800">প্রকল্প ভিডিও</h2>
                 <div className='block mt-1  lg:mt-0  ' >
                     <div className="">
                         <ProjectFeatureVideoGallery videosData={feature?.videos}></ProjectFeatureVideoGallery>
+                        {/* <CustomMarquee></CustomMarquee> */}
                     </div>
                 </div>
             </div>
 
             {/* Description */}
             <div className="bg-white rounded-lg shadow-lg p-3 text-justify lg:p-6 space-y-1 lg:space-y-4">
-                <h2 className="text-black lg:text-3xl text-[16px] font-bold ">Project Description</h2>
+                <h2 className="text-black lg:text-3xl text-[16px] font-bold ">প্রকল্পের বিবরণ</h2>
                 <p className="text-black lg:text-[17px] text-[10px]  ">{feature?.description}</p>
             </div>
 
@@ -79,8 +84,15 @@ const ProjectDetails = () => {
                 </div>
             </div>
             <Characteristics2></Characteristics2>
+
+             {/* Image Gallery */}
+             <div className="bg-white rounded-lg shadow-lg p-3 border-2 lg:mt-4 lg:p-6 ">
+                <h2 className="lg:text-2xl text-[15px] font-semibold text-gray-800">বর্তমান প্রকল্পের চিত্র</h2>
+                {/* <ProjectFeatureImgGallery images={feature?.images} /> */}
+                <CurrentImageSlider></CurrentImageSlider>
+            </div>
             {/* Project Layout  */}
-            <h1 className='lg:text-4xl font-bold lg:mt-5 lg:mb-5 lg:py-2 ml-6 '  >Project Layout</h1>
+            <h1 className='lg:text-4xl font-bold lg:mt-5 lg:mb-5 lg:py-2 ml-6 '  >প্রজেক্ট লেআউট</h1>
             <div className='my-5' >
                 {/* <ProjectLayout></ProjectLayout> */}
                 <ProjectLayout2></ProjectLayout2>

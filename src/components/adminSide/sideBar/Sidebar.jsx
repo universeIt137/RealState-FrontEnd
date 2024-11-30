@@ -38,6 +38,7 @@ const Sidebar = () => {
             <NavigationItem to="/dashboard/manage-characteristics" icon={MdAddCircle} label="Manage Characteristics" />
             <NavigationItem to="/dashboard/add-review" icon={MdAddCircle} label="Client Review" />
             <NavigationItem to="/dashboard/best-upload-form" icon={MdAddCircle} label="Why Our Project Best" />
+            <NavigationItem to="/dashboard/upload-current-image" icon={MdAddCircle} label="Manage Current Image" />
 
 
 

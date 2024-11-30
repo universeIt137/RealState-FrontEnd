@@ -56,6 +56,7 @@ import ManageApply from "../pages/adminSide/careerRelatedPages/ManageApply";
 import UpdateFeaturePage from "../pages/adminSide/projectFeatureRelatedPage/UpdateFeaturePage";
 import ManageCharacteristics from "../pages/adminSide/bestCharacteristicsRelatedPage/ManageCharacteristics";
 import UpdateCharacteristics from "../pages/adminSide/bestCharacteristicsRelatedPage/UpdateCharacteristics";
+import UploadCurrentImage from "../pages/adminSide/currentImageRelated/UploadCurrentImage";
 
 
 
@@ -305,6 +306,11 @@ export const router = createBrowserRouter([
             {
                 path: "update-characteristics/:id",
                 element: <UpdateCharacteristics></UpdateCharacteristics>
+            },
+            // current image related routes 
+            {
+                path: "upload-current-image",
+                element: <UploadCurrentImage></UploadCurrentImage>
             }
 
             
