@@ -5,6 +5,7 @@ import useAxiosPublic from '../../../hooks/useAxiosPublic';
 import { useQuery } from '@tanstack/react-query';
 import CoreValue from './CoreValue';
 import Characteristics from './Characteristics';
+import Characteristics2 from './Characteristics2';
 const coreValues = [
   {
     title: "Integrity",
@@ -98,8 +99,8 @@ const MissionVision = () => {
               ))}
           </div>
         </section> */}
-        <Characteristics></Characteristics>
 
+        <Characteristics2></Characteristics2>
 
       </div>
     </>
