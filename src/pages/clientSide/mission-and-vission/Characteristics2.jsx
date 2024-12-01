@@ -12,7 +12,7 @@ const TestimonialCard = ({ content }) => {
             <div className="flex items-center">
 
                 <div>
-                    <p className="text-[16px]">{content?.description}</p>
+                    <p className="text-[16px]">{content?.description.slice(0, 180)}</p>
                 </div>
             </div>
         </div>

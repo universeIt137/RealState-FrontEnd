@@ -55,7 +55,7 @@ const BlogVideo = ({ content }) => {
                                 </div>
                                 :
                                 <div className="">
-                                    <img src={content?.BannerImageUrl} className='bg-cover' alt="" />
+                                    <img src={content?.BannerImageUrl} className='h-64 bg-cover' alt="" />
                                 </div>
                         }
                     </div>

@@ -5,6 +5,7 @@ import useAxiosPublic from "../../../hooks/useAxiosPublic";
 
 const AboutUs = () => {
     const axiosPublic = useAxiosPublic();
+    window.scrollTo(0, 0);
 
     // Fetch data using React Query
     const { data: content = {}, isLoading, isError } = useQuery({

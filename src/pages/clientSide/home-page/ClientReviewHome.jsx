@@ -79,7 +79,7 @@ function ClientReviewHome() {
                 {/* Text Section */}
                 <div className="lg:-mt-2 mt-2 flex-1">
                     <h2 className="lg:text-2xl font-semibold text-black">{currentTestimonial?.heading}</h2>
-                    <div className="lg:h-16 my-auto overflow-hidden">
+                    <div className=" my-auto overflow-hidden">
                         <p className="text-black lg:text-lg text-[9px] mt-1 lg:mt-4">{currentTestimonial?.description}</p>
                     </div>
                     <div className="my-auto">

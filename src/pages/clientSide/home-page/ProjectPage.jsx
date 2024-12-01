@@ -47,7 +47,7 @@ const ProjectPage = () => {
                     <div className="absolute inset-0  opacity-50"></div>
                     <div className="relative z-10 flex flex-col justify-center items-center text-black text-justify px-2 lg:px-4">
                         <h1 className="lg:text-4xl font-bold">কেন আমাদের প্রকল্প সেরা </h1>
-                        <p className="text-[10px] lg:text-xl lg:my-4 text-center max-w-2xl">আপনার লাইফস্টাইলের সাথে মানানসই তৈরি করা সেরা সুবিধা সহ একটি নির্মল পরিবেশে আধুনিক জীবনযাপনের অভিজ্ঞতা নিন।</p>
+                       
                     </div>
                 </section>
 
@@ -55,7 +55,7 @@ const ProjectPage = () => {
 
 
                 <Marquee speed={35} pauseOnHover={true}>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 bg-opacity-90 my-6 text-white">
+                    <div className="flex gap-5 lg:gap-10  bg-opacity-90 my-6 text-white" style={{ position: "relative" }}>
                         {projectHighlightData &&
                             projectHighlightData.map((item, i) => (
                                 <div

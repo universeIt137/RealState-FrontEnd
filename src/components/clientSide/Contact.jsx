@@ -10,7 +10,7 @@ const Contact = () => {
     window.scrollTo(0, 0);
   }, []);
 
-  const [loader,setLoader] = useState(false);
+  const [loader, setLoader] = useState(false);
 
   const axiosPublic = useAxiosPublic();
 
@@ -36,7 +36,7 @@ const Contact = () => {
           icon: "success",
           confirmButtonText: "Close",
         })
-      }else{
+      } else {
         Swal.fire({
           title: "Failed!",
           text: "Failed to send your message. Please try again later.",
@@ -142,7 +142,7 @@ const Contact = () => {
           </div>
         </div>
 
-        {/* <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14609.261028247927!2d90.39666039372626!3d23.736134801347028!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755b8f44db8a205%3A0xdc3cd0068ce61b7a!2sBangladesh%20Indenting%20Agents%20Association!5e0!3m2!1sen!2sbd!4v1732785258919!5m2!1sen!2sbd" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> */}
+
 
         {/* Google Map */}
         <div className="mb-8 hover:scale-105 transition-transform duration-300 ease-out w-full flex items-center justify-center mt-10">

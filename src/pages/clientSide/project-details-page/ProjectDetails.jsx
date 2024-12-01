@@ -12,6 +12,7 @@ import ProjectPage from '../home-page/ProjectPage';
 import Characteristics2 from '../mission-and-vission/Characteristics2';
 import CurrentImageSlider from './components/CurrentImageSlider';
 import CustomMarquee from '../../../components/clientSide/CustomMarquee';
+import PrivacyPolicy from '../../../components/clientSide/PrivacyPolicy';
 
 const ProjectDetails = () => {
     window.scrollTo(0, 0);
@@ -27,7 +28,7 @@ const ProjectDetails = () => {
         }
     })
 
-   
+
 
 
     return (
@@ -85,9 +86,9 @@ const ProjectDetails = () => {
             </div>
             <Characteristics2></Characteristics2>
 
-             {/* Image Gallery */}
-             <div className="bg-white rounded-lg shadow-lg p-3 border-2 lg:mt-4 lg:p-6 ">
-                <h2 className="lg:text-2xl text-[15px] font-semibold text-gray-800">বর্তমান প্রকল্পের চিত্র</h2>
+            {/* Image Gallery */}
+            <div className="bg-white rounded-lg shadow-lg p-3 border-2 lg:mt-4 lg:p-6 ">
+                <h2 className="lg:text-2xl text-[15px] font-semibold text-gray-800">বর্তমান প্রকল্পের অবস্থা</h2>
                 {/* <ProjectFeatureImgGallery images={feature?.images} /> */}
                 <CurrentImageSlider></CurrentImageSlider>
             </div>
@@ -99,6 +100,22 @@ const ProjectDetails = () => {
             </div>
             <div className="mt-20 ">
                 <ProjectPage></ProjectPage>
+            </div>
+
+           
+
+            {/* Google Map */}
+            <div className=" hover:scale-105 transition-transform duration-300 ease-out w-full flex items-center justify-center ">
+                <iframe
+                    className="w-full h-[250px] lg:h-[320px] rounded-lg shadow-lg"
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14625.259359142789!2d90.27558088302615!3d23.593039068087254!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x375597000f30fc05%3A0xd0f86bbf6893c0d9!2sAmar%20Thikana%20Green%20City!5e0!3m2!1sen!2sbd!4v1732966778105!5m2!1sen!2sbd"
+                    allowFullScreen=""
+                    loading="lazy"
+                ></iframe>
+            </div>
+
+            <div className="">
+                <PrivacyPolicy></PrivacyPolicy>
             </div>
         </div>
     );

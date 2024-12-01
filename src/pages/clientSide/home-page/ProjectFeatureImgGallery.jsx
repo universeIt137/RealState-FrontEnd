@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { IoCloseSharp } from "react-icons/io5";
 import ImageGallery from '../image-gallery-page/ImageGallery';
+import Marquee from 'react-fast-marquee';
 
 const imagesData = [
   { id: 1, src: 'https://res.cloudinary.com/dnvmj9pvk/image/upload/v1731492226/Amer%20Thikana/dmbxeyr2odm9vrrwh290.png ', alt: 'Image 1' },
@@ -41,44 +42,49 @@ const ProjectFeatureImgGallery = ({ images }) => {
   return (
     <div className="relative w-full overflow-hidden">
       {/* Image Slider */}
-      <div
-        className="flex transition-transform duration-500 md:mb-7"
-        style={{
-          transform: `translateX(-${currentIndex * (window.innerWidth < 640 ? 100 : 33.33)}%)`,
-        }}
-      >
-        {images?.map((image) => (
-          <div
-            key={image.id}
-            className={`flex-shrink-0 px-2 ${window.innerWidth < 640 ? 'w-full' : 'w-1/3'}`}
-          >
-            <img
-              src={image}
-              
-              className="w-full h-56 object-cover rounded-lg shadow-md cursor-pointer"
-              onClick={() => openModal(image)} // Open modal on image click
-            />
-          </div>
-        ))}
-      </div>
+      <Marquee speed={35} pauseOnHover={true}>
+        <div
+          className="flex transition-transform duration-500 md:mb-7"
+
+        >
+          {images?.map((image) => (
+            <div
+              key={image.id}
+              className={`flex-shrink-0 px-2 w-96`}
+            >
+              <img
+                src={image}
+
+                className="w-full h-56 object-cover rounded-lg shadow-md cursor-pointer"
+                onClick={() => openModal(image)} // Open modal on image click
+              />
+            </div>
+          ))}
+        </div>
+      </Marquee>
+
 
       {/* Modal */}
       {isModalOpen && (
         <div className="fixed inset-0 bg-black bg-opacity-80 flex justify-center items-center z-50">
-          <div className="relative">
+          <div className="relative max-w-3xl max-h-[80vh] bg-white rounded-lg overflow-hidden shadow-lg">
+            {/* Close Button */}
             <button
-              className="absolute top-20 right-4 p-3 text-white font-bold text-2xl bg-black rounded-full"
-              onClick={closeModal} // Close modal
+              className="absolute top-2 right-2 p-3 text-black font-bold text-2xl bg-white rounded-full shadow-md hover:bg-gray-200"
+              onClick={closeModal}
             >
               <IoCloseSharp size={30} />
             </button>
+
+            {/* Modal Image */}
             <img
               src={modalImage}
               alt="Modal Image"
-              className="min-w-[50vw] min-h-[50vh] object-contain" 
+              className="w-full h-auto max-h-[80vh] object-contain"
             />
           </div>
         </div>
+
       )}
     </div>
     // <div className='lg:-mt-28 -mt-5 ' >

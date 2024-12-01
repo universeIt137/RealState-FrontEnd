@@ -71,7 +71,7 @@ const ScheduleMeeting = ({banner}) => {
 
                     {/* Right Side - Form */}
                     <div className="w-full lg:w-1/2 lg:py-10">
-                        <h2 className="lg:text-2xl font-bold text-black text-center mb-2 lg:mb-6">একটি মিটিং শিডিউল করুন</h2>
+                        <h2 className="lg:text-2xl font-bold text-black text-center mb-2 lg:mb-6"> মিটিং শিডিউল </h2>
 
                         <form onSubmit={handleSubmit} className="space-y-4">
                             <div>
