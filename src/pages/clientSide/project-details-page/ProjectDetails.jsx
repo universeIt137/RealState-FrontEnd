@@ -7,29 +7,15 @@ import useAxiosPublic from '../../../hooks/useAxiosPublic';
 import { useQuery } from '@tanstack/react-query';
 import { Helmet } from 'react-helmet-async';
 import ProjectLayout2 from '../project-layout-page/ProjectLayout2';
+import Characteristics from '../mission-and-vission/Characteristics';
+import ProjectPage from '../home-page/ProjectPage';
+import Characteristics2 from '../mission-and-vission/Characteristics2';
+import CurrentImageSlider from './components/CurrentImageSlider';
+import CustomMarquee from '../../../components/clientSide/CustomMarquee';
+import PrivacyPolicy from '../../../components/clientSide/PrivacyPolicy';
 
 const ProjectDetails = () => {
     window.scrollTo(0, 0);
-    const property = {
-        heading: "Luxurious Apartment in Downtown",
-        location: "Dhaka-Mawa 300 Feet Road, Amar Thikana, Green City.",
-        images: [
-            "https://via.placeholder.com/800x400", // Replace with actual image URLs
-            "https://via.placeholder.com/800x400",
-        ],
-        video: "https://www.youtube.com/embed/your_video_id", // Replace with actual video URL
-        description: "This stunning downtown apartment offers breathtaking city views, modern amenities, and convenient access to shops and restaurants.",
-
-    };
-
-    const amenitiesList = [
-        "Swimming Pool",
-        "Gym & Fitness Center",
-        "24/7 Security",
-        "Parking Facility",
-        "Playground",
-        "Community Hall",
-    ];
 
 
 
@@ -41,6 +27,8 @@ const ProjectDetails = () => {
             return res.data[0];
         }
     })
+
+
 
 
     return (
@@ -58,29 +46,30 @@ const ProjectDetails = () => {
 
             {/* Image Gallery */}
             <div className="bg-white rounded-lg shadow-lg p-3 border-2 lg:mt-4 lg:p-6 ">
-                <h2 className="lg:text-2xl text-[15px] font-semibold text-gray-800">Project Images</h2>
-                <ProjectFeatureImgGallery />
+                <h2 className="lg:text-2xl text-[15px] font-semibold text-gray-800">প্রকল্পের ছবি</h2>
+                <ProjectFeatureImgGallery images={feature?.images} />
             </div>
 
             {/* Video Section */}
             <div className="bg-white border-2 rounded-lg shadow-lg lg:px-6 p-3 my-4 lg:my-8 lg:space-y-4">
-                <h2 className="lg:text-2xl text-[15px] font-semibold text-gray-800">Project Video</h2>
+                <h2 className="lg:text-2xl text-[15px] font-semibold text-gray-800">প্রকল্প ভিডিও</h2>
                 <div className='block mt-1  lg:mt-0  ' >
                     <div className="">
-                        <ProjectFeatureVideoGallery></ProjectFeatureVideoGallery>
+                        <ProjectFeatureVideoGallery videosData={feature?.videos}></ProjectFeatureVideoGallery>
+                        {/* <CustomMarquee></CustomMarquee> */}
                     </div>
                 </div>
             </div>
 
             {/* Description */}
             <div className="bg-white rounded-lg shadow-lg p-3 text-justify lg:p-6 space-y-1 lg:space-y-4">
-                <h2 className="text-black lg:text-3xl text-[16px] font-bold ">Project Description</h2>
+                <h2 className="text-black lg:text-3xl text-[16px] font-bold ">প্রকল্পের বিবরণ</h2>
                 <p className="text-black lg:text-[17px] text-[10px]  ">{feature?.description}</p>
             </div>
 
             {/* Features */}
             <div className=" rounded-lg shadow-lg my-6 border-2 p-3 lg:p-6 lg:space-y-4">
-                <h2 className="text-black lg:text-3xl text-[16px] font-bold">Project Features</h2>
+                <h2 className="text-black lg:text-3xl text-[16px] font-bold">নাগরিক সুবিধা</h2>
                 <div className="md:mb-8">
                     <ul className="flex flex-col md:grid md:grid-cols-2 lg:grid-cols-3 text-black gap-2 mt-2 lg:mt-0 lg:gap-4">
                         {feature.contents?.map((amenity, index) => (
@@ -95,11 +84,38 @@ const ProjectDetails = () => {
                     </ul>
                 </div>
             </div>
+            <Characteristics2></Characteristics2>
+
+            {/* Image Gallery */}
+            <div className="bg-white rounded-lg shadow-lg p-3 border-2 lg:mt-4 lg:p-6 ">
+                <h2 className="lg:text-2xl text-[15px] font-semibold text-gray-800">বর্তমান প্রকল্পের অবস্থা</h2>
+                {/* <ProjectFeatureImgGallery images={feature?.images} /> */}
+                <CurrentImageSlider></CurrentImageSlider>
+            </div>
             {/* Project Layout  */}
-            <h1 className='lg:text-4xl font-bold lg:mt-5 lg:mb-5 lg:py-2 ml-6 '  >Project Layout</h1>
-            <div className='' >
+            <h1 className='lg:text-4xl font-bold lg:mt-5 lg:mb-5 lg:py-2 ml-6 '  >প্রজেক্ট লেআউট</h1>
+            <div className='my-5' >
                 {/* <ProjectLayout></ProjectLayout> */}
                 <ProjectLayout2></ProjectLayout2>
+            </div>
+            <div className="mt-20 ">
+                <ProjectPage></ProjectPage>
+            </div>
+
+           
+
+            {/* Google Map */}
+            <div className=" hover:scale-105 transition-transform duration-300 ease-out w-full flex items-center justify-center ">
+                <iframe
+                    className="w-full h-[250px] lg:h-[320px] rounded-lg shadow-lg"
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14625.259359142789!2d90.27558088302615!3d23.593039068087254!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x375597000f30fc05%3A0xd0f86bbf6893c0d9!2sAmar%20Thikana%20Green%20City!5e0!3m2!1sen!2sbd!4v1732966778105!5m2!1sen!2sbd"
+                    allowFullScreen=""
+                    loading="lazy"
+                ></iframe>
+            </div>
+
+            <div className="">
+                <PrivacyPolicy></PrivacyPolicy>
             </div>
         </div>
     );

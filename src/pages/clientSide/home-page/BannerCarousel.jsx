@@ -86,12 +86,12 @@ const BannerCarousel = ({ banner_images }) => {
 
 
 
-            <div className="absolute bottom-44 left-0 right-0 py-6 text-white z-10">
+            <div className="absolute lg:bottom-44 bottom-20 left-0 right-0 py-6 text-white z-10">
                 <div className="w-3/4 mx-auto">
                     {/* Title */}
                     <h2
                         key={currentIndex} // Unique key to re-render and trigger animation
-                        className="text-5xl font-bold mb-4 "
+                        className="lg:text-5xl font-bold mb-4 "
                         data-aos="fade-up" // AOS fade-up effect
                     >
                         {bannerDataList[currentIndex]?.banner_text || ''}

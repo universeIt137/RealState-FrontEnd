@@ -26,7 +26,7 @@ const Footer = () => {
           <div className="lg:w-1/3 text-center lg:text-start">
             <h2 className="lg:text-2xl font-bold">About Company</h2>
             <hr className="w-16 border-white border-t-2 lg:mb-4 mb-2 hidden lg:block" />
-            <p className="font-bold lg:text-lg">Amar Thikana Properties Ltd.</p>
+            <p className="font-bold lg:text-lg">Amar Thikana Green City.</p>
             <p className="text-[9px] lg:text-lg mt-1 lg:mt-2">Place: ৪৮, বিজয় নগর (৪র্থ তলা), পল্টন, ঢাকা-১০০০।</p>
             <p className="text-[9px] lg:text-lg mt-1 lg:mt-2">Phone: +88 01747-516981</p>
             <p className="text-[9px] lg:text-lg mt-1 lg:mt-2">Email: amarthikana06@gmail.com</p>

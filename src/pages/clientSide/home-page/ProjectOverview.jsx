@@ -31,7 +31,7 @@ const ProjectOverview = () => {
 
 
                     <div className="md:pr-10 text-black">
-                        <h1 className=' text-[13px] md:text-xl font-bold  uppercase my-2 lg:my-4 text-center' >Project Overview</h1>
+                        <h1 className=' text-[13px] md:text-xl font-bold  uppercase my-2 lg:my-4 text-center' >প্রকল্প ওভারভিউ</h1>
                         <h1 className="lg:text-3xl  font-bold  uppercase">
                             আমার ঠিকানা গ্রীন সিটি
                         </h1>

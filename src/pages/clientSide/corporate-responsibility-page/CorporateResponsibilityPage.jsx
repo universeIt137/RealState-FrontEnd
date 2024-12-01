@@ -79,13 +79,17 @@ const CSRPage = () => {
                         <div className=" ">
                           <div className='lg:h-16' >
                             <h2 className="font-bold text-text_color  text-[12px] lg:text-lg text-center">
-                              {data?.title.slice(0, 20)}...
+                              {data?.title.slice(0, 130)}
                             </h2>
                           </div>
-                          
+
                           <div className=' h-24 ' >
                             <p className="my-auto">
-                              {data?.description.slice(0, 100)}...
+                              {/* <div className=''>
+                                <p dangerouslySetInnerHTML={{ __html: data?.description.slice(0, 100) }} className='px-2'>
+                                </p>
+                              </div> */}
+                              
                             </p>
                           </div>
                         </div>

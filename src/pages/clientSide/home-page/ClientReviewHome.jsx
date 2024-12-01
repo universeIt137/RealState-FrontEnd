@@ -54,22 +54,22 @@ function ClientReviewHome() {
     return (
         <div className="w-11/12 mx-auto">
             <div className="lg:ml-[60px] -mt-10 lg:-mt-6 text-black font-bold">
-                <h1 className="lg:text-4xl uppercase">What customers</h1>
-                <h1 className="lg:text-4xl uppercase">say about us</h1>
+                <h1 className="lg:text-4xl uppercase">গ্রাহকরা আমাদের সম্পর্কে </h1>
+                <h1 className="lg:text-4xl mt-2 uppercase">কী বলেন</h1>
             </div>
             <div className="flex flex-col lg:grid lg:grid-cols-2 lg:space-x-44 py-1 lg:py-8 px-2 lg:px-16 bg-white">
                 {/* Video Section */}
                 <div className="relative w-full h-72 lg:h-80">
                     <ReactPlayer
-                        url={currentTestimonial?.youtubeVideo}
+                        url={currentTestimonial?.youtubeVideo || currentTestimonial?.videoUrl}
                         className="w-full h-full object-cover hover:scale-105 transform transition duration-300 ease-in-out"
                         playing={false}
-                        light
+                        light={currentTestimonial?.thumbnailUrl}
                         width="100%"
                         height="100%"
                     />
                     <button
-                        onClick={() => handlePlay(currentTestimonial.youtubeVideo)}
+                        onClick={() => handlePlay(currentTestimonial?.youtubeVideo || currentTestimonial?.videoUrl)}
                         className="absolute inset-0 flex justify-center items-center text-white text-3xl rounded-full"
                     >
                         <FaPlay className="bg-white text-red-600 p-2 rounded-full w-12 h-12" />
@@ -79,7 +79,7 @@ function ClientReviewHome() {
                 {/* Text Section */}
                 <div className="lg:-mt-2 mt-2 flex-1">
                     <h2 className="lg:text-2xl font-semibold text-black">{currentTestimonial?.heading}</h2>
-                    <div className="lg:h-16 my-auto overflow-hidden">
+                    <div className=" my-auto overflow-hidden">
                         <p className="text-black lg:text-lg text-[9px] mt-1 lg:mt-4">{currentTestimonial?.description}</p>
                     </div>
                     <div className="my-auto">

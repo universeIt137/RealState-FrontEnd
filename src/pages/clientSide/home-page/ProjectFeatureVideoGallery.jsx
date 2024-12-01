@@ -4,6 +4,7 @@ import { AiOutlinePlayCircle, AiOutlinePauseCircle } from 'react-icons/ai';
 import { IoCloseCircleOutline, IoPlayCircleSharp } from "react-icons/io5";
 import { useQuery } from '@tanstack/react-query';
 import useAxiosPublic from '../../../hooks/useAxiosPublic';
+import Marquee from 'react-fast-marquee';
 
 // Sample video data
 
@@ -73,36 +74,37 @@ const ProjectFeatureVideoGallery = ({ videosData }) => {
         {/* <h1 className="lg:text-4xl my-2 font-bold text-center text-black lg:mb-8">Video Gallery</h1> */}
 
         {/* Container for images with horizontal scroll */}
-        <div className="relative w-full overflow-hidden">
-          <div
-            className="flex transition-transform duration-500 lg:mb-7"
-            style={{
-              transform: `translateX(-${currentIndex * (windowWidth < 640 ? 100 : 33.33)}%)`,
-            }}
-          >
-            {videosData?.map((video, index) => (
-              <div key={index} className="relative flex-shrink-0 w-full sm:w-1/2 lg:w-1/3 px-1">
-                <div
-                  onClick={() => openModal(video)}
-                  className="h-[35.9vw] lg:h-[12.9vw] cursor-pointer  rounded-lg overflow-hidden"
-                >
+        <Marquee speed={35} pauseOnHover={true}>
+          <div className="relative w-full overflow-hidden">
+            <div
+              className="flex transition-transform duration-500 lg:mb-7"
+              
+            >
+              {videosData?.map((video, index) => (
+                <div key={index} className="relative flex-shrink-0 w-full sm:w-1/2 lg:w-1/3 px-1">
+                  <div
+                    onClick={() => openModal(video)}
+                    className="h-[35.9vw] lg:h-[12.9vw] cursor-pointer border shadow-lg rounded-lg overflow-hidden"
+                  >
 
 
-                  <ReactPlayer
-                    url={`${video?.videoUrl}`}
-                    width="100%"
-                    height="100%"
-                    playing={false} // Ensure the video doesn't autoplay
-                    controls={false} // Disable controls
-                    light={false} // Ensure no light mode is active
-                    className="pointer-events-none" // Disable player interaction
-                    playIcon={<IoPlayCircleSharp className="text-7xl text-red-600" />} // Custom play button
-                  />
+                    <ReactPlayer
+                      url={`${video?.videoUrl}`}
+                      width="100%"
+                      height="100%"
+                      playing={false} // Ensure the video doesn't autoplay
+                      controls={false} // Disable controls
+                      light={false} // Ensure no light mode is active
+                      className="pointer-events-none" // Disable player interaction
+                      playIcon={<IoPlayCircleSharp className="text-7xl text-red-600" />} // Custom play button
+                    />
+                  </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
-        </div>
+        </Marquee>
+
 
         {isModalOpen && currentVideo && (
           <div className="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50">

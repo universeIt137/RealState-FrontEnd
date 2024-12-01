@@ -20,6 +20,8 @@ import { Helmet } from 'react-helmet-async'
 import ClientReviewHome from './ClientReviewHome';
 import BannerCarousel2 from './BannerCarousel2'
 import CoreValue from '../mission-and-vission/CoreValue'
+import Characteristics from '../mission-and-vission/Characteristics'
+import Characteristics2 from '../mission-and-vission/Characteristics2'
 
 
 const HomePage = () => {
@@ -57,7 +59,8 @@ const HomePage = () => {
       <ProjectFeaturePage></ProjectFeaturePage>
       {/* <ProjectInfo></ProjectInfo> */}
       {/* <AboutUs></AboutUs> */}
-      <CoreValue></CoreValue>
+      {/* <CoreValue></CoreValue> */}
+      <Characteristics2></Characteristics2>
       <ClientReviewHome></ClientReviewHome>
       {/* <Team></Team> */}
       {/* <TestimonialCard></TestimonialCard> */}

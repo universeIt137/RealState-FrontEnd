@@ -33,7 +33,7 @@ const ProjectFeaturePage = () => {
         {/* Header Section */}
         <div className="text-center -mt-10 lg:-mt-0 p-1   mb-4 lg:mb-8">
           <h1 className="md:text-4xl lg:text-center  text-black font-bold text-justify ">{feature?.heading}</h1>
-          <p className=" text-black text-[12px] md:text-2xl mt-1 -mb-5 ">
+          <p className=" text-black text-[12px] md:text-[17px] mt-1 -mb-5 ">
             {feature?.address}
           </p>
         </div>
@@ -56,7 +56,7 @@ const ProjectFeaturePage = () => {
 
           {/* Amenities Section */}
           <div className="  md:mb-8">
-            <h3 className="md:text-3xl font-bold text-black text-[15px] mb-1 lg:mb-4">Amenities</h3>
+            <h3 className="md:text-3xl font-bold text-black text-[15px] mb-1 lg:mb-4">নাগরিক সুবিধা</h3>
             <ul className=" flex flex-col md:grid md:grid-cols-2 lg:grid-cols-3 text-black gap-4 ">
               
               {
@@ -76,7 +76,7 @@ const ProjectFeaturePage = () => {
         {/* CTA Button */}
         <div className="text-center  bg-cover bg-center">
           <button className="md:px-6 px-3 py-2 text-[10px] md:text-[16px] md:py-3 bg-gradient-to-r from-[#027F3D] to-[#034A26] bg-opacity-90 text-white my-3 font-bold rounded-lg hover:bg-green-600 transition-colors duration-300">
-            <Link to={"/booking-form"}>Schedule a Visit</Link>
+            <Link to={"/contact-us"}>Schedule a Visit</Link>
           </button>
         </div>
 

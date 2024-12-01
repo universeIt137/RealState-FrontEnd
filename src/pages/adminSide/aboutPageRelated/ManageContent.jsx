@@ -8,7 +8,7 @@ const ManageContent = () => {
     const axiosPublic = useAxiosPublic();
 
     const { data: contents = [], refetch } = useQuery({
-        queryKey: ['content'],
+        queryKey: ['contents'],
         queryFn: async () => {
             const res = await axiosPublic.get(`/about-us`);
             return res.data;

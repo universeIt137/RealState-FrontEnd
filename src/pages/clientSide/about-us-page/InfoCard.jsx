@@ -20,16 +20,17 @@ const InfoCard = () => {
                     <div className="flex items-center gap-2">
                         <FaLocationPin></FaLocationPin>
                         <p className="text-[15px] font-bold">
-                            Address:  Address: 48, Bijoy Nagar (4th Floor), <br /> Paltan, Dhaka-1000.
+                        ঠিকানা: ৪৮, বিজয় নগর (৪র্থ তলা),
+                        পল্টন, ঢাকা-১০০০।
                         </p> 
                     </div>
                     <div className="flex items-center gap-2">
                         <FaPhone></FaPhone>
-                        <p className="text-[15px] font-bold">Phone: +88 01747-516981</p>
+                        <p className="text-[15px] font-bold">ফোন: +৮৮ ০১৭৪৭-৫১৬৯৮১</p>
                     </div>
                     <div className="flex items-center gap-2">
                         <FaEnvelope></FaEnvelope>
-                        <p className="text-[15px] font-bold">Email:amarthikana06@gmail.com</p>
+                        <p className="text-[15px] font-bold">ইমেইল: amarthikana06@gmail.com</p>
                     </div>
                 </div>
             </div>

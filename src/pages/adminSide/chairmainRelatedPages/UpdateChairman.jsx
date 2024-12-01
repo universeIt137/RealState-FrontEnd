@@ -139,7 +139,7 @@ const UpdateChairman = () => {
                 </div>
 
                 <div className="w-1/4 mx-auto">
-                    <button type="submit" className="w-full py-2 bg-blue-500 text-white rounded-md">
+                    <button type="submit" className="w-full py-2 bg-green text-white rounded-md">
                         {loading ? "Uploading..." : "Submit"}
                     </button>
                 </div>

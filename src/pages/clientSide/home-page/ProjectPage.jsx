@@ -2,6 +2,8 @@ import { useQuery } from '@tanstack/react-query';
 import React from 'react'
 import { FiArrowRight } from 'react-icons/fi';
 import useAxiosPublic from '../../../hooks/useAxiosPublic';
+import { Link } from 'react-router-dom';
+import Marquee from 'react-fast-marquee';
 const features = [
     {
         title: "20 feet and 30 feet wide roads.",
@@ -44,47 +46,57 @@ const ProjectPage = () => {
                 <section className="relative bg-cover bg-center " >
                     <div className="absolute inset-0  opacity-50"></div>
                     <div className="relative z-10 flex flex-col justify-center items-center text-black text-justify px-2 lg:px-4">
-                        <h1 className="lg:text-4xl font-bold">Discover Why Our Project is the Best</h1>
-                        <p className="text-[10px] lg:text-xl lg:my-4 text-justify max-w-2xl">Experience modern living in a serene environment with top-notch amenities, built to suit your lifestyle.</p>
+                        <h1 className="lg:text-4xl font-bold">কেন আমাদের প্রকল্প সেরা </h1>
+                       
                     </div>
                 </section>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 bg-opacity-90 my-6 text-white">
-                    {projectHighlightData &&
-                        projectHighlightData.map((item, i) => (
-                            <div
-                                className="bg-gradient-to-r from-[#027F3D] to-[#034A26] p-6 rounded-lg shadow-lg"
-                                key={i}
-                            >
-                                {/* Icon or Logo */}
-                                <div className="mb-4">
-                                    <div className="h-8 w-8 bg-white rounded flex items-center justify-center">
-                                        <div className="h-4 w-4 bg-teal-600"></div>
+               
+
+
+                <Marquee speed={35} pauseOnHover={true}>
+                    <div className="flex gap-5 lg:gap-10  bg-opacity-90 my-6 text-white" style={{ position: "relative" }}>
+                        {projectHighlightData &&
+                            projectHighlightData.map((item, i) => (
+                                <div
+                                    className="bg-gradient-to-r from-[#027F3D] w-96 to-[#034A26] p-6 rounded-lg shadow-lg mx-5"
+                                    key={i}
+                                >
+                                    {/* Icon or Logo */}
+                                    <div className="mb-4">
+                                        <div className="h-8 w-8 bg-white rounded flex items-center justify-center">
+                                            <div className="h-4 w-4 bg-teal-600"></div>
+                                        </div>
                                     </div>
-                                </div>
 
-                                {/* Title */}
-                                <h2 className="text-xl font-bold mb-2">{item?.heading}</h2>
+                                    {/* Title */}
+                                    <h2 className="text-xl font-bold mb-2">{item?.heading}</h2>
 
-                                {/* Description */}
-                                <p className="text-sm mb-6">{item?.short_description}</p>
+                                    {/* Description */}
+                                    <p className="text-sm mb-6">{item?.short_description}</p>
 
-                                {/* Button */}
-                                {/* <button className="flex items-center px-4 py-2 rounded-full transition">
+                                    {/* Button */}
+                                    {/* <button className="flex items-center px-4 py-2 rounded-full transition">
                                     <span className="mr-2">Learn more</span>
                                     <FiArrowRight className="text-lg" />
                                 </button> */}
-                            </div>
-                        ))}
-                </div>
+                                </div>
+                            ))}
+                    </div>
+
+                </Marquee>
+
+
 
 
                 {/* Call to Action */}
                 <section className=" py-5   text-center">
-                    <h2 className=" lg:text-4xl text-black font-bold  lg:mb-2">Ready to Make This Your Home?</h2>
-                    <p className="text-black text-[10px] lg:text-xl mb-2 lg:mb-2">Schedule a tour today and see for yourself why our project is the perfect place to live.</p>
+                    <h2 className=" lg:text-4xl text-black font-bold  lg:mb-2">আপনার নতুন ঘর তৈরির জন্য প্রস্তুত?</h2>
+                    <p className="text-black text-[10px] lg:text-xl mb-2 lg:mb-2">আজই একটি ভ্রমণের সময়সূচী ঠিক করুন এবং নিজের চোখে দেখে নিন কেন আমাদের প্রকল্পটি বসবাসের জন্য আদর্শ।</p>
                     <button className=" bg-gradient-to-r from-[#027F3D] to-[#034A26] bg-opacity-90  font-semibold px-8 py-3 rounded-lg text-[10px] lg:text-[16px] text-white ">
-                        Schedule a Tour
+                        <Link to={'/contact-us'}>
+                            Schedule a Tour
+                        </Link>
                     </button>
                 </section>
             </div>
