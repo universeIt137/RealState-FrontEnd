@@ -18,7 +18,7 @@ const AnimatedPage = () => {
     };
 
     return (
-        <div className="relative min-h-screen flex items-center justify-center bg-gray-200 overflow-hidden">
+        <div className="relative min-h-screen flex items-center justify-center bg-gray-100 overflow-hidden">
             {/* Curtains */}
             {showCurtain && (
                 <>
@@ -41,18 +41,20 @@ const AnimatedPage = () => {
             {/* Content */}
             {!showCurtain && (
                 <motion.div
-                    className="relative p-8  rounded-lg font-bold text-green text-center"
+                    className="relative p-8  border font-bold text-white text-center bg-green rounded-lg shadow-lg"
                     initial={{ opacity: 0, y: 50 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, ease: "easeOut" }}
                 >
-                    <img className="w-full " src="https://res.cloudinary.com/dnvmj9pvk/image/upload/v1731399400/Artboard_2300_zteplb.png" alt="" />
+                    <div className="flex justify-center items-center">
+                        <img className="w-1/2 bg-white my-5 rounded-lg " src="https://res.cloudinary.com/dnvmj9pvk/image/upload/v1733311854/Amer%20Thikana/pcx1j7tch1uhxzlh3huh.png" alt="" />
+                    </div>
                     <p className=" lg:text-4xl mb-6">
                         আমার ঠিকানা গ্রীন সিটিতে আপনাকে স্বাগতম
                     </p>
 
                 </motion.div>
-                
+
             )}
         </div>
     );
