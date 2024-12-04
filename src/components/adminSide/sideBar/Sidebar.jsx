@@ -125,6 +125,8 @@ const Sidebar = () => {
         <>
             <NavigationItem to="/dashboard/marketing-info-upload" icon={MdAddCircle} label="Upload" />
             <NavigationItem to="/dashboard/marketing-info-list" icon={MdAddCircle} label="Marketing Info List" />
+            <NavigationItem to="/dashboard/add-top3" icon={MdAddCircle} label="Add Top 3" />
+            <NavigationItem to="/dashboard/manage-top3" icon={MdAddCircle} label="Manage Top 3" />
         </>
 
     const managementInfo =
