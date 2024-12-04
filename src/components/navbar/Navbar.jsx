@@ -29,8 +29,10 @@ const Navbar = () => {
       isDropdown: true,
       dropdownLinks: [
         { title: 'About Us', path: '/about-us' },
-        { title: 'Chairman Speech', path: '/chairman-speech' },
         { title: 'Mission & Vision', path: '/mission' },
+        { title: 'Management Information', path: '/management-information' },
+        { title: 'Marketing Information', path: '/marketing-information' },
+        { title: 'Chairman Speech', path: '/chairman-speech' },
         { title: 'Corporate Structure', path: '/corporate-structure' },
         { title: 'Corporate Social Responsibility', path: '/corporate-social-responsibility' },
         { title: 'Client Review', path: '/client-review' },

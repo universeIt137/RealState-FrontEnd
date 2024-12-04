@@ -121,7 +121,17 @@ const Sidebar = () => {
             <NavigationItem to="/dashboard/img-upload" icon={MdAddCircle} label="Upload Img" />
         </>
 
+const marketingInfo =
+<>
+    <NavigationItem to="/dashboard/marketing-info-upload" icon={MdAddCircle} label="Upload" />
+    <NavigationItem to="/dashboard/marketing-info-list" icon={MdAddCircle} label="Marketing Info List" />
+</>
 
+const managementInfo =
+        <>
+            <NavigationItem to="/dashboard/management-info-upload" icon={MdAddCircle} label="Upload" />
+            <NavigationItem to="/dashboard/management-info-list" icon={MdAddCircle} label="Management Info List" />
+        </>
 
 
     return (
@@ -160,17 +170,6 @@ const Sidebar = () => {
                         </li>
 
 
-
-
-                        
-
-                       
-
-                       
-
-
-                       
-
                         <li className="mb-4">
                             <Dropdown buttonText="Meeting Schedule" urls={Schedule} />
                         </li>
@@ -178,8 +177,6 @@ const Sidebar = () => {
                         <li className="mb-4">
                             <Dropdown buttonText="CSR" urls={CSRUrls} />
                         </li>
-
-                       
 
                         <li className="mb-4">
                             <Dropdown buttonText="Certificate" urls={certificateUrl} />
@@ -194,7 +191,15 @@ const Sidebar = () => {
                         <li className="mb-4">
                             <Dropdown buttonText="Career" urls={careerUrl} />
                         </li>
-                       
+
+                        <li className="mb-4">
+                            <Dropdown buttonText="Marketing Information" urls={marketingInfo} />
+                        </li>
+
+                        <li className="mb-4">
+                            <Dropdown buttonText="Management Information" urls={managementInfo} />
+                        </li>
+
                     </ul>
                 </nav>
             </aside></>
