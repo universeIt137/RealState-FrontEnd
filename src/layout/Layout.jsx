@@ -4,6 +4,7 @@ import Footer from '../components/footer/Footer';
 import { Outlet } from 'react-router-dom';
 import { useQuery } from '@tanstack/react-query';
 import axios from 'axios';
+import AnimatedPage from '../components/clientSide/AnimatedPage/AnimatedPage';
 
 const Layout = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -16,12 +17,14 @@ const Layout = () => {
       sessionStorage.setItem('hasVisited', 'true');
 
       // Hide the image after 4 seconds
-      const timer = setTimeout(() => {
-        setShowImage(false);
-      }, 4000);
+      const fetchData = () => {
+        setTimeout(() => {
+          setShowImage(false)
+        }, [3000])
+      }
 
-      // Cleanup the timer
-      return () => clearTimeout(timer);
+      // Cleanup the ti
+      fetchData()
     }
   }, []);
 
@@ -37,48 +40,25 @@ const Layout = () => {
     },
   });
 
-  console.log('banner', offerData);
 
   return (
     <div className="bg-white">
       {isModalOpen && (
-        <div className="fixed pt-16 inset-0 bg-black bg-opacity-60 flex justify-center items-center z-50">
-          <div className="relative bg-white rounded-lg shadow-lg w-full max-w-xs sm:max-w-sm md:w-1/2 lg:w-1/3">
-            {/* Cross Button */}
-            <button
-              onClick={closeModal}
-              className="absolute top-2 right-2 text-gray-500 hover:text-gray-800"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth="2"
-                stroke="currentColor"
-                className="w-6 h-6"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M6 18L18 6M6 6l12 12"
-                />
-              </svg>
-            </button>
-
-            {/* Modal Content */}
-            {showImage && offerData?.ImageUrl && (
-              <img
-                src={offerData?.ImageUrl}
-                alt="Welcome"
-                className="w-full rounded-lg"
-              />
-            )}
-          </div>
+        <div className="">
+          {
+            showImage && (
+              <div className='' >
+                <AnimatedPage></AnimatedPage>
+              </div>
+            )
+          }
         </div>
       )}
 
       <Navbar />
-      <Outlet />
+      <div className='z-50' >
+        <Outlet />
+      </div>
       <Footer />
     </div>
   );
