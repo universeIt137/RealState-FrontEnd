@@ -1,4 +1,6 @@
 import React from 'react';
+import useAxiosPublic from '../../hooks/useAxiosPublic';
+import { useQuery } from '@tanstack/react-query';
 
 // Policy data array
 const policyData = [
@@ -15,6 +17,18 @@ const policyData = [
 ];
 
 const PrivacyPolicy = () => {
+  const axiosPublic = useAxiosPublic();
+
+
+  // Fetch content data
+  const { data: policyData = [], isSuccess, refetch } = useQuery({
+    queryKey: ['policyData'],
+    queryFn: async () => {
+      const res = await axiosPublic.get(`/privacy`);
+      return res.data;
+    }
+  });
+
   return (
     <div className="bg-gray-50 py-12">
       <div className="max-w-4xl mx-auto px-6">
@@ -25,8 +39,12 @@ const PrivacyPolicy = () => {
         <div className="space-y-6 text-[15px] text-gray-700">
           {policyData.map((item, index) => (
             <div key={index}>
-              {item.title && <p className="font-bold">{item.title}</p>}
-              <p>{item.content}</p>
+              {/* {item.title && <p className="font-bold">{item.title}</p>} */}
+              <p className='my-10 text-lg py-1 '
+                dangerouslySetInnerHTML={{
+                  __html: item?.description
+                }}
+              ></p>
             </div>
           ))}
         </div>
