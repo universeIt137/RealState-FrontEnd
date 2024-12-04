@@ -48,7 +48,7 @@ const ManageCharacteristics = () => {
         try {
             const data = { title, description }
 
-            console.log(data);
+            // console.log(data);
             axiosPublic.post(`/character`, data)
                 .then(res => {
                     if (res) {

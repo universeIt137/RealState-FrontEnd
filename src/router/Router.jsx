@@ -67,6 +67,7 @@ import CreatePrivacy from "../pages/adminSide/privacey-page/CreatePrivacy";
 import MarketingUpdate from './../pages/adminSide/marketing-releted-page/MarketingUpdate';
 import ManagementUpdate from './../pages/adminSide/management-related-page/ManagementUpdate';
 import PrivacyUpdate from "../pages/adminSide/privacey-page/PrivacyUpdate";
+import PrivacyList from "../pages/adminSide/privacey-page/PrivacyList";
 
 
 
