@@ -63,6 +63,7 @@ import CreateManagement from "../pages/adminSide/management-related-page/CreateM
 import ManagementList from "../pages/adminSide/management-related-page/ManagementList";
 import MarketingCreate from "../pages/adminSide/marketing-releted-page/MarketingCreate";
 import MarketingList from "../pages/adminSide/marketing-releted-page/MarketingList";
+import CreatePrivacy from "../pages/adminSide/privacey-page/CreatePrivacy";
 
 
 
@@ -347,6 +348,10 @@ export const router = createBrowserRouter([
             {
                 path : "marketing-info-list",
                 element : <MarketingList></MarketingList>
+            },
+            {
+                path : "upload-privacy",
+                element : <CreatePrivacy></CreatePrivacy>
             }
 
         ]
