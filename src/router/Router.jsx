@@ -64,6 +64,9 @@ import ManagementList from "../pages/adminSide/management-related-page/Managemen
 import MarketingCreate from "../pages/adminSide/marketing-releted-page/MarketingCreate";
 import MarketingList from "../pages/adminSide/marketing-releted-page/MarketingList";
 import CreatePrivacy from "../pages/adminSide/privacey-page/CreatePrivacy";
+import MarketingUpdate from './../pages/adminSide/marketing-releted-page/MarketingUpdate';
+import ManagementUpdate from './../pages/adminSide/management-related-page/ManagementUpdate';
+import PrivacyUpdate from "../pages/adminSide/privacey-page/PrivacyUpdate";
 
 
 
@@ -338,6 +341,11 @@ export const router = createBrowserRouter([
                 element : <ManagementList></ManagementList>
             },
 
+            {
+                path : "management-info-update/:id",
+                element : <ManagementUpdate></ManagementUpdate>
+            },
+
 
 
             // marketing related route
@@ -349,10 +357,30 @@ export const router = createBrowserRouter([
                 path : "marketing-info-list",
                 element : <MarketingList></MarketingList>
             },
+            ,
+            {
+                path : "marketing-info-update/:id",
+                element : <MarketingUpdate></MarketingUpdate>
+            },
+
+
+
+            // privacy routes
             {
                 path : "upload-privacy",
                 element : <CreatePrivacy></CreatePrivacy>
-            }
+            },
+
+            {
+                path : "privacy-list",
+                element : <PrivacyList></PrivacyList>
+            },
+
+            {
+                path : "privacy-update/:id",
+                element : <PrivacyUpdate></PrivacyUpdate>
+            },
+
 
         ]
     }
