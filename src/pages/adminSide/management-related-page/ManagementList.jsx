@@ -87,7 +87,7 @@ const ManagementList = () => {
 
                     className="px-2 py-1 bg-blue-500 text-white rounded mr-2"
                   >
-                    <Link to={'/dashboard/update-content'}>Update</Link>
+                    <Link to={`/dashboard/management-info-update/${content?._id}`}>Update</Link>
                   </button>
                   <button
                     onClick={() => handleDelete(content?._id)}
