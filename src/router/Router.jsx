@@ -69,6 +69,8 @@ import ManagementUpdate from './../pages/adminSide/management-related-page/Manag
 import PrivacyUpdate from "../pages/adminSide/privacey-page/PrivacyUpdate";
 import PrivacyList from "../pages/adminSide/privacey-page/PrivacyList";
 import ViewPrivacy from "../pages/adminSide/privacey-page/ViewPrivacy";
+import AddTop3Member from "../pages/adminSide/marketing-releted-page/AddTop3Member";
+import ManageTop3Member from "../pages/adminSide/marketing-releted-page/ManageTop3Member";
 
 
 
@@ -359,10 +361,20 @@ export const router = createBrowserRouter([
                 path : "marketing-info-list",
                 element : <MarketingList></MarketingList>
             },
-            ,
+            
             {
                 path : "marketing-info-update/:id",
                 element : <MarketingUpdate></MarketingUpdate>
+            },
+
+            {
+                path : "add-top3",
+                element : <AddTop3Member></AddTop3Member>
+            },
+
+            {
+                path : "manage-top3",
+                element : <ManageTop3Member></ManageTop3Member>
             },
 
 

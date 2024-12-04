@@ -5,14 +5,14 @@ import Swal from 'sweetalert2';
 import useAxiosPublic from '../../../hooks/useAxiosPublic';
 
 
-const MarketingList = () => {
+const ManageTop3Member = () => {
   const axiosPublic = useAxiosPublic();
 
 
   const { data: contents = [], refetch } = useQuery({
     queryKey: ['allData'],
     queryFn: async () => {
-      const res = await axiosPublic.get('/marketing');
+      const res = await axiosPublic.get('/top3');
       return res.data;
     }
   })
@@ -30,7 +30,7 @@ const MarketingList = () => {
       if (result.isConfirmed) {
 
         axiosPublic
-          .delete(`/marketing/${id}`)
+          .delete(`/top3/${id}`)
           .then((res) => {
             if (res) {
               Swal.fire({
@@ -53,12 +53,12 @@ const MarketingList = () => {
 
   return (
     <div className="overflow-x-auto w-full my-5">
-      <p className="text-2xl font-bold text-center mb-2">Manage Marketing Team member</p>
+          <p className="text-2xl font-bold text-center mb-2">Manage Top 3 Marketing member of <span className="text-green">{ contents[0]?.month }</span></p>
       <table className="min-w-full bg-white border border-gray-300">
         <thead>
           <tr>
             <th className="px-4 py-2 border">#</th>
-            <th className="px-4 py-2 border">Name</th>
+            <th className="px-4 py-2 border">Month</th>
             <th className="px-4 py-2 border">Profile Picture</th>
             <th className="px-4 py-2 border">Position</th>
             <th className="px-4 py-2 border">Phone</th>
@@ -70,25 +70,20 @@ const MarketingList = () => {
             contents?.map((content, index) => (
               <tr key={content?._id} className="text-center">
                 <td className="px-4 py-2 border font-semibold">{index + 1}</td>
-                <td className="px-4 py-2 border font-semibold">{content?.name}</td>
+                <td className="px-4 py-2 border font-semibold">{content?.month}</td>
                 <td className="px-4 py-2 border">
                   <div className="avatar">
                     <div className="w-12 rounded">
 
-                      <img src={content?.ImgUrl} />
+                      <img src={content?.member?.ImgUrl} />
                     </div>
                   </div>
                 </td>
-                <td className="px-4 py-2 border font-semibold">{content?.jobPost}</td>
-                <td className="px-4 py-2 border font-semibold">{content?.phone}</td>
+                <td className="px-4 py-2 border font-semibold">{content?.position}</td>
+                <td className="px-4 py-2 border font-semibold">{content?.member?.phone}</td>
 
                 <td className="px-4 py-2 border">
-                  <button
-
-                    className="px-2 py-1 bg-blue-500 text-white rounded mr-2"
-                  >
-                    <Link to={`/dashboard/marketing-info-update/${content?._id}`}>Update</Link>
-                  </button>
+                  
                   <button
                     onClick={() => handleDelete(content?._id)}
                     className="px-2 py-1 bg-red-500 text-white rounded"
@@ -104,4 +99,4 @@ const MarketingList = () => {
   );
 };
 
-export default MarketingList;
+export default ManageTop3Member;
