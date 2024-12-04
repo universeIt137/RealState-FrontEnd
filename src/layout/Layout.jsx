@@ -3,17 +3,25 @@ import Navbar from '../components/navbar/Navbar';
 import Footer from '../components/footer/Footer';
 import { Outlet } from 'react-router-dom';
 import { useQuery } from '@tanstack/react-query';
-import useAxiosPublic from '../hooks/useAxiosPublic';
 import axios from 'axios';
 
 const Layout = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [showImage, setShowImage] = useState(true); // New state to control image visibility
 
   useEffect(() => {
     const hasVisited = sessionStorage.getItem('hasVisited');
     if (!hasVisited) {
       setIsModalOpen(true);
       sessionStorage.setItem('hasVisited', 'true');
+
+      // Hide the image after 4 seconds
+      const timer = setTimeout(() => {
+        setShowImage(false);
+      }, 4000);
+
+      // Cleanup the timer
+      return () => clearTimeout(timer);
     }
   }, []);
 
@@ -21,16 +29,15 @@ const Layout = () => {
     setIsModalOpen(false);
   };
 
-  const axiosPublic = useAxiosPublic();
   const { data: offerData = {} } = useQuery({
     queryKey: ['all data'],
     queryFn: async () => {
-      const res = await axios.get('https://amer-thikana-server.vercel.app/offer')
+      const res = await axios.get('https://amer-thikana-server.vercel.app/offer');
       return res.data[0];
-    }
-  })
-  
-  console.log('banner', offerData)
+    },
+  });
+
+  console.log('banner', offerData);
 
   return (
     <div className="bg-white">
@@ -59,11 +66,13 @@ const Layout = () => {
             </button>
 
             {/* Modal Content */}
-            <img
-              src={offerData?.ImageUrl}
-              alt="Welcome"
-              className="w-full rounded-lg"
-            />
+            {showImage && offerData?.ImageUrl && (
+              <img
+                src={offerData?.ImageUrl}
+                alt="Welcome"
+                className="w-full rounded-lg"
+              />
+            )}
           </div>
         </div>
       )}
