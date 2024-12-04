@@ -349,11 +349,6 @@ export const router = createBrowserRouter([
                 element : <MarketingList></MarketingList>
             }
 
-
-            
-
-
-            
         ]
     }
 
