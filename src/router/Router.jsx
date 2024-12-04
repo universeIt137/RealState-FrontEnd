@@ -68,6 +68,7 @@ import MarketingUpdate from './../pages/adminSide/marketing-releted-page/Marketi
 import ManagementUpdate from './../pages/adminSide/management-related-page/ManagementUpdate';
 import PrivacyUpdate from "../pages/adminSide/privacey-page/PrivacyUpdate";
 import PrivacyList from "../pages/adminSide/privacey-page/PrivacyList";
+import ViewPrivacy from "../pages/adminSide/privacey-page/ViewPrivacy";
 
 
 
@@ -373,7 +374,7 @@ export const router = createBrowserRouter([
             },
 
             {
-                path : "privacy-list",
+                path : "manage-privacy",
                 element : <PrivacyList></PrivacyList>
             },
 
@@ -381,6 +382,10 @@ export const router = createBrowserRouter([
                 path : "privacy-update/:id",
                 element : <PrivacyUpdate></PrivacyUpdate>
             },
+            {
+                path : "view-privacy/:id",
+                element : <ViewPrivacy></ViewPrivacy>
+            }
 
 
         ]
