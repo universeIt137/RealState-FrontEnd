@@ -57,6 +57,12 @@ import UpdateFeaturePage from "../pages/adminSide/projectFeatureRelatedPage/Upda
 import ManageCharacteristics from "../pages/adminSide/bestCharacteristicsRelatedPage/ManageCharacteristics";
 import UpdateCharacteristics from "../pages/adminSide/bestCharacteristicsRelatedPage/UpdateCharacteristics";
 import UploadCurrentImage from "../pages/adminSide/currentImageRelated/UploadCurrentImage";
+import ManagementInfo from "../pages/clientSide/management-info-page/ManagementInfo";
+import MarketingInfo from "../pages/clientSide/marketing-info-page/MarketingInfo";
+import CreateManagement from "../pages/adminSide/management-related-page/CreateManagement";
+import ManagementList from "../pages/adminSide/management-related-page/ManagementList";
+import MarketingCreate from "../pages/adminSide/marketing-releted-page/MarketingCreate";
+import MarketingList from "../pages/adminSide/marketing-releted-page/MarketingList";
 
 
 
@@ -144,6 +150,14 @@ export const router = createBrowserRouter([
             {
                 path : "blog-details/:id",
                 element : <BlogDetails></BlogDetails>
+            },
+            {
+                path : "management-information",
+                element : <ManagementInfo></ManagementInfo>
+            },
+            {
+                path : "marketing-information",
+                element : <MarketingInfo></MarketingInfo>
             }
         ]
     },
@@ -311,7 +325,33 @@ export const router = createBrowserRouter([
             {
                 path: "upload-current-image",
                 element: <UploadCurrentImage></UploadCurrentImage>
+            },
+
+            // management related route
+            {
+                path : "management-info-upload",
+                element : <CreateManagement></CreateManagement>
+            },
+            {
+                path : "management-info-list",
+                element : <ManagementList></ManagementList>
+            },
+
+
+
+            // marketing related route
+            {
+                path : "marketing-info-upload",
+                element : <MarketingCreate></MarketingCreate>
+            },
+            {
+                path : "marketing-info-list",
+                element : <MarketingList></MarketingList>
             }
+
+
+            
+
 
             
         ]
