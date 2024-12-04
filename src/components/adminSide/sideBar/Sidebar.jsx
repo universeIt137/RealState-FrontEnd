@@ -56,7 +56,7 @@ const Sidebar = () => {
             <NavigationItem to="/dashboard/add-chairman" icon={MdAddCircle} label="Manage Chairman" />
         </>
 
-   
+
     const featureUrls =
         <>
             <NavigationItem to="/dashboard/add-features" icon={MdAddCircle} label="Manage Feature" />
@@ -121,16 +121,22 @@ const Sidebar = () => {
             <NavigationItem to="/dashboard/img-upload" icon={MdAddCircle} label="Upload Img" />
         </>
 
-const marketingInfo =
-<>
-    <NavigationItem to="/dashboard/marketing-info-upload" icon={MdAddCircle} label="Upload" />
-    <NavigationItem to="/dashboard/marketing-info-list" icon={MdAddCircle} label="Marketing Info List" />
-</>
+    const marketingInfo =
+        <>
+            <NavigationItem to="/dashboard/marketing-info-upload" icon={MdAddCircle} label="Upload" />
+            <NavigationItem to="/dashboard/marketing-info-list" icon={MdAddCircle} label="Marketing Info List" />
+        </>
 
-const managementInfo =
+    const managementInfo =
         <>
             <NavigationItem to="/dashboard/management-info-upload" icon={MdAddCircle} label="Upload" />
             <NavigationItem to="/dashboard/management-info-list" icon={MdAddCircle} label="Management Info List" />
+        </>
+
+    const privacy =
+        <>
+            <NavigationItem to="/dashboard/upload-privacy" icon={MdAddCircle} label="Upload Privacy " />
+            <NavigationItem to="/dashboard/manage-privacy" icon={MdAddCircle} label="Manage Privacy" />
         </>
 
 
@@ -198,6 +204,9 @@ const managementInfo =
 
                         <li className="mb-4">
                             <Dropdown buttonText="Management Information" urls={managementInfo} />
+                        </li>
+                        <li className="mb-4">
+                            <Dropdown buttonText="Privacy" urls={privacy} />
                         </li>
 
                     </ul>
