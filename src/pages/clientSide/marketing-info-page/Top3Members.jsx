@@ -18,7 +18,7 @@ const Top3Members = () => {
             <Helmet>
                 <title>Management Information</title>
             </Helmet>
-            <p className="lg:text-3xl font-bold text-green text-center lg:my-5 ">Top 3 of the  { top3members[0]?.month } month</p>
+            <p className="lg:text-3xl font-bold text-green text-center lg:my-5 ">Top 3 Seller of  { top3members[0]?.month } Month</p>
             {/* Responsive Grid */}
             <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6">
                 {top3members?.map((data) => (

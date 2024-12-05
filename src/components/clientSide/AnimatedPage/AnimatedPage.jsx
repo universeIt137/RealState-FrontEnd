@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
+import ReactPlayer from "react-player";
 
 const AnimatedPage = () => {
     const [showCurtain, setShowCurtain] = useState(true);
@@ -40,20 +41,31 @@ const AnimatedPage = () => {
 
             {/* Content */}
             {!showCurtain && (
-                <motion.div
-                    className="relative p-8  border font-bold text-white text-center bg-green rounded-lg shadow-lg"
-                    initial={{ opacity: 0, y: 50 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8, ease: "easeOut" }}
-                >
-                    <div className="flex justify-center items-center">
-                        <img className="w-1/2 bg-white my-5 rounded-lg " src="https://res.cloudinary.com/dnvmj9pvk/image/upload/v1733311854/Amer%20Thikana/pcx1j7tch1uhxzlh3huh.png" alt="" />
-                    </div>
-                    <p className=" lg:text-4xl mb-6">
-                        আমার ঠিকানা গ্রীন সিটিতে আপনাকে স্বাগতম
-                    </p>
+                // <motion.div
+                //     className="relative p-8  border font-bold text-white text-center bg-green rounded-lg shadow-lg"
+                //     initial={{ opacity: 0, y: 50 }}
+                //     animate={{ opacity: 1, y: 0 }}
+                //     transition={{ duration: 0.8, ease: "easeOut" }}
+                // >
+                //     <div className="flex justify-center items-center">
+                //         <img className="w-1/2 bg-white my-5 rounded-lg " src="https://res.cloudinary.com/dnvmj9pvk/image/upload/v1733311854/Amer%20Thikana/pcx1j7tch1uhxzlh3huh.png" alt="" />
+                //     </div>
+                //     <p className=" lg:text-4xl mb-6">
+                //         আমার ঠিকানা গ্রীন সিটিতে আপনাকে স্বাগতম
+                //     </p>
 
-                </motion.div>
+                // </motion.div>
+                <div className="">
+                <ReactPlayer
+                    url={`https://res.cloudinary.com/dnvmj9pvk/video/upload/v1733373885/Amer%20Thikana/fja9wflptjz1ujrzhds5.mp4`}
+                    width="100%"
+                    height="100%"
+                    playing={true} // Autoplay the video
+                    // controls={true} // Show playback controls
+                    muted={true} // Optional: Mute the video to prevent audio autoplay issues
+                />
+            </div>
+            
 
             )}
         </div>
