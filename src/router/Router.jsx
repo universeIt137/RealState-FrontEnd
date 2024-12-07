@@ -74,6 +74,9 @@ import ManageTop3Member from "../pages/adminSide/marketing-releted-page/ManageTo
 import DynamicBookingFrom from "../pages/clientSide/booking-info/DynamicBookingFrom";
 import Image from "../pages/clientSide/project-info/Image";
 import Video from "../pages/clientSide/project-info/Video";
+import Citizen from "../pages/clientSide/project-info/Citizen";
+import Feature from './../pages/clientSide/project-info/Feature';
+import CurrentProjectStatus from "../pages/clientSide/project-info/CurrentProjectStatus";
 
 
 
@@ -186,6 +189,18 @@ export const router = createBrowserRouter([
             {
                 path : "/project-video",
                 element : <Video></Video>
+            },
+            {
+                path : "/citizen-facilities",
+                element : <Citizen></Citizen>
+            },
+            {
+                path : "/project-feature",
+                element : <Feature></Feature>
+            },
+            {
+                path : "/project-status",
+                element : <CurrentProjectStatus></CurrentProjectStatus>
             }
         ]
     },
