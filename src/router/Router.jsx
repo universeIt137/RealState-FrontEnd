@@ -71,6 +71,7 @@ import PrivacyList from "../pages/adminSide/privacey-page/PrivacyList";
 import ViewPrivacy from "../pages/adminSide/privacey-page/ViewPrivacy";
 import AddTop3Member from "../pages/adminSide/marketing-releted-page/AddTop3Member";
 import ManageTop3Member from "../pages/adminSide/marketing-releted-page/ManageTop3Member";
+import DynamicBookingFrom from "../pages/clientSide/booking-info/DynamicBookingFrom";
 
 
 
@@ -166,6 +167,13 @@ export const router = createBrowserRouter([
             {
                 path : "marketing-information",
                 element : <MarketingInfo></MarketingInfo>
+            },
+
+            // dynamic booking from related routes
+
+            {
+                path : "booking-from",
+                element : <DynamicBookingFrom></DynamicBookingFrom>
             }
         ]
     },
