@@ -62,6 +62,7 @@ const Navbar = () => {
         { title: 'Our Features', path: '/project-feature' },
         { title: 'Current Project Status', path: '/project-status' },
         { title: 'Project Layout', path: '/project-layout' },
+        { title: 'Why Best Project', path: '/why-best-project' },
         { title: 'Privacy Policy', path: '/policy' },
 
       ],
@@ -200,13 +201,13 @@ const Navbar = () => {
                     }
                   >
                     {!link.isDropdown ? (
-                      <NavLink to={link.path} className="relative flex items-center space-x-1 hover:text-white hover:font-bold group">
+                      <NavLink to={link.path} className="relative flex items-center space-x-1 hover:text-white  group">
                         <span className="lg:text-[18px] mx-2">{link.title}</span>
                         <span className="absolute bottom-0 block left-0 w-0 h-0.5 bg-white transition-all duration-300 ease-out group-hover:w-full"></span>
                       </NavLink>
                     ) : (
                       <>
-                        <button className="relative lg:text-[18px] block hover:text-white hover:font-bold z-20">
+                        <button className="relative lg:text-[18px] block hover:text-white  z-20">
                           <span className="block mx-1">{link.title}</span>
                           <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-white transition-all duration-300 ease-out group-hover:w-full"></span>
                         </button>
