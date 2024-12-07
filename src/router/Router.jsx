@@ -73,6 +73,7 @@ import AddTop3Member from "../pages/adminSide/marketing-releted-page/AddTop3Memb
 import ManageTop3Member from "../pages/adminSide/marketing-releted-page/ManageTop3Member";
 import DynamicBookingFrom from "../pages/clientSide/booking-info/DynamicBookingFrom";
 import Image from "../pages/clientSide/project-info/Image";
+import Video from "../pages/clientSide/project-info/Video";
 
 
 
@@ -181,6 +182,10 @@ export const router = createBrowserRouter([
             ,{
                 path : "/project-images",
                 element : <Image></Image>
+            },
+            {
+                path : "/project-video",
+                element : <Video></Video>
             }
         ]
     },
