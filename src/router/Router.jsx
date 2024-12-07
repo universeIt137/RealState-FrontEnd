@@ -72,6 +72,7 @@ import ViewPrivacy from "../pages/adminSide/privacey-page/ViewPrivacy";
 import AddTop3Member from "../pages/adminSide/marketing-releted-page/AddTop3Member";
 import ManageTop3Member from "../pages/adminSide/marketing-releted-page/ManageTop3Member";
 import DynamicBookingFrom from "../pages/clientSide/booking-info/DynamicBookingFrom";
+import Image from "../pages/clientSide/project-info/Image";
 
 
 
@@ -174,6 +175,12 @@ export const router = createBrowserRouter([
             {
                 path : "booking-from",
                 element : <DynamicBookingFrom></DynamicBookingFrom>
+            }
+            // project info routes
+
+            ,{
+                path : "/project-images",
+                element : <Image></Image>
             }
         ]
     },
