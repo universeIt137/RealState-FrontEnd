@@ -77,6 +77,9 @@ import Video from "../pages/clientSide/project-info/Video";
 import Citizen from "../pages/clientSide/project-info/Citizen";
 import Feature from './../pages/clientSide/project-info/Feature';
 import CurrentProjectStatus from "../pages/clientSide/project-info/CurrentProjectStatus";
+import LayoutTwo from "../pages/clientSide/project-info/LayoutTwo";
+import BestProject from "../pages/clientSide/project-info/BestProject";
+import Privacy from "../pages/clientSide/project-info/Privacy";
 
 
 
@@ -201,6 +204,17 @@ export const router = createBrowserRouter([
             {
                 path : "/project-status",
                 element : <CurrentProjectStatus></CurrentProjectStatus>
+            },{
+                path : "project-layout",
+                element : <LayoutTwo></LayoutTwo>
+            },
+            {
+                path : "why-best-project",
+                element : <BestProject></BestProject>
+            },
+            {
+                path : "policy",
+                element : <Privacy></Privacy>
             }
         ]
     },
