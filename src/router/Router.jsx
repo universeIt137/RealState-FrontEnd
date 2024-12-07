@@ -80,6 +80,7 @@ import CurrentProjectStatus from "../pages/clientSide/project-info/CurrentProjec
 import LayoutTwo from "../pages/clientSide/project-info/LayoutTwo";
 import BestProject from "../pages/clientSide/project-info/BestProject";
 import Privacy from "../pages/clientSide/project-info/Privacy";
+import PlotPricingTable from "../pages/clientSide/booking-info/PlotPricingTable";
 
 
 
@@ -182,6 +183,10 @@ export const router = createBrowserRouter([
             {
                 path : "booking-from",
                 element : <DynamicBookingFrom></DynamicBookingFrom>
+            },
+            {
+                path : "plot-list",
+                element : <PlotPricingTable></PlotPricingTable>
             }
             // project info routes
 
