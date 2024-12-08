@@ -75,6 +75,7 @@ const Navbar = () => {
       dropdownLinks: [
         { title: 'Plot price list according to tenure', path: '/plot-list' },
         { title: 'Booking From', path: '/booking-from' },
+        { title: 'Bank Information', path: '/bank-information', isDropdown: false },
       ],
     },
     { title: 'Contact', path: '/contact-us', isDropdown: false },

@@ -153,6 +153,14 @@ const Sidebar = () => {
             <NavigationItem to="/dashboard/from-list" icon={MdAddCircle} label="From List" />
         </>
 
+    const bankInformation =
+        <>
+            <NavigationItem to="/dashboard/bank-info-create" icon={MdAddCircle} label="Upload Bank Information" />
+            <NavigationItem to="/dashboard/bank-info-list" icon={MdAddCircle} label="Bank Information List" />
+            
+        </>
+
+
 
     return (
         <>
@@ -227,6 +235,9 @@ const Sidebar = () => {
                         </li>
                         <li className="mb-4">
                             <Dropdown buttonText="From List" urls={from} />
+                        </li>
+                        <li className="mb-4">
+                            <Dropdown buttonText="Bank Information" urls={bankInformation} />
                         </li>
 
                     </ul>
