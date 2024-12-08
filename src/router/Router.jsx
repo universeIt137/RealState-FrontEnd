@@ -86,6 +86,7 @@ import PlotInfoList from "../pages/adminSide/plot-list-dynamic-page/PlotInfoList
 import UpdatePlotInfo from "../pages/adminSide/plot-list-dynamic-page/UpdatePlotInfo";
 import FromList from "../pages/adminSide/dynamic-from-page/FromList";
 import PlotCategory from './../pages/adminSide/plot-list-dynamic-page/PlotCategory';
+import ShowPlotPrice from "../pages/adminSide/plot-list-dynamic-page/components/ShowPlotPrice";
 
 
 
@@ -475,6 +476,10 @@ export const router = createBrowserRouter([
             {
                 path : "create-plot-category",
                 element : <PlotCategory></PlotCategory>
+            },
+            {
+                path: "preview-plot-price/:id",
+                element: <ShowPlotPrice></ShowPlotPrice>
             },
 
             // dynamic from
