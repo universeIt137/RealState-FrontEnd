@@ -120,7 +120,7 @@ const CreatePlotInfo = () => {
                 required
               />
               <input
-                type="number"
+                type="text"
                 value={content.price_5}
                 onChange={(e) =>
                   handleContentChange(index, "price_5", e.target.value)
@@ -130,7 +130,7 @@ const CreatePlotInfo = () => {
                 required
               />
               <input
-                type="number"
+                type="text"
                 value={content.price_7}
                 onChange={(e) =>
                   handleContentChange(index, "price_7", e.target.value)
@@ -140,7 +140,7 @@ const CreatePlotInfo = () => {
                 required
               />
               <input
-                type="number"
+                type="text"
                 value={content.price_10}
                 onChange={(e) =>
                   handleContentChange(index, "price_10", e.target.value)

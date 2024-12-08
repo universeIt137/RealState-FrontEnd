@@ -5,9 +5,23 @@ import BlockD from "./BlockD";
 import BlockE from "./BlockE";
 import BlockA from "./BlockA";
 import { Helmet } from "react-helmet-async";
+import { useQuery } from "@tanstack/react-query";
+import useAxiosPublic from "../../../hooks/useAxiosPublic";
 
 const PlotPricingTable = () => {
     window.scrollTo(0, 0);
+
+    const axiosPublic = useAxiosPublic();
+    const { data: allData = [] } = useQuery({
+        queryKey: ['all Data'],
+        queryFn: async () => {
+            const res = await axiosPublic('/project-price');
+            return res.data;
+        }
+    })
+
+    console.log(allData);
+
     return (
         <div className="w-11/12 mx-auto my-24 " >
             <Helmet>
@@ -24,22 +38,17 @@ const PlotPricingTable = () => {
                     </div>
 
                     {/* Table */}
-                    <div>
-                        <BlockA></BlockA>
-                    </div>
+
+                    {
+                        allData?.map(content =>
+                            <div key={content?._id}>
+                            <BlockA content={content}></BlockA>
+                        </div>)
+
+                    }
                     
-                    <div>
-                        <BlockB></BlockB>
-                    </div>
-                    <div>
-                        <BlockC></BlockC>
-                    </div>
-                    <div>
-                        <BlockD></BlockD>
-                    </div>
-                    <div>
-                        <BlockE></BlockE>
-                    </div>
+                    
+                   
                 </div>
             </div>
         </div>
