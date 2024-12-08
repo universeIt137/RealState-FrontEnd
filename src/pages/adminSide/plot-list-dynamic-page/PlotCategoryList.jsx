@@ -3,21 +3,21 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import useAxiosPublic from '../../../hooks/useAxiosPublic';
-import { Helmet } from 'react-helmet-async';
 
 
-const PlotInfoList = () => {
+const PlotCategoryList = () => {
     const axiosPublic = useAxiosPublic();
    
-
     const { data: contents = [], refetch } = useQuery({
         queryKey: ['allData'],
         queryFn: async () => {
-            const res = await axiosPublic.get('/project-price');
+            const res = await axiosPublic.get('/plot-category');
             return res.data;
         }
     })
 
+    
+   
     
     const handleDelete = (id) => {
         Swal.fire({
@@ -31,12 +31,12 @@ const PlotInfoList = () => {
             if (result.isConfirmed) {
                
                 axiosPublic
-                    .delete(`/project-price/${id}`)
+                    .delete(`/plot-category/${id}`)
                     .then((res) => {
                         if (res) {
                             Swal.fire({
                                 title: 'Deleted!',
-                                text: 'CSR data has been deleted.',
+                                text: 'Data has been deleted.',
                                 icon: 'success',
                             });
                             refetch();
@@ -54,16 +54,12 @@ const PlotInfoList = () => {
 
     return (
         <div className="overflow-x-auto w-full my-5">
-            <Helmet>
-                <title>Dashboard | Manage Price</title>
-            </Helmet>
-            <p className="text-2xl font-bold text-center mb-2">Manage Plot Price</p>
+            <p className="text-2xl font-bold text-center mb-2">Manage Plot Category</p>
             <table className="min-w-full bg-white border border-gray-300">
                 <thead>
                     <tr>
                         <th className="px-4 py-2 border">#</th>
-                        <th className="px-4 py-2 border">Plot Category</th>
-                        <th className="px-4 py-2 border">preview</th>
+                        <th className="px-4 py-2 border">Category Name</th>
                         <th className="px-4 py-2 border">Actions</th>
                     </tr>
                 </thead>
@@ -72,8 +68,7 @@ const PlotInfoList = () => {
                         contents?.map((content, index) => (
                             <tr key={content?._id} className="text-center">
                                 <td className="px-4 py-2 border font-semibold">{index + 1}</td>
-                                <td className="px-4 py-2 border font-semibold">{content?.blockCategory}</td>
-                                <td className="px-4 py-2 border font-semibold"><Link className='text-blue-600' to={`/dashboard/preview-plot-price/${content._id}`}>Preview</Link></td>
+                                <td className="px-4 py-2 border font-semibold">{content?.category}</td>
                                 
                                 <td className="px-4 py-2 border">
                                     
@@ -92,4 +87,4 @@ const PlotInfoList = () => {
     );
 };
 
-export default PlotInfoList;
+export default PlotCategoryList;
