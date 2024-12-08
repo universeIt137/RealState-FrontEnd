@@ -71,6 +71,16 @@ import PrivacyList from "../pages/adminSide/privacey-page/PrivacyList";
 import ViewPrivacy from "../pages/adminSide/privacey-page/ViewPrivacy";
 import AddTop3Member from "../pages/adminSide/marketing-releted-page/AddTop3Member";
 import ManageTop3Member from "../pages/adminSide/marketing-releted-page/ManageTop3Member";
+import DynamicBookingFrom from "../pages/clientSide/booking-info/DynamicBookingFrom";
+import Image from "../pages/clientSide/project-info/Image";
+import Video from "../pages/clientSide/project-info/Video";
+import Citizen from "../pages/clientSide/project-info/Citizen";
+import Feature from './../pages/clientSide/project-info/Feature';
+import CurrentProjectStatus from "../pages/clientSide/project-info/CurrentProjectStatus";
+import LayoutTwo from "../pages/clientSide/project-info/LayoutTwo";
+import BestProject from "../pages/clientSide/project-info/BestProject";
+import Privacy from "../pages/clientSide/project-info/Privacy";
+import PlotPricingTable from "../pages/clientSide/booking-info/PlotPricingTable";
 
 
 
@@ -166,6 +176,50 @@ export const router = createBrowserRouter([
             {
                 path : "marketing-information",
                 element : <MarketingInfo></MarketingInfo>
+            },
+
+            // dynamic booking from related routes
+
+            {
+                path : "booking-from",
+                element : <DynamicBookingFrom></DynamicBookingFrom>
+            },
+            {
+                path : "plot-list",
+                element : <PlotPricingTable></PlotPricingTable>
+            }
+            // project info routes
+
+            ,{
+                path : "/project-images",
+                element : <Image></Image>
+            },
+            {
+                path : "/project-video",
+                element : <Video></Video>
+            },
+            {
+                path : "/citizen-facilities",
+                element : <Citizen></Citizen>
+            },
+            {
+                path : "/project-feature",
+                element : <Feature></Feature>
+            },
+            {
+                path : "/project-status",
+                element : <CurrentProjectStatus></CurrentProjectStatus>
+            },{
+                path : "project-layout",
+                element : <LayoutTwo></LayoutTwo>
+            },
+            {
+                path : "why-best-project",
+                element : <BestProject></BestProject>
+            },
+            {
+                path : "policy",
+                element : <Privacy></Privacy>
             }
         ]
     },
