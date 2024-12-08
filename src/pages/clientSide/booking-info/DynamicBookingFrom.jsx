@@ -5,7 +5,8 @@ import useAxiosPublic from '../../../hooks/useAxiosPublic';
 import Swal from 'sweetalert2';
 
 const DynamicBookingFrom = () => {
-    const [loading, setLoading] = useState(false);
+    const [loading,setLoading] = useState(false);
+    
     const axiosPublic = useAxiosPublic();
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -125,9 +126,9 @@ const DynamicBookingFrom = () => {
         try {
             let resp = await createAlert();
             if (resp.isConfirmed) {
-                loading(true);
+                setLoading(true)
                 let res = await axiosPublic.post(`/booking-form`, payload);
-                loading(false);
+                setLoading(false);
                 if (res) {
                     Swal.fire({
                         position: "top-end",
@@ -733,7 +734,7 @@ const DynamicBookingFrom = () => {
                                 <input
                                     type="text"
                                     placeholder="downPaymentAmount"
-                                    name="downPaymentAmount"
+                                    name = "downPaymentAmount"
                                     className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2"
                                 />
                             </div>
@@ -755,13 +756,11 @@ const DynamicBookingFrom = () => {
                         {/* Submission */}
                         <div className="text-center">
                             <button
-                                disabled={loading}
                                 type="submit"
                                 className="bg-gradient-to-r from-[#027F3D] to-[#034A26] bg-opacity-90 text-white font-bold text-[17px] px-6 py-2 rounded-md hover:bg-green-800"
                             >
                                 {
-                                    loading ? 'Submitting...' : 'Submit'
-
+                                    loading ? "submiting.." : "submit"
                                 }
                             </button>
                         </div>
