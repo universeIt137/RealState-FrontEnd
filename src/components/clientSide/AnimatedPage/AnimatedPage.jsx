@@ -57,7 +57,7 @@ const AnimatedPage = () => {
                 // </motion.div>
                 <div className="">
                 <ReactPlayer
-                    url={`https://res.cloudinary.com/dnvmj9pvk/video/upload/v1733373885/Amer%20Thikana/fja9wflptjz1ujrzhds5.mp4`}
+                    url={`https://res.cloudinary.com/dnvmj9pvk/video/upload/v1733638770/Amer%20Thikana/zn6cu9nlmzy4uljifyet.mp4`}
                     width="100%"
                     height="100%"
                     playing={true} // Autoplay the video
