@@ -84,6 +84,7 @@ import PlotPricingTable from "../pages/clientSide/booking-info/PlotPricingTable"
 import CreatePlotInfo from './../pages/adminSide/plot-list-dynamic-page/CreatePlotInfo';
 import PlotInfoList from "../pages/adminSide/plot-list-dynamic-page/PlotInfoList";
 import UpdatePlotInfo from "../pages/adminSide/plot-list-dynamic-page/UpdatePlotInfo";
+import FromList from "../pages/adminSide/dynamic-from-page/FromList";
 
 
 
@@ -469,6 +470,13 @@ export const router = createBrowserRouter([
             {
                 path : "update-plot-info/:id/",
                 element : <UpdatePlotInfo></UpdatePlotInfo>
+            },
+
+            // dynamic from
+
+            {
+                path : "from-list",
+                element : <FromList></FromList>
             }
 
 

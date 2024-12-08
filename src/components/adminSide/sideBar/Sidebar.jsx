@@ -147,6 +147,11 @@ const Sidebar = () => {
             <NavigationItem to="/dashboard/manage-plot-info" icon={MdAddCircle} label="Manage Plot Info" />
         </>
 
+    const from =
+        <>
+            <NavigationItem to="/dashboard/from-list" icon={MdAddCircle} label="From List" />
+        </>
+
 
     return (
         <>
@@ -218,6 +223,9 @@ const Sidebar = () => {
                         </li>
                         <li className="mb-4">
                             <Dropdown buttonText="Plot Information" urls={plotInfo} />
+                        </li>
+                        <li className="mb-4">
+                            <Dropdown buttonText="From List" urls={from} />
                         </li>
 
                     </ul>
