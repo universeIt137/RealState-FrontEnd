@@ -141,6 +141,12 @@ const Sidebar = () => {
             <NavigationItem to="/dashboard/manage-privacy" icon={MdAddCircle} label="Manage Privacy" />
         </>
 
+    const plotInfo =
+        <>
+            <NavigationItem to="/dashboard/create-plot-info" icon={MdAddCircle} label="Create Plot Info" />
+            <NavigationItem to="/dashboard/manage-plot-info" icon={MdAddCircle} label="Manage Plot Info" />
+        </>
+
 
     return (
         <>
@@ -209,6 +215,9 @@ const Sidebar = () => {
                         </li>
                         <li className="mb-4">
                             <Dropdown buttonText="Privacy" urls={privacy} />
+                        </li>
+                        <li className="mb-4">
+                            <Dropdown buttonText="Plot Information" urls={plotInfo} />
                         </li>
 
                     </ul>

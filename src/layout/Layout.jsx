@@ -20,7 +20,7 @@ const Layout = () => {
       const fetchData = () => {
         setTimeout(() => {
           setShowImage(false)
-        }, [7000])
+        }, [15000])
       }
 
       // Cleanup the ti

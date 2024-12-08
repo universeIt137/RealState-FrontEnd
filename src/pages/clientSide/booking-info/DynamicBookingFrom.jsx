@@ -1,6 +1,45 @@
 import React from 'react'
 
 const DynamicBookingFrom = () => {
+    const handleSubmit = async (e)=>{
+        const name = e.target.name.value;
+        const englishName = e.target.englishName.value;
+        const image = e.target.image.files[0];
+        const parentName = e.target.parentName.value;
+        const presentAddress = e.target.presentAddress.value;
+        const permanentAddress = e.target.permanentAddress.value;
+        const mobileNumber = e.target.mobileNumber.value;
+        const homeMobileNumber = e.target.homeMobileNumber.value;
+        const birthDate = e.target.birthDate.value;
+        const emailFax = e.target.emailFax.value;
+        const religion = e.target.religion.value;
+        const nationality = e.target.nationality.value;
+        const nationalIdCardNo = e.target.nationalIdCardNo.value;
+        const profassion = e.target.profassion.value;
+        const officeAddress = e.target.officeAddress.value;
+        const phoneNumber = e.target.phoneNumber.value;
+        const groupMembersName = e.target.groupMembersName.value;
+        const codeNo = e.target.codeNo.value;
+        const groupLeadersName = e.target.groupLeadersName.value;
+        const nameOfNomoni = e.target.nameOfNomoni.value;
+        const imgOfNomoni = e.target.imgOfNomoni.files[0];
+        const englishNameNomoni = e.target.englishNameNomoni.value;
+        const nationalIdCardNoNomoni = e.nationalIdCardNoNomoni.value;
+        const thikana = e.target.thikana.value;
+        const relation = e.target.relationship.value;
+        const roadNo = e.target.roadNo.value;
+        const block = e.target.block.value;
+        const projectName = e.target.projectName.value;
+        const amounLand = e.target.amounLand.value;
+        const pricePerKhata = e.target.pricePerKhata.value;
+        const plotName = e.target.plotName.value;
+        const moneySpeack = e.target.moneySpeack.value;
+        const sector = e.target.sector.value;
+        const totalAmount = e.target.totalAmount.value;
+        const paymentMethod = e.target.paymentMethod.value;
+        const monthlyInsallmentAmount = e.target.monthlyInsallmentAmount.value;
+
+    }
     return (
         <div className='my-16' >
             <div className="bg-green-50 min-h-screen flex items-center justify-center p-4">
@@ -310,7 +349,7 @@ const DynamicBookingFrom = () => {
                                 </label>
                                 <input
                                     type="text"
-                                    name="nationalIdCardNo"
+                                    name="nationalIdCardNoNomoni"
                                     placeholder="জাতীয় পরিচয় পত্র নং"
                                     className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2"
                                 />
@@ -329,9 +368,6 @@ const DynamicBookingFrom = () => {
                                 />
                             </div>
                         </div>
-
-
-
 
                         <div className='lg:grid lg:grid-cols-3 gap-4 ' >
                             {/* সম্পর্ক */}
