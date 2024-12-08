@@ -90,6 +90,7 @@ import BookingFromDetails from "../pages/adminSide/dynamic-from-page/BookingFrom
 import ShowPlotPrice from "../pages/adminSide/plot-list-dynamic-page/components/ShowPlotPrice";
 import CreateBankInfo from "../pages/adminSide/bank-information-page/CreateBankInfo";
 import BankInfoList from "../pages/adminSide/bank-information-page/BankInfoList";
+import BankInfoUpdate from "../pages/adminSide/bank-information-page/BankInfoUpdate";
 
 
 
@@ -495,6 +496,7 @@ export const router = createBrowserRouter([
                 path : "booking-from-details/:id",
                 element : <BookingFromDetails></BookingFromDetails>
             },
+            // bank information routes
             {
                 path : "bank-info-create",
                 element : <CreateBankInfo></CreateBankInfo>
@@ -502,6 +504,10 @@ export const router = createBrowserRouter([
             {
                 path : "bank-info-list",
                 element : <BankInfoList></BankInfoList>
+            },
+            {
+                path : "bank-info-update/:id",
+                element : <BankInfoUpdate></BankInfoUpdate>
             }
 
 

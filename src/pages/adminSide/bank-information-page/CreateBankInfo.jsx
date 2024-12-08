@@ -3,6 +3,7 @@ import { uploadImg } from '../../../uploadFile/uploadImg';
 import { createAlert } from '../../../helper/createAlert';
 import useAxiosPublic from '../../../hooks/useAxiosPublic';
 import Swal from 'sweetalert2';
+import { Helmet } from 'react-helmet-async';
 
 const CreateBankInfo = () => {
     const axiosPublic = useAxiosPublic();
@@ -70,6 +71,9 @@ const CreateBankInfo = () => {
 
     return (
         <div className=" mx-auto bg-white shadow-md rounded-md p-6 mt-10">
+            <Helmet>
+                <title>Dashboard | Add Bank A/C Details</title>
+            </Helmet>
             <h2 className="lg:text-4xl font-bold text-center mb-10">
                 Bank A/C Details Form
             </h2>
