@@ -32,6 +32,7 @@ const BankInfoUpdate = () => {
         const routingNumber = e.target.routingNumber.value;
         const swiftCode = e.target.swiftCode.value;
         const image = e.target.image.files[0];
+        const mobileNumber = e.target.mobileNumber.value;
 
         // image url
 
@@ -50,7 +51,8 @@ const BankInfoUpdate = () => {
             branchName,
             routingNumber,
             swiftCode,
-            image: imageUrl
+            image: imageUrl,
+            mobileNumber
         };
 
         try {
@@ -129,6 +131,22 @@ const BankInfoUpdate = () => {
                             defaultValue={singleBankInfo?.accountName}
                             className="w-full mt-1 px-4 py-2 border border-gray-300 rounded-md focus:ring-green-500 focus:border-green-500"
                             placeholder="Enter Account Name"
+                        />
+                    </div>
+                    {/* Mobile Number */}
+                    <div>
+                        <label
+                            htmlFor="mobileNumber"
+                            className="block text-sm font-medium text-gray-600"
+                        >
+                            Mobile Banking Number
+                        </label>
+                        <input
+                            type="text"
+                            id="mobileNumber"
+                            name="mobileNumber"
+                            className="w-full mt-1 px-4 py-2 border border-gray-300 rounded-md focus:ring-green-500 focus:border-green-500"
+                            placeholder="Enter Mobile Banking Number"
                         />
                     </div>
 

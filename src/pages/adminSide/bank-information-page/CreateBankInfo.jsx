@@ -7,8 +7,8 @@ import { Helmet } from 'react-helmet-async';
 
 const CreateBankInfo = () => {
     const axiosPublic = useAxiosPublic();
-    const [loading,setLoading] = useState(false);
-    const handleSubmit = async (e)=>{
+    const [loading, setLoading] = useState(false);
+    const handleSubmit = async (e) => {
         e.preventDefault();
         const accountName = e.target.accountName.value;
         const accountNumber = e.target.accountNumber.value;
@@ -18,6 +18,7 @@ const CreateBankInfo = () => {
         const routingNumber = e.target.routingNumber.value;
         const swiftCode = e.target.swiftCode.value;
         const image = e.target.image.files[0];
+        const mobileNumber = e.target.mobileNumber.value;
 
         // image url
 
@@ -31,21 +32,22 @@ const CreateBankInfo = () => {
         const payload = {
             accountName,
             accountNumber,
+            mobileNumber,
             bankName,
             accountType,
             branchName,
             routingNumber,
             swiftCode,
-            image : imageUrl
+            image: imageUrl
         };
 
         try {
             let resp = await createAlert();
-            if(resp.isConfirmed){
+            if (resp.isConfirmed) {
                 setLoading(true);
-                let res = await axiosPublic.post(`/bank-info`,payload);
+                let res = await axiosPublic.post(`/bank-info`, payload);
                 setLoading(false);
-                if(res){
+                if (res) {
                     Swal.fire({
                         position: "top-end",
                         icon: "success",
@@ -108,6 +110,22 @@ const CreateBankInfo = () => {
                             name="accountName"
                             className="w-full mt-1 px-4 py-2 border border-gray-300 rounded-md focus:ring-green-500 focus:border-green-500"
                             placeholder="Enter Account Name"
+                        />
+                    </div>
+                    {/* Mobile Number */}
+                    <div>
+                        <label
+                            htmlFor="mobileNumber"
+                            className="block text-sm font-medium text-gray-600"
+                        >
+                            Mobile Banking Number
+                        </label>
+                        <input
+                            type="text"
+                            id="mobileNumber"
+                            name="mobileNumber"
+                            className="w-full mt-1 px-4 py-2 border border-gray-300 rounded-md focus:ring-green-500 focus:border-green-500"
+                            placeholder="Enter Mobile Banking Number"
                         />
                     </div>
 
@@ -217,11 +235,11 @@ const CreateBankInfo = () => {
                 </div>
 
                 <button
-                disabled={loading}
+                    disabled={loading}
                     type="submit"
                     className=" px-4 text-white py-2 bg-[#21C45E] font-semibold rounded-md hover:bg-green-700"
                 >
-                    {loading? "Submitting..." : "Submit"}
+                    {loading ? "Submitting..." : "Submit"}
                 </button>
             </form>
         </div>
