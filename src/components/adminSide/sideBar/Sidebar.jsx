@@ -145,6 +145,7 @@ const Sidebar = () => {
         <>
             <NavigationItem to="/dashboard/create-plot-info" icon={MdAddCircle} label="Create Plot Info" />
             <NavigationItem to="/dashboard/manage-plot-info" icon={MdAddCircle} label="Manage Plot Info" />
+            <NavigationItem to="/dashboard/create-plot-category" icon={MdAddCircle} label="Create Plot Category" />
         </>
 
     const from =
