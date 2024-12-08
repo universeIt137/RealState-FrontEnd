@@ -8,7 +8,7 @@ import { Helmet } from 'react-helmet-async';
 
 const PlotInfoList = () => {
     const axiosPublic = useAxiosPublic();
-   
+
 
     const { data: contents = [], refetch } = useQuery({
         queryKey: ['allData'],
@@ -18,7 +18,7 @@ const PlotInfoList = () => {
         }
     })
 
-    
+
     const handleDelete = (id) => {
         Swal.fire({
             title: 'Are you sure?',
@@ -29,7 +29,7 @@ const PlotInfoList = () => {
             cancelButtonText: 'Cancel',
         }).then((result) => {
             if (result.isConfirmed) {
-               
+
                 axiosPublic
                     .delete(`/project-price/${id}`)
                     .then((res) => {
@@ -41,11 +41,11 @@ const PlotInfoList = () => {
                             });
                             refetch();
                         }
-                       
+
                     })
                     .catch((err) => {
                         console.log(err);
-                       
+
                     });
             }
         });
@@ -74,9 +74,16 @@ const PlotInfoList = () => {
                                 <td className="px-4 py-2 border font-semibold">{index + 1}</td>
                                 <td className="px-4 py-2 border font-semibold">{content?.blockCategory}</td>
                                 <td className="px-4 py-2 border font-semibold"><Link className='text-blue-600' to={`/dashboard/preview-plot-price/${content._id}`}>Preview</Link></td>
-                                
-                                <td className="px-4 py-2 border">
-                                    
+
+                                <td className="px-4 py-2 border  gap-4">
+
+                                    <button
+
+                                        className="px-2 py-1 bg-blue-500 text-white rounded mx-2"
+                                    >
+                                        <Link to={`/dashboard/update-plot-info/${content?._id}`}>Update</Link>
+                                    </button>
+
                                     <button
                                         onClick={() => handleDelete(content?._id)}
                                         className="px-2 py-1 bg-red-500 text-white rounded"
