@@ -90,68 +90,70 @@ import BookingFromDetails from "../pages/adminSide/dynamic-from-page/BookingFrom
 import ShowPlotPrice from "../pages/adminSide/plot-list-dynamic-page/components/ShowPlotPrice";
 import CreateBankInfo from "../pages/adminSide/bank-information-page/CreateBankInfo";
 import BankInfoList from "../pages/adminSide/bank-information-page/BankInfoList";
+import BankInfoUpdate from "../pages/adminSide/bank-information-page/BankInfoUpdate";
+import BankInfoListN from "../pages/clientSide/bank-info-list/BankInfoListN";
 
 
 
 export const router = createBrowserRouter([
     {
-        path : "/",
-        element : <Layout></Layout>,
-        children : [
+        path: "/",
+        element: <Layout></Layout>,
+        children: [
             {
-                path : "/",
-                element : <HomePage></HomePage>
+                path: "/",
+                element: <HomePage></HomePage>
             },
             {
-                path : "/booking-form",
-                element : <BookingPage></BookingPage>
+                path: "/booking-form",
+                element: <BookingPage></BookingPage>
             },
             {
-                path : "career",
-                element : <Career></Career>
+                path: "career",
+                element: <Career></Career>
             },
             {
-                path : "offer",
-                element : <RealEstateAd></RealEstateAd>
-            },{
-                path : "about-us",
-                element : <AboutUs></AboutUs>
-            },{
-                path : "contact-us",
-                element : <Contact></Contact>
+                path: "offer",
+                element: <RealEstateAd></RealEstateAd>
+            }, {
+                path: "about-us",
+                element: <AboutUs></AboutUs>
+            }, {
+                path: "contact-us",
+                element: <Contact></Contact>
             },
             {
-                path : "company-profile",
-                element : <CompanyProfilePage></CompanyProfilePage>
+                path: "company-profile",
+                element: <CompanyProfilePage></CompanyProfilePage>
             },
             {
-                path : "mission",
-                element : <MissionVision></MissionVision>
+                path: "mission",
+                element: <MissionVision></MissionVision>
             },
             {
-                path : "corporate-structure",
-                element : <CorporateStructurePage></CorporateStructurePage>
+                path: "corporate-structure",
+                element: <CorporateStructurePage></CorporateStructurePage>
             },
             {
-                path : "corporate-social-responsibility",
-                element : <CSRPage></CSRPage>
+                path: "corporate-social-responsibility",
+                element: <CSRPage></CSRPage>
             }
-            ,{
-                path : "certification",
-                element : <CertificationPage></CertificationPage>
+            , {
+                path: "certification",
+                element: <CertificationPage></CertificationPage>
             },
             {
-                path : "client-review",
-                element : <ClientReviewDropDown></ClientReviewDropDown>
+                path: "client-review",
+                element: <ClientReviewDropDown></ClientReviewDropDown>
             }
             ,
             {
-                path : "video-gallery",
-                element : <VideoGalleryPage></VideoGalleryPage>
+                path: "video-gallery",
+                element: <VideoGalleryPage></VideoGalleryPage>
             },
             {
-                path:"career-details/:id",
-                element:<CareerDetailsPage></CareerDetailsPage>
+                path: "career-details/:id",
+                element: <CareerDetailsPage></CareerDetailsPage>
             }
             ,
             {
@@ -159,76 +161,80 @@ export const router = createBrowserRouter([
                 element: <ApplyForm></ApplyForm>
             },
             {
-                path : "project-details",
-                element : <ProjectDetails></ProjectDetails>
+                path: "project-details",
+                element: <ProjectDetails></ProjectDetails>
             },
             {
-                path : "image-gallery",
-                element : <ImageGallery></ImageGallery>
+                path: "image-gallery",
+                element: <ImageGallery></ImageGallery>
             },
             {
-                path : "about-us",
-                element : <AboutUs></AboutUs>
+                path: "about-us",
+                element: <AboutUs></AboutUs>
             },
             {
-                path : "chairman-speech",
-                element : <ChairmanSpeachDrop></ChairmanSpeachDrop>
+                path: "chairman-speech",
+                element: <ChairmanSpeachDrop></ChairmanSpeachDrop>
             },
             {
-                path : "blog-details/:id",
-                element : <BlogDetails></BlogDetails>
+                path: "blog-details/:id",
+                element: <BlogDetails></BlogDetails>
             },
             {
-                path : "management-information",
-                element : <ManagementInfo></ManagementInfo>
+                path: "management-information",
+                element: <ManagementInfo></ManagementInfo>
             },
             {
-                path : "marketing-information",
-                element : <MarketingInfo></MarketingInfo>
+                path: "marketing-information",
+                element: <MarketingInfo></MarketingInfo>
             },
 
             // dynamic booking from related routes
 
             {
-                path : "booking-from",
-                element : <DynamicBookingFrom></DynamicBookingFrom>
+                path: "booking-from",
+                element: <DynamicBookingFrom></DynamicBookingFrom>
             },
             {
-                path : "plot-list",
-                element : <PlotPricingTable></PlotPricingTable>
+                path: "plot-list",
+                element: <PlotPricingTable></PlotPricingTable>
             }
             // project info routes
 
-            ,{
-                path : "/project-images",
-                element : <Image></Image>
+            , {
+                path: "/project-images",
+                element: <Image></Image>
             },
             {
-                path : "/project-video",
-                element : <Video></Video>
+                path: "/project-video",
+                element: <Video></Video>
             },
             {
-                path : "/citizen-facilities",
-                element : <Citizen></Citizen>
+                path: "/citizen-facilities",
+                element: <Citizen></Citizen>
             },
             {
-                path : "/project-feature",
-                element : <Feature></Feature>
+                path: "/project-feature",
+                element: <Feature></Feature>
             },
             {
-                path : "/project-status",
-                element : <CurrentProjectStatus></CurrentProjectStatus>
-            },{
-                path : "project-layout",
-                element : <LayoutTwo></LayoutTwo>
+                path: "/project-status",
+                element: <CurrentProjectStatus></CurrentProjectStatus>
+            }, {
+                path: "project-layout",
+                element: <LayoutTwo></LayoutTwo>
             },
             {
-                path : "why-best-project",
-                element : <BestProject></BestProject>
+                path: "why-best-project",
+                element: <BestProject></BestProject>
             },
             {
-                path : "policy",
-                element : <Privacy></Privacy>
+                path: "policy",
+                element: <Privacy></Privacy>
+            },
+            {
+                path: "bank-information-lists",
+                element: <BankInfoListN></BankInfoListN>
             }
         ]
     },
@@ -288,16 +294,16 @@ export const router = createBrowserRouter([
                 element: <UpdateAboutUs></UpdateAboutUs>
             },
             {
-                path : "best-upload-form",
-                element : <UploadFrom></UploadFrom>
+                path: "best-upload-form",
+                element: <UploadFrom></UploadFrom>
             },
             {
-                path : "update/:id",
-                element : <UpdateForm></UpdateForm>
+                path: "update/:id",
+                element: <UpdateForm></UpdateForm>
             },
             {
-                path : "schedule-list",
-                element : <ScheduleList></ScheduleList>
+                path: "schedule-list",
+                element: <ScheduleList></ScheduleList>
             },
             // csr related routes 
             {
@@ -313,16 +319,16 @@ export const router = createBrowserRouter([
                 element: <UpdateCSR></UpdateCSR>
             },
             {
-                path :  "banner-upload",
-                element : <BannerUpload></BannerUpload>
+                path: "banner-upload",
+                element: <BannerUpload></BannerUpload>
             },
             {
-                path :  "manage-banner",
-                element : <ManageBannerPage></ManageBannerPage>
+                path: "manage-banner",
+                element: <ManageBannerPage></ManageBannerPage>
             },
             {
-                path : "update-banner/:id",
-                element : <BannerUpdatePage></BannerUpdatePage>
+                path: "update-banner/:id",
+                element: <BannerUpdatePage></BannerUpdatePage>
             },
             // certificate related routes 
             {
@@ -344,25 +350,25 @@ export const router = createBrowserRouter([
             },
             // video gallery related api
             {
-                path : "upload-video",
-                element : <UploadVideo></UploadVideo>
+                path: "upload-video",
+                element: <UploadVideo></UploadVideo>
             },
             {
-                path : "video-update/:id",
-                element : <VideoGalleryUpdate></VideoGalleryUpdate>
+                path: "video-update/:id",
+                element: <VideoGalleryUpdate></VideoGalleryUpdate>
             },
             {
-                path : "manage-video",
-                element : <ManageVideoGallery></ManageVideoGallery>
+                path: "manage-video",
+                element: <ManageVideoGallery></ManageVideoGallery>
             },
             // img gallery related routes
             {
-                path : "img-upload",
-                element : <UploadImg></UploadImg>
+                path: "img-upload",
+                element: <UploadImg></UploadImg>
             },
             {
-                path : "img-update/:id",
-                element : <UpdateImg></UpdateImg>
+                path: "img-update/:id",
+                element: <UpdateImg></UpdateImg>
             },
             // career related routes 
             {
@@ -371,7 +377,7 @@ export const router = createBrowserRouter([
             },
             {
                 path: "manage-career",
-                element:<ManageCareer></ManageCareer>
+                element: <ManageCareer></ManageCareer>
             },
             {
                 path: "update-career/:id",
@@ -400,85 +406,85 @@ export const router = createBrowserRouter([
 
             // management related route
             {
-                path : "management-info-upload",
-                element : <CreateManagement></CreateManagement>
+                path: "management-info-upload",
+                element: <CreateManagement></CreateManagement>
             },
             {
-                path : "management-info-list",
-                element : <ManagementList></ManagementList>
+                path: "management-info-list",
+                element: <ManagementList></ManagementList>
             },
 
             {
-                path : "management-info-update/:id",
-                element : <ManagementUpdate></ManagementUpdate>
+                path: "management-info-update/:id",
+                element: <ManagementUpdate></ManagementUpdate>
             },
 
 
 
             // marketing related route
             {
-                path : "marketing-info-upload",
-                element : <MarketingCreate></MarketingCreate>
+                path: "marketing-info-upload",
+                element: <MarketingCreate></MarketingCreate>
             },
             {
-                path : "marketing-info-list",
-                element : <MarketingList></MarketingList>
-            },
-            
-            {
-                path : "marketing-info-update/:id",
-                element : <MarketingUpdate></MarketingUpdate>
+                path: "marketing-info-list",
+                element: <MarketingList></MarketingList>
             },
 
             {
-                path : "add-top3",
-                element : <AddTop3Member></AddTop3Member>
+                path: "marketing-info-update/:id",
+                element: <MarketingUpdate></MarketingUpdate>
             },
 
             {
-                path : "manage-top3",
-                element : <ManageTop3Member></ManageTop3Member>
+                path: "add-top3",
+                element: <AddTop3Member></AddTop3Member>
+            },
+
+            {
+                path: "manage-top3",
+                element: <ManageTop3Member></ManageTop3Member>
             },
 
 
 
             // privacy routes
             {
-                path : "upload-privacy",
-                element : <CreatePrivacy></CreatePrivacy>
+                path: "upload-privacy",
+                element: <CreatePrivacy></CreatePrivacy>
             },
 
             {
-                path : "manage-privacy",
-                element : <PrivacyList></PrivacyList>
+                path: "manage-privacy",
+                element: <PrivacyList></PrivacyList>
             },
 
             {
-                path : "privacy-update/:id",
-                element : <PrivacyUpdate></PrivacyUpdate>
+                path: "privacy-update/:id",
+                element: <PrivacyUpdate></PrivacyUpdate>
             },
             {
-                path : "view-privacy/:id",
-                element : <ViewPrivacy></ViewPrivacy>
+                path: "view-privacy/:id",
+                element: <ViewPrivacy></ViewPrivacy>
             },
 
             // plot information routes
 
             {
-                path : "create-plot-info",
-                element : <CreatePlotInfo></CreatePlotInfo>
+                path: "create-plot-info",
+                element: <CreatePlotInfo></CreatePlotInfo>
             },
             {
-                path : "manage-plot-info",
-                element : <PlotInfoList></PlotInfoList>
+                path: "manage-plot-info",
+                element: <PlotInfoList></PlotInfoList>
             },
             {
-                path : "update-plot-info/:id/",
-                element : <UpdatePlotInfo></UpdatePlotInfo>
+                path: "update-plot-info/:id/",
+                element: <UpdatePlotInfo></UpdatePlotInfo>
             },
             {
-                path : "create-plot-category",
-                element : <PlotCategory></PlotCategory>
+                path: "create-plot-category",
+                element: <PlotCategory></PlotCategory>
             },
             {
                 path: "preview-plot-price/:id",
@@ -488,25 +494,31 @@ export const router = createBrowserRouter([
             // dynamic from
 
             {
-                path : "from-list",
-                element : <FromList></FromList>
+                path: "from-list",
+                element: <FromList></FromList>
             },
             {
-                path : "booking-from-details/:id",
-                element : <BookingFromDetails></BookingFromDetails>
+                path: "booking-from-details/:id",
+                element: <BookingFromDetails></BookingFromDetails>
+            },
+            // bank information routes
+            {
+                path: "bank-info-create",
+                element: <CreateBankInfo></CreateBankInfo>
             },
             {
-                path : "bank-info-create",
-                element : <CreateBankInfo></CreateBankInfo>
+                path: "bank-info-list",
+                element: <BankInfoList></BankInfoList>
             },
             {
-                path : "bank-info-list",
-                element : <BankInfoList></BankInfoList>
-            }
+                path: "bank-info-update/:id",
+                element: <BankInfoUpdate></BankInfoUpdate>
+            },
+
 
 
         ]
     }
 
-    
+
 ]);
