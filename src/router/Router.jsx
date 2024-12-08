@@ -81,6 +81,9 @@ import LayoutTwo from "../pages/clientSide/project-info/LayoutTwo";
 import BestProject from "../pages/clientSide/project-info/BestProject";
 import Privacy from "../pages/clientSide/project-info/Privacy";
 import PlotPricingTable from "../pages/clientSide/booking-info/PlotPricingTable";
+import CreatePlotInfo from './../pages/adminSide/plot-list-dynamic-page/CreatePlotInfo';
+import PlotInfoList from "../pages/adminSide/plot-list-dynamic-page/PlotInfoList";
+import UpdatePlotInfo from "../pages/adminSide/plot-list-dynamic-page/UpdatePlotInfo";
 
 
 
@@ -451,6 +454,21 @@ export const router = createBrowserRouter([
             {
                 path : "view-privacy/:id",
                 element : <ViewPrivacy></ViewPrivacy>
+            },
+
+            // plot information routes
+
+            {
+                path : "create-plot-info",
+                element : <CreatePlotInfo></CreatePlotInfo>
+            },
+            {
+                path : "manage-plot-info",
+                element : <PlotInfoList></PlotInfoList>
+            },
+            {
+                path : "update-plot-info/:id/",
+                element : <UpdatePlotInfo></UpdatePlotInfo>
             }
 
 
