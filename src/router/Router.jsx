@@ -88,6 +88,8 @@ import FromList from "../pages/adminSide/dynamic-from-page/FromList";
 import PlotCategory from './../pages/adminSide/plot-list-dynamic-page/PlotCategory';
 import BookingFromDetails from "../pages/adminSide/dynamic-from-page/BookingFromDetails";
 import ShowPlotPrice from "../pages/adminSide/plot-list-dynamic-page/components/ShowPlotPrice";
+import CreateBankInfo from "../pages/adminSide/bank-information-page/CreateBankInfo";
+import BankInfoList from "../pages/adminSide/bank-information-page/BankInfoList";
 
 
 
@@ -492,6 +494,14 @@ export const router = createBrowserRouter([
             {
                 path : "booking-from-details/:id",
                 element : <BookingFromDetails></BookingFromDetails>
+            },
+            {
+                path : "bank-info-create",
+                element : <CreateBankInfo></CreateBankInfo>
+            },
+            {
+                path : "bank-info-list",
+                element : <BankInfoList></BankInfoList>
             }
 
 
