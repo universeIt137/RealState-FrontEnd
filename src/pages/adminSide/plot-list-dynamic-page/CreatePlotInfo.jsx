@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Swal from "sweetalert2";
 import { Helmet } from "react-helmet-async";
 import useAxiosPublic from "../../../hooks/useAxiosPublic";
+import { useQuery } from "@tanstack/react-query";
 
 const CreatePlotInfo = () => {
   const [contents, setContents] = useState([
@@ -10,6 +11,16 @@ const CreatePlotInfo = () => {
   const [blockCategory, setBlockCategory] = useState("");
   const [loading, setLoading] = useState(false);
   const axiosPublic = useAxiosPublic();
+
+
+  const { data: allData = [], refetch } = useQuery({
+    queryKey: ['allData'],
+    queryFn: async () => {
+      const res = await axiosPublic.get('/plot-category');
+      return res.data;
+    }
+  })
+
 
   const handleContentChange = (index, field, value) => {
     const updatedContents = contents.map((content, i) =>
@@ -39,23 +50,28 @@ const CreatePlotInfo = () => {
     };
 
     console.log(packageData);
+    // Simulate form submission
+    try {
 
-    // Uncomment to send data to the server
-    // axiosPublic.post('/feature', packageData)
-    //   .then(res => {
-    //     if (res) {
-    //       Swal.fire({
-    //         position: "top-end",
-    //         icon: "success",
-    //         title: "Your feature has been added",
-    //         showConfirmButton: false,
-    //         timer: 1500
-    //       });
-    //     }
-    //   })
-    //   .catch();
+      axiosPublic.post(`/project-price`, packageData)
+        .then(res => {
+          if (res) {
+            Swal.fire({
+              position: "top-end",
+              icon: "success",
+              title: "Data has been saved",
+              showConfirmButton: false,
+              timer: 1500
+            });
+            refetch();
+          }
+        })
 
-    setLoading(false);
+    } catch (error) {
+      console.error("Error submitting form:", error.message);
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -79,10 +95,11 @@ const CreatePlotInfo = () => {
             <option disabled value="">
               Select Block Category
             </option>
-            <option value="Block A">Block A</option>
-            <option value="Block B">Block B</option>
-            <option value="Block C">Block C</option>
-            <option value="Block D">Block D</option>
+            {
+              allData?.map(content => <option key={content?._id} value={content?.category}>{content?.category}</option>)
+            }
+
+
           </select>
         </div>
 
@@ -155,9 +172,8 @@ const CreatePlotInfo = () => {
         <div className="text-center">
           <button
             type="submit"
-            className={`mt-4 bg-green text-white px-6 py-2 rounded hover:bg-green-600 transition duration-300 ${
-              loading ? "opacity-50 cursor-not-allowed" : ""
-            }`}
+            className={`mt-4 bg-green text-white px-6 py-2 rounded hover:bg-green-600 transition duration-300 ${loading ? "opacity-50 cursor-not-allowed" : ""
+              }`}
             disabled={loading}
           >
             {loading ? "Uploading..." : "Submit"}
