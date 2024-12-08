@@ -1,7 +1,14 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { uploadImg } from '../../../uploadFile/uploadImg';
+import { createAlert } from '../../../helper/createAlert';
+import useAxiosPublic from '../../../hooks/useAxiosPublic';
+import Swal from 'sweetalert2';
 
 const DynamicBookingFrom = () => {
-    const handleSubmit = async (e)=>{
+    const [loading, setLoading] = useState(false);
+    const axiosPublic = useAxiosPublic();
+    const handleSubmit = async (e) => {
+        e.preventDefault();
         const name = e.target.name.value;
         const englishName = e.target.englishName.value;
         const image = e.target.image.files[0];
@@ -24,9 +31,9 @@ const DynamicBookingFrom = () => {
         const nameOfNomoni = e.target.nameOfNomoni.value;
         const imgOfNomoni = e.target.imgOfNomoni.files[0];
         const englishNameNomoni = e.target.englishNameNomoni.value;
-        const nationalIdCardNoNomoni = e.nationalIdCardNoNomoni.value;
+        const nationalIdCardNoNomoni = e.target.nationalIdCardNoNomoni.value;
         const thikana = e.target.thikana.value;
-        const relation = e.target.relationship.value;
+        const relation = e.target.relation.value;
         const roadNo = e.target.roadNo.value;
         const block = e.target.block.value;
         const projectName = e.target.projectName.value;
@@ -38,6 +45,109 @@ const DynamicBookingFrom = () => {
         const totalAmount = e.target.totalAmount.value;
         const paymentMethod = e.target.paymentMethod.value;
         const monthlyInsallmentAmount = e.target.monthlyInsallmentAmount.value;
+        const paymentMethodDate = e.target.paymentMethodDate.value;
+        const checkNo = e.target.checkNo.value;
+        const bookingAmountMoney = e.target.bookingAmountMoney.value;
+        const branchName = e.target.branchName.value;
+        const bankName = e.target.bankName.value;
+        const monthlyInstallment = e.target.monthlyInstallment.value;
+        const downPaymentAmount = e.target.downPaymentAmount.value;
+        const monthlyInstallmentDate = e.target.monthlyInstallmentDate.value;
+
+        // image 
+
+        let imageUrl = '';
+
+        if (!image?.name) {
+            imageUrl = '';
+        }
+
+        imageUrl = await uploadImg(image);
+
+        //img Of Nomoni
+
+        let imgOfNomoniUrl = '';
+
+        if (!imgOfNomoni?.name) {
+            imgOfNomoniUrl = '';
+        }
+
+        imgOfNomoniUrl = await uploadImg(imgOfNomoni);
+
+        const payload = {
+            name,
+            englishName,
+            image: imageUrl,
+            parentName,
+            presentAddress,
+            permanentAddress,
+            mobileNumber,
+            homeMobileNumber,
+            birthDate,
+            emailFax,
+            religion,
+            nationality,
+            nationalIdCardNo,
+            profassion,
+            officeAddress,
+            phoneNumber,
+            groupMembersName,
+            codeNo,
+            groupLeadersName,
+            nameOfNomoni,
+            imgOfNomoni: imgOfNomoniUrl,
+            englishNameNomoni,
+            nationalIdCardNoNomoni,
+            thikana,
+            relation,
+            roadNo,
+            block,
+            projectName,
+            amounLand,
+            pricePerKhata,
+            plotName,
+            moneySpeack,
+            sector,
+            totalAmount,
+            paymentMethod,
+            monthlyInsallmentAmount,
+            paymentMethodDate,
+            checkNo,
+            bookingAmountMoney,
+            branchName,
+            bankName,
+            monthlyInstallment,
+            downPaymentAmount,
+            monthlyInstallmentDate
+        }
+
+
+        try {
+            let resp = await createAlert();
+            if (resp.isConfirmed) {
+                loading(true);
+                let res = await axiosPublic.post(`/booking-form`, payload);
+                loading(false);
+                if (res) {
+                    Swal.fire({
+                        position: "top-end",
+                        icon: "success",
+                        title: "Booking form was successfully submitted",
+                        showConfirmButton: false,
+                        timer: 1500
+                    });
+                    e.target.reset()
+                }
+            }
+        } catch (error) {
+            Swal.fire({
+                position: "top-end",
+                icon: "error",
+                title: "Error in submitting booking form",
+                showConfirmButton: false,
+                timer: 1500
+            })
+        }
 
     }
     return (
@@ -48,7 +158,7 @@ const DynamicBookingFrom = () => {
                         আমার ঠিকানা - বুকিং ফর্ম
                     </h2>
 
-                    <form className="space-y-6">
+                    <form onSubmit={handleSubmit} className="space-y-6">
                         {/* আবেদনকারীর নাম */}
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                             <div>
@@ -79,7 +189,7 @@ const DynamicBookingFrom = () => {
                         {/* আবেদনকারীর ছবি*/}
                         <div className='w-1/2' >
                             <label className="block text-sm font-medium text-gray-700">
-                            আবেদনকারীর ছবি
+                                আবেদনকারীর ছবি
                             </label>
                             <input
                                 type="file"
@@ -538,7 +648,7 @@ const DynamicBookingFrom = () => {
                                 </label>
                                 <input
                                     type="date"
-                                    name="paymentMethod"
+                                    name="paymentMethodDate"
                                     placeholder="তারিখ"
                                     className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2"
                                 />
@@ -622,8 +732,8 @@ const DynamicBookingFrom = () => {
                                 </label>
                                 <input
                                     type="text"
-                                    name="bankName"
                                     placeholder="downPaymentAmount"
+                                    name="downPaymentAmount"
                                     className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2"
                                 />
                             </div>
@@ -642,23 +752,17 @@ const DynamicBookingFrom = () => {
                             </div>
                         </div>
 
-
-
-
-
-
-
-
-
-
-
                         {/* Submission */}
                         <div className="text-center">
                             <button
+                                disabled={loading}
                                 type="submit"
                                 className="bg-gradient-to-r from-[#027F3D] to-[#034A26] bg-opacity-90 text-white font-bold text-[17px] px-6 py-2 rounded-md hover:bg-green-800"
                             >
-                                Submit
+                                {
+                                    loading ? 'Submitting...' : 'Submit'
+
+                                }
                             </button>
                         </div>
                     </form>
