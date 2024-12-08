@@ -7,7 +7,7 @@ import useAxiosPublic from '../../../hooks/useAxiosPublic';
 
 const PlotCategoryList = () => {
     const axiosPublic = useAxiosPublic();
-   
+
     const { data: contents = [], refetch } = useQuery({
         queryKey: ['allData'],
         queryFn: async () => {
@@ -16,9 +16,9 @@ const PlotCategoryList = () => {
         }
     })
 
-    
-   
-    
+
+
+
     const handleDelete = (id) => {
         Swal.fire({
             title: 'Are you sure?',
@@ -29,7 +29,7 @@ const PlotCategoryList = () => {
             cancelButtonText: 'Cancel',
         }).then((result) => {
             if (result.isConfirmed) {
-               
+
                 axiosPublic
                     .delete(`/plot-category/${id}`)
                     .then((res) => {
@@ -41,11 +41,11 @@ const PlotCategoryList = () => {
                             });
                             refetch();
                         }
-                       
+
                     })
                     .catch((err) => {
                         console.log(err);
-                       
+
                     });
             }
         });
@@ -69,9 +69,11 @@ const PlotCategoryList = () => {
                             <tr key={content?._id} className="text-center">
                                 <td className="px-4 py-2 border font-semibold">{index + 1}</td>
                                 <td className="px-4 py-2 border font-semibold">{content?.category}</td>
-                                
+
                                 <td className="px-4 py-2 border">
+
                                     
+
                                     <button
                                         onClick={() => handleDelete(content?._id)}
                                         className="px-2 py-1 bg-red-500 text-white rounded"
