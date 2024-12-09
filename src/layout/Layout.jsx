@@ -43,7 +43,7 @@ const Layout = () => {
 
   return (
     <div className="bg-white">
-      {/* {isModalOpen && (
+      {isModalOpen && (
         <div className="">
           {
             showImage && (
@@ -53,7 +53,7 @@ const Layout = () => {
             )
           }
         </div>
-      )} */}
+      )}
 
       <Navbar />
       <div className='z-50' >
