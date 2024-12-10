@@ -4,6 +4,7 @@ import { Link, NavLink } from 'react-router-dom';
 import { RiMenuUnfold4Fill } from 'react-icons/ri';
 import useAxiosPublic from '../../hooks/useAxiosPublic';
 import { useQuery } from '@tanstack/react-query';
+import Drawer from './Drawer';
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -55,7 +56,7 @@ const Navbar = () => {
       path: '/project-details',
       isDropdown: true,
       dropdownLinks: [
-        { title: 'Project Details', path: '/project-details' },
+        // { title: 'Project Details', path: '/project-details' },
         { title: 'Project Images', path: '/project-images' },
         { title: 'Project Videos', path: '/project-video' },
         { title: 'Citizen Facilities', path: '/citizen-facilities' },
@@ -168,7 +169,9 @@ const Navbar = () => {
           </div>
 
           <button onClick={toggleDrawer} className="lg:hidden  text-white">
-            {!isDrawerOpen ? <RiMenuUnfold4Fill size={30} className="font-bold block ml-40" /> : <span></span>}
+            {!isDrawerOpen ? <RiMenuUnfold4Fill size={30} className="font-bold block ml-40" /> : <span>
+              <Drawer isOpen={isDrawerOpen } onClose={false} />
+            </span>}
           </button>
 
           <div>

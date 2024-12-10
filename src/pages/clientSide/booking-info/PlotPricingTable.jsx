@@ -30,8 +30,8 @@ const PlotPricingTable = () => {
             <div className="bg-green-50  flex items-center ">
                 <div className=" overflow-hidden w-full ">
                     {/* Header */}
-                    <div className="bg-green-700 text-center mb-5 ">
-                        <h1 className="lg:text-4xl   font-bold">আমার ঠিকানা গ্রিন সিটি </h1>
+                    <div className="bg-green-700 text-center mb-5 mt-5">
+                        <h1 className="lg:text-4xl   font-bold">আমার ঠিকানা গ্রীন সিটি </h1>
                         <h3 className="lg:text-2xl text-[11px] font-semibold mt-2  ">
                             মেয়াদ অনুযায়ী প্রজেক্টের মূল্য তালিকা
                         </h3>
