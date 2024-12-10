@@ -87,7 +87,7 @@ const SmallDeviceNavbar = () => {
 
                 {/* Drawer Menu */}
                 {isDrawerOpen && (
-                    <div className="fixed top-0 left-0 mt-16 h-full text-white  w-64 bg-gradient-to-r from-[#027F3D] to-[#034A26] bg-opacity-90 z-50 shadow-lg">
+                    <div className="fixed top-0 left-0  h-full text-white  w-64 bg-gradient-to-r from-[#027F3D] to-[#034A26] bg-opacity-90 z-50 shadow-lg">
                         <div className="p-4">
                             <ul className="space-y-4">
                                 {navLinks.map((link, idx) => (
