@@ -162,7 +162,7 @@ const Navbar = () => {
             <NavLink to="/">
               <img
                 className="w-full md:w-32 md:rounded-full"
-                src="https://res.cloudinary.com/dnvmj9pvk/image/upload/v1731399400/Artboard_2300_zteplb.png"
+                src={webContent?.scheduleImageUrl}
                 alt="Logo"
               />
             </NavLink>
