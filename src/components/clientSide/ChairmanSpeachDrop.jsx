@@ -12,10 +12,12 @@ const ChairmanSpeachDrop = () => {
   window.scrollTo(0, 0);
   return (
     <>
-    <Helmet>
-      <title>Amar Thikana | ChairmanSpeech</title>
-    </Helmet>
-     <ChairmanSpeech></ChairmanSpeech>
+      <Helmet>
+        <title>Amar Thikana | ChairmanSpeech</title>
+      </Helmet>
+      <div className='lg:my-0 pt-32 pb-6 ' >
+        <ChairmanSpeech></ChairmanSpeech>
+      </div>
     </>
   );
 };

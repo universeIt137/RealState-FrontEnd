@@ -77,6 +77,7 @@ const DynamicBookingFrom = () => {
         const monthlyInstallment = e.target.monthlyInstallment.value;
         const downPaymentAmount = e.target.downPaymentAmount.value;
         const monthlyInstallmentDate = e.target.monthlyInstallmentDate.value;
+        const motherName = e.target.motherName.value;
 
         // image 
 
@@ -142,7 +143,8 @@ const DynamicBookingFrom = () => {
             bankName,
             monthlyInstallment,
             downPaymentAmount,
-            monthlyInstallmentDate
+            monthlyInstallmentDate,
+            motherName
         }
 
 

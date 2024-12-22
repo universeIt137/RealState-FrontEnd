@@ -5,6 +5,7 @@ import { RiMenuUnfold4Fill } from 'react-icons/ri';
 import useAxiosPublic from '../../hooks/useAxiosPublic';
 import { useQuery } from '@tanstack/react-query';
 import Drawer from './Drawer';
+import SmallDeviceNavbar from './SmallDeviceDrawer';
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -152,7 +153,9 @@ const Navbar = () => {
   };
 
   return (
+    // Navbar started 
     <div
+      
       className={`fixed top-0 w-full z-50 transition-all duration-300 ${scrolled ? 'bg-[#027F3D]  text-white shadow-md opacity-70' : 'bg-[#027F3D] text-white shadow-xl bg-opacity-70'
         }`}
     >
@@ -167,13 +170,6 @@ const Navbar = () => {
               />
             </NavLink>
           </div>
-
-          <button onClick={toggleDrawer} className="lg:hidden  text-white">
-            {!isDrawerOpen ? <RiMenuUnfold4Fill size={30} className="font-bold block ml-40" /> : <span>
-              <Drawer isOpen={isDrawerOpen } onClose={false} />
-            </span>}
-          </button>
-
           <div>
             <nav className="hidden lg:block">
               <ul className="flex lg:flex-row lg:space-x-1">
@@ -346,6 +342,9 @@ const Navbar = () => {
               </div>
             </div>
           </div>
+        </div>
+        <div className=' lg:hidden ' >
+        <SmallDeviceNavbar></SmallDeviceNavbar>
         </div>
       </div>
     </div>
