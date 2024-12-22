@@ -153,7 +153,9 @@ const Navbar = () => {
   };
 
   return (
+    // Navbar started 
     <div
+      
       className={`fixed top-0 w-full z-50 transition-all duration-300 ${scrolled ? 'bg-[#027F3D]  text-white shadow-md opacity-70' : 'bg-[#027F3D] text-white shadow-xl bg-opacity-70'
         }`}
     >
@@ -162,8 +164,8 @@ const Navbar = () => {
           <div className="bg-white lg:w-[10%] rounded-md p-1">
             <NavLink to="/">
               <img
-                className="lg:w-full w-20 md:rounded-full"
-                src="https://res.cloudinary.com/dnvmj9pvk/image/upload/v1731399400/Artboard_2300_zteplb.png"
+                className="w-full md:w-32 md:rounded-full"
+                src={webContent?.scheduleImageUrl}
                 alt="Logo"
               />
             </NavLink>
