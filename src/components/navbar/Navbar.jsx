@@ -156,16 +156,16 @@ const Navbar = () => {
     // Navbar started 
     <div
       
-      className={`fixed top-0 w-full z-50 transition-all duration-300 ${scrolled ? 'bg-[#027F3D]  text-white shadow-md opacity-70' : 'bg-[#027F3D] text-white shadow-xl bg-opacity-70'
+      className={`fixed top-0 w-full z-50 transition-all duration-300 ${scrolled ? 'bg-[#027F3D]  text-white shadow-md opacity-70' : 'bg-white text-black shadow-xl '
         }`}
     >
       <div className="w-11/12 mx-auto">
-        <div className='flex flex-row justify-between items-center py-4'>
-          <div className="bg-white lg:w-[10%] rounded-md p-1">
+        <div className='flex flex-row justify-between items-center '>
+          <div className="  rounded-md  p-1">
             <NavLink to="/">
               <img
-                className="w-full md:w-32 md:rounded-full"
-                src={webContent?.scheduleImageUrl}
+                className="object-cover "
+                src="https://res.cloudinary.com/dnvmj9pvk/image/upload/v1736930472/Amer%20Thikana/vfx14gpqilmkrpw3jj4u.png"
                 alt="Logo"
               />
             </NavLink>
@@ -201,13 +201,13 @@ const Navbar = () => {
                     }
                   >
                     {!link.isDropdown ? (
-                      <NavLink to={link.path} className="relative flex items-center space-x-1 hover:text-white  group">
+                      <NavLink to={link.path} className="relative flex items-center space-x-1 hover:text-green  group">
                         <span className="lg:text-[18px] mx-2">{link.title}</span>
                         <span className="absolute bottom-0 block left-0 w-0 h-0.5 bg-white transition-all duration-300 ease-out group-hover:w-full"></span>
                       </NavLink>
                     ) : (
                       <>
-                        <button className="relative lg:text-[18px] block hover:text-white  z-20">
+                        <button className="relative lg:text-[18px] block hover:text-green  z-20">
                           <span className="block mx-1">{link.title}</span>
                           <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-white transition-all duration-300 ease-out group-hover:w-full"></span>
                         </button>
@@ -293,9 +293,9 @@ const Navbar = () => {
           <div className='hidden lg:block ' >
             <div className='flex  items-center gap-3 ' >
               <div className="flex items-center justify-center w-full">
-                <div className="flex items-center border border-white px-3 py-1 text-white">
+                <div className="flex items-center border border-black px-3 py-1 text-black">
                   <FaPhoneAlt />
-                  <span className="ml-2 text-sm">( +880 ) {webContent?.phone_number}</span>
+                  <span className="ml-2 text-sm text-black ">( +880 ) {webContent?.phone_number}</span>
                 </div>
               </div>
               <div className="flex space-x-3 justify-end">

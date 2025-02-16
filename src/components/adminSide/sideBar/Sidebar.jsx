@@ -159,6 +159,11 @@ const Sidebar = () => {
             <NavigationItem to="/dashboard/bank-info-list" icon={MdAddCircle} label="Bank Information List" />
             
         </>
+    const user =
+        <>
+            <NavigationItem to="/dashboard/user-list" icon={MdAddCircle} label="manage-user" />
+            
+        </>
 
 
 
@@ -238,6 +243,9 @@ const Sidebar = () => {
                         </li>
                         <li className="mb-4">
                             <Dropdown buttonText="Bank Information" urls={bankInformation} />
+                        </li>
+                        <li className="mb-4">
+                            <Dropdown buttonText="Manage User" urls={user} />
                         </li>
 
                     </ul>

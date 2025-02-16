@@ -92,6 +92,10 @@ import CreateBankInfo from "../pages/adminSide/bank-information-page/CreateBankI
 import BankInfoList from "../pages/adminSide/bank-information-page/BankInfoList";
 import BankInfoUpdate from "../pages/adminSide/bank-information-page/BankInfoUpdate";
 import BankInfoListN from "../pages/clientSide/bank-info-list/BankInfoListN";
+import UserLogin from "../pages/clientSide/user/UserLogin";
+import UserRegistration from "../pages/clientSide/user/UserRegistration";
+import UserManage from "../pages/adminSide/manage-user/UserManage";
+import ProtectedRoute from "./ProtectedRoute";
 
 
 
@@ -240,7 +244,7 @@ export const router = createBrowserRouter([
     },
     {
         path: "/dashboard",
-        element: <DashboardLayout></DashboardLayout>,
+        element: <ProtectedRoute role={"admin"} ><DashboardLayout></DashboardLayout></ProtectedRoute> ,
         children: [
             {
                 path: "/dashboard",
@@ -515,9 +519,23 @@ export const router = createBrowserRouter([
                 element: <BankInfoUpdate></BankInfoUpdate>
             },
 
+            {
+                path : "user-list",
+                element : <UserManage></UserManage>
+            },
+
 
 
         ]
+    }
+    ,
+    {
+        path: "/login",
+        element: <UserLogin></UserLogin>
+    },
+    {
+        path: "/registration",
+        element: <UserRegistration></UserRegistration>
     }
 
 

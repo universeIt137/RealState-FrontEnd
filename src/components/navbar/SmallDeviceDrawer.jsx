@@ -81,7 +81,7 @@ const SmallDeviceNavbar = () => {
                 </NavLink>
 
                 {/* Drawer Toggle Button */}
-                <button className='  ' onClick={toggleDrawer}>
+                <button className='text-black' onClick={toggleDrawer}>
                     {isDrawerOpen ? <RiCloseFill size={30} /> : <RiMenuUnfold4Fill size={30} />}
                 </button>
 
