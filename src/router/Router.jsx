@@ -94,6 +94,7 @@ import BankInfoUpdate from "../pages/adminSide/bank-information-page/BankInfoUpd
 import BankInfoListN from "../pages/clientSide/bank-info-list/BankInfoListN";
 import UserLogin from "../pages/clientSide/user/UserLogin";
 import UserRegistration from "../pages/clientSide/user/UserRegistration";
+import UserManage from "../pages/adminSide/manage-user/UserManage";
 
 
 
@@ -515,6 +516,11 @@ export const router = createBrowserRouter([
             {
                 path: "bank-info-update/:id",
                 element: <BankInfoUpdate></BankInfoUpdate>
+            },
+
+            {
+                path : "user-list",
+                element : <UserManage></UserManage>
             },
 
 
