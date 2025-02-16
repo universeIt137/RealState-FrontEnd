@@ -95,6 +95,7 @@ import BankInfoListN from "../pages/clientSide/bank-info-list/BankInfoListN";
 import UserLogin from "../pages/clientSide/user/UserLogin";
 import UserRegistration from "../pages/clientSide/user/UserRegistration";
 import UserManage from "../pages/adminSide/manage-user/UserManage";
+import ProtectedRoute from "./ProtectedRoute";
 
 
 
@@ -243,7 +244,7 @@ export const router = createBrowserRouter([
     },
     {
         path: "/dashboard",
-        element: <DashboardLayout></DashboardLayout>,
+        element: <ProtectedRoute role={"admin"} ><DashboardLayout></DashboardLayout></ProtectedRoute> ,
         children: [
             {
                 path: "/dashboard",

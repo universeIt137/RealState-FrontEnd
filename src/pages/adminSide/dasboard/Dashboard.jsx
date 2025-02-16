@@ -8,6 +8,9 @@ const Dashboard = () => {
         setIsSidebarOpen(!isSidebarOpen);
     };
 
+    const role = localStorage.getItem("role");
+    console.log(role)
+
     return (
         <>
             <Helmet>

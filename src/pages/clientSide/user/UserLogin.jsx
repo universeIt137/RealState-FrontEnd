@@ -30,7 +30,7 @@ const UserLogin = () => {
             if (res) {
                 localStorage.setItem("token", res.data.token);
                 localStorage.setItem("role", res.data.role);
-                navigate("/dashboard")
+                window.location.href = "/dashboard"
 
                 Swal.fire({
                     position: "top-end",
