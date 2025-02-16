@@ -92,6 +92,8 @@ import CreateBankInfo from "../pages/adminSide/bank-information-page/CreateBankI
 import BankInfoList from "../pages/adminSide/bank-information-page/BankInfoList";
 import BankInfoUpdate from "../pages/adminSide/bank-information-page/BankInfoUpdate";
 import BankInfoListN from "../pages/clientSide/bank-info-list/BankInfoListN";
+import UserLogin from "../pages/clientSide/user/UserLogin";
+import UserRegistration from "../pages/clientSide/user/UserRegistration";
 
 
 
@@ -518,6 +520,15 @@ export const router = createBrowserRouter([
 
 
         ]
+    }
+    ,
+    {
+        path: "/login",
+        element: <UserLogin></UserLogin>
+    },
+    {
+        path: "/registration",
+        element: <UserRegistration></UserRegistration>
     }
 
 
