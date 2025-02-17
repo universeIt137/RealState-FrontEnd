@@ -170,7 +170,7 @@ const Sidebar = () => {
     return (
         <>
             <aside
-                className={`bg-[#21c45e]  text-white transition-all duration-300 ${isSidebarOpen ? 'w-64' : 'w-14'
+                className={`bg-[#21c45e] max-h-[100vh] overflow-y-scroll  text-white transition-all duration-300 ${isSidebarOpen ? 'w-64' : 'w-14'
                     }`}
             >
                 <div className="flex justify-between items-center p-4 gap-8">

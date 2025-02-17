@@ -5,6 +5,7 @@ import useAxiosPublic from '../../../hooks/useAxiosPublic';
 import { uploadImg } from '../../../uploadFile/uploadImg';
 import { updateAlert } from '../../../helper/updateAlert';
 import toast, { Toaster } from 'react-hot-toast';
+import { Helmet } from 'react-helmet-async';
 
 const AdminProfile = () => {
     const axiosPublic = useAxiosPublic();
@@ -78,6 +79,9 @@ const AdminProfile = () => {
     return (
         <div>
             <div className="flex justify-center  items-center ">
+                <Helmet>
+                    <title>Dashboard | User Profile </title>
+                </Helmet>
                 <div className="bg-white p-6 rounded-xl shadow-lg w-full max-w-4xl">
                     <h2 className="text-2xl font-semibold text-center text-gray-700 mb-6">User Profile</h2>
 
