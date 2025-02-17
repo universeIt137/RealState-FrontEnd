@@ -96,6 +96,7 @@ import UserLogin from "../pages/clientSide/user/UserLogin";
 import UserRegistration from "../pages/clientSide/user/UserRegistration";
 import UserManage from "../pages/adminSide/manage-user/UserManage";
 import ProtectedRoute from "./ProtectedRoute";
+import AdminProfile from "../pages/adminSide/admin-profile/AdminProfile";
 
 
 
@@ -523,6 +524,11 @@ export const router = createBrowserRouter([
                 path : "user-list",
                 element : <UserManage></UserManage>
             },
+
+            {
+                path: "profile",
+                element : <AdminProfile></AdminProfile>
+            }
 
 
 

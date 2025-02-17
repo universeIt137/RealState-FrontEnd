@@ -1,10 +1,28 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { useQuery } from '@tanstack/react-query';
+import useAxiosPublic from '../../../hooks/useAxiosPublic';
 
 const AdminNavbar = () => {
+    const axiosPublic = useAxiosPublic();
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
     const [hoverTimeout, setHoverTimeout] = useState(null);
+    const token = localStorage.getItem("token");
 
+    const config = {
+        headers: {
+            Authorization: `${token}` // Corrected
+        }
+    };
+
+
+    const { data: profileImg = [], refetch } = useQuery({
+        queryKey: ['profileImg'],
+        queryFn: async () => {
+            const res = await axiosPublic.get('/user-profile', config);
+            return res.data;
+        }
+    });
 
     const handleLogout = () => {
         localStorage.clear("role");
@@ -15,6 +33,9 @@ const AdminNavbar = () => {
     useEffect(() => {
         window.scrollTo(0, 0);
     }, []);
+
+
+
 
     const handleMouseEnter = () => {
         // Set a timeout to open the menu after 3 seconds
@@ -45,7 +66,7 @@ const AdminNavbar = () => {
                 onMouseLeave={handleMouseLeave}
             >
                 <img
-                    src="https://via.placeholder.com/40"  // Replace with actual image URL
+                    src={profileImg?.img || "https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"}  // Replace with actual image URL
                     alt="Profile"
                     className="w-10 h-10 rounded-full border"
                 />
