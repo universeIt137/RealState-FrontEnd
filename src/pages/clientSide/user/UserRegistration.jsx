@@ -3,73 +3,105 @@ import { Eye, EyeOff } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
 import useAxiosPublic from "../../../hooks/useAxiosPublic";
 import Swal from "sweetalert2";
+import { uploadImg } from "../../../uploadFile/uploadImg";
+import toast, { Toaster } from "react-hot-toast";
+import { Helmet } from "react-helmet-async";
 
 const UserRegistration = () => {
     const axiosPublic = useAxiosPublic();
-    const [formData, setFormData] = useState({
-        name: "",
-        email: "",
-        phoneNumber: "",
-        password: "",
-        confirmedPassword: "",
-    });
-
     const [showPassword, setShowPassword] = useState(false);
     const [showConfirmPassword, setShowConfirmPassword] = useState(false);
     const [loader, setLoader] = useState(false);
-
-    const handleChange = (e) => {
-        setFormData({ ...formData, [e.target.name]: e.target.value });
-    };
     const navigate = useNavigate();
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log("Form Data:", formData);
+
+        const name = e.target.name.value;
+        const email = e.target.email.value;
+        const phoneNumber = e.target.phoneNumber.value;
+        const password = e.target.password.value;
+        const confirmedPassword = e.target.confirmedPassword.value;
+        const img = e.target.img.files[0];
+        if (password !== confirmedPassword) {
+            toast.error("Password and confirmed not match");
+            return;
+        }
+
+        let images = "";
+
+        if (!img?.name) {
+            images = "";
+        }
+        images = await uploadImg(img);
+
+        const payload = {
+            name,
+            email,
+            phoneNumber,
+            password,
+            confirmedPassword,
+            img: images,
+        };
+
         try {
             setLoader(true);
-            let res = await axiosPublic.post("/registration", formData);
+            let res = await axiosPublic.post("/registration", payload);
             setLoader(false);
             if (res) {
-                navigate("/login")
+                navigate("/login");
+                e.target.reset();
                 Swal.fire({
                     position: "top-end",
                     icon: "success",
-                    title: "User registration successfully",
+                    title: "User registration successful",
                     showConfirmButton: false,
-                    timer: 1500
+                    timer: 1500,
                 });
                 e.target.reset();
             }
         } catch (error) {
+            setLoader(false)
             Swal.fire({
                 position: "top-end",
                 icon: "error",
-                title: "User registration fail",
+                title: error.response.data.msg ,
                 showConfirmButton: false,
-                timer: 1500
+                timer: 1500,
             });
-
         }
     };
 
     return (
         <>
-            <div>
-                <div className="flex justify-center items-center pt-14 ">
-                    <div className="bg-white p-4 rounded-xl shadow-lg w-full max-w-md">
-                        <h2 className="text-2xl font-semibold text-center text-gray-700 mb-6">Register</h2>
-                        <form onSubmit={handleSubmit} className="space-y-4">
-
+            <Helmet>
+                <title> Registration From </title>
+            </Helmet>
+            <div className="flex justify-center h-[80vh] items-center">
+                <div className="bg-white p-4 rounded-xl shadow-lg w-full max-w-4xl">
+                    <h2 className="text-2xl font-semibold text-center text-gray-700 mb-6">
+                        Register
+                    </h2>
+                    <form onSubmit={handleSubmit} className="space-y-4">
+                        <div className="grid grid-cols-2 gap-6">
                             {/* Name */}
                             <div>
                                 <label className="block text-gray-600 font-medium">Full Name</label>
                                 <input
                                     type="text"
                                     name="name"
-                                    value={formData.name}
-                                    onChange={handleChange}
                                     placeholder="Enter your full name"
+                                    className="w-full mt-1 px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-400 focus:outline-none"
+                                    required
+                                />
+                            </div>
+
+                            {/* img */}
+                            <div>
+                                <label className="block text-gray-600 font-medium">Profile Image</label>
+                                <input
+                                    type="file"
+                                    name="img"
                                     className="w-full mt-1 px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-400 focus:outline-none"
                                     required
                                 />
@@ -81,8 +113,6 @@ const UserRegistration = () => {
                                 <input
                                     type="email"
                                     name="email"
-                                    value={formData.email}
-                                    onChange={handleChange}
                                     placeholder="Enter your email"
                                     className="w-full mt-1 px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-400 focus:outline-none"
                                     required
@@ -95,8 +125,6 @@ const UserRegistration = () => {
                                 <input
                                     type="tel"
                                     name="phoneNumber"
-                                    value={formData.phoneNumber}
-                                    onChange={handleChange}
                                     placeholder="Enter your phone number"
                                     className="w-full mt-1 px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-400 focus:outline-none"
                                     required
@@ -110,8 +138,6 @@ const UserRegistration = () => {
                                     <input
                                         type={showPassword ? "text" : "password"}
                                         name="password"
-                                        value={formData.password}
-                                        onChange={handleChange}
                                         placeholder="Enter your password"
                                         className="w-full mt-1 px-4 py-2 border rounded-lg pr-10 focus:ring-2 focus:ring-blue-400 focus:outline-none"
                                         required
@@ -133,8 +159,6 @@ const UserRegistration = () => {
                                     <input
                                         type={showConfirmPassword ? "text" : "password"}
                                         name="confirmedPassword"
-                                        value={formData.confirmedPassword}
-                                        onChange={handleChange}
                                         placeholder="Confirm your password"
                                         className="w-full mt-1 px-4 py-2 border rounded-lg pr-10 focus:ring-2 focus:ring-blue-400 focus:outline-none"
                                         required
@@ -148,23 +172,27 @@ const UserRegistration = () => {
                                     </button>
                                 </div>
                             </div>
+                        </div>
 
-                            {/* Submit Button */}
-                            <button
-                                type="submit"
-                                className="w-full bg-blue-500 hover:bg-blue-600 text-white py-2 rounded-lg font-semibold transition"
-                            >
-                                {
-                                    loader ? "loading.." : "Register"
-                                }
-                            </button>
-                        </form>
-                    </div>
+                        {/* Submit Button */}
+                        <button
+                            type="submit"
+                            className="px-6 bg-blue-500 hover:bg-blue-600 text-white py-2 rounded-lg font-semibold transition"
+                        >
+                            {loader ? "Loading..." : "Register"}
+                        </button>
+                    </form>
 
-
+                    {/* Already have an account? Login */}
+                    <p className="mt-4 text-center text-gray-600">
+                        Already have an account?{" "}
+                        <Link to="/login" className="text-blue-500 hover:underline">
+                            Please login
+                        </Link>
+                    </p>
                 </div>
             </div>
-            <h1 className="text-center my-2 " >You have no account ? Please <Link className=" underline " to={"/login"}>Login ! </Link>  </h1>
+            <Toaster position="top-center" ></Toaster>
         </>
     );
 };
