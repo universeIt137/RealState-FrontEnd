@@ -10,6 +10,7 @@ export const uploadImg = async (file) => {
         const res = await axios.post(api, data)
 
         const { secure_url } = res.data;
+        console.log(secure_url)
         return secure_url
     } catch (error) {
         return ''
