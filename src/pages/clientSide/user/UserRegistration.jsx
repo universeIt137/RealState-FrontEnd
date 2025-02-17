@@ -177,7 +177,7 @@ const UserRegistration = () => {
                         {/* Submit Button */}
                         <button
                             type="submit"
-                            className="px-6 bg-blue-500 hover:bg-blue-600 text-white py-2 rounded-lg font-semibold transition"
+                            className="px-6 block mx-auto bg-blue-500 hover:bg-blue-600 text-white py-2 rounded-lg font-semibold transition"
                         >
                             {loader ? "Loading..." : "Register"}
                         </button>
